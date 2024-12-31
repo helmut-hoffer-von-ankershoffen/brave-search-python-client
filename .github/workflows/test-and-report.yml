@@ -58,13 +58,19 @@ jobs:
           TOML_VERSION=$(uv run python -c "import tomli; print(tomli.load(open('pyproject.toml', 'rb'))['project']['version'])")
           echo "Development build - Current version in pyproject.toml: $TOML_VERSION"
 
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v2.0
+        with:
+          envkey_BRAVE_SEARCH_API_KEY: "${{ secrets.BRAVE_SEARCH_API_KEY }}"
+          fail_on_empty: true
+
       - name: Validate installation
         run: |
-            OUTPUT=$(uv run brave-search --help)
-            if [[ "$OUTPUT" != *"built with love in Berlin"* ]]; then
-            echo "Output does not contain 'built with love in Berlin'"
-            exit 1
-            fi
+          OUTPUT=$(uv run brave-search --help)
+          if [[ "$OUTPUT" != *"built with love in Berlin"* ]]; then
+          echo "Output does not contain 'built with love in Berlin'"
+          exit 1
+          fi
 
       - name: Run unit tests, measure coverage, lint, and check vulnerabilities
         run: |
