@@ -1,0 +1,62 @@
+# .github/workflows/publish.yml
+name: "Build package, publish to PyPI, create GitHub release"
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+  packages: read
+
+jobs:
+  package_build_publish_release:
+    environment: release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate release notes
+        uses: orhun/git-cliff-action@v4
+        id: git-cliff
+        with:
+          config: pyproject.toml
+          args: --verbose
+        env:
+          OUTPUT: RELEASE_NOTES.md
+          GITHUB_REPO: ${{ github.repository }}
+
+      - name: Print the release notes
+        run: cat "${{ steps.git-cliff.outputs.changelog }}"
+  
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.5.9"
+          cache-dependency-glob: uv.lock
+          enable-cache: true
+
+      - name: Build package into dist/
+        run: uv build
+
+      - name: Publish package to PyPI
+        run: uv publish -t ${{ secrets.UV_PUBLISH_TOKEN }}
+
+      - name: Create GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${{ github.ref_name }} ./dist/* --notes-file ${{ steps.git-cliff.outputs.changelog }}
+
+      - name: Allow other workflows to trigger on release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api repos/helmut-hoffer-von-ankershoffen/starbridge/dispatches \
+            -f event_type=release_created_programatically

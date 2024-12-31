@@ -1,0 +1,52 @@
+# Python build artifacts
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+*.log
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+.Python
+
+# Virtual environment
+venv/
+.venv/
+ENV/
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+
+# Build
+.pytest_cache
+.ruff_cache
+.nox 
+junit.xml
+.coverage*
+coverage.xml
+coverage_html/
+vulnerabilities.json
+licenses.json
+licenses-inverted.json
+sbom.json
+
+# Env
+.env
+.env.backup
+.env.bak
+
+# Application specific
+/response.json
