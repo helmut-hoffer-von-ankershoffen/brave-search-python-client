@@ -57,7 +57,7 @@ dependencies = [
 brave-search = "brave_search_python_client.cli:cli"
 
 [project.urls]
-Homepage = "https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client"
+Homepage = "https://helmuthva.gitbook.io/brave-search-api-client"
 Source = "https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client"
 Changelog = "https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/releases"
 Documentation = "https://helmuthva.gitbook.io/brave-search-python-client"
@@ -193,14 +193,14 @@ filename = "sonar-project.properties"
 
 [tool.git-cliff.remote.github]
 owner = "helmut-hoffer-von-ankershoffen"
-repo = "starbridge"
+repo = "brave-search-python-client"
 
 [tool.git-cliff.changelog]
 output = "CHANGELOG.md"
 render = true
 # template for the changelog header
 header = """
-[![starbridge](https://github.com/helmut-hoffer-von-ankershoffen/starbridge/blob/main/tests/fixtures/starbridge.png?raw=true)](https://helmuthva.gitbook.io/starbridge) Starbridge\n
+[🦁 Brave Search Python Client](https://helmuthva.gitbook.io/brave-search-api-client)\n
 """
 # template for the changelog body
 # https://keats.github.io/tera/docs/#introduction
