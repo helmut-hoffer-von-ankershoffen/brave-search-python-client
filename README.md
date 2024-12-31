@@ -25,7 +25,7 @@
 
 ## Overview
 
-🦁 Brave Search Python Client supporting Web, Image, News and Video search. 
+Brave Search Python Client supporting Web, Image, News and Video search.
 
 TK
 
