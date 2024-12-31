@@ -4,6 +4,13 @@
 
 ### 📚 Documentation
 
+- *(docker)* Fix image name in readme and contributing - ([27e6367](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/27e63677561160fd35eb38b04196acdcbfc55590))
+
+
+## [0.0.2](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.1..v0.0.2) - 2024-12-31
+
+### 📚 Documentation
+
 - *(gitbook)* Introduce gitbook site - ([f574b41](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/f574b41d40218915de3ff5095c41f3f6ffb6b04d))
 
 ### 🎨 Styling
