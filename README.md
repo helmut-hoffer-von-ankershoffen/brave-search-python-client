@@ -42,7 +42,7 @@ TK
 Build the Docker image:
 
 ```bash
-docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-api-client --help
+docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client --help
 ```
 
 ## Extra: MCP Server

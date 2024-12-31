@@ -70,8 +70,13 @@ Notes:
 ## Docker
 
 ```bash
-docker build -t brave-search-api-client .
+docker build -t brave-search-python-client .
 ```
+
+```bash
+docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY brave-search-python-client --help
+```
+
 
 
 ## Pull Request Guidelines
