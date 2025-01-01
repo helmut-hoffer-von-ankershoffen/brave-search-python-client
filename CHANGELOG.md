@@ -4,6 +4,17 @@
 
 ### 📚 Documentation
 
+- *(readme)* Add media - ([2299600](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/2299600dc222bab31902b5623cbb69c351f5cac4))
+
+### ⚙️ Miscellaneous Tasks
+
+- *(streamlit)* Must not be an extra to be hosted on community cloud - ([18e665d](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/18e665da5d2b6ff2f34ffc1d299c68fad671246d))
+
+
+## [0.0.9](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.8..v0.0.9) - 2025-01-01
+
+### 📚 Documentation
+
 - *(readme)* Start to polish - ([6a05049](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/6a05049dd2b983af219c44f9109fb92e03b12bd4))
 
 
