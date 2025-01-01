@@ -2,6 +2,13 @@
 
 ## [unreleased]
 
+### 🚜 Refactor
+
+- *(codesmell)* Repeated use of strings in tests - ([9238dc0](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/9238dc0275030a9edc2875afe4f7d20ca890a467))
+
+
+## [0.0.11](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.10..v0.0.11) - 2025-01-01
+
 ### 📚 Documentation
 
 - *(media)* Absolute links for PyPI - ([be729f4](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/be729f4c6a808ba8134189ad54f7d834959ca222))
