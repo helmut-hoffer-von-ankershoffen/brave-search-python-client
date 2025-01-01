@@ -27,8 +27,6 @@
 
 Brave Search Python Client supporting Web, Image, News and Video search.
 
-## Key Features
-
 * Modern async Python client for Web, Image, Video and News search powered by [Brave Search](https://brave.com/search/api/)
 * Robust request and response validation powered by Pydantic
 * Flexible CLI accessible via uvx or Docker
