@@ -1,17 +1,16 @@
 import json
 import os
+import pathlib
 from typing import Any
 from urllib.parse import urljoin, urlparse
 
 import httpx
 from tenacity import AsyncRetrying, RetryError, stop_after_attempt, wait_fixed
-import pathlib
 
 from brave_search_python_client.constants import (
     BASE_URL,
     DEFAULT_RETRY_WAIT_TIME,
     MOCK_API_KEY,
-    MOCK_DATA_PATH,
     __version__,
 )
 
@@ -114,12 +113,11 @@ class BraveSearch:
 
     def _load_mock_data(self, search_type: SearchType):
         """Helper method to load mock data for testing purposes."""
-        import importlib.resources
-        
+
         # Get package root directory
-        package_root = pathlib.Path(__file__).parent.parent.parent
-        mock_path = package_root / MOCK_DATA_PATH / f"{search_type}.json"
-        
+        package_root = pathlib.Path(__file__).parent
+        mock_path = package_root / f"responses/mock_data/{search_type}.json"
+
         with open(mock_path) as f:
             return json.load(f)
 
