@@ -28,12 +28,14 @@
 Brave Search Python Client supporting Web, Image, News and Video search.
 
 * Modern async Python client for Web, Image, Video and News search powered by [Brave Search](https://brave.com/search/api/)
-* Robust request and response validation powered by Pydantic
-* Flexible CLI accessible via uvx or Docker
-* 100% test coverage
-* 100% compliance with Ruff linting and formatting standards
-* 100% up-to-date dependencies through automated updates
+* Thorough validation of both requests and responess (powered by Pydantic)
+* 100% test coverage (unit and E2E tests)
+* 100% compliance modern linting and formatting standards (powered by Ruff)
+* 100% up-to-date dependencies through automated updates (reported on Codecov)
 * A-grade code quality ratings in security, maintainability, and reliability (verified by SonarQube)
+* 1-liner for installation and execution of command line interface (CLI) via uv(x) or Docker
+* Setup for developing in devcontainer included (supports VSCode and GitHub Codespaces)
+* MCP Server to connect Brave Search with Claude Desktop and other MCP clients
 
 ## Python Client
 
@@ -101,15 +103,12 @@ results = client.web_search(
 
 ## Command Line Interface (CLI)
 
-### Create .dev file
+### Run with uvx
 
 Create `.env` file with API key:
 
 ```shell
 ./setup--dot-env YOUR_BRAVE_SEARCH_API_KEY
-```
-
-### Run with uvx
 
 Show available commands:
 

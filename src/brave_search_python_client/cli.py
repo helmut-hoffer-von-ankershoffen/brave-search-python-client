@@ -8,32 +8,48 @@ from rich.console import Console
 from brave_search_python_client import BraveSearch, __version__
 
 from .requests import (
+    CountryCode,
     FreshnessType,
-    ImageSafeSearchType,
+    ImagesSafeSearchType,
+    ImagesSearchRequest,
+    LanguageCode,
+    MarketCode,
     NewsSafeSearchType,
+    NewsSearchRequest,
     UnitsType,
+    VideosSearchRequest,
     WebSafeSearchType,
+    WebSearchRequest,
 )
 
 load_dotenv()
 
 console = Console()
 
-cli = typer.Typer(name="Brave Search CLI")
+cli = typer.Typer(name="Command Line Interface of Brave Search Python Client")
 
 
 @cli.command()
 def web(
     q: Annotated[str, typer.Argument(..., help="The search query to perform")],
     country: Annotated[
-        str,
-        typer.Option(help="The country to search from (2-letter country code)"),
-    ] = "US",
+        CountryCode,
+        typer.Option(
+            help='The country to search from (2-letter country code or "ALL" for all regions, see https://api.search.brave.com/app/documentation/image-search/codes)'
+        ),
+    ] = CountryCode.ALL,
     search_lang: Annotated[
-        str,
-        typer.Option(help="The language to search in (2 letter language code)"),
-    ] = "en",
-    ui_lang: Annotated[str, typer.Option(help="The language to display")] = "en-US",
+        LanguageCode,
+        typer.Option(
+            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)."
+        ),
+    ] = LanguageCode.EN,
+    ui_lang: Annotated[
+        MarketCode,
+        typer.Option(
+            help="The language to display (see https://api.search.brave.com/app/documentation/image-search/codes)"
+        ),
+    ] = MarketCode.EN_US,
     count: Annotated[
         int, typer.Option(help="The number of results to return (max 20)")
     ] = 20,
@@ -58,7 +74,7 @@ def web(
     result_filter: Annotated[
         str | None,
         typer.Option(
-            help=" comma delimited string of result types to include in the search response. Not specifying this parameter will return back all result types in search response where data is available and a plan with the corresponding option is subscribed. The response always includes query and type to identify any query modifications and response type respectively. Available result filter values are: - discussions - faq - infobox - news - query - summarizer - videos - web - locations. Example result filter param result_filter=discussions, videos returns only discussions, and videos responses. Another example where only location results are required, set the result_filter param to result_filter=locations",
+            help="Comma delimited string of result types to include in the search response. Not specifying this parameter will return back all result types in search response where data is available and a plan with the corresponding option is subscribed. The response always includes query and type to identify any query modifications and response type respectively. Available result filter values are: - discussions - faq - infobox - news - query - summarizer - videos - web - locations. Example result filter param result_filter=discussions, videos returns only discussions, and videos responses. Another example where only location results are required, set the result_filter param to result_filter=locations",
         ),
     ] = None,
     googles_id: Annotated[
@@ -92,25 +108,27 @@ def web(
         ),
     ] = False,
 ):
-    """Perform a web search."""
+    """Search the web."""
     console.print_json(
         asyncio.run(
-            BraveSearch().web_search(
-                q,
-                country=country,
-                search_lang=search_lang,
-                ui_lang=ui_lang,
-                count=count,
-                offset=offset,
-                safesearch=safesearch,
-                freshness=freshness,
-                text_decorations=text_decorations,
-                spellcheck=spellcheck,
-                result_filter=result_filter,
-                goggles_id=googles_id,
-                units=units,
-                extra_snippets=extra_snippets,
-                summary=summary,
+            BraveSearch().web(
+                WebSearchRequest(
+                    q=q,
+                    country=country,
+                    search_lang=search_lang,
+                    ui_lang=ui_lang,
+                    count=count,
+                    offset=offset,
+                    safesearch=safesearch,
+                    freshness=freshness,
+                    text_decorations=text_decorations,
+                    spellcheck=spellcheck,
+                    result_filter=result_filter,
+                    goggles_id=googles_id,
+                    units=units,
+                    extra_snippets=extra_snippets,
+                    summary=summary,
+                ),
                 dump_response=dump_response,
             )
         ).model_dump_json()
@@ -118,23 +136,27 @@ def web(
 
 
 @cli.command()
-def image(
+def images(
     q: Annotated[str, typer.Argument(..., help="The search query to perform")],
     country: Annotated[
-        str,
-        typer.Option(help="The country to search from (2-letter country code)"),
-    ] = "US",
+        CountryCode,
+        typer.Option(
+            help='The country to search from (2-letter country code or "ALL" for all regions - see https://api.search.brave.com/app/documentation/image-search/codes)'
+        ),
+    ] = CountryCode.ALL,
     search_lang: Annotated[
-        str,
-        typer.Option(help="The language to search in (2 letter language code)"),
-    ] = "en",
+        LanguageCode,
+        typer.Option(
+            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)"
+        ),
+    ] = LanguageCode.EN,
     count: Annotated[
         int, typer.Option(help="The number of results to return (max 20)")
     ] = 20,
     safesearch: Annotated[
-        ImageSafeSearchType,
+        ImagesSafeSearchType,
         typer.Option(help="Enable safe search (off, strict)"),
-    ] = ImageSafeSearchType.strict,
+    ] = ImagesSafeSearchType.strict,
     spellcheck: Annotated[bool, typer.Option(help="Enable spellcheck")] = True,
     dump_response: Annotated[
         bool,
@@ -143,16 +165,18 @@ def image(
         ),
     ] = False,
 ):
-    """Perform a image search."""
+    """Search images."""
     console.print_json(
         asyncio.run(
-            BraveSearch().image_search(
-                q,
-                country=country,
-                search_lang=search_lang,
-                count=count,
-                safesearch=safesearch,
-                spellcheck=spellcheck,
+            BraveSearch().images(
+                ImagesSearchRequest(
+                    q=q,
+                    country=country,
+                    search_lang=search_lang,
+                    count=count,
+                    safesearch=safesearch,
+                    spellcheck=spellcheck,
+                ),
                 dump_response=dump_response,
             )
         ).model_dump_json()
@@ -160,17 +184,26 @@ def image(
 
 
 @cli.command()
-def video(
+def videos(
     q: Annotated[str, typer.Argument(..., help="The search query to perform")],
     country: Annotated[
-        str,
-        typer.Option(help="The country to search from (2-letter country code)"),
-    ] = "US",
+        CountryCode,
+        typer.Option(
+            help='The country to search from (2-letter country code or "ALL" for all regions, see https://api.search.brave.com/app/documentation/image-search/codes)'
+        ),
+    ] = CountryCode.ALL,
     search_lang: Annotated[
-        str,
-        typer.Option(help="The language to search in (2 letter language code)"),
-    ] = "en",
-    ui_lang: Annotated[str, typer.Option(help="The language to display")] = "en-US",
+        LanguageCode,
+        typer.Option(
+            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)"
+        ),
+    ] = LanguageCode.EN,
+    ui_lang: Annotated[
+        MarketCode,
+        typer.Option(
+            help="The language to display (see https://api.search.brave.com/app/documentation/image-search/codes)."
+        ),
+    ] = MarketCode.EN_US,
     count: Annotated[
         int, typer.Option(help="The number of results to return (max 20)")
     ] = 20,
@@ -189,18 +222,20 @@ def video(
         ),
     ] = False,
 ):
-    """Perform a video search."""
+    """Search videos."""
     console.print_json(
         asyncio.run(
-            BraveSearch().video_search(
-                q,
-                country=country,
-                search_lang=search_lang,
-                ui_lang=ui_lang,
-                count=count,
-                offset=offset,
-                freshness=freshness,
-                spellcheck=spellcheck,
+            BraveSearch().videos(
+                VideosSearchRequest(
+                    q=q,
+                    country=country,
+                    search_lang=search_lang,
+                    ui_lang=ui_lang,
+                    count=count,
+                    offset=offset,
+                    freshness=freshness,
+                    spellcheck=spellcheck,
+                ),
                 dump_response=dump_response,
             )
         ).model_dump_json()
@@ -211,14 +246,23 @@ def video(
 def news(
     q: Annotated[str, typer.Argument(..., help="The search query to perform")],
     country: Annotated[
-        str,
-        typer.Option(help="The country to search from (2-letter country code)"),
-    ] = "US",
+        CountryCode,
+        typer.Option(
+            help='The country to search from (2-letter country code or "ALL" for all regions, see https://api.search.brave.com/app/documentation/image-search/codes)'
+        ),
+    ] = CountryCode.ALL,
     search_lang: Annotated[
-        str,
-        typer.Option(help="The language to search in (2 letter language code)"),
-    ] = "en",
-    ui_lang: Annotated[str, typer.Option(help="The language to display")] = "en-US",
+        LanguageCode,
+        typer.Option(
+            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)"
+        ),
+    ] = LanguageCode.EN,
+    ui_lang: Annotated[
+        MarketCode,
+        typer.Option(
+            help="The language to display (see https://api.search.brave.com/app/documentation/image-search/codes)"
+        ),
+    ] = MarketCode.EN_US,
     count: Annotated[
         int, typer.Option(help="The number of results to return (max 20)")
     ] = 20,
@@ -247,20 +291,22 @@ def news(
         ),
     ] = False,
 ):
-    """Perform a news search."""
+    """Search news."""
     console.print_json(
         asyncio.run(
-            BraveSearch().news_search(
-                q,
-                country=country,
-                search_lang=search_lang,
-                ui_lang=ui_lang,
-                count=count,
-                offset=offset,
-                safesearch=safesearch,
-                freshness=freshness,
-                spellcheck=spellcheck,
-                extra_snippets=extra_snippets,
+            BraveSearch().news(
+                NewsSearchRequest(
+                    q=q,
+                    country=country,
+                    search_lang=search_lang,
+                    ui_lang=ui_lang,
+                    count=count,
+                    offset=offset,
+                    safesearch=safesearch,
+                    freshness=freshness,
+                    spellcheck=spellcheck,
+                    extra_snippets=extra_snippets,
+                ),
                 dump_response=dump_response,
             )
         ).model_dump_json()

@@ -54,41 +54,38 @@ def test_cli_built_with_love(runner):
 
 def test_cli_commands(runner: CliRunner):
     """Check commands exist and show help and epilog."""
-    for command in ["web", "image", "video", "news"]:
+    for command in ["web", "images", "videos", "news"]:
         result = runner.invoke(cli, [command, "--help"])
         assert result.exit_code == 0
         assert "The search query to perform" in result.output
-        assert f"Perform a {command} search" in result.output
+        assert (
+            f"Search {command}" in result.output
+            or f"Search the {command}" in result.output
+        )
         assert __version__ in result.output
 
 
 def test_cli_search(runner: CliRunner):
     """Check search triggered"""
-    with patch.object(BraveSearch, "web_search", return_value=mock_web_search_response):
+    with patch.object(BraveSearch, "web", return_value=mock_web_search_response):
         result = runner.invoke(cli, ["web", "hello world"])
         assert result.exit_code == 0
         response = json.loads(result.output)
         assert response["type"] == "search"
 
-    with patch.object(
-        BraveSearch, "image_search", return_value=mock_image_search_response
-    ):
-        result = runner.invoke(cli, ["image", "hello world"])
+    with patch.object(BraveSearch, "images", return_value=mock_image_search_response):
+        result = runner.invoke(cli, ["images", "hello world"])
         assert result.exit_code == 0
         response = json.loads(result.output)
         assert response["type"] == "images"
 
-    with patch.object(
-        BraveSearch, "video_search", return_value=mock_video_search_response
-    ):
-        result = runner.invoke(cli, ["video", "hello world"])
+    with patch.object(BraveSearch, "videos", return_value=mock_video_search_response):
+        result = runner.invoke(cli, ["videos", "hello world"])
         assert result.exit_code == 0
         response = json.loads(result.output)
         assert response["type"] == "videos"
 
-    with patch.object(
-        BraveSearch, "news_search", return_value=mock_news_search_response
-    ):
+    with patch.object(BraveSearch, "news", return_value=mock_news_search_response):
         result = runner.invoke(cli, ["news", "hello world"])
         assert result.exit_code == 0
         response = json.loads(result.output)

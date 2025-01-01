@@ -1,7 +1,20 @@
-import importlib.metadata
-import pathlib
-
 from .client import BraveSearch
+from .constants import __project_name__, __project_path__, __version__
+from .requests import (
+    CountryCode,
+    FreshnessType,
+    ImagesSafeSearchType,
+    ImagesSearchRequest,
+    LanguageCode,
+    MarketCode,
+    NewsSafeSearchType,
+    NewsSearchRequest,
+    SearchType,
+    UnitsType,
+    VideosSearchRequest,
+    WebSafeSearchType,
+    WebSearchRequest,
+)
 from .responses import (
     BraveSearchAPIError,
     BraveSearchClientError,
@@ -11,10 +24,6 @@ from .responses import (
     VideoSearchApiResponse,
     WebSearchApiResponse,
 )
-
-__project_name__ = __name__.split(".")[0]
-__project_path__ = str(pathlib.Path(__file__).parent.parent.parent)
-__version__ = importlib.metadata.version(__project_name__)
 
 __all__ = [
     "__version__",
@@ -28,4 +37,17 @@ __all__ = [
     "ImageSearchApiResponse",
     "NewsSearchApiResponse",
     "VideoSearchApiResponse",
+    "CountryCode",
+    "FreshnessType",
+    "ImagesSafeSearchType",
+    "ImagesSearchRequest",
+    "LanguageCode",
+    "MarketCode",
+    "NewsSafeSearchType",
+    "NewsSearchRequest",
+    "UnitsType",
+    "VideosSearchRequest",
+    "WebSafeSearchType",
+    "WebSearchRequest",
+    "SearchType",
 ]

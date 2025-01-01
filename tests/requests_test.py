@@ -3,13 +3,16 @@ from pydantic import ValidationError
 
 from brave_search_python_client.constants import MAX_QUERY_LENGTH, MAX_QUERY_TERMS
 from brave_search_python_client.requests import (
+    CountryCode,
     FreshnessType,
-    ImageSafeSearchType,
-    ImageSearchRequest,
+    ImagesSafeSearchType,
+    ImagesSearchRequest,
+    LanguageCode,
+    MarketCode,
     NewsSafeSearchType,
     NewsSearchRequest,
     UnitsType,
-    VideoSearchRequest,
+    VideosSearchRequest,
     WebSafeSearchType,
     WebSearchRequest,
 )
@@ -21,7 +24,7 @@ from brave_search_python_client.requests import (
         (
             WebSearchRequest,
             {
-                "country": "US",
+                "country": "ALL",
                 "search_lang": "en",
                 "ui_lang": "en-US",
                 "text_decorations": True,
@@ -31,17 +34,17 @@ from brave_search_python_client.requests import (
             },
         ),
         (
-            ImageSearchRequest,
+            ImagesSearchRequest,
             {
-                "country": "US",
+                "country": "ALL",
                 "search_lang": "en",
                 "spellcheck": True,
             },
         ),
         (
-            VideoSearchRequest,
+            VideosSearchRequest,
             {
-                "country": "US",
+                "country": "ALL",
                 "search_lang": "en",
                 "ui_lang": "en-US",
                 "spellcheck": True,
@@ -50,7 +53,7 @@ from brave_search_python_client.requests import (
         (
             NewsSearchRequest,
             {
-                "country": "US",
+                "country": "ALL",
                 "search_lang": "en",
                 "ui_lang": "en-US",
                 "safesearch": "moderate",
@@ -60,15 +63,18 @@ from brave_search_python_client.requests import (
         ),
     ],
 )
-def test_base_search_request_validation(request_class, params):
+def test_requests_base_search_request_validation(request_class, params):
     """Test base request validation for all request types."""
     # Test empty query
-    with pytest.raises(ValidationError, match="Query must not be empty"):
+    with pytest.raises(
+        ValidationError, match="String should have at least 1 character"
+    ):
         request_class(q="", **params)
 
     # Test query too long
     with pytest.raises(
-        ValidationError, match=f"Query exceeding {MAX_QUERY_LENGTH} characters"
+        ValidationError,
+        match=f"String should have at most {MAX_QUERY_LENGTH} characters",
     ):
         request_class(q="a" * (MAX_QUERY_LENGTH + 1), **params)
 
@@ -80,13 +86,13 @@ def test_base_search_request_validation(request_class, params):
 
     # Test invalid country code
     with pytest.raises(
-        ValidationError, match="String should have at most 2 characters"
+        ValidationError, match="Input should be 'ALL', 'AR', 'AU', 'AT', "
     ):
         params["country"] = "USA"
         request_class(q="test", **params)
 
 
-def test_web_search_request_validation():
+def test_requests_web_search_request_validation():
     """Test specific WebSearchRequest validation."""
     base_params = {
         "q": "test",
@@ -131,7 +137,8 @@ def test_web_search_request_validation():
 
     # Test freshness validation
     with pytest.raises(
-        ValidationError, match="Input should be 'pd', 'pw', 'pm' or 'py'"
+        ValidationError,
+        match="Freshness must be None, one of FreshnessType values",
     ):
         WebSearchRequest(**base_params, freshness="invalid")  # type: ignore
 
@@ -146,7 +153,7 @@ def test_web_search_request_validation():
         assert request.units == UnitsType(unit)
 
 
-def test_image_search_request_validation():
+def test_requests_image_search_request_validation():
     """Test specific ImageSearchRequest validation."""
     base_params = {
         "q": "test",
@@ -159,17 +166,17 @@ def test_image_search_request_validation():
     with pytest.raises(
         ValidationError, match="Input should be less than or equal to 100"
     ):
-        ImageSearchRequest(**base_params, count=101)
+        ImagesSearchRequest(**base_params, count=101)
 
     with pytest.raises(ValidationError, match="Input should be greater than 0"):
-        ImageSearchRequest(**base_params, count=0)
+        ImagesSearchRequest(**base_params, count=0)
 
     # Test safesearch validation
     with pytest.raises(ValidationError, match="Input should be 'off' or 'strict'"):
-        ImageSearchRequest(**base_params, safesearch="moderate")  # type: ignore
+        ImagesSearchRequest(**base_params, safesearch="moderate")  # type: ignore
 
 
-def test_video_search_request_validation():
+def test_requests_video_search_request_validation():
     """Test specific VideoSearchRequest validation."""
     base_params = {
         "q": "test",
@@ -183,35 +190,36 @@ def test_video_search_request_validation():
     with pytest.raises(
         ValidationError, match="Input should be less than or equal to 50"
     ):
-        VideoSearchRequest(**base_params, count=51)
+        VideosSearchRequest(**base_params, count=51)
 
     with pytest.raises(ValidationError, match="Input should be greater than 0"):
-        VideoSearchRequest(**base_params, count=0)
+        VideosSearchRequest(**base_params, count=0)
 
     # Test offset validation
     with pytest.raises(
         ValidationError, match="Input should be less than or equal to 9"
     ):
-        VideoSearchRequest(**base_params, offset=10)
+        VideosSearchRequest(**base_params, offset=10)
 
     with pytest.raises(
         ValidationError, match="Input should be greater than or equal to 0"
     ):
-        VideoSearchRequest(**base_params, offset=-1)
+        VideosSearchRequest(**base_params, offset=-1)
 
     # Test freshness validation
     with pytest.raises(
-        ValidationError, match="Input should be 'pd', 'pw', 'pm' or 'py'"
+        ValidationError,
+        match="Freshness must be None, one of FreshnessType values",
     ):
-        VideoSearchRequest(**base_params, freshness="invalid")  # type: ignore
+        VideosSearchRequest(**base_params, freshness="invalid")  # type: ignore
 
     # Test valid freshness values
     for freshness in ["pd", "pw", "pm", "py"]:
-        request = VideoSearchRequest(**base_params, freshness=FreshnessType(freshness))
+        request = VideosSearchRequest(**base_params, freshness=FreshnessType(freshness))
         assert request.freshness == FreshnessType(freshness)
 
 
-def test_news_search_request_validation():
+def test_requests_news_search_request_validation():
     """Test specific NewsSearchRequest validation."""
     base_params = {
         "q": "test",
@@ -250,7 +258,8 @@ def test_news_search_request_validation():
 
     # Test freshness validation
     with pytest.raises(
-        ValidationError, match="Input should be 'pd', 'pw', 'pm' or 'py'"
+        ValidationError,
+        match="Freshness must be None, one of FreshnessType values",
     ):
         NewsSearchRequest(**base_params, freshness="invalid")  # type: ignore
 
@@ -260,14 +269,14 @@ def test_news_search_request_validation():
         assert request.freshness == FreshnessType(freshness)
 
 
-def test_search_request_success_cases():
+def test_requests_search_request_success_cases():
     """Test valid request cases."""
     # Web search
     web_request = WebSearchRequest(
         q="test",
-        country="US",
-        search_lang="en",
-        ui_lang="en-US",
+        country=CountryCode.ALL,
+        search_lang=LanguageCode.EN,
+        ui_lang=MarketCode.EN_US,
         count=20,
         offset=0,
         safesearch=WebSafeSearchType.moderate,
@@ -286,24 +295,24 @@ def test_search_request_success_cases():
     assert web_request.units == UnitsType.metric
 
     # Image search
-    img_request = ImageSearchRequest(
+    img_request = ImagesSearchRequest(
         q="test",
-        country="US",
-        search_lang="en",
+        country=CountryCode.US,
+        search_lang=LanguageCode.EN,
         count=100,
-        safesearch=ImageSafeSearchType.strict,
+        safesearch=ImagesSafeSearchType.strict,
         spellcheck=True,
     )
     assert img_request.q == "test"
     assert img_request.count == 100
-    assert img_request.safesearch == ImageSafeSearchType.strict
+    assert img_request.safesearch == ImagesSafeSearchType.strict
 
     # Video search
-    video_request = VideoSearchRequest(
+    video_request = VideosSearchRequest(
         q="test",
-        country="US",
-        search_lang="en",
-        ui_lang="en-US",
+        country=CountryCode.US,
+        search_lang=LanguageCode.EN,
+        ui_lang=MarketCode.EN_US,
         count=50,
         offset=0,
         spellcheck=True,
@@ -316,9 +325,9 @@ def test_search_request_success_cases():
     # News search
     news_request = NewsSearchRequest(
         q="test",
-        country="US",
-        search_lang="en",
-        ui_lang="en-US",
+        country=CountryCode.US,
+        search_lang=LanguageCode.EN,
+        ui_lang=MarketCode.EN_US,
         count=20,
         offset=9,
         safesearch=NewsSafeSearchType.moderate,
@@ -331,3 +340,92 @@ def test_search_request_success_cases():
     assert news_request.offset == 9
     assert news_request.safesearch == NewsSafeSearchType.moderate
     assert news_request.freshness == FreshnessType.pd
+
+
+def test_requests_validate_freshness():
+    """Test freshness validation including date ranges."""
+    from brave_search_python_client.requests import _validate_freshness
+
+    # Test None value
+    assert _validate_freshness(None) is None
+
+    # Test valid FreshnessType values
+    assert _validate_freshness("pd") == "pd"
+    assert _validate_freshness("pw") == "pw"
+    assert _validate_freshness("pm") == "pm"
+    assert _validate_freshness("py") == "py"
+
+    # Test valid date ranges
+    assert _validate_freshness("2023-01-01to2023-12-31") == "2023-01-01to2023-12-31"
+    assert _validate_freshness("2022-12-31to2023-01-01") == "2022-12-31to2023-01-01"
+
+    # Test invalid date ranges
+    with pytest.raises(ValueError):
+        _validate_freshness("2023-01-01")  # Missing 'to' part
+    with pytest.raises(ValueError):
+        _validate_freshness("2023-01-01to")  # Incomplete range
+    with pytest.raises(ValueError):
+        _validate_freshness("2023-13-01to2023-12-31")  # Invalid month
+    with pytest.raises(ValueError):
+        _validate_freshness("2023-01-32to2023-12-31")  # Invalid day
+    with pytest.raises(ValueError):
+        _validate_freshness("2023/01/01to2023/12/31")  # Wrong format
+    with pytest.raises(ValueError):
+        _validate_freshness("invalid")  # Invalid value
+
+
+def test_requests_validate_result_filter():
+    """Test result filter validation."""
+    from brave_search_python_client.requests import _validate_result_filter
+
+    # Test None value
+    assert _validate_result_filter(None) is None
+
+    # Test single valid filter
+    assert _validate_result_filter("web") == "web"
+
+    # Test multiple valid filters
+    assert _validate_result_filter("web,news,videos") == "web,news,videos"
+    assert (
+        _validate_result_filter("discussions,faq,infobox") == "discussions,faq,infobox"
+    )
+
+    # Test invalid filters
+    with pytest.raises(ValueError):
+        _validate_result_filter("invalid")
+    with pytest.raises(ValueError):
+        _validate_result_filter("web,invalid")
+    with pytest.raises(ValueError):
+        _validate_result_filter("web,news,invalid,videos")
+
+    # Test empty string
+    with pytest.raises(ValueError):
+        _validate_result_filter("")
+
+    # Test whitespace handling
+    assert _validate_result_filter("web, news, videos") == "web, news, videos"
+    assert _validate_result_filter(" web,news,videos ") == " web,news,videos "
+
+
+def test_requests_web_search_request_with_result_filter():
+    """Test WebSearchRequest with result filter."""
+    base_params = {
+        "q": "test",
+        "country": CountryCode.US,
+        "search_lang": LanguageCode.EN,
+        "ui_lang": MarketCode.EN_US,
+    }
+
+    # Test valid result filters
+    request = WebSearchRequest(**base_params, result_filter="web,news,videos")
+    assert request.result_filter == "web,news,videos"
+
+    request = WebSearchRequest(**base_params, result_filter="discussions,faq,infobox")
+    assert request.result_filter == "discussions,faq,infobox"
+
+    # Test invalid result filters
+    with pytest.raises(ValidationError):
+        WebSearchRequest(**base_params, result_filter="invalid")
+
+    with pytest.raises(ValidationError):
+        WebSearchRequest(**base_params, result_filter="web,invalid,news")
