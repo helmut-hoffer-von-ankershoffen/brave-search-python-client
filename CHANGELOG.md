@@ -1,6 +1,6 @@
 [🦁 Brave Search Python Client](https://helmuthva.gitbook.io/brave-search-api-client)
 
-## [unreleased]
+## [0.0.12](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.11..v0.0.12) - 2025-01-01
 
 ### 🚜 Refactor
 
