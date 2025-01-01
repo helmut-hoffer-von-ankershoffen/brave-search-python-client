@@ -17,9 +17,25 @@ from brave_search_python_client.requests import (
     WebSearchRequest,
 )
 
+# Constants for test values
 TEST_QUERY = "test"
 INVALID_VALUE = "invalid"
+COUNTRY_US = "US"
+LANG_EN = "en"
+UI_LANG_EN_US = "en-US"
+SPELLCHECK_TRUE = True
+EXTRA_SNIPPETS_FALSE = False
 
+# Constants for error messages
+ERROR_GREATER_THAN_ZERO = "Input should be greater than 0"
+ERROR_LESS_EQUAL_20 = "Input should be less than or equal to 20"
+ERROR_LESS_EQUAL_9 = "Input should be less than or equal to 9"
+ERROR_LESS_EQUAL_50 = "Input should be less than or equal to 50"
+ERROR_LESS_EQUAL_100 = "Input should be less than or equal to 100"
+ERROR_GTE_ZERO = "Input should be greater than or equal to 0"
+ERROR_FRESHNESS = "Freshness must be None, one of FreshnessType values"
+WEB_NEWS_VIDEOS_NO_SPACES = "web,news,videos"
+DISCUSSIONS_FAW_INFOBOX_NO_SPACES = "discussions,faq,infobox"
 
 @pytest.mark.parametrize(
     "request_class,params",
@@ -99,33 +115,27 @@ def test_requests_web_search_request_validation():
     """Test specific WebSearchRequest validation."""
     base_params = {
         "q": TEST_QUERY,
-        "country": "US",
-        "search_lang": "en",
-        "ui_lang": "en-US",
+        "country": COUNTRY_US,
+        "search_lang": LANG_EN,
+        "ui_lang": UI_LANG_EN_US,
         "text_decorations": True,
-        "spellcheck": True,
-        "extra_snippets": False,
+        "spellcheck": SPELLCHECK_TRUE,
+        "extra_snippets": EXTRA_SNIPPETS_FALSE,
         "summary": False,
     }
 
     # Test count validation
-    with pytest.raises(
-        ValidationError, match="Input should be less than or equal to 20"
-    ):
+    with pytest.raises(ValidationError, match=ERROR_LESS_EQUAL_20):
         WebSearchRequest(**base_params, count=21)
 
-    with pytest.raises(ValidationError, match="Input should be greater than 0"):
+    with pytest.raises(ValidationError, match=ERROR_GREATER_THAN_ZERO):
         WebSearchRequest(**base_params, count=0)
 
     # Test offset validation
-    with pytest.raises(
-        ValidationError, match="Input should be less than or equal to 9"
-    ):
+    with pytest.raises(ValidationError, match=ERROR_LESS_EQUAL_9):
         WebSearchRequest(**base_params, offset=10)
 
-    with pytest.raises(
-        ValidationError, match="Input should be greater than or equal to 0"
-    ):
+    with pytest.raises(ValidationError, match=ERROR_GTE_ZERO):
         WebSearchRequest(**base_params, offset=-1)
 
     # Test safesearch validation
@@ -141,7 +151,7 @@ def test_requests_web_search_request_validation():
     # Test freshness validation
     with pytest.raises(
         ValidationError,
-        match="Freshness must be None, one of FreshnessType values",
+        match=ERROR_FRESHNESS,
     ):
         WebSearchRequest(**base_params, freshness=INVALID_VALUE)  # type: ignore
 
@@ -160,18 +170,16 @@ def test_requests_image_search_request_validation():
     """Test specific ImageSearchRequest validation."""
     base_params = {
         "q": TEST_QUERY,
-        "country": "US",
-        "search_lang": "en",
-        "spellcheck": True,
+        "country": COUNTRY_US,
+        "search_lang": LANG_EN,
+        "spellcheck": SPELLCHECK_TRUE,
     }
 
     # Test count validation
-    with pytest.raises(
-        ValidationError, match="Input should be less than or equal to 100"
-    ):
+    with pytest.raises(ValidationError, match=ERROR_LESS_EQUAL_100):
         ImagesSearchRequest(**base_params, count=101)
 
-    with pytest.raises(ValidationError, match="Input should be greater than 0"):
+    with pytest.raises(ValidationError, match=ERROR_GREATER_THAN_ZERO):
         ImagesSearchRequest(**base_params, count=0)
 
     # Test safesearch validation
@@ -183,36 +191,30 @@ def test_requests_video_search_request_validation():
     """Test specific VideoSearchRequest validation."""
     base_params = {
         "q": TEST_QUERY,
-        "country": "US",
-        "search_lang": "en",
-        "ui_lang": "en-US",
-        "spellcheck": True,
+        "country": COUNTRY_US,
+        "search_lang": LANG_EN,
+        "ui_lang": UI_LANG_EN_US,
+        "spellcheck": SPELLCHECK_TRUE,
     }
 
     # Test count validation
-    with pytest.raises(
-        ValidationError, match="Input should be less than or equal to 50"
-    ):
+    with pytest.raises(ValidationError, match=ERROR_LESS_EQUAL_50):
         VideosSearchRequest(**base_params, count=51)
 
-    with pytest.raises(ValidationError, match="Input should be greater than 0"):
+    with pytest.raises(ValidationError, match=ERROR_GREATER_THAN_ZERO):
         VideosSearchRequest(**base_params, count=0)
 
     # Test offset validation
-    with pytest.raises(
-        ValidationError, match="Input should be less than or equal to 9"
-    ):
+    with pytest.raises(ValidationError, match=ERROR_LESS_EQUAL_9):
         VideosSearchRequest(**base_params, offset=10)
 
-    with pytest.raises(
-        ValidationError, match="Input should be greater than or equal to 0"
-    ):
+    with pytest.raises(ValidationError, match=ERROR_GTE_ZERO):
         VideosSearchRequest(**base_params, offset=-1)
 
     # Test freshness validation
     with pytest.raises(
         ValidationError,
-        match="Freshness must be None, one of FreshnessType values",
+        match=ERROR_FRESHNESS,
     ):
         VideosSearchRequest(**base_params, freshness=INVALID_VALUE)  # type: ignore
 
@@ -226,31 +228,25 @@ def test_requests_news_search_request_validation():
     """Test specific NewsSearchRequest validation."""
     base_params = {
         "q": TEST_QUERY,
-        "country": "US",
-        "search_lang": "en",
-        "ui_lang": "en-US",
-        "spellcheck": True,
-        "extra_snippets": False,
+        "country": COUNTRY_US,
+        "search_lang": LANG_EN,
+        "ui_lang": UI_LANG_EN_US,
+        "spellcheck": SPELLCHECK_TRUE,
+        "extra_snippets": EXTRA_SNIPPETS_FALSE,
     }
 
     # Test count validation
-    with pytest.raises(
-        ValidationError, match="Input should be less than or equal to 50"
-    ):
+    with pytest.raises(ValidationError, match=ERROR_LESS_EQUAL_50):
         NewsSearchRequest(**base_params, count=51)
 
-    with pytest.raises(ValidationError, match="Input should be greater than 0"):
+    with pytest.raises(ValidationError, match=ERROR_GREATER_THAN_ZERO):
         NewsSearchRequest(**base_params, count=0)
 
     # Test offset validation
-    with pytest.raises(
-        ValidationError, match="Input should be less than or equal to 9"
-    ):
+    with pytest.raises(ValidationError, match=ERROR_LESS_EQUAL_9):
         NewsSearchRequest(**base_params, offset=10)
 
-    with pytest.raises(
-        ValidationError, match="Input should be greater than or equal to 0"
-    ):
+    with pytest.raises(ValidationError, match=ERROR_GTE_ZERO):
         NewsSearchRequest(**base_params, offset=-1)
 
     # Test safesearch validation
@@ -262,7 +258,7 @@ def test_requests_news_search_request_validation():
     # Test freshness validation
     with pytest.raises(
         ValidationError,
-        match="Freshness must be None, one of FreshnessType values",
+        match=ERROR_FRESHNESS,
     ):
         NewsSearchRequest(**base_params, freshness=INVALID_VALUE)  # type: ignore
 
@@ -388,9 +384,9 @@ def test_requests_validate_result_filter():
     assert _validate_result_filter("web") == "web"
 
     # Test multiple valid filters
-    assert _validate_result_filter("web,news,videos") == "web,news,videos"
+    assert _validate_result_filter(WEB_NEWS_VIDEOS_NO_SPACES) == WEB_NEWS_VIDEOS_NO_SPACES
     assert (
-        _validate_result_filter("discussions,faq,infobox") == "discussions,faq,infobox"
+        _validate_result_filter(DISCUSSIONS_FAW_INFOBOX_NO_SPACES) == DISCUSSIONS_FAW_INFOBOX_NO_SPACES
     )
 
     # Test invalid filters
@@ -420,11 +416,11 @@ def test_requests_web_search_request_with_result_filter():
     }
 
     # Test valid result filters
-    request = WebSearchRequest(**base_params, result_filter="web,news,videos")
-    assert request.result_filter == "web,news,videos"
+    request = WebSearchRequest(**base_params, result_filter=WEB_NEWS_VIDEOS_NO_SPACES)
+    assert request.result_filter == WEB_NEWS_VIDEOS_NO_SPACES
 
-    request = WebSearchRequest(**base_params, result_filter="discussions,faq,infobox")
-    assert request.result_filter == "discussions,faq,infobox"
+    request = WebSearchRequest(**base_params, result_filter=DISCUSSIONS_FAW_INFOBOX_NO_SPACES)
+    assert request.result_filter == DISCUSSIONS_FAW_INFOBOX_NO_SPACES
 
     # Test invalid result filters
     with pytest.raises(ValidationError):
