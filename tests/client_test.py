@@ -18,6 +18,7 @@ from brave_search_python_client import (
     VideosSearchRequest,
     WebSearchApiResponse,
     WebSearchRequest,
+    MOCK_API_KEY
 )
 
 TEST_QUERY = "hello world"
@@ -25,25 +26,25 @@ TEST_API_KEY = "TEST_API_KEY"
 RESPONSE_FILE = "response.json"
 RETRY_COUNT = 3
 
-with open("tests/fixtures/web_search_response.json") as f:
+with open("tests/mock_data/web.json") as f:
     mock_web_search_response_data = json.load(f)
 mock_web_search_response = WebSearchApiResponse.model_validate(
     mock_web_search_response_data
 )
 
-with open("tests/fixtures/image_search_response.json") as f:
+with open("tests/mock_data/images.json") as f:
     mock_image_search_response_data = json.load(f)
 mock_image_search_response = ImageSearchApiResponse.model_validate(
     mock_image_search_response_data
 )
 
-with open("tests/fixtures/video_search_response.json") as f:
+with open("tests/mock_data/videos.json") as f:
     mock_video_search_response_data = json.load(f)
 mock_video_search_response = VideoSearchApiResponse.model_validate(
     mock_video_search_response_data
 )
 
-with open("tests/fixtures/news_search_response.json") as f:
+with open("tests/mock_data/news.json") as f:
     mock_news_search_response_data = json.load(f)
 mock_news_search_response = NewsSearchApiResponse.model_validate(
     mock_news_search_response_data
@@ -207,3 +208,29 @@ async def test_client_dump_response():
             with open(RESPONSE_FILE) as f:
                 assert json.load(f) == mock_data
             Path(RESPONSE_FILE).unlink()
+
+
+@pytest.mark.asyncio
+async def test_mock_data_handling():
+    """Test that mock data is returned when MOCK_API_KEY is used."""
+    client = BraveSearch(api_key=MOCK_API_KEY)
+
+    # Web search
+    web_response = await client.web(WebSearchRequest(q=TEST_QUERY))
+    assert web_response == mock_web_search_response
+    assert web_response.type == "search"
+
+    # Image search
+    image_response = await client.images(ImagesSearchRequest(q=TEST_QUERY))
+    assert image_response == mock_image_search_response
+    assert image_response.type == SearchType.images
+
+    # Video search
+    video_response = await client.videos(VideosSearchRequest(q=TEST_QUERY))
+    assert video_response == mock_video_search_response
+    assert video_response.type == SearchType.videos
+
+    # News search
+    news_response = await client.news(NewsSearchRequest(q=TEST_QUERY))
+    assert news_response == mock_news_search_response
+    assert news_response.type == SearchType.news

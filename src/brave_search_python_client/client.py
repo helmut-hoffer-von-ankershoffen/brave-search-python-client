@@ -1,6 +1,7 @@
 import os
 from typing import Any
 from urllib.parse import urljoin
+import json
 
 import httpx
 from tenacity import AsyncRetrying, RetryError, stop_after_attempt, wait_fixed
@@ -8,6 +9,8 @@ from tenacity import AsyncRetrying, RetryError, stop_after_attempt, wait_fixed
 from brave_search_python_client.constants import (
     BASE_URL,
     DEFAULT_RETRY_WAIT_TIME,
+    MOCK_API_KEY,
+    MOCK_DATA_PATH,
     __version__,
 )
 
@@ -32,7 +35,7 @@ class BraveSearch:
     """A python client for the Brave Search API that provides access to all search types (web, images, news and videos).
 
     Args:
-        api_key: API key for authentication with API (https://brave.com/search/api/). If not given as argument looks for BRAVE_SEARCH_API_KEY in environment.
+        api_key: API key for authentication with API (https://brave.com/search/api/). If not given as argument looks for BRAVE_SEARCH_API_KEY in environment. If the key is set to brave_search_python_client.MOCK_API_KEY, the client will return mock data for integration testing purposes.
 
     Raises:
         BraveSearchClientError: Raised if no API key given or found in environment.
@@ -108,6 +111,11 @@ class BraveSearch:
                 retry_error.last_attempt.exception()
             ) from retry_error
 
+    def _load_mock_data(self, search_type: SearchType):
+        """Helper method to load mock data for testing purposes."""
+        with open(f"{MOCK_DATA_PATH}/{search_type}.json") as f:
+            return json.loads(f.read())
+
     def _dump_response(self, response: httpx.Response) -> None:
         """Helper method to dump API response to a file."""
         with open("response.json", "w") as f:
@@ -134,6 +142,9 @@ class BraveSearch:
         Raises:
             BraveSearchAPIError: If API request fails or returns an error.
         """
+        # For integration testing purposes, if API key is MOCK, load from mock data
+        if self._api_key == MOCK_API_KEY:
+            return WebSearchApiResponse.model_validate(self._load_mock_data(SearchType.web))
 
         response = await self._get(
             SearchType.web,
@@ -169,6 +180,10 @@ class BraveSearch:
             BraveSearchAPIError: If API request fails.
         """
 
+        # For integration testing purposes, if API key is MOCK, load from mock data
+        if self._api_key == MOCK_API_KEY:
+            return ImageSearchApiResponse.model_validate(self._load_mock_data(SearchType.images))
+
         response = await self._get(
             SearchType.images,
             params=request.model_dump(exclude_none=True),
@@ -203,6 +218,9 @@ class BraveSearch:
             ValueError: If query validation fails.
             BraveSearchAPIError: If API request fails.
         """
+        # For integration testing purposes, if API key is MOCK, load from mock data
+        if self._api_key == MOCK_API_KEY:
+            return VideoSearchApiResponse.model_validate(self._load_mock_data(SearchType.videos))
 
         response = await self._get(
             SearchType.videos,
@@ -238,6 +256,9 @@ class BraveSearch:
             ValueError: If query validation fails.
             BraveSearchAPIError: If API request fails or returns an error.
         """
+        # For integration testing purposes, if API key is MOCK, load from mock data
+        if self._api_key == MOCK_API_KEY:
+            return NewsSearchApiResponse.model_validate(self._load_mock_data(SearchType.news))
 
         response = await self._get(
             SearchType.news,

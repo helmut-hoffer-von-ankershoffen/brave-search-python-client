@@ -18,25 +18,25 @@ TEST_QUERY = "hello world"
 BUILT_WITH_LOVE = "built with love in Berlin"
 SEARCH_QUERY_HELP = "The search query to perform"
 
-with open("tests/fixtures/web_search_response.json") as f:
+with open("tests/mock_data/web.json") as f:
     mock_web_search_response_data = json.load(f)
 mock_web_search_response = WebSearchApiResponse.model_validate(
     mock_web_search_response_data
 )
 
-with open("tests/fixtures/image_search_response.json") as f:
+with open("tests/mock_data/images.json") as f:
     mock_image_search_response_data = json.load(f)
 mock_image_search_response = ImageSearchApiResponse.model_validate(
     mock_image_search_response_data
 )
 
-with open("tests/fixtures/video_search_response.json") as f:
+with open("tests/mock_data/videos.json") as f:
     mock_video_search_response_data = json.load(f)
 mock_video_search_response = VideoSearchApiResponse.model_validate(
     mock_video_search_response_data
 )
 
-with open("tests/fixtures/news_search_response.json") as f:
+with open("tests/mock_data/news.json") as f:
     mock_news_search_response_data = json.load(f)
 mock_news_search_response = NewsSearchApiResponse.model_validate(
     mock_news_search_response_data

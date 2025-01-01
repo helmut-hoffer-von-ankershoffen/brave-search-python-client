@@ -1,0 +1,907 @@
+{
+    "query": {
+        "original": "hello world",
+        "show_strict_warning": false,
+        "is_navigational": false,
+        "is_news_breaking": false,
+        "spellcheck_off": true,
+        "country": "us",
+        "bad_results": false,
+        "should_fallback": false,
+        "postal_code": "",
+        "city": "",
+        "header_country": "",
+        "more_results_available": true,
+        "state": ""
+    },
+    "mixed": {
+        "type": "mixed",
+        "main": [
+            {
+                "type": "web",
+                "index": 0,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 1,
+                "all": false
+            },
+            {
+                "type": "videos",
+                "all": true
+            },
+            {
+                "type": "web",
+                "index": 2,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 3,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 4,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 5,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 6,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 7,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 8,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 9,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 10,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 11,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 12,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 13,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 14,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 15,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 16,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 17,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 18,
+                "all": false
+            },
+            {
+                "type": "web",
+                "index": 19,
+                "all": false
+            }
+        ],
+        "top": [],
+        "side": []
+    },
+    "type": "search",
+    "videos": {
+        "type": "videos",
+        "results": [
+            {
+                "type": "video_result",
+                "url": "https://www.youtube.com/watch?v=j2dhmBIobew",
+                "title": "\"Hello World!\" in 3 programming languages | CTS04",
+                "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+                "video": {},
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "youtube.com",
+                    "hostname": "www.youtube.com",
+                    "favicon": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+                    "path": "› watch"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/KjKRKbTXjtwRRZ-IEQmcGY78Q4rsdaTblZgYGPX9FVU/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9q/MmRobUJJb2Jldy9o/cWRlZmF1bHQuanBn",
+                    "original": "https://i.ytimg.com/vi/j2dhmBIobew/hqdefault.jpg"
+                }
+            },
+            {
+                "type": "video_result",
+                "url": "https://www.youtube.com/watch?v=HFLALzkcjLM",
+                "title": "Hello World! [Pt 2] | C# for Beginners",
+                "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+                "video": {},
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "youtube.com",
+                    "hostname": "www.youtube.com",
+                    "favicon": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+                    "path": "› watch"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/Ifw4ApGYYWhfZAaGdfxGQb2re7jQb1AbKNRJlVvWMf4/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9I/RkxBTHprY2pMTS9o/cWRlZmF1bHQuanBn",
+                    "original": "https://i.ytimg.com/vi/HFLALzkcjLM/hqdefault.jpg"
+                }
+            },
+            {
+                "type": "video_result",
+                "url": "https://www.youtube.com/watch?v=yup8gIXxWDU",
+                "title": "NANOWAR OF STEEL - HelloWorld.java (Source Code Video) | Napalm ...",
+                "description": "Live album \"XX Years Of Steel\" out this Friday!Order here: https://lnk.to/NoS-XX-YearsOfSteelMixed by Christian Ice at Temple of Noise StudiosVideo by LyricV...",
+                "age": "1 month ago",
+                "page_age": "2024-12-03T13:00:03",
+                "video": {},
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "youtube.com",
+                    "hostname": "www.youtube.com",
+                    "favicon": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+                    "path": "› watch"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/79eFxuxSKfA32hB638cTNpzJIKFgrJy8kzajQahLJCM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS95/dXA4Z0lYeFdEVS9t/YXhyZXNkZWZhdWx0/LmpwZw",
+                    "original": "https://i.ytimg.com/vi/yup8gIXxWDU/maxresdefault.jpg"
+                }
+            },
+            {
+                "type": "video_result",
+                "url": "https://www.youtube.com/watch?v=al2DFQEZl4M",
+                "title": "Lady Antebellum - Hello World - YouTube",
+                "description": "REMASTERED IN HD!Purchase Lady Antebellum’s latest music: http://umgn.us/LadyApurchaseStream the latest from Lady Antebellum: http://umgn.us/LadyAStreamSign",
+                "age": "November 6, 2010",
+                "page_age": "2010-11-06T03:55:38",
+                "video": {},
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "youtube.com",
+                    "hostname": "www.youtube.com",
+                    "favicon": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+                    "path": "› watch"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/N6lrBICuZXzv3tzWof3Y-x-Cw0O_ZpKxoIb9zZ2sLmI/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9h/bDJERlFFWmw0TS9t/YXhyZXNkZWZhdWx0/LmpwZw",
+                    "original": "https://i.ytimg.com/vi/al2DFQEZl4M/maxresdefault.jpg"
+                }
+            },
+            {
+                "type": "video_result",
+                "url": "https://www.youtube.com/watch?v=u7JMhVI7taQ",
+                "title": "Alan Walker & Torine - Hello World (Official Music Video) - YouTube",
+                "description": "🎵 Listen to ‘Unsure’ here: https://alanwalker.lnk.to/UnsureWhat a fun week, wouldn’t you say? I started the week by sharing 34 unique clips of this music vi...",
+                "age": "March 4, 2022",
+                "page_age": "2022-03-04T14:00:12",
+                "video": {},
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "youtube.com",
+                    "hostname": "www.youtube.com",
+                    "favicon": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+                    "path": "› watch"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/mz_Walv2__OKzW16yfA9msEIjHtTedfPPFYL1wdY1-E/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS91/N0pNaFZJN3RhUS9t/YXhyZXNkZWZhdWx0/LmpwZw",
+                    "original": "https://i.ytimg.com/vi/u7JMhVI7taQ/maxresdefault.jpg"
+                }
+            }
+        ],
+        "mutated_by_goggles": false
+    },
+    "web": {
+        "type": "search",
+        "results": [
+            {
+                "title": "\"Hello, World!\" program - Wikipedia",
+                "url": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "A &quot;Hello, World!&quot; program is <strong>usually a simple computer program that emits (or displays) to the screen (often the console) a message similar to &quot;Hello, World!&quot;.</strong> A small piece of code in most general-purpose programming languages, this program is used to illustrate a language&#x27;s basic syntax.",
+                "page_age": "2024-12-27T15:49:55",
+                "profile": {
+                    "name": "Wikipedia",
+                    "url": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program",
+                    "long_name": "en.wikipedia.org",
+                    "img": "https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "deep_results": {
+                    "buttons": [
+                        {
+                            "type": "button_result",
+                            "title": "History",
+                            "url": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program#History"
+                        },
+                        {
+                            "type": "button_result",
+                            "title": "Variations",
+                            "url": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program#Variations"
+                        },
+                        {
+                            "type": "button_result",
+                            "title": "Time to Hello World",
+                            "url": "https://en.wikipedia.org/wiki/%22Hello,_World!%22_program#Time_to_Hello_World"
+                        }
+                    ]
+                },
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "en.wikipedia.org",
+                    "hostname": "en.wikipedia.org",
+                    "favicon": "https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw",
+                    "path": "› wiki  › \"Hello,_World!\"_program"
+                },
+                "age": "4 days ago"
+            },
+            {
+                "title": "Hello World Computer Science",
+                "url": "https://www.helloworldcs.org/",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "Our curriculum transcends the classroom, creating multidisciplinary learning experiences that build leadership skills and serve students throughout their lives.",
+                "page_age": "2019-09-06T00:00:00",
+                "profile": {
+                    "name": "Helloworldcs",
+                    "url": "https://www.helloworldcs.org/",
+                    "long_name": "helloworldcs.org",
+                    "img": "https://imgs.search.brave.com/olJXVnUGSGEKS64uzpYtdFQnZva9buVCbV0PQwdxxx8/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNzBlZTRiYTEz/Yjc1YjViYmU5YTYy/ZWFkZTQwYWM4ZDEy/ZDAwZDAwZjU1OTQy/MmYxZjFlNjQ5YmQ5/NjhlYmQwMy93d3cu/aGVsbG93b3JsZGNz/Lm9yZy8"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "helloworldcs.org",
+                    "hostname": "www.helloworldcs.org",
+                    "favicon": "https://imgs.search.brave.com/olJXVnUGSGEKS64uzpYtdFQnZva9buVCbV0PQwdxxx8/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNzBlZTRiYTEz/Yjc1YjViYmU5YTYy/ZWFkZTQwYWM4ZDEy/ZDAwZDAwZjU1OTQy/MmYxZjFlNjQ5YmQ5/NjhlYmQwMy93d3cu/aGVsbG93b3JsZGNz/Lm9yZy8",
+                    "path": ""
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/jrvahfelYixkoQfRrzvjpBWwjSBiLiOlsat2avS-6jY/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/MDQ3ZDQ0ZmFkNGVk/MmQ5N2IzYTdhMTgv/NjA4OWFmYjVlMWRj/M2RmYWZhMjA1NDk1/X0hXJTIwT0clMjBp/bWFnZS5wbmc",
+                    "original": "https://cdn.prod.website-files.com/6047d44fad4ed2d97b3a7a18/6089afb5e1dc3dfafa205495_HW%20OG%20image.png",
+                    "logo": false
+                },
+                "age": "September 6, 2019"
+            },
+            {
+                "title": "Hello World | Code.org",
+                "url": "https://code.org/helloworld",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "Check out the new Transformers One theme of <strong>Hello</strong> <strong>World</strong>!",
+                "page_age": "2021-10-03T00:00:00",
+                "profile": {
+                    "name": "Code",
+                    "url": "https://code.org/helloworld",
+                    "long_name": "code.org",
+                    "img": "https://imgs.search.brave.com/WP8Eq7jjrGe0_NXFNiXItVP3AUHZiSAghTVqwtFWVTI/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDZjMGEzMzBl/MmU1NGMxYmJhOTBm/ZmQ3YzI0OGE2NjRh/NmFkNjE2Y2VmZjcz/ZjQwMDRiZDVhZGQ0/NTY4NjdjZi9jb2Rl/Lm9yZy8"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "code.org",
+                    "hostname": "code.org",
+                    "favicon": "https://imgs.search.brave.com/WP8Eq7jjrGe0_NXFNiXItVP3AUHZiSAghTVqwtFWVTI/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDZjMGEzMzBl/MmU1NGMxYmJhOTBm/ZmQ3YzI0OGE2NjRh/NmFkNjE2Y2VmZjcz/ZjQwMDRiZDVhZGQ0/NTY4NjdjZi9jb2Rl/Lm9yZy8",
+                    "path": "› helloworld"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/AJhEBD8nwakAXnnocNmZvdKYwkseAJ1G8Yi8FRkGn2o/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jb2Rl/Lm9yZy9pbWFnZXMv/ZGVmYXVsdC1vZy1p/bWFnZS5wbmc",
+                    "original": "https://code.org/images/default-og-image.png",
+                    "logo": false
+                },
+                "age": "October 3, 2021"
+            },
+            {
+                "title": "World news - breaking news, video, headlines and opinion | CNN",
+                "url": "https://www.cnn.com/world",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "View CNN <strong>world</strong> news today for international news and videos from Europe, Asia, Africa, the Middle East and the Americas.",
+                "page_age": "2024-12-31T11:35:03",
+                "profile": {
+                    "name": "CNN",
+                    "url": "https://www.cnn.com/world",
+                    "long_name": "Cable News Network",
+                    "img": "https://imgs.search.brave.com/tV1joo3SHuITYemc5OsCps2_N9Toz6zArm5dNdbSoMs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNWE3MWZjOTZk/NGRhM2RmZDQzMjZh/NjE3OGQ3NzQ3MDI5/NDJiOGI2ZDdkZDFj/ODI3N2MzYWU3OGU4/YzQ3YTNkNC93d3cu/Y25uLmNvbS8"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "cnn.com",
+                    "hostname": "www.cnn.com",
+                    "favicon": "https://imgs.search.brave.com/tV1joo3SHuITYemc5OsCps2_N9Toz6zArm5dNdbSoMs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNWE3MWZjOTZk/NGRhM2RmZDQzMjZh/NjE3OGQ3NzQ3MDI5/NDJiOGI2ZDdkZDFj/ODI3N2MzYWU3OGU4/YzQ3YTNkNC93d3cu/Y25uLmNvbS8",
+                    "path": "› world"
+                },
+                "age": "6 hours ago"
+            },
+            {
+                "title": "Hello, World! - Learn Python - Free Interactive Python Tutorial",
+                "url": "https://www.learnpython.org/en/Hello,_World!",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "learnpython.org is a free interactive Python tutorial for people who want to learn Python, fast.",
+                "profile": {
+                    "name": "Learnpython",
+                    "url": "https://www.learnpython.org/en/Hello,_World!",
+                    "long_name": "learnpython.org",
+                    "img": "https://imgs.search.brave.com/skrCGahu0G0uWjMX1_GM4nTS6iXHDh7wWWKwLpcvVJs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZjNjMzExZDJm/NmRkOGY0Y2EwMmU2/MjZhZmExZTNiOWUz/NjQ3N2JiMDg1M2M5/YTY0NGQyNDQ3N2Ew/NWVmZjdjNC93d3cu/bGVhcm5weXRob24u/b3JnLw"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "learnpython.org",
+                    "hostname": "www.learnpython.org",
+                    "favicon": "https://imgs.search.brave.com/skrCGahu0G0uWjMX1_GM4nTS6iXHDh7wWWKwLpcvVJs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZjNjMzExZDJm/NmRkOGY0Y2EwMmU2/MjZhZmExZTNiOWUz/NjQ3N2JiMDg1M2M5/YTY0NGQyNDQ3N2Ew/NWVmZjdjNC93d3cu/bGVhcm5weXRob24u/b3JnLw",
+                    "path": "› en  › Hello,_World!"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/bMRhmYe6kl63dVevViX7nqYgt8jvsyPYiugHrEPJD1c/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly93d3cu/bGVhcm5weXRob24u/b3JnL3N0YXRpYy9p/bWcvc2hhcmUtbG9n/b3MvbGVhcm5weXRo/b24ub3JnLnBuZw",
+                    "original": "https://www.learnpython.org/static/img/share-logos/learnpython.org.png",
+                    "logo": true
+                }
+            },
+            {
+                "title": "Getting Started with Go and the Web: Hello, World! - DEV Community",
+                "url": "https://dev.to/markmunyaka/getting-started-with-go-and-the-web-hello-world-nal",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "Golang is growing in popularity as a server-side language. Developers use it as an alternative to...",
+                "page_age": "2024-12-29T09:10:04",
+                "profile": {
+                    "name": "DEV Community",
+                    "url": "https://dev.to/markmunyaka/getting-started-with-go-and-the-web-hello-world-nal",
+                    "long_name": "dev.to",
+                    "img": "https://imgs.search.brave.com/UUpF8I85K--vkQzrhameM7iRPRU5VCTXyWbS4sk6G2g/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTg5MTcxNDBh/N2U4ODc4MDg0NWQ4/MzU0YWJkNDY3ZWRm/MjUxY2U1YjY5MzJm/YWRlOTI4YjAyZDI1/ZjU0MmJjNi9kZXYu/dG8v"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "article",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "dev.to",
+                    "hostname": "dev.to",
+                    "favicon": "https://imgs.search.brave.com/UUpF8I85K--vkQzrhameM7iRPRU5VCTXyWbS4sk6G2g/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTg5MTcxNDBh/N2U4ODc4MDg0NWQ4/MzU0YWJkNDY3ZWRm/MjUxY2U1YjY5MzJm/YWRlOTI4YjAyZDI1/ZjU0MmJjNi9kZXYu/dG8v",
+                    "path": "› markmunyaka  › getting-started-with-go-and-the-web-hello-world-nal"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/te_3lKy3XCRkZTdgrzbvqnDQHVtaSS9RD_E_RA3004w/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tZWRp/YTIuZGV2LnRvL2R5/bmFtaWMvaW1hZ2Uv/d2lkdGg9MTA4MCxo/ZWlnaHQ9MTA4MCxm/aXQ9Y292ZXIsZ3Jh/dml0eT1hdXRvLGZv/cm1hdD1hdXRvL2h0/dHBzJTNBJTJGJTJG/ZGV2LXRvLXVwbG9h/ZHMuczMuYW1hem9u/YXdzLmNvbSUyRnVw/bG9hZHMlMkZhcnRp/Y2xlcyUyRjloc3Jz/ZWY0aHU1dGY5c3J3/NHI3LnBuZw",
+                    "original": "https://media2.dev.to/dynamic/image/width=1080,height=1080,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9hsrsef4hu5tf9srw4r7.png",
+                    "logo": false
+                },
+                "age": "2 days ago"
+            },
+            {
+                "title": "Hello World",
+                "url": "https://www.raspberrypi.org/hello-world",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "Our free magazine for computing and digital making educators around the <strong>world</strong>.",
+                "page_age": "2024-09-23T20:10:03",
+                "profile": {
+                    "name": "Raspberrypi",
+                    "url": "https://www.raspberrypi.org/hello-world",
+                    "long_name": "raspberrypi.org",
+                    "img": "https://imgs.search.brave.com/DctmhZPhhngt_S0cMeNJRk0431RnB5MGo0ydSpFnyMA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGRiYzNjMzhj/NDQ1NjE0MDM4NTU3/OGVhNDE1YzRiMmQ2/ZWIzZTRjMzg3Njdh/MDllZDU1NGRmYWIw/ZTczYzFjMS93d3cu/cmFzcGJlcnJ5cGku/b3JnLw"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "raspberrypi.org",
+                    "hostname": "www.raspberrypi.org",
+                    "favicon": "https://imgs.search.brave.com/DctmhZPhhngt_S0cMeNJRk0431RnB5MGo0ydSpFnyMA/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMGRiYzNjMzhj/NDQ1NjE0MDM4NTU3/OGVhNDE1YzRiMmQ2/ZWIzZTRjMzg3Njdh/MDllZDU1NGRmYWIw/ZTczYzFjMS93d3cu/cmFzcGJlcnJ5cGku/b3JnLw",
+                    "path": "› hello-world"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/b5bDujVlIsCZFd0WDpNFI_S9vtDT3wXrua9OzbOYgTo/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY3RmYXNzZXRz/Lm5ldC9vc2htbXY3/a2RqZ20vMjhTeG9x/c3Z3MUk5VzNYZVE1/QUdGdi9lZTJlZjcz/ZmVhMTQ1ZjQ5MjUx/NzI5NmRhNmY0NmM3/NC9tZXRhX2ltYWdl/LTFlOTQwYjc3YWZl/MzFmMzU3Y2EyN2U1/MThhMzhiZWMwNjVl/ZDg2NTMxZjEyZGVj/NzMyOTI4Mjg3MDdi/MGFkNjIucG5nP3c9/MTIwMA",
+                    "original": "https://images.ctfassets.net/oshmmv7kdjgm/28Sxoqsvw1I9W3XeQ5AGFv/ee2ef73fea145f492517296da6f46c74/meta_image-1e940b77afe31f357ca27e518a38bec065ed86531f12dec73292828707b0ad62.png?w=1200",
+                    "logo": false
+                },
+                "age": "September 23, 2024"
+            },
+            {
+                "title": "Hello World Anime Ending: Was Naomi's Future's Self Killed?",
+                "url": "https://gamerant.com/hello-world-anime-ending-was-naomis-futures-self-killed/",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "Was Naomi’s future self truly killed in <strong>Hello</strong> <strong>World</strong>? Or did he manage to survive?",
+                "page_age": "2024-12-27T16:15:04",
+                "profile": {
+                    "name": "Game Rant",
+                    "url": "https://gamerant.com/hello-world-anime-ending-was-naomis-futures-self-killed/",
+                    "long_name": "gamerant.com",
+                    "img": "https://imgs.search.brave.com/AycoQhFBEC_Zxr34UV0tefOwWxhfRNvTT-d9hFCV7yI/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMzdmMGI5ZTMz/NzNhZGE5NGNiYzAx/NTcxNmU5MmRiYmQ3/ZTNmNjQ4OTljNDA4/MmRmYmExMGRkN2M4/ZWQwMjc0YS9nYW1l/cmFudC5jb20v"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "article",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "gamerant.com",
+                    "hostname": "gamerant.com",
+                    "favicon": "https://imgs.search.brave.com/AycoQhFBEC_Zxr34UV0tefOwWxhfRNvTT-d9hFCV7yI/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMzdmMGI5ZTMz/NzNhZGE5NGNiYzAx/NTcxNmU5MmRiYmQ3/ZTNmNjQ4OTljNDA4/MmRmYmExMGRkN2M4/ZWQwMjc0YS9nYW1l/cmFudC5jb20v",
+                    "path": "  › home  › anime  › hello world anime ending: was naomi's future's self killed?"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/lwRWFdKIfDQ6TT_ZtWgyuJmCq4khx0XIfAXjflKN5s4/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMwLmdhbWVyYW50/aW1hZ2VzLmNvbS93/b3JkcHJlc3Mvd3At/Y29udGVudC91cGxv/YWRzLzIwMjQvMTIv/aGVsbG8td29ybGQt/YW5pbWU2LmpwZw",
+                    "original": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/12/hello-world-anime6.jpg",
+                    "logo": false
+                },
+                "age": "4 days ago"
+            },
+            {
+                "title": "r/learnpython on Reddit: Why do all programming languages start with \"Hello World\"?",
+                "url": "https://www.reddit.com/r/learnpython/comments/fnhja2/why_do_all_programming_languages_start_with_hello/",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "It&#x27;s far less depressing than Goodbye <strong>World</strong>. ... It most definitely is a programmer meme. It dates back to the K&amp;R C book from the &#x27;70s which included the line ... <strong>Hello</strong> <strong>worlds</strong> are pretty good at showing a large enough chunk of a language so you can understand what you are getting into.",
+                "page_age": "2020-03-23T10:08:24",
+                "profile": {
+                    "name": "Reddit",
+                    "url": "https://www.reddit.com/r/learnpython/comments/fnhja2/why_do_all_programming_languages_start_with_hello/",
+                    "long_name": "reddit.com",
+                    "img": "https://imgs.search.brave.com/U-eHNCapRHVNWWCVPPMTIvOofZULh0_A_FQKe8xTE4I/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2ZiNTU0M2Nj/MTFhZjRiYWViZDlk/MjJiMjBjMzFjMDRk/Y2IzYWI0MGI0MjVk/OGY5NzQzOGQ5NzQ5/NWJhMWI0NC93d3cu/cmVkZGl0LmNvbS8"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "qa",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "reddit.com",
+                    "hostname": "www.reddit.com",
+                    "favicon": "https://imgs.search.brave.com/U-eHNCapRHVNWWCVPPMTIvOofZULh0_A_FQKe8xTE4I/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvN2ZiNTU0M2Nj/MTFhZjRiYWViZDlk/MjJiMjBjMzFjMDRk/Y2IzYWI0MGI0MjVk/OGY5NzQzOGQ5NzQ5/NWJhMWI0NC93d3cu/cmVkZGl0LmNvbS8",
+                    "path": "  › r/learnpython  › why do all programming languages start with \"hello world\"?"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/wQ4RaDMByFO-sOwUJ__h5pX5QkOS3Xu5HsNCbQaLvg4/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zaGFy/ZS5yZWRkLml0L3By/ZXZpZXcvcG9zdC9m/bmhqYTI",
+                    "original": "https://share.redd.it/preview/post/fnhja2",
+                    "logo": false
+                },
+                "age": "March 23, 2020"
+            },
+            {
+                "title": "Hello World",
+                "url": "https://docs.github.com/get-started/quickstart/hello-world",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "Follow this <strong>Hello</strong> <strong>World</strong> exercise to learn GitHub&#x27;s pull request workflow.",
+                "page_age": "2020-11-09T00:00:00",
+                "profile": {
+                    "name": "GitHub",
+                    "url": "https://docs.github.com/get-started/quickstart/hello-world",
+                    "long_name": "docs.github.com",
+                    "img": "https://imgs.search.brave.com/4zOPbv6foqR3ZOB9XlPdjQyJCHDIUfc5Y9K60GS5lC0/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMTFjYTUyNTA4/ZmJmN2Y3NzIxNzgw/ZDZjZmY3MzU4YTMy/NTQ3NzgxZGFiYmNm/NjE1MDBmNmI1NjZh/NjI1MjY2OC9kb2Nz/LmdpdGh1Yi5jb20v"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "docs.github.com",
+                    "hostname": "docs.github.com",
+                    "favicon": "https://imgs.search.brave.com/4zOPbv6foqR3ZOB9XlPdjQyJCHDIUfc5Y9K60GS5lC0/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvMTFjYTUyNTA4/ZmJmN2Y3NzIxNzgw/ZDZjZmY3MzU4YTMy/NTQ3NzgxZGFiYmNm/NjE1MDBmNmI1NjZh/NjI1MjY2OC9kb2Nz/LmdpdGh1Yi5jb20v",
+                    "path": "› get-started  › quickstart  › hello-world"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/AegEtjUlPb8vI_OQlp9QA3r56mMjPzItXXPcR36LgN4/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9naXRo/dWIuZ2l0aHViYXNz/ZXRzLmNvbS9pbWFn/ZXMvbW9kdWxlcy9v/cGVuX2dyYXBoL2dp/dGh1Yi1sb2dvLnBu/Zw",
+                    "original": "https://github.githubassets.com/images/modules/open_graph/github-logo.png",
+                    "logo": true
+                },
+                "age": "November 9, 2020"
+            },
+            {
+                "title": "Online Gift Shop in Philadelphia | Unique Gift Store — Hello World",
+                "url": "https://shophelloworld.com/",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "<strong>Hello</strong> <strong>World</strong> is one of the best online gift stores in Philadelphia. Our gift store features unique items like jewelry, handbags, totes, accessories, baby gifts, candles and much more.",
+                "page_age": "2015-01-21T00:00:00",
+                "profile": {
+                    "name": "Shophelloworld",
+                    "url": "https://shophelloworld.com/",
+                    "long_name": "shophelloworld.com",
+                    "img": "https://imgs.search.brave.com/0rF6ihtwGpBpULuGHp0M0qyt6IIKYb1GcxqIjSklESY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTg4Yjk3MTVm/MjgwYzk5ZWNjZjI0/ZDUxMGY0NGZmZDJi/YmE0Y2IyODU5MGEx/ODc5OTExODI5ZmJk/N2JmOWVkOC9zaG9w/aGVsbG93b3JsZC5j/b20v"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "shophelloworld.com",
+                    "hostname": "shophelloworld.com",
+                    "favicon": "https://imgs.search.brave.com/0rF6ihtwGpBpULuGHp0M0qyt6IIKYb1GcxqIjSklESY/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTg4Yjk3MTVm/MjgwYzk5ZWNjZjI0/ZDUxMGY0NGZmZDJi/YmE0Y2IyODU5MGEx/ODc5OTExODI5ZmJk/N2JmOWVkOC9zaG9w/aGVsbG93b3JsZC5j/b20v",
+                    "path": ""
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/3ELYiKurdLLSRD7_X0ljyvUCT0gtJ6bxurOzDK0-U68/rs:fit:200:200:1:0/g:ce/aHR0cDovL3Nob3Bo/ZWxsb3dvcmxkLmNv/bS9jZG4vc2hvcC9m/aWxlcy9IZWxsby1X/b3JsZC1Nb2Rlcm4t/TWVyY2FudGlsZS1T/dG9yZWZyb250Lmpw/Zz9jcm9wPWNlbnRl/ciZoZWlnaHQ9MTIw/MCZ2PTE3MTEzODg4/NTMmd2lkdGg9MTIw/MA",
+                    "original": "http://shophelloworld.com/cdn/shop/files/Hello-World-Modern-Mercantile-Storefront.jpg?crop=center&height=1200&v=1711388853&width=1200",
+                    "logo": false
+                },
+                "age": "January 21, 2015"
+            },
+            {
+                "title": "Hello World (film) - Wikipedia",
+                "url": "https://en.wikipedia.org/wiki/Hello_World_(film)",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "<strong>Hello</strong> <strong>World</strong> (Japanese: ハロー・ワールド), stylized as <strong>HELLO</strong> <strong>WORLD</strong>, is a 2019 Japanese animated science fiction romantic drama film directed by Tomohiko Itō from an original screenplay written by Mado Nozaki. Produced by Graphinica and distributed by Toho, the film is set in a futuristic ...",
+                "page_age": "2024-11-24T10:19:38",
+                "profile": {
+                    "name": "Wikipedia",
+                    "url": "https://en.wikipedia.org/wiki/Hello_World_(film)",
+                    "long_name": "en.wikipedia.org",
+                    "img": "https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "deep_results": {
+                    "buttons": [
+                        {
+                            "type": "button_result",
+                            "title": "Plot",
+                            "url": "https://en.wikipedia.org/wiki/Hello_World_(film)#Plot"
+                        },
+                        {
+                            "type": "button_result",
+                            "title": "Voice cast",
+                            "url": "https://en.wikipedia.org/wiki/Hello_World_(film)#Voice_cast"
+                        },
+                        {
+                            "type": "button_result",
+                            "title": "Production",
+                            "url": "https://en.wikipedia.org/wiki/Hello_World_(film)#Production"
+                        },
+                        {
+                            "type": "button_result",
+                            "title": "Music",
+                            "url": "https://en.wikipedia.org/wiki/Hello_World_(film)#Music"
+                        },
+                        {
+                            "type": "button_result",
+                            "title": "Marketing",
+                            "url": "https://en.wikipedia.org/wiki/Hello_World_(film)#Marketing"
+                        },
+                        {
+                            "type": "button_result",
+                            "title": "Release",
+                            "url": "https://en.wikipedia.org/wiki/Hello_World_(film)#Release"
+                        },
+                        {
+                            "type": "button_result",
+                            "title": "Reception",
+                            "url": "https://en.wikipedia.org/wiki/Hello_World_(film)#Reception"
+                        },
+                        {
+                            "type": "button_result",
+                            "title": "Spin-off",
+                            "url": "https://en.wikipedia.org/wiki/Hello_World_(film)#Spin-off"
+                        }
+                    ]
+                },
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "en.wikipedia.org",
+                    "hostname": "en.wikipedia.org",
+                    "favicon": "https://imgs.search.brave.com/m6XxME4ek8DGIUcEPCqjRoDjf2e54EwL9pQzyzogLYk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNjQwNGZhZWY0/ZTQ1YWUzYzQ3MDUw/MmMzMGY3NTQ0ZjNj/NDUwMDk5ZTI3MWRk/NWYyNTM4N2UwOTE0/NTI3ZDQzNy9lbi53/aWtpcGVkaWEub3Jn/Lw",
+                    "path": "› wiki  › Hello_World_(film)"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/2nMG6hrYcBJOdWOw60i9i3h27PK5X5W1WYUWYnUEUDY/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvZW4vYS9hOC9I/RUxMT1dPUkxELmpw/Zw",
+                    "original": "https://upload.wikimedia.org/wikipedia/en/a/a8/HELLOWORLD.jpg",
+                    "logo": false
+                },
+                "age": "November 24, 2024"
+            },
+            {
+                "title": "Hello World | Apple Developer Documentation",
+                "url": "https://developer.apple.com/documentation/visionos/world",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "Use windows, volumes, and immersive spaces to teach people about the Earth.",
+                "page_age": "2023-06-22T19:00:05",
+                "profile": {
+                    "name": "Apple",
+                    "url": "https://developer.apple.com/documentation/visionos/world",
+                    "long_name": "developer.apple.com",
+                    "img": "https://imgs.search.brave.com/ZCU4M7z669FUgINSItxXnji8XrpE77lxnSTW2a_3TZk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYmY4MjZlMTk0/MzlmMDhhOGNiMDQw/N2EzNGRhOWM4YjQ4/NjAwNzk0MzY2NzEw/OWQ2Y2Y2YjZhN2Y4/YzQ3NGRiYi9kZXZl/bG9wZXIuYXBwbGUu/Y29tLw"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "developer.apple.com",
+                    "hostname": "developer.apple.com",
+                    "favicon": "https://imgs.search.brave.com/ZCU4M7z669FUgINSItxXnji8XrpE77lxnSTW2a_3TZk/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvYmY4MjZlMTk0/MzlmMDhhOGNiMDQw/N2EzNGRhOWM4YjQ4/NjAwNzk0MzY2NzEw/OWQ2Y2Y2YjZhN2Y4/YzQ3NGRiYi9kZXZl/bG9wZXIuYXBwbGUu/Y29tLw",
+                    "path": "› documentation  › visionos  › world"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/IjAW3uWKYeOFfjF-wP1r1BPSND-oa16K3w-LxvZ5ggY/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9kb2Nz/LmRldmVsb3Blci5h/cHBsZS5jb20vdHV0/b3JpYWxzL2RldmVs/b3Blci1vZy5qcGc",
+                    "original": "https://docs.developer.apple.com/tutorials/developer-og.jpg",
+                    "logo": false
+                },
+                "age": "June 22, 2023"
+            },
+            {
+                "title": "Total immersion, Serious fun! with Hello-World!",
+                "url": "https://www.hello-world.com/",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "<strong>Hello</strong>-<strong>world</strong>.com: Learn languages with games, songs and vocabulary, Total immersion, Serious fun! with <strong>Hello</strong>-<strong>World</strong>!",
+                "profile": {
+                    "name": "Hello-world",
+                    "url": "https://www.hello-world.com/",
+                    "long_name": "hello-world.com",
+                    "img": "https://imgs.search.brave.com/m2gWA8FFYfOeHl4HRclzl_dkZMHLAsUwiXgp7W11wr4/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTU0Mzg1MzQy/YWI0OGRmZjdiYjk3/YzIwNjI2ZTM3MzFl/OGRiYmEwOTRiODQ0/ZWVhYmM4OGFkNjU1/OTgyOGRjOC93d3cu/aGVsbG8td29ybGQu/Y29tLw"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "hello-world.com",
+                    "hostname": "www.hello-world.com",
+                    "favicon": "https://imgs.search.brave.com/m2gWA8FFYfOeHl4HRclzl_dkZMHLAsUwiXgp7W11wr4/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTU0Mzg1MzQy/YWI0OGRmZjdiYjk3/YzIwNjI2ZTM3MzFl/OGRiYmEwOTRiODQ0/ZWVhYmM4OGFkNjU1/OTgyOGRjOC93d3cu/aGVsbG8td29ybGQu/Y29tLw",
+                    "path": ""
+                }
+            },
+            {
+                "title": "hello world - YouTube",
+                "url": "https://www.youtube.com/watch?v=Yw6u6YkTgQ4",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "a test of a virtual singer software - http://www.myriad-online.com/en/products/virtualsinger.htm also, soundcloud! https://soundcloud.com/louie-zong/<strong>hello</strong>-<strong>world</strong>",
+                "page_age": "2018-03-31T00:00:00",
+                "profile": {
+                    "name": "YouTube",
+                    "url": "https://www.youtube.com/watch?v=Yw6u6YkTgQ4",
+                    "long_name": "youtube.com",
+                    "img": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "video",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "youtube.com",
+                    "hostname": "www.youtube.com",
+                    "favicon": "https://imgs.search.brave.com/Wg4wjE5SHAargkzePU3eSLmWgVz84BEZk1SjSglJK_U/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOTkyZTZiMWU3/YzU3Nzc5YjExYzUy/N2VhZTIxOWNlYjM5/ZGVjN2MyZDY4Nzdh/ZDYzMTYxNmI5N2Rk/Y2Q3N2FkNy93d3cu/eW91dHViZS5jb20v",
+                    "path": "  › louie zong"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/zPD1PWFA1Ia2DUIXKYWbIFLj_GFe8asT429i3YqtvCU/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9Z/dzZ1NllrVGdRNC9t/YXhyZXNkZWZhdWx0/LmpwZw",
+                    "original": "https://i.ytimg.com/vi/Yw6u6YkTgQ4/maxresdefault.jpg",
+                    "logo": false
+                },
+                "age": "March 31, 2018"
+            },
+            {
+                "title": "Hello World: Being Human in the Age of Algorithms: 9780393634990: Computer Science Books @ Amazon.com",
+                "url": "https://www.amazon.com/Hello-World-Being-Human-Algorithms/dp/039363499X",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "<strong>Hello</strong> <strong>World</strong>: Being Human in the Age of Algorithms: 9780393634990: Computer Science Books @ Amazon.com",
+                "profile": {
+                    "name": "Amazon",
+                    "url": "https://www.amazon.com/Hello-World-Being-Human-Algorithms/dp/039363499X",
+                    "long_name": "amazon.com",
+                    "img": "https://imgs.search.brave.com/1SmDks4CPsuEM1txgXrUz2cuSfM8XLjvrvTIacq4V2s/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvODYwYzA4NzE1/OTE2NzM1YTQ1OWNj/Zjg0MmI0Y2U2YzI2/ODE5NmZhNGZjODA4/N2Y0NmI1ZmU4ZWQy/ZmM2MjdmMS93d3cu/YW1hem9uLmNvbS8"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "amazon.com",
+                    "hostname": "www.amazon.com",
+                    "favicon": "https://imgs.search.brave.com/1SmDks4CPsuEM1txgXrUz2cuSfM8XLjvrvTIacq4V2s/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvODYwYzA4NzE1/OTE2NzM1YTQ1OWNj/Zjg0MmI0Y2U2YzI2/ODE5NmZhNGZjODA4/N2Y0NmI1ZmU4ZWQy/ZmM2MjdmMS93d3cu/YW1hem9uLmNvbS8",
+                    "path": "› Hello-World-Being-Human-Algorithms  › dp  › 039363499X"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/JMaJy9r1a25vIeGTdUl4CBn3N_zGb9LMPYjHsQMnGcM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NTFpclZ6cDh2SUwu/anBn",
+                    "original": "https://m.media-amazon.com/images/I/51irVzp8vIL.jpg",
+                    "logo": false
+                }
+            },
+            {
+                "title": "Hello World album the first album composed with an artificial intelligence",
+                "url": "https://www.helloworldalbum.net/",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "<strong>Hello</strong> <strong>World</strong> is the first music album composed by AI + artists (Stromae, Kiesza, The Pirouettes, C Duncan, Michael Lovett from NZCA Lines, and many more), and it is the result of a long adventure. READ MORE...",
+                "page_age": "2018-01-03T00:00:00",
+                "profile": {
+                    "name": "SKYGGE",
+                    "url": "https://www.helloworldalbum.net/",
+                    "long_name": "helloworldalbum.net",
+                    "img": "https://imgs.search.brave.com/hI_ggmrYR_mBDZkgUoYTulkXShKTPiDjypZ9ObBYDM8/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOWM3OWI1ODY3/MTczZWI2OTJhNjA5/ZDJmYTE5NWY3Nzc2/NzQxYmQzNjhjYzNk/MzViNTU5ZmFkM2U4/NTk3OTVjNy93d3cu/aGVsbG93b3JsZGFs/YnVtLm5ldC8"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "helloworldalbum.net",
+                    "hostname": "www.helloworldalbum.net",
+                    "favicon": "https://imgs.search.brave.com/hI_ggmrYR_mBDZkgUoYTulkXShKTPiDjypZ9ObBYDM8/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvOWM3OWI1ODY3/MTczZWI2OTJhNjA5/ZDJmYTE5NWY3Nzc2/NzQxYmQzNjhjYzNk/MzViNTU5ZmFkM2U4/NTk3OTVjNy93d3cu/aGVsbG93b3JsZGFs/YnVtLm5ldC8",
+                    "path": ""
+                },
+                "age": "January 3, 2018"
+            },
+            {
+                "title": "Hello World · Home",
+                "url": "https://www.projecthelloworld.org/",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "<strong>Hello</strong> <strong>World</strong> is a charity with a solution. Solar-powered, internet-enabled education hubs. Built by the community, for the community.",
+                "page_age": "2021-07-19T00:00:00",
+                "profile": {
+                    "name": "Projecthelloworld",
+                    "url": "https://www.projecthelloworld.org/",
+                    "long_name": "projecthelloworld.org",
+                    "img": "https://imgs.search.brave.com/1U49CBAVF1SDAKX7exHKm3dLtsjGwAT6KT-enTvI2uc/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZTIxZjhhMWI4/YzQ3ZDA0MTNlNjBi/YTJhNTY5YjIxN2Ri/NDU0YmM1NDhjZjU1/MTRmNDJjZGU2NGFi/YTRhOTgxOC93d3cu/cHJvamVjdGhlbGxv/d29ybGQub3JnLw"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "projecthelloworld.org",
+                    "hostname": "www.projecthelloworld.org",
+                    "favicon": "https://imgs.search.brave.com/1U49CBAVF1SDAKX7exHKm3dLtsjGwAT6KT-enTvI2uc/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvZTIxZjhhMWI4/YzQ3ZDA0MTNlNjBi/YTJhNTY5YjIxN2Ri/NDU0YmM1NDhjZjU1/MTRmNDJjZGU2NGFi/YTRhOTgxOC93d3cu/cHJvamVjdGhlbGxv/d29ybGQub3JnLw",
+                    "path": ""
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/Fwir59OueQu-vklNxo2-ZSVtQLUxG_m3r6s7of7UJGo/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jZG4u/cHJvZC53ZWJzaXRl/LWZpbGVzLmNvbS82/M2JjMTdhYTBiZmE3/YTIzMjJlYTc3OGIv/NjNjMTc1NzBhYTk4/NjZmZDZhZDU2NDMw/X2hlbGxvLXdvcmxk/LW9wZW5ncmFwaC1p/bWFnZS5wbmc",
+                    "original": "https://cdn.prod.website-files.com/63bc17aa0bfa7a2322ea778b/63c17570aa9866fd6ad56430_hello-world-opengraph-image.png",
+                    "logo": false
+                },
+                "age": "July 19, 2021"
+            },
+            {
+                "title": "A modern 'Hello, World' program needs more than just code - Stack Overflow",
+                "url": "https://stackoverflow.blog/2020/03/05/a-modern-hello-world-program-needs-more-than-just-code/",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "Engage the <strong>world</strong>’s technology talent with your employer brand. ... The tradition of a &quot;<strong>Hello</strong>, <strong>World</strong>&quot; program goes back at least to 1978.",
+                "page_age": "2020-05-03T00:00:00",
+                "profile": {
+                    "name": "Stackoverflow",
+                    "url": "https://stackoverflow.blog/2020/03/05/a-modern-hello-world-program-needs-more-than-just-code/",
+                    "long_name": "stackoverflow.blog",
+                    "img": "https://imgs.search.brave.com/nHSlmEoUbL41OIgI1Gz6bkrt7aSMVybujjhQXpfM4-c/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDgyNjY2MTMx/MGMzYmRlZGI5N2I0/NzkxZjhjMTZlNzI0/M2Q3ZjEzY2JhNjZh/ODc0NDYzYzg3MDI3/OTU3ZjU5ZS9zdGFj/a292ZXJmbG93LmJs/b2cv"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "article",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "stackoverflow.blog",
+                    "hostname": "stackoverflow.blog",
+                    "favicon": "https://imgs.search.brave.com/nHSlmEoUbL41OIgI1Gz6bkrt7aSMVybujjhQXpfM4-c/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNDgyNjY2MTMx/MGMzYmRlZGI5N2I0/NzkxZjhjMTZlNzI0/M2Q3ZjEzY2JhNjZh/ODc0NDYzYzg3MDI3/OTU3ZjU5ZS9zdGFj/a292ZXJmbG93LmJs/b2cv",
+                    "path": "› 2020  › 03  › 05  › a-modern-hello-world-program-needs-more-than-just-code"
+                },
+                "thumbnail": {
+                    "src": "https://imgs.search.brave.com/1xo6xkTxPOna1PgfYvx8nCjk5h8shViB4FjeQYwAHII/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9jZG4u/c3RhY2tvdmVyZmxv/dy5jby9pbWFnZXMv/am83bjRrOHMvcHJv/ZHVjdGlvbi8wYWRi/MWQ4MWM0YWQ3ZjRh/YTkyNmEzZmU0NDgz/M2E4NjA0MTNjZWM5/LTIwMDB4MTUwMC5q/cGc_dz0xMjAwJmZt/PXBuZyZhdXRvPWZv/cm1hdA",
+                    "original": "https://cdn.stackoverflow.co/images/jo7n4k8s/production/0adb1d81c4ad7f4aa926a3fe44833a860413cec9-2000x1500.jpg?w=1200&fm=png&auto=format",
+                    "logo": false
+                },
+                "age": "May 3, 2020"
+            },
+            {
+                "title": "Go by Example: Hello World",
+                "url": "https://gobyexample.com/hello-world",
+                "is_source_local": false,
+                "is_source_both": false,
+                "description": "Our first program will print the classic “<strong>hello</strong> <strong>world</strong>” message. Here’s the full source code · To run the program, put the code in <strong>hello</strong>-<strong>world</strong>.go and use go run",
+                "profile": {
+                    "name": "Gobyexample",
+                    "url": "https://gobyexample.com/hello-world",
+                    "long_name": "gobyexample.com",
+                    "img": "https://imgs.search.brave.com/Xjhqzob7TC4fzLj6Ph9hqBqkzoDFoy0tvPf0KKDMFPs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTc3YTA0M2Ux/YTgzOGQ4YjY3NjUx/NTAyYTMyYWY3ZTNj/Yjk1ZDAxMzQxNDNl/NDZhODNiMGEyZjli/YmU1ZTUxYi9nb2J5/ZXhhbXBsZS5jb20v"
+                },
+                "language": "en",
+                "family_friendly": true,
+                "type": "search_result",
+                "subtype": "generic",
+                "is_live": false,
+                "meta_url": {
+                    "scheme": "https",
+                    "netloc": "gobyexample.com",
+                    "hostname": "gobyexample.com",
+                    "favicon": "https://imgs.search.brave.com/Xjhqzob7TC4fzLj6Ph9hqBqkzoDFoy0tvPf0KKDMFPs/rs:fit:32:32:1:0/g:ce/aHR0cDovL2Zhdmlj/b25zLnNlYXJjaC5i/cmF2ZS5jb20vaWNv/bnMvNTc3YTA0M2Ux/YTgzOGQ4YjY3NjUx/NTAyYTMyYWY3ZTNj/Yjk1ZDAxMzQxNDNl/NDZhODNiMGEyZjli/YmU1ZTUxYi9nb2J5/ZXhhbXBsZS5jb20v",
+                    "path": "› hello-world"
+                }
+            }
+        ],
+        "family_friendly": true
+    }
+}

@@ -29,7 +29,7 @@ Brave Search Python Client supporting Web, Image, News and Video search.
 * Various Examples:
   - [Streamlit App](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
   - [Jupyter Notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
-  - [Simple Python Script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/search.py)
+  - [Simple Python Script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
 * Thorough validation of both [requests](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/src/brave_search_python_client/requests.py) and [responses](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/tree/main/src/brave_search_python_client/responses) (powered by Pydantic)
 * [100% test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client) including unit and E2E tests (reported on Codecov)
 * 100% compliance with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
@@ -136,7 +136,7 @@ async def search():
 asyncio.run(search())
 ```
 
-[Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/search.py)
+[Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
 
 ## Command Line Interface (CLI)
 
