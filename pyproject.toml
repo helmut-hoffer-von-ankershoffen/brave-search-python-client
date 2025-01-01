@@ -54,7 +54,7 @@ dependencies = [
 ]
 
 [project.scripts]
-brave-search = "brave_search_python_client.cli:cli"
+brave-search-python-client = "brave_search_python_client.cli:cli"
 
 [project.urls]
 Homepage = "https://helmuthva.gitbook.io/brave-search-api-client"

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Check if an argument was provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 YOUR_BRAVE_SEARCH_API_KEY"
+    exit 1
+fi
+
+# Create .env file with the API key
+echo "BRAVE_SEARCH_API_KEY=$1" > .env
+
+echo "Created .env file with Brave Search API key"

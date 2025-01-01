@@ -2,7 +2,7 @@ import importlib.metadata
 import pathlib
 
 from .client import BraveSearch
-from .types import (
+from .responses import (
     BraveSearchAPIError,
     BraveSearchClientError,
     BraveSearchError,

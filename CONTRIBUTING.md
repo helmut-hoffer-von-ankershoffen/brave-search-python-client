@@ -38,7 +38,20 @@ uv run pre-commit install # see https://pre-commit.com/
 
 ## Code
 
-TK
+```
+src/brave_search_python_client/
+├── __init__.py          # Package initialization
+├── client.py            # Main client implementation
+├── cli.py               # Command Line Interface
+├── constants.py         # Constants
+├── requests.py          # Pydantic models for requests
+└── responses/           # Pydantic models for responses
+tests/
+├── client_test.py       # Client tests including response validation
+├── requests_tests.py    # Tests for request validation
+├── cli_test.py          # CLI tests
+└── fixtures/            # Example responses
+```
 
 ## Build
 
@@ -69,15 +82,13 @@ Notes:
 
 ## Docker
 
-```bash
+```shell
 docker build -t brave-search-python-client .
 ```
 
-```bash
+```shell
 docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY brave-search-python-client --help
 ```
-
-
 
 ## Pull Request Guidelines
 

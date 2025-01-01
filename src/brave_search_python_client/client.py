@@ -21,7 +21,7 @@ from .requests import (
     WebSafeSearchType,
     WebSearchRequest,
 )
-from .types import (
+from .responses import (
     BraveSearchAPIError,
     BraveSearchClientError,
     ImageSearchApiResponse,

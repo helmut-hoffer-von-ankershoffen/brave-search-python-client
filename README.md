@@ -27,27 +27,205 @@
 
 Brave Search Python Client supporting Web, Image, News and Video search.
 
-TK
+## Key Features
 
-## Client
+* Modern async Python client for Web, Image, Video and News search powered by [Brave Search](https://brave.com/search/api/)
+* Robust request and response validation powered by Pydantic
+* Flexible CLI accessible via uvx or Docker
+* 100% test coverage
+* 100% compliance with Ruff linting and formatting standards
+* 100% up-to-date dependencies through automated updates
+* A-grade code quality ratings in security, maintainability, and reliability (verified by SonarQube)
 
-TK
+## Python Client
 
-## CLI
+### Basic Web Search
 
-TK
+```python
+from brave_search import BraveSearch
+
+# Initialize client with your API key
+client = BraveSearch(api_key="YOUR-API-KEY")
+
+# Perform a web search
+results = client.web_search("brave browser")
+
+# Access search results
+for result in results.web:
+    print(f"Title: {result.title}")
+    print(f"URL: {result.url}")
+    print(f"Description: {result.description}")
+```
+
+### Image Search
+
+```python
+# Search for images
+image_results = client.image_search("cute cats")
+
+for image in image_results.images:
+    print(f"Image URL: {image.url}")
+    print(f"Source: {image.source}")
+```
+
+### News Search
+
+```python
+# Search for news articles
+news_results = client.news_search("technology")
+
+for article in news_results.news:
+    print(f"Title: {article.title}")
+    print(f"Published: {article.published}")
+```
+
+### Video Search
+
+```python
+# Search for videos
+video_results = client.video_search("python tutorials")
+
+for video in video_results.videos:
+    print(f"Title: {video.title}")
+    print(f"URL: {video.url}")
+```
+
+### Using Search Parameters
+
+```python
+# Advanced search with parameters
+results = client.web_search(
+    "python programming",
+    country="US",
+    search_lang="en",
+)
+```
+
+## Command Line Interface (CLI)
+
+### Create .dev file
+
+Create `.env` file with API key:
+
+```shell
+./setup--dot-env YOUR_BRAVE_SEARCH_API_KEY
+```
+
+### Run with uvx
+
+Show available commands:
+
+```shell
+uvx brave-search-python-client --help
+```
+
+Execute web search:
+
+```shell
+uvx brave-search-python-client web "hello world"
+```
+
+Show options for web search
+
+```shell
+uvx brave-search-python-client web --help
+```
+
+Execute image search:
+
+```shell
+uvx brave-search-python-client image "hello world"
+```
+
+Show options for image search
+
+```shell
+uvx brave-search-python-client image --help
+```
+
+Execute videos search:
+
+```shell
+uvx brave-search-python-client video "hello world"
+```
+
+Show options for videos search
+
+```shell
+uvx brave-search-python-client video --help
+```
+
+Execute news search:
+
+```shell
+uvx brave-search-python-client video "hello world"
+```
+
+### Run with Docker
+
+Show options for news search
+
+```shell
+docker run helmuthva/brave-search-python-client news --help
+```
 
 ### Docker
 
-Run the client:
+Note: Replace YOUR_BRAVE_SEARCH_API_KEY with your API key in the following examples.
+
+Show available commands:
 
 ```bash
-docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client --help
+docker run helmuthva/brave-search-python-client --help
 ```
+
+Execute web search:
+
 ```bash
 docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client web "hello world"
 ```
 
+Show options for web search
+
+```bash
+docker run helmuthva/brave-search-python-client web --help
+```
+
+Execute image search:
+
+```bash
+docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client image "hello world"
+```
+
+Show options for image search
+
+```bash
+docker run helmuthva/brave-search-python-client image --help
+```
+
+Execute videos search:
+
+```bash
+docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client video "hello world"
+```
+
+Show options for videos search
+
+```bash
+docker run helmuthva/brave-search-python-client video --help
+```
+
+Execute news search:
+
+```bash
+docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client video "hello world"
+```
+
+Show options for news search
+
+```bash
+docker run helmuthva/brave-search-python-client news --help
+```
 
 ## Extra: MCP Server
 
