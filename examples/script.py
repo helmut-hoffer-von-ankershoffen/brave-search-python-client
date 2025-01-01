@@ -14,17 +14,17 @@ from brave_search_python_client import (
     WebSearchRequest,
 )
 
-# Load .env file and check for Brave Search API Key
+# Load .env file and get Brave Search API key from environment
 load_dotenv()
 api_key = os.getenv("BRAVE_SEARCH_API_KEY")
 if not api_key:
-    raise Exception("BRAVE_SEARCH_API_KEY found in environment")
+    raise Exception("BRAVE_SEARCH_API_KEY not found in environment")
 
 
 async def search():
     """Run various searches using the Brave Search Python Client"""
 
-    # Initialize the BraveSearch client, using the API key from the environment
+    # Initialize the Brave Search Python client, using the API key from the environment
     bs = BraveSearch()
 
     # Perform a web search
@@ -48,7 +48,6 @@ async def search():
             search_lang=LanguageCode.DE,
         )
     )
-
     print("# Advanced search results")
     for result in response.web.results if response.web else []:
         print(f"[{result.title}]({result.url})")
@@ -72,6 +71,6 @@ async def search():
         print(f"![{item.title}]({item.url})")
 
 
-# Execute the search function
-# Alternatively use await(search()) in an async function
+# Run the async search function
+# Alternatively use await search() from an async function
 asyncio.run(search())
