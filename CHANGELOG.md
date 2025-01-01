@@ -4,6 +4,13 @@
 
 ### 📚 Documentation
 
+- *(media)* Absolute links for PyPI - ([be729f4](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/be729f4c6a808ba8134189ad54f7d834959ca222))
+
+
+## [0.0.10](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.9..v0.0.10) - 2025-01-01
+
+### 📚 Documentation
+
 - *(readme)* Add media - ([2299600](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/2299600dc222bab31902b5623cbb69c351f5cac4))
 
 ### ⚙️ Miscellaneous Tasks
