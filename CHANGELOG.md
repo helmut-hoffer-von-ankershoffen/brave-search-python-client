@@ -4,6 +4,13 @@
 
 ### ⛰️  Features
 
+- *(examples)* Jupyter Notebook and simple Python script - ([bacc4df](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/bacc4df794992b0174ccc3ba8fac900dcadfbd42))
+
+
+## [0.0.7](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.6..v0.0.7) - 2025-01-01
+
+### ⛰️  Features
+
 - *(example)* Streamlit app - ([833f255](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/833f255fcdd8591db4e5ae58dd254cd9c1c5c955))
 
 
