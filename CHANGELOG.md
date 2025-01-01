@@ -4,6 +4,13 @@
 
 ### 🐛 Bug Fixes
 
+- *(client)* Mock data loading when imported - ([644c21f](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/644c21f1eb05a95eeb1c93b5c138c8eef91a769a))
+
+
+## [0.1.4](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.1.3..v0.1.4) - 2025-01-01
+
+### 🐛 Bug Fixes
+
 - *(client)* Mock data loading when imported - ([8d4cc14](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/8d4cc14091144345a02c1ed2a499d43c5af45b61))
 
 
