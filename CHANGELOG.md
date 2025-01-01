@@ -2,6 +2,13 @@
 
 ## [unreleased]
 
+### ⚙️ Miscellaneous Tasks
+
+- *(github)* Adapt to renamed command - ([211bb41](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/211bb4138b38bb730d3e0a612617ade24cc7f6f8))
+
+
+## [0.0.4](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.3..v0.0.4) - 2025-01-01
+
 ### 📚 Documentation
 
 - Basic documentation - ([9384f79](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/9384f799ba2da1fe56f90157a901bd5f9bcff054))
