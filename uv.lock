@@ -203,6 +203,7 @@ dependencies = [
     { name = "httpx" },
     { name = "pydantic" },
     { name = "python-dotenv" },
+    { name = "streamlit" },
     { name = "tenacity" },
     { name = "typer" },
 ]
@@ -229,7 +230,6 @@ dev = [
 ]
 examples = [
     { name = "jupyter" },
-    { name = "streamlit" },
 ]
 
 [package.dev-dependencies]
@@ -275,7 +275,7 @@ requires-dist = [
     { name = "pytest-xdist", extras = ["psutil"], marker = "extra == 'dev'", specifier = ">=3.6.1" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.8.4" },
-    { name = "streamlit", marker = "extra == 'examples'", specifier = ">=1.41.1" },
+    { name = "streamlit", specifier = ">=1.41.1" },
     { name = "tenacity", specifier = ">=9.0.0" },
     { name = "tomli", marker = "extra == 'dev'", specifier = ">=2.1.0" },
     { name = "typer", specifier = ">=0.15.1" },
