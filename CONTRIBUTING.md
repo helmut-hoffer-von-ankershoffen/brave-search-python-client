@@ -52,18 +52,34 @@ examples/                # Example code demonstrating use of hte client
 
 ## Run
 
+### .env file
+
+Don't forget to run
+
+
+
 ### CLI
 
-```bash
+```shell
 uv run brave-search-python-client --help
 ```
 
-### Extra: Streamlit Example App
+### Example: Streamlit Example App
 
-```bash
-uv sync --all-extras # streamlit is an extra of this package
+```shell
+uv sync --all-extras # required streamlit dependency part of the examples extra, see pyproject.toml
 sreamlit run examples/streamlit.py
 ```
+
+### Example: Jupyter Notebook
+
+```bash
+uv sync --all-extras # required streamlit dependency part of the examples extra, see pyproject.toml
+```
+
+Install the [Jupyter extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
+
+Click on `examples/jupyter.ipynb` in VSCode and run it
 
 ## Build
 

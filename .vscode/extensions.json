@@ -12,6 +12,7 @@
         "ms-python.debugpy",
         "ms-python.python",
         "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
         "oderwat.indent-rainbow",
         "sonarsource.sonarlint-vscode",
         "tamasfe.even-better-toml",

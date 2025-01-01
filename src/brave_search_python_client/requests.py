@@ -449,7 +449,7 @@ class NewsSearchRequest(BaseSearchRequest):
         description="Filters search results for adult content. The following values are supported: off: No filtering is done. moderate: Filters explicit content, like images and videos, but allows adult domains in the search results. strict: Drops all adult content from search results.",
     )
     freshness: str | None = Field(
-        None,
+        default=None,
         description="Filters search results by when they were discovered. Values: pd (24h), pw (7d), pm (31d), py (365d), or YYYY-MM-DDtoYYYY-MM-DD for custom range.",
     )
     extra_snippets: bool | None = Field(
