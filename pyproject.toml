@@ -2,6 +2,7 @@
 name = "brave-search-python-client"
 version = "0.0.6"
 description = "🦁 Brave Search Python Client supporting Web, Image, News and Video search."
+readme = "README.md"
 authors = [
     { name = "Helmut Hoffer von Ankershoffen", email = "helmuthva@googlemail.com" },
 ]
@@ -23,6 +24,7 @@ keywords = [
     "typer",
     "uv",
 ]
+
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
@@ -90,6 +92,8 @@ dev = [
 
 
 [project.optional-dependencies]
+streamlit = ["streamlit>=1.41.1"]
+
 # used by uv pip install -e ".[dev]", as used within nox (uv run nox)
 dev = [
     "bump-my-version>=0.29.0",

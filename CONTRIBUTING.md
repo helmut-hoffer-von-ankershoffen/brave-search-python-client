@@ -25,11 +25,6 @@ uv run pre-commit install             # install pre-commit hooks, see https://pr
 
 ### Linux
 
-Notes:
-
-- Not yet validated
-- .github/workflows/test-and-report.yml might provide further information
-
 ```shell
 sudo sudo apt install -y curl jq libxml2-utils gnupg2  # tooling
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash # act
@@ -46,11 +41,28 @@ src/brave_search_python_client/
 ├── constants.py         # Constants
 ├── requests.py          # Pydantic models for requests
 └── responses/           # Pydantic models for responses
-tests/
+tests/                   # Unit and E2E tests
 ├── client_test.py       # Client tests including response validation
 ├── requests_tests.py    # Tests for request validation
 ├── cli_test.py          # CLI tests
 └── fixtures/            # Example responses
+examples/                # Example code demonstrating use of hte client
+├── streamlit.py         # Streamlit App
+```
+
+## Run
+
+### CLI
+
+```bash
+uv run brave-search-python-client --help
+```
+
+### Extra: Streamlit Example App
+
+```bash
+uv sync --all-extras # streamlit is an extra of this package
+sreamlit run examples/streamlit.py
 ```
 
 ## Build
@@ -69,18 +81,18 @@ uv run nox -s lint      # run formatting and linting
 uv run nox -s audit     # run security and license audit, inc. sbom generation
 ```
 
-## Running GitHub CI workflow locally
-
-Notes:
-
-- Workflow defined in .github/workflows/ci.yml
-- Calls all build steps defined in noxfile.py
+### Running GitHub CI workflow locally
 
 ```shell
 ./github-action-run.sh
 ```
 
-## Docker
+Notes:
+
+- Workflow defined in .github/workflows/*.yml
+- test-and-report.yml calls all build steps defined in noxfile.py
+
+### Docker
 
 ```shell
 docker build -t brave-search-python-client .
