@@ -2,6 +2,13 @@
 
 ## [unreleased]
 
+### 📚 Documentation
+
+- *(readme)* Polish - ([8b92c6f](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/8b92c6f4e52362ee9504e4f8d2845c5eea4a2c2c))
+
+
+## [0.1.5](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.1.4..v0.1.5) - 2025-01-01
+
 ### 🐛 Bug Fixes
 
 - *(client)* Mock data loading when imported - ([644c21f](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/644c21f1eb05a95eeb1c93b5c138c8eef91a769a))
