@@ -1,5 +1,16 @@
 [🦁 Brave Search Python Client](https://helmuthva.gitbook.io/brave-search-api-client)
 
+## [unreleased]
+
+### ⛰️  Features
+
+- *(mocking)* If API Key is set to brave_search_python_client.MOCK_API_KEY the search methods return mock data. Useful for integration testing - ([b5a34d7](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/b5a34d74bfd754c24af2220f2eec1354a1e8c19d))
+
+### 🚜 Refactor
+
+- *(codesmell)* Repeated use of strings in tests - ([f7f8622](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/f7f862223e4e638757210930fcce45d3d3353442))
+
+
 ## [0.0.12](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.11..v0.0.12) - 2025-01-01
 
 ### 🚜 Refactor
