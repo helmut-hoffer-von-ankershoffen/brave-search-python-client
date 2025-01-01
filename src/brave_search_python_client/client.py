@@ -5,6 +5,7 @@ from urllib.parse import urljoin, urlparse
 
 import httpx
 from tenacity import AsyncRetrying, RetryError, stop_after_attempt, wait_fixed
+import pathlib
 
 from brave_search_python_client.constants import (
     BASE_URL,
@@ -113,8 +114,14 @@ class BraveSearch:
 
     def _load_mock_data(self, search_type: SearchType):
         """Helper method to load mock data for testing purposes."""
-        with open(f"{MOCK_DATA_PATH}/{search_type}.json") as f:
-            return json.loads(f.read())
+        import importlib.resources
+        
+        # Get package root directory
+        package_root = pathlib.Path(__file__).parent.parent
+        mock_path = package_root / "tests/mock_data" / f"{search_type}.json"
+        
+        with open(mock_path) as f:
+            return json.load(f)
 
     def _dump_response(self, response: httpx.Response) -> None:
         """Helper method to dump API response to a file."""
