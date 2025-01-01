@@ -2,6 +2,17 @@
 
 ## [unreleased]
 
+### 🚜 Refactor
+
+- *(client)* Use request objects; enh(validation): now complete; chore(devcontainer): include - ([4410559](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/4410559cee42894c323d7f46234d4d3310f627fb))
+
+### 📚 Documentation
+
+- Polish - ([7afc490](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/7afc4901f156daadcd4bfba206811858772d1458))
+
+
+## [0.0.5](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.4..v0.0.5) - 2025-01-01
+
 ### ⚙️ Miscellaneous Tasks
 
 - *(github)* Adapt to renamed command - ([211bb41](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/211bb4138b38bb730d3e0a612617ade24cc7f6f8))
