@@ -4,6 +4,13 @@
 
 ### ⛰️  Features
 
+- *(client)* Add BraveSearch.is_connnected, enabling to check if the API is reachable - ([c7ba46c](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/c7ba46cb65557a2ac22bbc5be668e7adfa216252))
+
+
+## [0.1.1](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.1.0..v0.1.1) - 2025-01-01
+
+### ⛰️  Features
+
 - *(mocking)* If API Key is set to brave_search_python_client.MOCK_API_KEY the search methods return mock data. Useful for integration testing - ([b5a34d7](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/b5a34d74bfd754c24af2220f2eec1354a1e8c19d))
 
 ### 🚜 Refactor
