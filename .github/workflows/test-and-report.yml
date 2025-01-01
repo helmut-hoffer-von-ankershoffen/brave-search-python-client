@@ -61,7 +61,7 @@ jobs:
 
       - name: Validate installation
         run: |
-          OUTPUT=$(uv run brave-search --help)
+          OUTPUT=$(uv run brave-search-python-client --help)
           if [[ "$OUTPUT" != *"built with love in Berlin"* ]]; then
           echo "Output does not contain 'built with love in Berlin'"
           exit 1
