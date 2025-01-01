@@ -17,6 +17,9 @@ from brave_search_python_client.requests import (
     WebSearchRequest,
 )
 
+TEST_QUERY = "test"
+INVALID_VALUE = "invalid"
+
 
 @pytest.mark.parametrize(
     "request_class,params",
@@ -89,13 +92,13 @@ def test_requests_base_search_request_validation(request_class, params):
         ValidationError, match="Input should be 'ALL', 'AR', 'AU', 'AT', "
     ):
         params["country"] = "USA"
-        request_class(q="test", **params)
+        request_class(q=TEST_QUERY, **params)
 
 
 def test_requests_web_search_request_validation():
     """Test specific WebSearchRequest validation."""
     base_params = {
-        "q": "test",
+        "q": TEST_QUERY,
         "country": "US",
         "search_lang": "en",
         "ui_lang": "en-US",
@@ -129,18 +132,18 @@ def test_requests_web_search_request_validation():
     with pytest.raises(
         ValidationError, match="Input should be 'off', 'moderate' or 'strict'"
     ):
-        WebSearchRequest(**base_params, safesearch="invalid")  # type: ignore
+        WebSearchRequest(**base_params, safesearch=INVALID_VALUE)  # type: ignore
 
     # Test units validation
     with pytest.raises(ValidationError, match="Input should be 'metric' or 'imperial'"):
-        WebSearchRequest(**base_params, units="invalid")  # type: ignore
+        WebSearchRequest(**base_params, units=INVALID_VALUE)  # type: ignore
 
     # Test freshness validation
     with pytest.raises(
         ValidationError,
         match="Freshness must be None, one of FreshnessType values",
     ):
-        WebSearchRequest(**base_params, freshness="invalid")  # type: ignore
+        WebSearchRequest(**base_params, freshness=INVALID_VALUE)  # type: ignore
 
     # Test valid freshness values
     for freshness in ["pd", "pw", "pm", "py"]:
@@ -156,7 +159,7 @@ def test_requests_web_search_request_validation():
 def test_requests_image_search_request_validation():
     """Test specific ImageSearchRequest validation."""
     base_params = {
-        "q": "test",
+        "q": TEST_QUERY,
         "country": "US",
         "search_lang": "en",
         "spellcheck": True,
@@ -173,13 +176,13 @@ def test_requests_image_search_request_validation():
 
     # Test safesearch validation
     with pytest.raises(ValidationError, match="Input should be 'off' or 'strict'"):
-        ImagesSearchRequest(**base_params, safesearch="moderate")  # type: ignore
+        ImagesSearchRequest(**base_params, safesearch=INVALID_VALUE)  # type: ignore
 
 
 def test_requests_video_search_request_validation():
     """Test specific VideoSearchRequest validation."""
     base_params = {
-        "q": "test",
+        "q": TEST_QUERY,
         "country": "US",
         "search_lang": "en",
         "ui_lang": "en-US",
@@ -211,7 +214,7 @@ def test_requests_video_search_request_validation():
         ValidationError,
         match="Freshness must be None, one of FreshnessType values",
     ):
-        VideosSearchRequest(**base_params, freshness="invalid")  # type: ignore
+        VideosSearchRequest(**base_params, freshness=INVALID_VALUE)  # type: ignore
 
     # Test valid freshness values
     for freshness in ["pd", "pw", "pm", "py"]:
@@ -222,7 +225,7 @@ def test_requests_video_search_request_validation():
 def test_requests_news_search_request_validation():
     """Test specific NewsSearchRequest validation."""
     base_params = {
-        "q": "test",
+        "q": TEST_QUERY,
         "country": "US",
         "search_lang": "en",
         "ui_lang": "en-US",
@@ -254,14 +257,14 @@ def test_requests_news_search_request_validation():
     with pytest.raises(
         ValidationError, match="Input should be 'off', 'moderate' or 'strict'"
     ):
-        NewsSearchRequest(**base_params, safesearch="invalid")  # type: ignore
+        NewsSearchRequest(**base_params, safesearch=INVALID_VALUE)  # type: ignore
 
     # Test freshness validation
     with pytest.raises(
         ValidationError,
         match="Freshness must be None, one of FreshnessType values",
     ):
-        NewsSearchRequest(**base_params, freshness="invalid")  # type: ignore
+        NewsSearchRequest(**base_params, freshness=INVALID_VALUE)  # type: ignore
 
     # Test valid freshness values
     for freshness in ["pd", "pw", "pm", "py"]:
@@ -273,7 +276,7 @@ def test_requests_search_request_success_cases():
     """Test valid request cases."""
     # Web search
     web_request = WebSearchRequest(
-        q="test",
+        q=TEST_QUERY,
         country=CountryCode.ALL,
         search_lang=LanguageCode.EN,
         ui_lang=MarketCode.EN_US,
@@ -287,7 +290,7 @@ def test_requests_search_request_success_cases():
         extra_snippets=False,
         summary=False,
     )
-    assert web_request.q == "test"
+    assert web_request.q == TEST_QUERY
     assert web_request.count == 20
     assert web_request.offset == 0
     assert web_request.safesearch == WebSafeSearchType.moderate
@@ -296,20 +299,20 @@ def test_requests_search_request_success_cases():
 
     # Image search
     img_request = ImagesSearchRequest(
-        q="test",
+        q=TEST_QUERY,
         country=CountryCode.US,
         search_lang=LanguageCode.EN,
         count=100,
         safesearch=ImagesSafeSearchType.strict,
         spellcheck=True,
     )
-    assert img_request.q == "test"
+    assert img_request.q == TEST_QUERY
     assert img_request.count == 100
     assert img_request.safesearch == ImagesSafeSearchType.strict
 
     # Video search
     video_request = VideosSearchRequest(
-        q="test",
+        q=TEST_QUERY,
         country=CountryCode.US,
         search_lang=LanguageCode.EN,
         ui_lang=MarketCode.EN_US,
@@ -317,14 +320,14 @@ def test_requests_search_request_success_cases():
         offset=0,
         spellcheck=True,
     )
-    assert video_request.q == "test"
+    assert video_request.q == TEST_QUERY
     assert video_request.count == 50
     assert video_request.offset == 0
     assert video_request.ui_lang == "en-US"
 
     # News search
     news_request = NewsSearchRequest(
-        q="test",
+        q=TEST_QUERY,
         country=CountryCode.US,
         search_lang=LanguageCode.EN,
         ui_lang=MarketCode.EN_US,
@@ -335,7 +338,7 @@ def test_requests_search_request_success_cases():
         spellcheck=True,
         extra_snippets=False,
     )
-    assert news_request.q == "test"
+    assert news_request.q == TEST_QUERY
     assert news_request.count == 20
     assert news_request.offset == 9
     assert news_request.safesearch == NewsSafeSearchType.moderate
@@ -371,7 +374,7 @@ def test_requests_validate_freshness():
     with pytest.raises(ValueError):
         _validate_freshness("2023/01/01to2023/12/31")  # Wrong format
     with pytest.raises(ValueError):
-        _validate_freshness("invalid")  # Invalid value
+        _validate_freshness(INVALID_VALUE)  # Invalid value
 
 
 def test_requests_validate_result_filter():
@@ -392,7 +395,7 @@ def test_requests_validate_result_filter():
 
     # Test invalid filters
     with pytest.raises(ValueError):
-        _validate_result_filter("invalid")
+        _validate_result_filter(INVALID_VALUE)
     with pytest.raises(ValueError):
         _validate_result_filter("web,invalid")
     with pytest.raises(ValueError):
@@ -410,7 +413,7 @@ def test_requests_validate_result_filter():
 def test_requests_web_search_request_with_result_filter():
     """Test WebSearchRequest with result filter."""
     base_params = {
-        "q": "test",
+        "q": TEST_QUERY,
         "country": CountryCode.US,
         "search_lang": LanguageCode.EN,
         "ui_lang": MarketCode.EN_US,
@@ -425,7 +428,7 @@ def test_requests_web_search_request_with_result_filter():
 
     # Test invalid result filters
     with pytest.raises(ValidationError):
-        WebSearchRequest(**base_params, result_filter="invalid")
+        WebSearchRequest(**base_params, result_filter=INVALID_VALUE)
 
     with pytest.raises(ValidationError):
         WebSearchRequest(**base_params, result_filter="web,invalid,news")

@@ -9,6 +9,18 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
+# Common field descriptions
+DESC_INFOBOX_SUBTYPE = "The infobox subtype identifier"
+DESC_THUMBNAIL = (
+    "A thumbnail associated with the"  # Note: Usually followed by entity type
+)
+DESC_TYPE_IDENTIFIER = (
+    "The type identifier for"  # Note: Usually followed by entity type
+)
+DESC_AGGREGATED_INFO = (
+    "Aggregated information on"  # Note: Usually followed by entity type
+)
+
 
 class Language(BaseModel):
     """A model representing a language."""
@@ -991,7 +1003,7 @@ class AbstractGraphInfobox(Result):
 class GenericInfobox(AbstractGraphInfobox):
     """Aggregated information on a generic entity from a knowledge graph."""
 
-    subtype: Literal["generic"] = Field(description="The infobox subtype identifier")
+    subtype: Literal["generic"] = Field(description=DESC_INFOBOX_SUBTYPE)
     found_in_urls: list[str] | None = Field(
         None, description="List of urls where the entity was found"
     )
@@ -1000,13 +1012,13 @@ class GenericInfobox(AbstractGraphInfobox):
 class EntityInfobox(AbstractGraphInfobox):
     """Aggregated information on an entity from a knowledge graph."""
 
-    subtype: Literal["entity"] = Field(description="The infobox subtype identifier")
+    subtype: Literal["entity"] = Field(description=DESC_INFOBOX_SUBTYPE)
 
 
 class QAInfobox(AbstractGraphInfobox):
     """A question answer infobox."""
 
-    subtype: Literal["code"] = Field(description="The infobox subtype identifier")
+    subtype: Literal["code"] = Field(description=DESC_INFOBOX_SUBTYPE)
     data: QAPage = Field(description="The question and relevant answer")
     meta_url: MetaUrl | None = Field(
         None, description="Detailed information on the page containing the QA"
@@ -1016,7 +1028,7 @@ class QAInfobox(AbstractGraphInfobox):
 class InfoboxWithLocation(AbstractGraphInfobox):
     """An infobox with location."""
 
-    subtype: Literal["location"] = Field(description="The infobox subtype identifier")
+    subtype: Literal["location"] = Field(description=DESC_INFOBOX_SUBTYPE)
     is_location: bool = Field(description="Whether the entity a location")
     coordinates: list[float] | None = Field(
         None, description="The coordinates of the location"
@@ -1028,14 +1040,14 @@ class InfoboxWithLocation(AbstractGraphInfobox):
 class InfoboxPlace(AbstractGraphInfobox):
     """An infobox for a place, such as a business."""
 
-    subtype: Literal["place"] = Field(description="The infobox subtype identifier")
+    subtype: Literal["place"] = Field(description=DESC_INFOBOX_SUBTYPE)
     location: LocationResult = Field(description="The location result")
 
 
 class GraphInfobox(BaseModel):
     """Aggregated information on an entity shown as an infobox."""
 
-    type: Literal["graph"] = Field(description="The type identifier for infoboxes")
+    type: Literal["graph"] = Field(description=f"{DESC_TYPE_IDENTIFIER} infoboxes")
     results: (
         GenericInfobox | QAInfobox | InfoboxPlace | InfoboxWithLocation | EntityInfobox
     ) = Field(description="A list of infoboxes associated with the query")

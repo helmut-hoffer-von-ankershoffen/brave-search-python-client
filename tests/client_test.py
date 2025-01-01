@@ -20,6 +20,9 @@ from brave_search_python_client import (
     WebSearchRequest,
 )
 
+TEST_QUERY = "hello world"
+TEST_API_KEY = "TEST_API_KEY"
+RESPONSE_FILE = "response.json"
 RETRY_COUNT = 3
 
 with open("tests/fixtures/web_search_response.json") as f:
@@ -77,8 +80,8 @@ async def test_client_get_works(monkeypatch):
 
     monkeypatch.setattr(httpx.AsyncClient, "get", AsyncMock(side_effect=mock_get))
 
-    client = BraveSearch(api_key="TEST_API_KEY")
-    response = await client._get(SearchType.web, params={"q": "hello"})
+    client = BraveSearch(api_key=TEST_API_KEY)
+    response = await client._get(SearchType.web, params={"q": TEST_QUERY})
     assert response.json() == {"data": "world"}
 
 
@@ -99,7 +102,7 @@ async def test_client_get_retries(monkeypatch):
 
     monkeypatch.setattr(httpx.AsyncClient, "get", AsyncMock(side_effect=mock_get))
 
-    client = BraveSearch(api_key="TEST_API_KEY")
+    client = BraveSearch(api_key=TEST_API_KEY)
     response = await client._get(
         SearchType.web, params={"q": "hello"}, retries=RETRY_COUNT
     )
@@ -115,10 +118,10 @@ async def test_client_get_fails_without_retries(monkeypatch):
         AsyncMock(side_effect=httpx.HTTPError("Permanent failure")),
     )
 
-    client = BraveSearch(api_key="TEST_API_KEY")
+    client = BraveSearch(api_key=TEST_API_KEY)
 
     with pytest.raises(BraveSearchAPIError):
-        await client._get(SearchType.web, params={"q": "hello world"})
+        await client._get(SearchType.web, params={"q": TEST_QUERY})
 
 
 @pytest.mark.asyncio
@@ -129,7 +132,7 @@ async def test_client_get_fails_with_retries(monkeypatch):
         AsyncMock(side_effect=httpx.HTTPError("Permanent failure")),
     )
 
-    client = BraveSearch(api_key="TEST_API_KEY")
+    client = BraveSearch(api_key=TEST_API_KEY)
 
     with pytest.raises(BraveSearchAPIError):
         await client._get(
@@ -139,7 +142,7 @@ async def test_client_get_fails_with_retries(monkeypatch):
 
 @pytest.mark.asyncio
 async def test_client_routing():
-    client = BraveSearch(api_key="TEST_API_KEY")
+    client = BraveSearch(api_key=TEST_API_KEY)
 
     test_cases = [
         (
@@ -176,13 +179,13 @@ async def test_client_routing():
             return mock_response
 
         with patch.object(BraveSearch, "_get", new=AsyncMock(side_effect=mock_get)):
-            response = await search_method(request_type(q="hello world"))
+            response = await search_method(request_type(q=TEST_QUERY))
             assert isinstance(response, response_type)
 
 
 @pytest.mark.asyncio
 async def test_client_dump_response():
-    client = BraveSearch(api_key="TEST_API_KEY")
+    client = BraveSearch(api_key=TEST_API_KEY)
 
     test_cases = [
         (client.web, WebSearchRequest, mock_web_search_response_data),
@@ -199,8 +202,8 @@ async def test_client_dump_response():
             return mock_response
 
         with patch.object(BraveSearch, "_get", new=AsyncMock(side_effect=mock_get)):
-            _ = await search_method(request_type(q="hello world"), dump_response=True)
-            assert Path("response.json").exists()
-            with open("response.json") as f:
+            _ = await search_method(request_type(q=TEST_QUERY), dump_response=True)
+            assert Path(RESPONSE_FILE).exists()
+            with open(RESPONSE_FILE) as f:
                 assert json.load(f) == mock_data
-            Path("response.json").unlink()
+            Path(RESPONSE_FILE).unlink()

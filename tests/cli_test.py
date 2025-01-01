@@ -14,6 +14,10 @@ from brave_search_python_client import (
 )
 from brave_search_python_client.cli import cli
 
+TEST_QUERY = "hello world"
+BUILT_WITH_LOVE = "built with love in Berlin"
+SEARCH_QUERY_HELP = "The search query to perform"
+
 with open("tests/fixtures/web_search_response.json") as f:
     mock_web_search_response_data = json.load(f)
 mock_web_search_response = WebSearchApiResponse.model_validate(
@@ -48,7 +52,7 @@ def test_cli_built_with_love(runner):
     """Check epilog shown."""
     result = runner.invoke(cli, ["--help"])
     assert result.exit_code == 0
-    assert "built with love in Berlin" in result.output
+    assert BUILT_WITH_LOVE in result.output
     assert __version__ in result.output
 
 
@@ -57,7 +61,7 @@ def test_cli_commands(runner: CliRunner):
     for command in ["web", "images", "videos", "news"]:
         result = runner.invoke(cli, [command, "--help"])
         assert result.exit_code == 0
-        assert "The search query to perform" in result.output
+        assert SEARCH_QUERY_HELP in result.output
         assert (
             f"Search {command}" in result.output
             or f"Search the {command}" in result.output
@@ -68,25 +72,25 @@ def test_cli_commands(runner: CliRunner):
 def test_cli_search(runner: CliRunner):
     """Check search triggered"""
     with patch.object(BraveSearch, "web", return_value=mock_web_search_response):
-        result = runner.invoke(cli, ["web", "hello world"])
+        result = runner.invoke(cli, ["web", TEST_QUERY])
         assert result.exit_code == 0
         response = json.loads(result.output)
         assert response["type"] == "search"
 
     with patch.object(BraveSearch, "images", return_value=mock_image_search_response):
-        result = runner.invoke(cli, ["images", "hello world"])
+        result = runner.invoke(cli, ["images", TEST_QUERY])
         assert result.exit_code == 0
         response = json.loads(result.output)
         assert response["type"] == "images"
 
     with patch.object(BraveSearch, "videos", return_value=mock_video_search_response):
-        result = runner.invoke(cli, ["videos", "hello world"])
+        result = runner.invoke(cli, ["videos", TEST_QUERY])
         assert result.exit_code == 0
         response = json.loads(result.output)
         assert response["type"] == "videos"
 
     with patch.object(BraveSearch, "news", return_value=mock_news_search_response):
-        result = runner.invoke(cli, ["news", "hello world"])
+        result = runner.invoke(cli, ["news", TEST_QUERY])
         assert result.exit_code == 0
         response = json.loads(result.output)
         assert response["type"] == "news"
