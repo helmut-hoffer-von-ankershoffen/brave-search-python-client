@@ -4,6 +4,13 @@
 
 ### 📚 Documentation
 
+- *(keywords)* Add common synonyms - ([56af4ef](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/56af4ef404d1589feafc5feef43207653fddbdad))
+
+
+## [0.1.6](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.1.5..v0.1.6) - 2025-01-01
+
+### 📚 Documentation
+
 - *(readme)* Polish - ([8b92c6f](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/8b92c6f4e52362ee9504e4f8d2845c5eea4a2c2c))
 
 
