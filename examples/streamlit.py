@@ -11,7 +11,7 @@ from brave_search_python_client import (
 
 sidebar = st.sidebar
 api_key = api_key = sidebar.text_input(
-    "[Brave Search API key](https://brave.com/search/api/)"
+    "[Brave Search API key](https://brave.com/search/api/)", type="password"
 )
 sidebar.write(
     f" [Brave Search Python Client v{__version__}](https://helmuthva.gitbook.io/brave-search-python-client)"

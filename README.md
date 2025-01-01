@@ -28,18 +28,34 @@
 Brave Search Python Client supporting Web, Image, News and Video search.
 
 * Modern async Python client for Web, Image, Video and News search powered by [Brave Search](https://brave.com/search/api/)
-* Thorough validation of both requests and responess (powered by Pydantic)
-* 100% test coverage (unit and E2E tests)
-* 100% compliance modern linting and formatting standards (powered by Ruff)
-* 100% up-to-date dependencies through automated updates (reported on Codecov)
-* A-grade code quality ratings in security, maintainability, and reliability (verified by SonarQube)
-* 1-liner for installation and execution of command line interface (CLI) via uv(x) or Docker
-* Setup for developing in devcontainer included (supports VSCode and GitHub Codespaces)
-* MCP Server to connect Brave Search with Claude Desktop and other MCP clients
+* Thorough validation of both [requests](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/src/brave_search_python_client/requests.py) and [responses](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/tree/main/src/brave_search_python_client/responses) (powered by Pydantic)
+* [100% test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client) including unit and E2E tests (reported on Codecov)
+* 100% compliance modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
+* 100% up-to-date dependencies (monitored by [Renovate](https://github.com/renovatebot/renovate))
+* [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client) in security, maintainability, and reliability (verified by SonarQube)
+* 1-liner for installation and execution of command line interface (CLI) via [uv(x)](https://github.com/astral-sh/uv) or [Docker](https://hub.docker.com/r/helmuthva/brave-search-python-client/tags)
+* Setup for developing inside a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) included (supports VSCode and GitHub Codespaces)
+* Various Examples:
+on [Streamlit Community Cloud](https://streamlit.io/cloud)
+  - [Jupyter Notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
+  - [Simple Python Script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/search.py)
+* Later: [MCP server](https://www.anthropic.com/news/model-context-protocol) to connect Brave Search with Claude Desktop and other MCP clients
 
-## Python Client
+## Example Use
 
-Example:
+## Streamlit App
+
+[Streamlit App](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
+
+TK (Screencast)
+
+## Jupyter Notebook
+
+![Jupyter Notebook](example-jupyter.png)
+
+[Show more](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
+
+### Minimal Python Script:
 
 ```python
 import asyncio
