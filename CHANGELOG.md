@@ -2,6 +2,13 @@
 
 ## [unreleased]
 
+### 📚 Documentation
+
+- *(readme)* Start to polish - ([6a05049](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/6a05049dd2b983af219c44f9109fb92e03b12bd4))
+
+
+## [0.0.8](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.7..v0.0.8) - 2025-01-01
+
 ### ⛰️  Features
 
 - *(examples)* Jupyter Notebook and simple Python script - ([bacc4df](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/bacc4df794992b0174ccc3ba8fac900dcadfbd42))
