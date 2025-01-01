@@ -1,5 +1,14 @@
 from .client import BraveSearch
-from .constants import __project_name__, __project_path__, __version__, BASE_URL, MAX_QUERY_LENGTH, MAX_QUERY_TERMS, DEFAULT_RETRY_WAIT_TIME, MOCK_API_KEY
+from .constants import (
+    BASE_URL,
+    DEFAULT_RETRY_WAIT_TIME,
+    MAX_QUERY_LENGTH,
+    MAX_QUERY_TERMS,
+    MOCK_API_KEY,
+    __project_name__,
+    __project_path__,
+    __version__,
+)
 from .requests import (
     CountryCode,
     FreshnessType,

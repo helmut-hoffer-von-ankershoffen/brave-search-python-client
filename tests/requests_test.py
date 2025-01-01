@@ -37,6 +37,7 @@ ERROR_FRESHNESS = "Freshness must be None, one of FreshnessType values"
 WEB_NEWS_VIDEOS_NO_SPACES = "web,news,videos"
 DISCUSSIONS_FAW_INFOBOX_NO_SPACES = "discussions,faq,infobox"
 
+
 @pytest.mark.parametrize(
     "request_class,params",
     [
@@ -384,9 +385,12 @@ def test_requests_validate_result_filter():
     assert _validate_result_filter("web") == "web"
 
     # Test multiple valid filters
-    assert _validate_result_filter(WEB_NEWS_VIDEOS_NO_SPACES) == WEB_NEWS_VIDEOS_NO_SPACES
     assert (
-        _validate_result_filter(DISCUSSIONS_FAW_INFOBOX_NO_SPACES) == DISCUSSIONS_FAW_INFOBOX_NO_SPACES
+        _validate_result_filter(WEB_NEWS_VIDEOS_NO_SPACES) == WEB_NEWS_VIDEOS_NO_SPACES
+    )
+    assert (
+        _validate_result_filter(DISCUSSIONS_FAW_INFOBOX_NO_SPACES)
+        == DISCUSSIONS_FAW_INFOBOX_NO_SPACES
     )
 
     # Test invalid filters
@@ -419,7 +423,9 @@ def test_requests_web_search_request_with_result_filter():
     request = WebSearchRequest(**base_params, result_filter=WEB_NEWS_VIDEOS_NO_SPACES)
     assert request.result_filter == WEB_NEWS_VIDEOS_NO_SPACES
 
-    request = WebSearchRequest(**base_params, result_filter=DISCUSSIONS_FAW_INFOBOX_NO_SPACES)
+    request = WebSearchRequest(
+        **base_params, result_filter=DISCUSSIONS_FAW_INFOBOX_NO_SPACES
+    )
     assert request.result_filter == DISCUSSIONS_FAW_INFOBOX_NO_SPACES
 
     # Test invalid result filters

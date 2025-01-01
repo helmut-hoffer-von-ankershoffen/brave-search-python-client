@@ -1,7 +1,7 @@
+import json
 import os
 from typing import Any
-from urllib.parse import urljoin
-import json
+from urllib.parse import urljoin, urlparse
 
 import httpx
 from tenacity import AsyncRetrying, RetryError, stop_after_attempt, wait_fixed
@@ -144,7 +144,9 @@ class BraveSearch:
         """
         # For integration testing purposes, if API key is MOCK, load from mock data
         if self._api_key == MOCK_API_KEY:
-            return WebSearchApiResponse.model_validate(self._load_mock_data(SearchType.web))
+            return WebSearchApiResponse.model_validate(
+                self._load_mock_data(SearchType.web)
+            )
 
         response = await self._get(
             SearchType.web,
@@ -182,7 +184,9 @@ class BraveSearch:
 
         # For integration testing purposes, if API key is MOCK, load from mock data
         if self._api_key == MOCK_API_KEY:
-            return ImageSearchApiResponse.model_validate(self._load_mock_data(SearchType.images))
+            return ImageSearchApiResponse.model_validate(
+                self._load_mock_data(SearchType.images)
+            )
 
         response = await self._get(
             SearchType.images,
@@ -220,7 +224,9 @@ class BraveSearch:
         """
         # For integration testing purposes, if API key is MOCK, load from mock data
         if self._api_key == MOCK_API_KEY:
-            return VideoSearchApiResponse.model_validate(self._load_mock_data(SearchType.videos))
+            return VideoSearchApiResponse.model_validate(
+                self._load_mock_data(SearchType.videos)
+            )
 
         response = await self._get(
             SearchType.videos,
@@ -258,7 +264,9 @@ class BraveSearch:
         """
         # For integration testing purposes, if API key is MOCK, load from mock data
         if self._api_key == MOCK_API_KEY:
-            return NewsSearchApiResponse.model_validate(self._load_mock_data(SearchType.news))
+            return NewsSearchApiResponse.model_validate(
+                self._load_mock_data(SearchType.news)
+            )
 
         response = await self._get(
             SearchType.news,
@@ -271,3 +279,18 @@ class BraveSearch:
             self._dump_response(response)
 
         return NewsSearchApiResponse.model_validate(response.json())
+
+    async def is_connected(self) -> bool:
+        """Check if the Brave Search API is accessible. Important: This does not check if the API key is valid.
+
+        Returns:
+            bool: True if API is accessible, False otherwise.
+        """
+        parsed = urlparse(BASE_URL)
+        api_url = f"{parsed.scheme}://{parsed.netloc}/"
+        try:
+            async with httpx.AsyncClient() as client:
+                response = await client.head(api_url, timeout=5)
+                return response.status_code in (200, 303)
+        except Exception:
+            return False

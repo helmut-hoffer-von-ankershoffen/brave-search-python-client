@@ -6,6 +6,7 @@ import httpx
 import pytest
 
 from brave_search_python_client import (
+    MOCK_API_KEY,
     BraveSearch,
     BraveSearchAPIError,
     BraveSearchClientError,
@@ -18,7 +19,6 @@ from brave_search_python_client import (
     VideosSearchRequest,
     WebSearchApiResponse,
     WebSearchRequest,
-    MOCK_API_KEY
 )
 
 TEST_QUERY = "hello world"
@@ -211,7 +211,7 @@ async def test_client_dump_response():
 
 
 @pytest.mark.asyncio
-async def test_mock_data_handling():
+async def test_client_mock_data_handling():
     """Test that mock data is returned when MOCK_API_KEY is used."""
     client = BraveSearch(api_key=MOCK_API_KEY)
 
@@ -234,3 +234,54 @@ async def test_mock_data_handling():
     news_response = await client.news(NewsSearchRequest(q=TEST_QUERY))
     assert news_response == mock_news_search_response
     assert news_response.type == SearchType.news
+
+
+@pytest.mark.asyncio
+async def test_client_is_connected_success(monkeypatch):
+    """Test successful connection check."""
+
+    async def mock_head(*args, **kwargs):
+        mock_response = httpx.Response(200)
+        mock_response._request = httpx.Request("HEAD", args[0])
+        return mock_response
+
+    monkeypatch.setattr(httpx.AsyncClient, "head", AsyncMock(side_effect=mock_head))
+    client = BraveSearch(api_key=TEST_API_KEY)
+    assert await client.is_connected()
+
+    # Should also work with redirect response
+    async def mock_head_redirect(*args, **kwargs):
+        mock_response = httpx.Response(303)
+        mock_response._request = httpx.Request("HEAD", args[0])
+        return mock_response
+
+    monkeypatch.setattr(
+        httpx.AsyncClient, "head", AsyncMock(side_effect=mock_head_redirect)
+    )
+    assert await client.is_connected()
+
+
+@pytest.mark.asyncio
+async def test_client_is_connected_fail_status(monkeypatch):
+    """Test connection check with unexpected status code."""
+
+    async def mock_head(*args, **kwargs):
+        mock_response = httpx.Response(404)
+        mock_response._request = httpx.Request("HEAD", args[0])
+        return mock_response
+
+    monkeypatch.setattr(httpx.AsyncClient, "head", AsyncMock(side_effect=mock_head))
+    client = BraveSearch(api_key=TEST_API_KEY)
+    assert not await client.is_connected()
+
+
+@pytest.mark.asyncio
+async def test_client_is_connected_fail_exception(monkeypatch):
+    """Test connection check with raised exception."""
+
+    async def mock_head(*args, **kwargs):
+        raise httpx.RequestError("Connection failed")
+
+    monkeypatch.setattr(httpx.AsyncClient, "head", AsyncMock(side_effect=mock_head))
+    client = BraveSearch(api_key=TEST_API_KEY)
+    assert not await client.is_connected()
