@@ -117,8 +117,8 @@ class BraveSearch:
         import importlib.resources
         
         # Get package root directory
-        package_root = pathlib.Path(__file__).parent.parent
-        mock_path = package_root / "tests/mock_data" / f"{search_type}.json"
+        package_root = pathlib.Path(__file__).parent.parent.parent
+        mock_path = package_root / MOCK_DATA_PATH / f"{search_type}.json"
         
         with open(mock_path) as f:
             return json.load(f)
