@@ -2,6 +2,13 @@
 
 ## [unreleased]
 
+### 🐛 Bug Fixes
+
+- *(client)* Mock data loading when imported - ([c215ec2](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/c215ec2ec75b1c3616fcd33f445601b4d27ede8e))
+
+
+## [0.1.2](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.1.1..v0.1.2) - 2025-01-01
+
 ### ⛰️  Features
 
 - *(client)* Add BraveSearch.is_connnected, enabling to check if the API is reachable - ([c7ba46c](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/c7ba46cb65557a2ac22bbc5be668e7adfa216252))
