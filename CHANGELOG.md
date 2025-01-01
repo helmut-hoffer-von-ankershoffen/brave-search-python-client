@@ -2,6 +2,13 @@
 
 ## [unreleased]
 
+### ⛰️  Features
+
+- *(example)* Streamlit app - ([833f255](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/833f255fcdd8591db4e5ae58dd254cd9c1c5c955))
+
+
+## [0.0.6](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.0.5..v0.0.6) - 2025-01-01
+
 ### 🚜 Refactor
 
 - *(client)* Use request objects; enh(validation): now complete; chore(devcontainer): include - ([4410559](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/4410559cee42894c323d7f46234d4d3310f627fb))
