@@ -51,7 +51,7 @@ Brave Search Python Client supporting Web, Image, News and Video search.
 
 ## Jupyter Notebook
 
-![Jupyter Notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/jupyter.png)
+![Jupyter Notebook](https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/jupyter.png)
 
 [Show notebook code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
 

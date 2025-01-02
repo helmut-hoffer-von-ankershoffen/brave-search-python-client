@@ -30,4 +30,3 @@ build:
       - uv venv $READTHEDOCS_VIRTUALENV_PATH
       - . ${READTHEDOCS_VIRTUALENV_PATH}/bin/activate
       - UV_PROJECT_ENVIRONMENT=$READTHEDOCS_VIRTUALENV_PATH uv sync --frozen --all-extras
-      - python -m sphinx -T -b html -d docs/_build/doctrees -D language=en docs/source $READTHEDOCS_OUTPUT/html
