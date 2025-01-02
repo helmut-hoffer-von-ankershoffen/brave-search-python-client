@@ -30,7 +30,7 @@ Use Cases:
 2) Add to your AI applications to give LLMs access to current web information
 3) Use the built-in CLI in shell scripts to get search results in JSON format
 
-## Setup
+## Overview
 
 Installation is as simple as:
 
@@ -38,7 +38,11 @@ Installation is as simple as:
 uv add brave-search-python-client               # add dependency to your project
 ```
 
-If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/).
+If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/). If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install the library like this:
+
+```shell
+pip install brave-search-python-client          # add dependency to your project
+```
 
 Obtain your Brave Search API key by [signing up here](https://brave.com/search/api/). The free tier includes 2,000 requests per month.
 
@@ -48,15 +52,26 @@ If you just want to try out the client without having to write code you can use 
 
 ```shell
 export BRAVE_SEARCH_API_KEY=YOUR_API_KEY         # replace YOUR_API_KEY
-uvx brave-search-python-client --help            # show available commands
 uvx brave-search-python-client web "hello world" # search for hello world
 ```
 
-If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install the library like this:
+All advanced search options of Brave Search are supported
 
 ```shell
-pip install brave-search-python-client          # add dependency to your project
+# find all german content about AI added in the last 24 hours
+uvx brave-search-python-client web --country=DE --search-lang=de --units=metric --freshness=pd ai
 ```
+
+The CLI provides extensive help
+```shell
+uvx brave-search-python-client --help            # all CLI commands
+uvx brave-search-python-client web --help        # all options for web search
+uvx brave-search-python-client images --help     # all options image search
+uvx brave-search-python-client videos --help     # all options video search
+uvx brave-search-python-client news --help       # all options news search
+```
+
+![CLI](cli.png)
 
 ## Highlights
 
