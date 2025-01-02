@@ -98,6 +98,7 @@ You can run individual build steps - called sessions in nox as follows:
 uv run nox -s test      # run tests
 uv run nox -s lint      # run formatting and linting
 uv run nox -s audit     # run security and license audit, inc. sbom generation
+uv run nox -s docs      # build documentation, output in docs/build/html
 ```
 
 ### Running GitHub CI workflow locally

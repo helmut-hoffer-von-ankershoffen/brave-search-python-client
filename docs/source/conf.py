@@ -35,7 +35,6 @@ html_static_path = ["_static"]
 html_logo = "../../brave.png"
 html_theme_options = {
     "announcement": (
-        "Get on "
         '<a target="_blank" href="https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client">GitHub</a> - '
         '<a target="_blank" href="https://pypi.org/project/brave-search-python-client/">PyPI</a> - '
         '<a target="_blank" href="https://hub.docker.com/r/helmuthva/brave-search-python-client/tags">Docker</a> - '
