@@ -25,4 +25,5 @@ build:
       - asdf plugin add uv
       - asdf install uv latest
       - asdf global uv latest
+      - uv sync --frozen
       - uv venv $READTHEDOCS_VIRTUALENV_PATH
