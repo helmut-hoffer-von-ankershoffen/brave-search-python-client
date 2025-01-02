@@ -26,8 +26,9 @@
 Brave Search Python Client supports Web, Image, News and Video search. 
 
 Use Cases:
-1) Add it to your application so your users find what they are looking for.
+1) Add it to your Python code so your users find what they are looking for.
 2) Add it to the AI application you are building so your LLM has access to up-to-date information in the web.
+3) Use the integrated CLI in your shell scripts - it provides search results as JSON.
 
 ## Setup
 
