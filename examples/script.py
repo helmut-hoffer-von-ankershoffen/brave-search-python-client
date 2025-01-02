@@ -22,7 +22,7 @@ if not api_key:
 
 
 async def search():
-    """Run various searches using the Brave Search Python Client"""
+    """Run various searches using the Brave Search Python Client (see https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html)"""
 
     # Initialize the Brave Search Python client, using the API key from the environment
     bs = BraveSearch()

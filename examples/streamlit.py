@@ -14,7 +14,7 @@ api_key = api_key = sidebar.text_input(
     "[Brave Search API key](https://brave.com/search/api/)", type="password"
 )
 sidebar.write(
-    f" [Brave Search Python Client v{__version__}](https://helmuthva.gitbook.io/brave-search-python-client)"
+    f" [Brave Search Python Client v{__version__}](https://brave-search-python-client.readthedocs.io/)"
 )
 sidebar.write("Built with love in Berlin 🐻")
 
