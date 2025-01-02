@@ -9,7 +9,7 @@
 project = "brave-search-python-client"
 copyright = "2025, Helmut Hoffer von Ankershoffen"
 author = "Helmut Hoffer von Ankershoffen"
-release = "0.2.12"
+release = "0.2.13"
 github_username = "helmut-hoffer-von-ankershoffen"
 github_repository = "brave-search-python-client"
 
