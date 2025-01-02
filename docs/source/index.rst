@@ -3,9 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to brave-search-python-client's documentation!
-======================================================
-
+.. mdinclude:: ../../README.md
+   
 .. toctree::
    :maxdepth: 2
 
@@ -13,7 +12,6 @@ Welcome to brave-search-python-client's documentation!
    contributing
    reference_index
    changelog
-
 
 Indices and tables
 ==================
