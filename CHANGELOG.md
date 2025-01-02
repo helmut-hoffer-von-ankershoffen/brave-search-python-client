@@ -2,6 +2,13 @@
 
 ## [unreleased]
 
+### 🐛 Bug Fixes
+
+- *(examples)* Broken link in streamlit app given pivot from gitbook to read-the-docs - ([20e4358](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/20e43586d068f57066e757210eca962da56e54e0))
+
+
+## [0.1.10](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.1.9..v0.1.10) - 2025-01-02
+
 ### 📚 Documentation
 
 - Styling - ([594790c](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/594790ca847b6bfb63ebe38c7ef509b34c232c68))
