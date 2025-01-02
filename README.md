@@ -29,11 +29,11 @@ Brave Search Python Client supporting Web, Image, News and Video search.
 
 * Modern async Python client for Web, Image, Video and News search powered by [Brave Search](https://brave.com/search/api/)
 * Various Examples:
-  - [Streamlit App](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
-  - [Jupyter Notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
-  - [Simple Python Script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
+  - [Streamlit web application](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
+  - [Jupyter notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
+  - [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
 * Thorough validation of both [requests](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/src/brave_search_python_client/requests.py) and [responses](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/tree/main/src/brave_search_python_client/responses) (powered by Pydantic)
-* [Complete Reference Documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html#brave_search_python_client.BraveSearch) on Read the Docs
+* [Complete reference documenation](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html#brave_search_python_client.BraveSearch) on Read the Docs
 * [100% test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client) including unit and E2E tests (reported on Codecov)
 * Matrix tested with [Python 3.11, 3.12 and 3.13](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py) to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
 * 100% compliance with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
