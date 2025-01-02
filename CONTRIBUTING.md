@@ -1,4 +1,4 @@
-# Contributing to brave-search-python-client
+# Contributing
 
 Thank you for considering contributing to brave-search-python-client!
 
