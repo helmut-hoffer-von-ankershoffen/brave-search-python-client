@@ -6,12 +6,6 @@ from pydantic import BaseModel, Field, field_validator
 
 from .constants import MAX_QUERY_LENGTH, MAX_QUERY_TERMS
 
-# Common field descriptions
-DESC_COUNT_PAGINATION = "In order to paginate results use this parameter together with count. For example, if your user interface displays 20 search results per page, set count to 20 and offset to 0 to show the first page of results. To get subsequent pages, increment offset by 1 (e.g. 0, 1, 2). The results may overlap across multiple pages."
-DESC_FRESHNESS = "Filters search results by when they were discovered. Values: pd (24h), pw (7d), pm (31d), py (365d), or YYYY-MM-DDtoYYYY-MM-DD for custom range."
-DESC_UI_LANG = "User interface language preferred in response."
-DESC_EXTRA_SNIPPETS = "A snippet is an excerpt from a page you get as a result of the query, and extra_snippets allow you to get up to 5 additional, alternative excerpts. Only available under Free AI, Base AI, Pro AI, Base Data, Pro Data and Custom plans."
-
 
 def _validate_date_range(date_range: str) -> bool:
     """Validate date range format YYYY-MM-DDtoYYYY-MM-DD"""
@@ -263,6 +257,12 @@ class MarketCode(
 
 
 class BaseSearchRequest(BaseModel):
+    """A base class for Brave Search API requests.
+
+    This class defines the common parameters used in Brave Search API requests, including
+    the search query, country code, search language, and spellcheck settings.
+    """
+
     q: str = Field(
         ...,
         min_length=1,
@@ -297,11 +297,13 @@ class BaseSearchRequest(BaseModel):
 
 
 class WebSearchRequest(BaseSearchRequest):
+    """This class defines the parameters useable in web search."""
+
     ui_lang: MarketCode | None = Field(
         default=None,
         min_length=5,
         max_length=5,
-        description=DESC_UI_LANG,
+        description="User interface language preferred in response.",
     )
     count: int | None = Field(
         default=None,
@@ -313,7 +315,7 @@ class WebSearchRequest(BaseSearchRequest):
         default=None,
         le=9,
         ge=0,
-        description=DESC_COUNT_PAGINATION,
+        description="In order to paginate results use this parameter together with count. For example, if your user interface displays 20 search results per page, set count to 20 and offset to 0 to show the first page of results. To get subsequent pages, increment offset by 1 (e.g. 0, 1, 2). The results may overlap across multiple pages.",
     )
     safesearch: WebSafeSearchType | None = Field(
         default=None,
@@ -321,7 +323,7 @@ class WebSearchRequest(BaseSearchRequest):
     )
     freshness: str | None = Field(
         default=None,
-        description=DESC_FRESHNESS,
+        description="Filters search results by when they were discovered. Values: pd (24h), pw (7d), pm (31d), py (365d), or YYYY-MM-DDtoYYYY-MM-DD for custom range.",
     )
     text_decorations: bool | None = Field(
         default=None,
@@ -341,7 +343,7 @@ class WebSearchRequest(BaseSearchRequest):
     )
     extra_snippets: bool | None = Field(
         default=None,
-        description=DESC_EXTRA_SNIPPETS,
+        description="A snippet is an excerpt from a page you get as a result of the query, and extra_snippets allow you to get up to 5 additional, alternative excerpts. Only available under Free AI, Base AI, Pro AI, Base Data, Pro Data and Custom plans.",
     )
     summary: bool | None = Field(
         default=None,
@@ -376,6 +378,8 @@ class WebSearchRequest(BaseSearchRequest):
 
 
 class ImagesSearchRequest(BaseSearchRequest):
+    """This class defines the parameters useable in image search."""
+
     count: int | None = Field(
         default=None,
         le=100,
@@ -397,9 +401,11 @@ class ImagesSearchRequest(BaseSearchRequest):
 
 
 class VideosSearchRequest(BaseSearchRequest):
+    """This class defines the parameters useable in videos search."""
+
     ui_lang: str | None = Field(
         default=None,
-        description=DESC_UI_LANG,
+        description="User interface language preferred in response. Usually of the format ‘<language_code>-<country_code>’.",
     )
     count: int | None = Field(
         default=None,
@@ -411,11 +417,11 @@ class VideosSearchRequest(BaseSearchRequest):
         default=None,
         le=9,
         ge=0,
-        description=DESC_COUNT_PAGINATION,
+        description="In order to paginate results use this parameter together with count. For example, if your user interface displays 20 search results per page, set count to 20 and offset to 0 to show the first page of results. To get subsequent pages, increment offset by 1 (e.g. 0, 1, 2). The results may overlap across multiple pages.",
     )
     freshness: str | None = Field(
         default=None,
-        description=DESC_FRESHNESS,
+        description="Filters search results by when they were discovered. Values: pd (24h), pw (7d), pm (31d), py (365d), or YYYY-MM-DDtoYYYY-MM-DD for custom range.",
     )
 
     def model_post_init(self, *args, **kwargs):
@@ -434,9 +440,11 @@ class VideosSearchRequest(BaseSearchRequest):
 
 
 class NewsSearchRequest(BaseSearchRequest):
+    """This class defines the parameters useable in news search."""
+
     ui_lang: MarketCode | None = Field(
         default=None,
-        description=DESC_UI_LANG,
+        description="User interface language preferred in response. Usually of the format ‘<language_code>-<country_code>’.",
     )
     count: int | None = Field(
         default=None,
@@ -448,7 +456,7 @@ class NewsSearchRequest(BaseSearchRequest):
         default=None,
         le=9,
         ge=0,
-        description=DESC_COUNT_PAGINATION,
+        description="In order to paginate results use this parameter together with count. For example, if your user interface displays 20 search results per page, set count to 20 and offset to 0 to show the first page of results. To get subsequent pages, increment offset by 1 (e.g. 0, 1, 2). The results may overlap across multiple pages.",
     )
     safesearch: NewsSafeSearchType | None = Field(
         default=None,
@@ -456,11 +464,11 @@ class NewsSearchRequest(BaseSearchRequest):
     )
     freshness: str | None = Field(
         default=None,
-        description=DESC_FRESHNESS,
+        description="Filters search results by when they were discovered. Values: pd (24h), pw (7d), pm (31d), py (365d), or YYYY-MM-DDtoYYYY-MM-DD for custom range.",
     )
     extra_snippets: bool | None = Field(
         default=None,
-        description=DESC_EXTRA_SNIPPETS,
+        description="A snippet is an excerpt from a page you get as a result of the query, and extra_snippets allow you to get up to 5 additional, alternative excerpts. Only available under Free AI, Base AI, Pro AI, Base Data, Pro Data and Custom plans.",
     )
 
     def model_post_init(self, *args, **kwargs):

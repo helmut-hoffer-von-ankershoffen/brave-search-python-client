@@ -16,6 +16,10 @@ release = "0.2.12"
 
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx_autodoc_typehints",
+    "sphinx-pydantic",
+    "sphinxcontrib.autodoc_pydantic",
+    "enum_tools.autoenum",
     "sphinx_copybutton",
     "sphinx.ext.coverage",
     "sphinx_mdinclude",
