@@ -62,10 +62,10 @@ dependencies = [
 brave-search-python-client = "brave_search_python_client.cli:cli"
 
 [project.urls]
-Homepage = "https://helmuthva.gitbook.io/brave-search-api-client"
+Homepage = "https://brave-search-python-client.readthedocs.io/"
+Documentation = "https://brave-search-python-client.readthedocs.io/"
 Source = "https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client"
 Changelog = "https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/releases"
-Documentation = "https://helmuthva.gitbook.io/brave-search-python-client"
 Issues = "https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/issues"
 
 [build-system]
