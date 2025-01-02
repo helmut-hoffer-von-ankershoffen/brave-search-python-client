@@ -16,6 +16,8 @@ formats:
   - htmlzip
   - pdf
 
+
+# export READTHEDOCS_VIRTUALENV_PATH=.rtd
 build:
   os: ubuntu-22.04
   tools:
@@ -25,10 +27,11 @@ build:
       - asdf plugin add uv
       - asdf install uv latest
       - asdf global uv latest
+      - echo $READTHEDOCS_VIRTUALENV_PATH
       - uv venv $READTHEDOCS_VIRTUALENV_PATH
       - . ${READTHEDOCS_VIRTUALENV_PATH}/bin/activate
       - export UV_PROJECT_ENVIRONMENT=$READTHEDOCS_VIRTUALENV_PATH
       - echo $UV_PROJECT_ENVIRONMENT
-      - uv sync --frozen --all-extras
+      - UV_PROJECT_ENVIRONMENT=$READTHEDOCS_VIRTUALENV_PATH uv sync --frozen --all-extras
       - which python
       - python -m sphinx -T -b html -d docs/_build/doctrees -D language=en docs/source $READTHEDOCS_OUTPUT/html
