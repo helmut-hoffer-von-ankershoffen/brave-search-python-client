@@ -50,4 +50,4 @@ html_theme_options = {
     )
 }
 
-latex_engine = 'lualatex'
+latex_engine = "lualatex"
