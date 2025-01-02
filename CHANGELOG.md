@@ -4,6 +4,13 @@
 
 ### 📚 Documentation
 
+- Styling - ([594790c](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/594790ca847b6bfb63ebe38c7ef509b34c232c68))
+
+
+## [0.1.9](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.1.8..v0.1.9) - 2025-01-02
+
+### 📚 Documentation
+
 - Styling - ([ddcd909](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/ddcd909235a33d04b337becf145182eec80cbb3d))
 
 

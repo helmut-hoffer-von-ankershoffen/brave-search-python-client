@@ -1,6 +1,6 @@
 [project]
 name = "brave-search-python-client"
-version = "0.1.9"
+version = "0.1.10"
 description = "🦁 Brave Search Python Client supporting Web, Image, News and Video search."
 readme = "README.md"
 authors = [
@@ -150,7 +150,7 @@ source = ["src/"]
 
 
 [tool.bumpversion]
-current_version = "0.1.9"
+current_version = "0.1.10"
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize = ["{major}.{minor}.{patch}"]
 search = "{current_version}"
