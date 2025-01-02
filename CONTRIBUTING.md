@@ -108,7 +108,7 @@ uv run nox -s audit     # run security and license audit, inc. sbom generation
 
 Notes:
 
-- Workflow defined in .github/workflows/*.yml
+- Workflow defined in `.github/workflows/*.yml`
 - test-and-report.yml calls all build steps defined in noxfile.py
 
 ### Docker
