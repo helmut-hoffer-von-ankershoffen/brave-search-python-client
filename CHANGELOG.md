@@ -2,6 +2,13 @@
 
 ## [unreleased]
 
+### 📚 Documentation
+
+- *(readme)* Add setup section - ([0289c4d](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/0289c4de73cd0694ccb9b44612fdc3cd37abeb9e))
+
+
+## [0.1.12](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.1.11..v0.1.12) - 2025-01-02
+
 ### 🚜 Refactor
 
 - *(docs)* Simplify sphinx setup - ([c5204ec](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/c5204ec3c1c0e9d21281a9b0ccb6e3d42313705c))
