@@ -45,7 +45,7 @@ Brave Search Python Client supporting Web, Image, News and Video search.
 
 ## Usage Examples
 
-## Streamlit App
+### Streamlit App
 
 ![Watch it](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/raw/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/streamlit.gif)
 
@@ -270,7 +270,7 @@ TK
 
 ## Contributing
 
-Please read our [Contributing Guidelines](CONTRIBUTING.md) for how to setup your development environment, and guidance for making pull requests.
+Please read our [Contributing Guidelines](https://brave-search-python-client.readthedocs.io/en/latest/contributing.html) for how to setup your development environment, and guidance for making pull requests.
 
 ## Resources
 
