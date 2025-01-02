@@ -10,6 +10,8 @@ project = "brave-search-python-client"
 copyright = "2025, Helmut Hoffer von Ankershoffen"
 author = "Helmut Hoffer von Ankershoffen"
 release = "0.2.12"
+github_username = "helmut-hoffer-von-ankershoffen"
+github_repository = "brave-search-python-client"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -25,6 +27,7 @@ extensions = [
     "sphinx_mdinclude",
     "sphinxext.opengraph",
     "sphinx_inline_tabs",
+    "sphinx_toolbox",
 ]
 
 templates_path = ["_templates"]
