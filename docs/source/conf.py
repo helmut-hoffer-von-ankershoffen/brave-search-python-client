@@ -27,7 +27,7 @@ extensions = [
     "sphinx_mdinclude",
     "sphinxext.opengraph",
     "sphinx_inline_tabs",
-#    "sphinx_toolbox",
+    "sphinx_toolbox",
 ]
 
 templates_path = ["_templates"]
@@ -49,3 +49,5 @@ html_theme_options = {
         '<a target="_blank" href="https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client">Codecov</a>'
     )
 }
+
+latex_engine = 'lualatex'
