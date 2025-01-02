@@ -8,25 +8,30 @@
 
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath("../src"))
 
-project = 'brave-search-python-client'
-copyright = '2025, Helmut Hoffer von Ankershoffen'
-author = 'Helmut Hoffer von Ankershoffen'
-release = '0.1.7'
+project = "brave-search-python-client"
+copyright = "2025, Helmut Hoffer von Ankershoffen"
+author = "Helmut Hoffer von Ankershoffen"
+release = "0.1.7"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc','sphinx_copybutton','sphinx.ext.coverage','sphinx_mdinclude']
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx_copybutton",
+    "sphinx.ext.coverage",
+    "sphinx_mdinclude",
+]
 
-templates_path = ['_templates']
+templates_path = ["_templates"]
 exclude_patterns = []
-
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'sphinx_rtd_theme'
-html_static_path = ['_static']
+html_theme = "sphinx_rtd_theme"
+html_static_path = ["_static"]
