@@ -27,6 +27,22 @@
 
 Brave Search Python Client supporting Web, Image, News and Video search.
 
+## Setup
+
+Installation is as simple as:
+
+```bash
+uv add brave_search_python_client
+```
+
+If you still prefer pip over [uv](https://github.com/astral-sh/uv):
+
+```bash
+pip install brave_search_python_client
+```
+
+## Highlights
+
 * Modern async Python client for Web, Image, Video and News search powered by [Brave Search](https://brave.com/search/api/)
 * Various Examples:
   - [Streamlit web application](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
