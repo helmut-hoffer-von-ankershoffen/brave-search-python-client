@@ -107,6 +107,7 @@ dev = [
     "autodoc-pydantic>=2.2.0",
     "enum-tools>=0.12.0",
     "sphinx-toolbox>=3.8.1",
+    "sphinx-jinja2-compat>=0.3.0",
 ]
 
 [tool.ruff]
