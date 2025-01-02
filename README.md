@@ -40,7 +40,7 @@ Brave Search Python Client supporting Web, Image, News and Video search.
 * Setup for developing inside a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) included (supports VSCode and GitHub Codespaces)
 * Later: [MCP server](https://www.anthropic.com/news/model-context-protocol) to connect Brave Search with Claude Desktop and other MCP clients
 
-## Usage
+## Usage Examples
 
 ## Streamlit App
 
@@ -53,7 +53,7 @@ Brave Search Python Client supporting Web, Image, News and Video search.
 
 ![Jupyter Notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/jupyter.png)
 
-[Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
+[Show notebook code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
 
 ### Minimal Python Script:
 
@@ -136,7 +136,7 @@ async def search():
 asyncio.run(search())
 ```
 
-[Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
+[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
 
 ## Command Line Interface (CLI)
 
@@ -203,14 +203,6 @@ uvx brave-search-python-client news --help
 ```
 
 ### Run with Docker
-
-Show options for news search
-
-```shell
-docker run helmuthva/brave-search-python-client news --help
-```
-
-### Docker
 
 Note: Replace YOUR_BRAVE_SEARCH_API_KEY with your API key in the following examples.
 
