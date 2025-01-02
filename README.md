@@ -44,7 +44,7 @@ Brave Search Python Client supporting Web, Image, News and Video search.
 
 ## Streamlit App
 
-![Watch it](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/streamlit.gif)
+![Watch it](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/raw/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/streamlit.gif)
 
 [Try it out!](https://brave-search-python-client.streamlit.app) - [Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/streamlit.py)
 
