@@ -14,7 +14,7 @@ sphinx:
 # Formats of the documentation to be built
 formats:
   - htmlzip
-#  - pdf
+  - pdf
 
 
 build:

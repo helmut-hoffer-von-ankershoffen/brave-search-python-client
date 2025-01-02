@@ -27,7 +27,7 @@ extensions = [
     "sphinx_mdinclude",
     "sphinxext.opengraph",
     "sphinx_inline_tabs",
-    "sphinx_toolbox",
+#    "sphinx_toolbox",
 ]
 
 templates_path = ["_templates"]
