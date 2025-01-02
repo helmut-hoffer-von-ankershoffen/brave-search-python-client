@@ -23,8 +23,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx_copybutton",
     "sphinx.ext.coverage",
-    "sphinx_mdinclude",
-    "sphinx_rtd_dark_mode",
+    "sphinx_mdinclude"
 ]
 
 templates_path = ["_templates"]
