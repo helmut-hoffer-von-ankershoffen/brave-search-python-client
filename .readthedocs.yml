@@ -26,7 +26,7 @@ build:
       - asdf install uv latest
       - asdf global uv latest
       - uv venv $READTHEDOCS_VIRTUALENV_PATH
-      - source ${READTHEDOCS_VIRTUALENV_PATH}/bin/activate
+      - . ${READTHEDOCS_VIRTUALENV_PATH}/bin/activate
       - export UV_PROJECT_ENVIRONMENT=$READTHEDOCS_VIRTUALENV_PATH
       - uv sync --frozen --all-extras
       - which python
