@@ -282,7 +282,7 @@ docker run helmuthva/brave-search-python-client news --help
 
 ## Extra: MCP Server
 
-TK (To come)
+TK
 
 ## Contributing
 

@@ -33,7 +33,7 @@ ENV/
 # Build
 .pytest_cache
 .ruff_cache
-.nox 
+.nox
 junit.xml
 .coverage*
 coverage.xml
@@ -47,6 +47,9 @@ sbom.json
 .env
 .env.backup
 .env.bak
+
+# git-cliff
+CHANGELOG.md.tmp
 
 # Application specific
 /response.json
