@@ -23,9 +23,13 @@
 [![ghcr.io - Sze](https://ghcr-badge.egpl.dev/helmut-hoffer-von-ankershoffen/brave-search-python-client/size?color=%2344cc11&tag=latest&label=size&trim=)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client)
 -->
 
-Brave Search Python Client supporting Web, Image, News and Video search. Use it yourself of have your friendly assistant make use of it.
+Brave Search Python Client supports Web, Image, News and Video search. 
 
-## Introduction
+Use Cases:
+1) Add it to your application so your users find what they are looking for.
+2) Add it to the AI application you are building so your LLM has access to up-to-date information in the web.
+
+## Setup
 
 Installation is as simple as:
 
