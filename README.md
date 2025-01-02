@@ -23,22 +23,33 @@
 [![ghcr.io - Sze](https://ghcr-badge.egpl.dev/helmut-hoffer-von-ankershoffen/brave-search-python-client/size?color=%2344cc11&tag=latest&label=size&trim=)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client)
 -->
 
-## Overview
+Brave Search Python Client supporting Web, Image, News and Video search. Use it yourself of have your friendly assistant make use of it.
 
-Brave Search Python Client supporting Web, Image, News and Video search.
-
-## Setup
+## Introduction
 
 Installation is as simple as:
 
-```bash
-uv add brave_search_python_client
+```shell
+uv add brave-search-python-client               # add dependency to your project
+```
+If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/).
+
+In case you don't have an API key for Brave Search yet, [sign-up here](https://brave.com/search/api/) - it's free up to 2.000 requests per month.
+
+See the code sample below and explore the [reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html) on how to use the Brave Search Python Client as part of your own code.
+
+If you just want to try out the client without having to write code you can use the integrated CLI:
+
+```shell
+export BRAVE_SEARCH_API_KEY=YOUR_API_KEY         # replace YOUR_API_KEY
+uvx brave-search-python-client --help            # show available commands
+uvx brave-search-python-client web "hello world" # search for hello world
 ```
 
-If you still prefer pip over [uv](https://github.com/astral-sh/uv):
+If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install like this:
 
-```bash
-pip install brave_search_python_client
+```shell
+pip install brave-search-python-client          # add dependency to your project
 ```
 
 ## Highlights
@@ -160,12 +171,12 @@ asyncio.run(search())
 
 ## Command Line Interface (CLI)
 
-### Run with uvx
+### Run with [uvx](https://docs.astral.sh/uv/guides/tools/)
 
-Create `.env` file with API key:
+Add Brave Search API key to the environment
 
 ```shell
-./setup--dot-env YOUR_BRAVE_SEARCH_API_KEY
+export BRAVE_SEARCH_API_KEY=YOUR_API_KEY
 ```
 
 Show available commands:
