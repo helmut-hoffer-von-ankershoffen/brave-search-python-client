@@ -2,6 +2,13 @@
 
 ## [unreleased]
 
+### 🚜 Refactor
+
+- *(docs)* Simplify sphinx setup - ([c5204ec](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/c5204ec3c1c0e9d21281a9b0ccb6e3d42313705c))
+
+
+## [0.1.11](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.1.10..v0.1.11) - 2025-01-02
+
 ### 🐛 Bug Fixes
 
 - *(examples)* Broken link in streamlit app given pivot from gitbook to read-the-docs - ([20e4358](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/20e43586d068f57066e757210eca962da56e54e0))
