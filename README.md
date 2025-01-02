@@ -23,12 +23,12 @@
 [![ghcr.io - Sze](https://ghcr-badge.egpl.dev/helmut-hoffer-von-ankershoffen/brave-search-python-client/size?color=%2344cc11&tag=latest&label=size&trim=)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client)
 -->
 
-Brave Search Python Client supports Web, Image, News and Video search. 
+The Brave Search Python Client provides Web, Image, News, and Video search capabilities.
 
 Use Cases:
-1) Add it to your Python code so your users find what they are looking for.
-2) Add it to the AI application you are building so your LLM has access to up-to-date information in the web.
-3) Use the integrated CLI in your shell scripts - it provides search results as JSON.
+1) Integrate into your Python code to help users find what they're looking for
+2) Add to your AI applications to give LLMs access to current web information
+3) Use the built-in CLI in shell scripts to get search results in JSON format
 
 ## Setup
 
@@ -37,11 +37,12 @@ Installation is as simple as:
 ```shell
 uv add brave-search-python-client               # add dependency to your project
 ```
+
 If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/).
 
-In case you don't have an API key for Brave Search yet, [sign-up here](https://brave.com/search/api/) - it's free up to 2.000 requests per month.
+Obtain your Brave Search API key by [signing up here](https://brave.com/search/api/). The free tier includes 2,000 requests per month.
 
-See the code sample below and explore the [reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html) on how to use the Brave Search Python Client as part of your own code.
+For detailed implementation guidance, check out the code examples below and explore the [reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html).
 
 If you just want to try out the client without having to write code you can use the integrated CLI:
 
@@ -51,7 +52,7 @@ uvx brave-search-python-client --help            # show available commands
 uvx brave-search-python-client web "hello world" # search for hello world
 ```
 
-If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install like this:
+If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install the library like this:
 
 ```shell
 pip install brave-search-python-client          # add dependency to your project
