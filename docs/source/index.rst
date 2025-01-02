@@ -12,8 +12,8 @@ Welcome to brave-search-python-client's documentation!
 
    readme
    contributing
-   changelog
    reference_index
+   changelog
 
 
 Indices and tables

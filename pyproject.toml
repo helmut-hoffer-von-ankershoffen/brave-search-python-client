@@ -100,6 +100,8 @@ dev = [
     "sphinx-autobuild>=2024.10.3",
     "sphinx-mdinclude>=0.6.2",
     "furo>=2024.8.6",
+    "sphinx-inline-tabs>=2023.4.21",
+    "sphinxext-opengraph>=0.9.1",
 ]
 
 [tool.ruff]
