@@ -26,5 +26,5 @@ build:
       - asdf install uv latest
       - asdf global uv latest
       - uv venv $READTHEDOCS_VIRTUALENV_PATH
-      - UV_PROJECT_ENVIRONMENT=$READTHEDOCS_PROJECT_ENVIRONMENT
+      - export UV_PROJECT_ENVIRONMENT=$READTHEDOCS_VIRTUALENV_PATH
       - uv sync --frozen --all-extras
