@@ -244,6 +244,7 @@ dev = [
     { name = "sphinx-autobuild" },
     { name = "sphinx-copybutton" },
     { name = "sphinx-mdinclude" },
+    { name = "sphinx-rtd-dark-mode" },
     { name = "sphinx-rtd-theme" },
     { name = "tomli" },
 ]
@@ -271,7 +272,7 @@ dev = [
     { name = "pre-commit", specifier = ">=4.0.1" },
     { name = "pyright", specifier = ">=1.1.391" },
     { name = "pytest", specifier = ">=8.3.4" },
-    { name = "pytest-asyncio", specifier = ">=0.25.0" },
+    { name = "pytest-asyncio", specifier = ">=0.25.1" },
     { name = "pytest-cov", specifier = ">=6.0.0" },
     { name = "pytest-docker", specifier = ">=3.1.1" },
     { name = "pytest-env", specifier = ">=1.1.5" },
@@ -279,8 +280,9 @@ dev = [
     { name = "ruff", specifier = ">=0.8.4" },
     { name = "sphinx", specifier = ">=8.1.3" },
     { name = "sphinx-autobuild", specifier = ">=2024.10.3" },
-    { name = "sphinx-copybutton", specifier = "==0.3.1" },
+    { name = "sphinx-copybutton", specifier = "==0.5.2" },
     { name = "sphinx-mdinclude", specifier = ">=0.6.2" },
+    { name = "sphinx-rtd-dark-mode", specifier = ">=1.3.0" },
     { name = "sphinx-rtd-theme", specifier = ">=3.0.2" },
     { name = "tomli", specifier = ">=2.1.0" },
 ]
@@ -2109,14 +2111,14 @@ wheels = [
 
 [[package]]
 name = "pytest-asyncio"
-version = "0.25.0"
+version = "0.25.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pytest" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/94/18/82fcb4ee47d66d99f6cd1efc0b11b2a25029f303c599a5afda7c1bca4254/pytest_asyncio-0.25.0.tar.gz", hash = "sha256:8c0610303c9e0442a5db8604505fc0f545456ba1528824842b37b4a626cbf609", size = 53298 }
+sdist = { url = "https://files.pythonhosted.org/packages/4b/04/0477a4bdd176ad678d148c075f43620b3f7a060ff61c7da48500b1fa8a75/pytest_asyncio-0.25.1.tar.gz", hash = "sha256:79be8a72384b0c917677e00daa711e07db15259f4d23203c59012bcd989d4aee", size = 53760 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/88/56/2ee0cab25c11d4e38738a2a98c645a8f002e2ecf7b5ed774c70d53b92bb1/pytest_asyncio-0.25.0-py3-none-any.whl", hash = "sha256:db5432d18eac6b7e28b46dcd9b69921b55c3b1086e85febfe04e70b18d9e81b3", size = 19245 },
+    { url = "https://files.pythonhosted.org/packages/81/fb/efc7226b384befd98d0e00d8c4390ad57f33c8fde00094b85c5e07897def/pytest_asyncio-0.25.1-py3-none-any.whl", hash = "sha256:c84878849ec63ff2ca509423616e071ef9cd8cc93c053aa33b5b8fb70a990671", size = 19357 },
 ]
 
 [[package]]
@@ -2641,14 +2643,14 @@ wheels = [
 
 [[package]]
 name = "sphinx-copybutton"
-version = "0.3.1"
+version = "0.5.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "sphinx" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/9b/5d/1f09cae70eb51ff15a60b0e6f1cea9215abacdccdafb35e0406bf6088431/sphinx-copybutton-0.3.1.tar.gz", hash = "sha256:0e0461df394515284e3907e3f418a0c60ef6ab6c9a27a800c8552772d0a402a2", size = 112606 }
+sdist = { url = "https://files.pythonhosted.org/packages/fc/2b/a964715e7f5295f77509e59309959f4125122d648f86b4fe7d70ca1d882c/sphinx-copybutton-0.5.2.tar.gz", hash = "sha256:4cf17c82fb9646d1bc9ca92ac280813a3b605d8c421225fd9913154103ee1fbd", size = 23039 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/07/1b/691407165e9104569d10ed568438003a32168772c47eacc3a473caa7dddd/sphinx_copybutton-0.3.1-py3-none-any.whl", hash = "sha256:5125c718e763596e6e52d92e15ee0d6f4800ad3817939be6dee51218870b3e3d", size = 10994 },
+    { url = "https://files.pythonhosted.org/packages/9e/48/1ea60e74949eecb12cdd6ac43987f9fd331156388dcc2319b45e2ebb81bf/sphinx_copybutton-0.5.2-py3-none-any.whl", hash = "sha256:fb543fd386d917746c9a2c50360c7905b605726b9355cd26e9974857afeae06e", size = 13343 },
 ]
 
 [[package]]
@@ -2664,6 +2666,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/b6/a7/c9a7888bb2187fdb06955d71e75f6f266b7e179b356ac76138d160a5b7eb/sphinx_mdinclude-0.6.2.tar.gz", hash = "sha256:447462e82cb8be61404a2204227f920769eb923d2f57608e3325f3bb88286b4c", size = 65257 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/42/3d/6b41fe1637cd53c4b10d56e0e6f396546f837973dabf9c4b2a1de44620ac/sphinx_mdinclude-0.6.2-py3-none-any.whl", hash = "sha256:648e78edb067c0e4bffc22943278d49d54a0714494743592032fa3ad82a86984", size = 16911 },
+]
+
+[[package]]
+name = "sphinx-rtd-dark-mode"
+version = "1.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "sphinx-rtd-theme" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/fb/7c/bb1c20458f498d907d78a357b246a0ee1a3a94ee5a5ec39378726e646661/sphinx_rtd_dark_mode-1.3.0.tar.gz", hash = "sha256:0272bf3d9ef620921adc67e5634a66969419e744da84ea18830adacfdb160ea8", size = 8627 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ab/f1/16b919bf5d33b282f13c0c39be687c658a33debb2caf4137a63be4bb21f6/sphinx_rtd_dark_mode-1.3.0-py3-none-any.whl", hash = "sha256:478da69c72a2a2ed7665c1f633cc612039f5801df416fd5f7c4820c2fe08c9c5", size = 10031 },
 ]
 
 [[package]]

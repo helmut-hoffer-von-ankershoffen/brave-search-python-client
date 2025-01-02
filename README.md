@@ -32,7 +32,9 @@ Brave Search Python Client supporting Web, Image, News and Video search.
   - [Jupyter Notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
   - [Simple Python Script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
 * Thorough validation of both [requests](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/src/brave_search_python_client/requests.py) and [responses](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/tree/main/src/brave_search_python_client/responses) (powered by Pydantic)
+* [Complete Reference Documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html#brave_search_python_client.BraveSearch) on Read the Docs
 * [100% test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client) including unit and E2E tests (reported on Codecov)
+* Matrix tested with [Python 3.11, 3.12 and 3.13](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py) to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
 * 100% compliance with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
 * 100% up-to-date dependencies (monitored by [Renovate](https://github.com/renovatebot/renovate))
 * [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client) in security, maintainability, and reliability (verified by SonarQube)
@@ -48,12 +50,6 @@ Brave Search Python Client supporting Web, Image, News and Video search.
 
 [Try it out!](https://brave-search-python-client.streamlit.app) - [Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/streamlit.py)
 
-
-## Jupyter Notebook
-
-![Jupyter Notebook](https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/jupyter.png)
-
-[Show notebook code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
 
 ### Minimal Python Script:
 
@@ -136,7 +132,14 @@ async def search():
 asyncio.run(search())
 ```
 
-[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
+[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py) - [Read the reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html#brave_search_python_client.BraveSearch)
+
+## Jupyter Notebook
+
+![Jupyter Notebook](https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/jupyter.png)
+
+[Show notebook code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
+
 
 ## Command Line Interface (CLI)
 
