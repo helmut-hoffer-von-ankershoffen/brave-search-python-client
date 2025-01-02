@@ -4,6 +4,14 @@
 
 ### 📚 Documentation
 
+- *(sphinx)* Generate docs with sphinx, start with rtd - ([137d457](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/137d45758fba56e7ff4f4fe637ac92e4726c0a12))
+- *(sphinx,readthedocs)* Introduce - ([a35f79d](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/a35f79d692d39a9df219274f8433bcf6ef53b713))
+
+
+## [0.1.7](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.1.6..v0.1.7) - 2025-01-01
+
+### 📚 Documentation
+
 - *(keywords)* Add common synonyms - ([56af4ef](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/56af4ef404d1589feafc5feef43207653fddbdad))
 
 
