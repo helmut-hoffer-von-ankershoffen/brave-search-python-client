@@ -1,5 +1,12 @@
 [🦁 Brave Search Python Client](https://helmuthva.gitbook.io/brave-search-api-client)
 
+## [0.2.6](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.5..0.2.6) - 2025-01-02
+
+### ⚙️ Miscellaneous Tasks
+
+- *(git-cliff)* Testing - ([ad3a77c](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/ad3a77c43f67c6fe61d241dd5c71f5a0f0a434d1))
+
+
 ## [0.2.5](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.4..v0.2.5) - 2025-01-02
 
 ### ⚙️ Miscellaneous Tasks

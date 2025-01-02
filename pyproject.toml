@@ -170,8 +170,7 @@ setup_hooks = []
 pre_commit_hooks = [
     "uv sync",
     "git add uv.lock",
-    "cp -f CHANGELOG.md CHANGELOG.md.tmp",
-    "git-cliff --unreleased --tag $BVHOOK_NEW_VERSION --prepend CHANGELOG.md.tmp",
+    "git-cliff --tag $BVHOOK_NEW_VERSION",
     "rm -f CHANGELOG.md.tmp",
     "git add CHANGELOG.md",
 ]
