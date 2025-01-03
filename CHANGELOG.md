@@ -1,14 +1,18 @@
 [🦁 Brave Search Python Client](https://helmuthva.gitbook.io/brave-search-api-client)
 
-## [0.2.14](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.13..0.2.14) - 2025-01-03
+## [0.2.15](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.14..0.2.15) - 2025-01-03
+
+### 🚜 Refactor
+
+- *(requests)* Remove duplication - ([7bf2f50](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/7bf2f50a8508eabfe4e8fc108322a035477a06dc))
+
+
+## [0.2.14](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.13..v0.2.14) - 2025-01-03
 
 ### 📚 Documentation
 
 - *(reference)* Links to github source and more - ([1e6bdc7](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/1e6bdc7aba48dccbf626a1105ea0cd0194aef7a6))
 
-## New Contributors ❤️
-
-* @helmut-hoffer-von-ankershoffen made their first contribution
 
 ## [0.2.13](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.12..v0.2.13) - 2025-01-02
 
