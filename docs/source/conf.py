@@ -52,7 +52,7 @@ html_theme_options = {
 
 latex_engine = "lualatex" # https://github.com/readthedocs/readthedocs.org/issues/8382
 
-
+# See https://egitlab.gfdl.noaa.gov/NOAA-GFDL/MDTF-diagnostics/-/blob/hotfix/doc/conf.py
 latex_additional_files = [
     'latex/latexmkrc'
 ]
@@ -66,6 +66,7 @@ latex_show_urls = 'footnote'
 # If false, no module index is generated.
 latex_domain_indices = True
 
+# See https://www.sphinx-doc.org/en/master/latex.html
 latex_elements = {
     'papersize': 'a4paper',
     # The font size ('10pt', '11pt' or '12pt').
