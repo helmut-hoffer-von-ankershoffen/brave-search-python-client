@@ -6,6 +6,9 @@ from pydantic import BaseModel, Field, field_validator
 
 from .constants import MAX_QUERY_LENGTH, MAX_QUERY_TERMS
 
+FRESHNESS_DESCRIPTION = "Filters search results by when they were discovered. Values: pd (24h), pw (7d), pm (31d), py (365d), or YYYY-MM-DDtoYYYY-MM-DD for custom range."
+OFFSET_DESCRIPTION = "In order to paginate results use this parameter together with count. For example, if your user interface displays 20 search results per page, set count to 20 and offset to 0 to show the first page of results. To get subsequent pages, increment offset by 1 (e.g. 0, 1, 2). The results may overlap across multiple pages."
+
 
 def _validate_date_range(date_range: str) -> bool:
     """Validate date range format YYYY-MM-DDtoYYYY-MM-DD"""
@@ -297,7 +300,7 @@ class BaseSearchRequest(BaseModel):
 
 
 class WebSearchRequest(BaseSearchRequest):
-    """This class defines the parameters useable in web search."""
+    """This class defines the parameters useable in web search (https://api.search.brave.com/app/documentation/web-search/query)."""
 
     ui_lang: MarketCode | None = Field(
         default=None,
@@ -315,7 +318,7 @@ class WebSearchRequest(BaseSearchRequest):
         default=None,
         le=9,
         ge=0,
-        description="In order to paginate results use this parameter together with count. For example, if your user interface displays 20 search results per page, set count to 20 and offset to 0 to show the first page of results. To get subsequent pages, increment offset by 1 (e.g. 0, 1, 2). The results may overlap across multiple pages.",
+        description=OFFSET_DESCRIPTION,
     )
     safesearch: WebSafeSearchType | None = Field(
         default=None,
@@ -323,7 +326,7 @@ class WebSearchRequest(BaseSearchRequest):
     )
     freshness: str | None = Field(
         default=None,
-        description="Filters search results by when they were discovered. Values: pd (24h), pw (7d), pm (31d), py (365d), or YYYY-MM-DDtoYYYY-MM-DD for custom range.",
+        description=FRESHNESS_DESCRIPTION,
     )
     text_decorations: bool | None = Field(
         default=None,
@@ -378,7 +381,7 @@ class WebSearchRequest(BaseSearchRequest):
 
 
 class ImagesSearchRequest(BaseSearchRequest):
-    """This class defines the parameters useable in image search."""
+    """This class defines the parameters useable in image search (see https://api.search.brave.com/app/documentation/image-search/query)."""
 
     count: int | None = Field(
         default=None,
@@ -401,7 +404,7 @@ class ImagesSearchRequest(BaseSearchRequest):
 
 
 class VideosSearchRequest(BaseSearchRequest):
-    """This class defines the parameters useable in videos search."""
+    """This class defines the parameters useable in videos search (see https://api.search.brave.com/app/documentation/video-search/query)."""
 
     ui_lang: str | None = Field(
         default=None,
@@ -417,11 +420,11 @@ class VideosSearchRequest(BaseSearchRequest):
         default=None,
         le=9,
         ge=0,
-        description="In order to paginate results use this parameter together with count. For example, if your user interface displays 20 search results per page, set count to 20 and offset to 0 to show the first page of results. To get subsequent pages, increment offset by 1 (e.g. 0, 1, 2). The results may overlap across multiple pages.",
+        description=OFFSET_DESCRIPTION,
     )
     freshness: str | None = Field(
         default=None,
-        description="Filters search results by when they were discovered. Values: pd (24h), pw (7d), pm (31d), py (365d), or YYYY-MM-DDtoYYYY-MM-DD for custom range.",
+        description=FRESHNESS_DESCRIPTION,
     )
 
     def model_post_init(self, *args, **kwargs):
@@ -440,7 +443,7 @@ class VideosSearchRequest(BaseSearchRequest):
 
 
 class NewsSearchRequest(BaseSearchRequest):
-    """This class defines the parameters useable in news search."""
+    """This class defines the parameters useable in news search (see https://api.search.brave.com/app/documentation/news-search/query)."""
 
     ui_lang: MarketCode | None = Field(
         default=None,
@@ -456,15 +459,15 @@ class NewsSearchRequest(BaseSearchRequest):
         default=None,
         le=9,
         ge=0,
-        description="In order to paginate results use this parameter together with count. For example, if your user interface displays 20 search results per page, set count to 20 and offset to 0 to show the first page of results. To get subsequent pages, increment offset by 1 (e.g. 0, 1, 2). The results may overlap across multiple pages.",
+        description=OFFSET_DESCRIPTION,
     )
     safesearch: NewsSafeSearchType | None = Field(
         default=None,
-        description="Filters search results for adult content. The following values are supported: off: No filtering is done. moderate: Filters explicit content, like images and videos, but allows adult domains in the search results. strict: Drops all adult content from search results.",
+        description="Filters search results for adult content. The following values are supported: off - No filtering. moderate - Filter out explicit content. strict - Filter out explicit and suggestive content.",
     )
     freshness: str | None = Field(
         default=None,
-        description="Filters search results by when they were discovered. Values: pd (24h), pw (7d), pm (31d), py (365d), or YYYY-MM-DDtoYYYY-MM-DD for custom range.",
+        description=FRESHNESS_DESCRIPTION,
     )
     extra_snippets: bool | None = Field(
         default=None,
