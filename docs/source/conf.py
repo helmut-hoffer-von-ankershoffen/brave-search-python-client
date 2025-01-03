@@ -51,3 +51,59 @@ html_theme_options = {
 }
 
 latex_engine = "lualatex" # https://github.com/readthedocs/readthedocs.org/issues/8382
+
+
+latex_additional_files = [
+    'latex/latexmkrc'
+]
+
+# If true, show page references after internal links.
+latex_show_pagerefs = True
+
+# If true, show URL addresses after external links.
+latex_show_urls = 'footnote'
+
+# If false, no module index is generated.
+latex_domain_indices = True
+
+latex_elements = {
+    'papersize': 'a4paper',
+    # The font size ('10pt', '11pt' or '12pt').
+    'pointsize': '11pt',
+    # fonts
+    'fontpkg': r'''
+        \RequirePackage{fontspec}
+        % RTD uses a texlive installation on linux; apparently xelatex can only
+        % find fonts by filename in this situation.
+        \setmainfont{texgyretermes-regular.otf}
+        \setsansfont{Heuristica-Bold.otf}
+    ''',
+    'geometry': r"\usepackage[xetex,letterpaper]{geometry}",
+    # chapter style
+    'fncychap': r"\usepackage[Bjarne]{fncychap}",
+    # Latex figure (float) alignment
+    'figure_align': 'H',
+    # Additional stuff for the LaTeX preamble.
+    'preamble': r"""
+        \RequirePackage{unicode-math}
+        \makeatletter
+        \fancypagestyle{normal}{
+            \fancyhf{}
+            \fancyfoot[LE,RO]{{\py@HeaderFamily\thepage}}
+            % \fancyfoot[LO]{{\py@HeaderFamily\nouppercase{\rightmark}}}
+            % \fancyfoot[RE]{{\py@HeaderFamily\nouppercase{\leftmark}}}
+            \fancyhead[LE,RO]{{\py@HeaderFamily \@title, \py@release}}
+            \renewcommand{\headrulewidth}{0.4pt}
+            \renewcommand{\footrulewidth}{0pt}
+        }
+        \fancypagestyle{plain}{
+            % used for first page of a chapter only
+            \fancyhf{}
+            \fancyfoot[LE,RO]{{\py@HeaderFamily\thepage}}
+            \renewcommand{\footrulewidth}{0pt}
+        }
+        \setlength{\headheight}{13.61pt} % otherwise get errors from fancyhdr
+        \makeatother
+    """,
+    'extraclassoptions': 'openany'
+}
