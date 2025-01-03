@@ -21,13 +21,13 @@ extensions = [
     "sphinx_autodoc_typehints",
     "sphinx-pydantic",
     "sphinxcontrib.autodoc_pydantic",
-#    "enum_tools.autoenum",
+    "enum_tools.autoenum",
     "sphinx_copybutton",
     "sphinx.ext.coverage",
     "sphinx_mdinclude",
     "sphinxext.opengraph",
     "sphinx_inline_tabs",
-#    "sphinx_toolbox",
+    "sphinx_toolbox",
 ]
 
 templates_path = ["_templates"]
