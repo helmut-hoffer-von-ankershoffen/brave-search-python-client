@@ -50,42 +50,40 @@ html_theme_options = {
     )
 }
 
-latex_engine = "lualatex" # https://github.com/readthedocs/readthedocs.org/issues/8382
+latex_engine = "lualatex"  # https://github.com/readthedocs/readthedocs.org/issues/8382
 
 # See https://egitlab.gfdl.noaa.gov/NOAA-GFDL/MDTF-diagnostics/-/blob/hotfix/doc/conf.py
-latex_additional_files = [
-    'latex/latexmkrc'
-]
+latex_additional_files = ["latex/latexmkrc"]
 
 # If true, show page references after internal links.
 latex_show_pagerefs = True
 
 # If true, show URL addresses after external links.
-latex_show_urls = 'footnote'
+latex_show_urls = "footnote"
 
 # If false, no module index is generated.
 latex_domain_indices = True
 
 # See https://www.sphinx-doc.org/en/master/latex.html
 latex_elements = {
-    'papersize': 'a4paper',
+    "papersize": "a4paper",
     # The font size ('10pt', '11pt' or '12pt').
-    'pointsize': '11pt',
+    "pointsize": "11pt",
     # fonts
-    'fontpkg': r'''
+    "fontpkg": r"""
         \RequirePackage{fontspec}
         % RTD uses a texlive installation on linux; apparently xelatex can only
         % find fonts by filename in this situation.
         \setmainfont{texgyretermes-regular.otf}
         \setsansfont{Heuristica-Bold.otf}
-    ''',
-    'geometry': r"\usepackage[xetex,letterpaper]{geometry}",
+    """,
+    "geometry": r"\usepackage[xetex,letterpaper]{geometry}",
     # chapter style
-    'fncychap': r"\usepackage[Bjarne]{fncychap}",
+    "fncychap": r"\usepackage[Bjarne]{fncychap}",
     # Latex figure (float) alignment
-    'figure_align': 'H',
+    "figure_align": "H",
     # Additional stuff for the LaTeX preamble.
-    'preamble': r"""
+    "preamble": r"""
         \RequirePackage{unicode-math}
         \makeatletter
         \fancypagestyle{normal}{
@@ -106,5 +104,5 @@ latex_elements = {
         \setlength{\headheight}{13.61pt} % otherwise get errors from fancyhdr
         \makeatother
     """,
-    'extraclassoptions': 'openany'
+    "extraclassoptions": "openany",
 }
