@@ -99,7 +99,19 @@ latex_elements = {
     # The font size ('10pt', '11pt' or '12pt').
     "pointsize": "10pt",
     # https://github.com/sphinx-doc/sphinx/issues/12332.
-    "preamble": r"\setmainfont{Symbola}"
+    "preamble": r"""
+\directlua {
+  luaotfload.add_fallback("emoji",
+  {
+     "[TwemojiMozilla.ttf]:mode=harf;",
+     "[DejaVuSans.ttf]:mode=harf;",
+  } 
+  )
+}
+\setmainfont{LatinModernRoman}[RawFeature={fallback=emoji},SmallCapsFont={* Caps}]
+\setsansfont{LatinModernSans}[RawFeature={fallback=emoji}]
+\setmonofont{DejaVuSansMono}[RawFeature={fallback=emoji},Scale=0.8]
+    """,
 }
 
 latex_documents = [
