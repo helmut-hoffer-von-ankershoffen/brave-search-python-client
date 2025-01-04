@@ -98,6 +98,8 @@ latex_elements = {
     "papersize": "a4paper",
     # The font size ('10pt', '11pt' or '12pt').
     "pointsize": "10pt",
+    # https://github.com/sphinx-doc/sphinx/issues/12332.
+    "preamble": r"\setmainfont{Symbola}"
 }
 
 latex_documents = [
