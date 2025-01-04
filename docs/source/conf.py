@@ -43,7 +43,7 @@ extensions = [
     "sphinx_mdinclude",
     "sphinx-pydantic",
     "sphinxcontrib.autodoc_pydantic",
-    #    "sphinx_toolbox",
+    "sphinx_toolbox",
     "sphinxext.opengraph",
 ]
 
