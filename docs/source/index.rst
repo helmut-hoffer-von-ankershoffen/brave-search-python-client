@@ -1,7 +1,7 @@
 .. only:: html
    
    .. include:: readme.rst
-   
+
 .. toctree::
 	:hidden:
 
