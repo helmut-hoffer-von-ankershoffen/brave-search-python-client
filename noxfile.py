@@ -75,7 +75,7 @@ def docs(session: nox.Session) -> None:
     header = Path("_readme_header.md").read_text(encoding="utf-8")
     main = Path("_readme_main.md").read_text(encoding="utf-8")
     footer = Path("_readme_footer.md").read_text(encoding="utf-8")
-    readme_content = f"{header}\n{main}\n{footer}"
+    readme_content = f"{header}\n\n{main}\n\n{footer}"
     Path("README.md").write_text(readme_content, encoding="utf-8")
     # Build docs
     session.run("make", "-C", "docs", "html", external=True)
