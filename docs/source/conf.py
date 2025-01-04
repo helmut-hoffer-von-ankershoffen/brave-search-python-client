@@ -5,10 +5,13 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import sys
+import os
+import datetime
 
 project = "brave-search-python-client"
-copyright = "2025, Helmut Hoffer von Ankershoffen"
 author = "Helmut Hoffer von Ankershoffen"
+copyright = " (c) 2025-{}, {}".format(datetime.datetime.now().year, author)
 version = "0.2.15"
 release = version
 github_username = "helmut-hoffer-von-ankershoffen"
@@ -42,10 +45,21 @@ extensions = [
     "sphinx_inline_tabs",
     "sphinx_mdinclude",
     "sphinx-pydantic",
+    "sphinxemoji.sphinxemoji",  # https://sphinxemojicodes.readthedocs.io/en/stable/
     "sphinxcontrib.autodoc_pydantic",
-#    "sphinx_toolbox",
+    #    "sphinxcontrib.jsmath",  # https://github.com/sphinx-doc/sphinxcontrib-jsmath
+    "sphinx_toolbox.collapse",
+    "sphinx_toolbox.sidebar_links",
+    "sphinx_toolbox.github",
     "sphinxext.opengraph",
 ]
+
+#   Docker <https://hub.docker.com/r/helmuthva/brave-search-python-client/tags>
+#   SonarQube <https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client>
+#   Codecov <https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client>
+#   ghcr.io <https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client>
+#   License <https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/LICENSE>
+
 
 templates_path = ["_templates"]
 exclude_patterns = []
@@ -83,22 +97,33 @@ latex_engine = "lualatex"  # https://github.com/readthedocs/readthedocs.org/issu
 
 # See https://www.sphinx-doc.org/en/master/latex.html
 latex_elements = {
+    # The paper size ('letterpaper' or 'a4paper').
     "papersize": "a4paper",
-    "preamble": r"""    # https://github.com/sphinx-doc/sphinx/issues/12332
-\directlua {
-  luaotfload.add_fallback("emoji",
-  {
-     "[TwemojiMozilla.ttf]:mode=harf;",
-     "[DejaVuSans.ttf]:mode=harf;",
-  } 
-  )
-}
-\setmainfont{LatinModernRoman}[RawFeature={fallback=emoji},SmallCapsFont={* Caps}]
-\setsansfont{LatinModernSans}[RawFeature={fallback=emoji}]
-\setmonofont{DejaVuSansMono}[RawFeature={fallback=emoji},Scale=0.8]
-    """,
+    # The font size ('10pt', '11pt' or '12pt').
+    "pointsize": "10pt",
 }
 
+latex_documents = [
+    (
+        "index",
+        "{}.tex".format(project),
+        r"{} Documentation".format(project),
+        author,
+        "manual",
+    ),
+]
+
+napoleon_google_docstring = True
+napoleon_numpy_docstring = False
+napoleon_include_init_with_doc = False
+napoleon_include_private_with_doc = False
+napoleon_include_special_with_doc = True
+napoleon_use_admonition_for_examples = True
+napoleon_use_admonition_for_notes = True
+napoleon_use_admonition_for_references = True
+napoleon_use_ivar = False
+napoleon_use_param = True
+napoleon_use_rtype = True
 
 linkcheck_retries = 2
 linkcheck_timeout = 1
@@ -107,3 +132,16 @@ linkcheck_ignore = [
     r"http://127\.0\.0\.1",
     r"http://localhost",
 ]
+
+# https://github.com/sphinx-toolbox/sphinx-toolbox/blob/master/doc-source/conf.py#L22
+# latex_elements["preamble"] = r"\usepackage{multicol}"
+# nitpicky = True
+# needspace_amount = r"4\baselineskip"
+# autodoc_type_aliases = {"ForwardRef": "ForwardRef"}
+
+
+# https://github.com/SAR-ARD/s1ard/blob/main/docs/source/conf.py
+# If extensions (or modules to document with autodoc) are in another directory,
+# add these directories to sys.path here. If the directory is relative to the
+# documentation root, use os.path.abspath to make it absolute, like shown here.
+sys.path.insert(0, os.path.abspath(".."))

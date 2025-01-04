@@ -296,6 +296,7 @@ dev = [
     { name = "pytest-cov" },
     { name = "pytest-docker" },
     { name = "pytest-env" },
+    { name = "pytest-regressions" },
     { name = "pytest-xdist", extra = ["psutil"] },
     { name = "ruff" },
     { name = "sphinx" },
@@ -307,6 +308,8 @@ dev = [
     { name = "sphinx-pydantic" },
     { name = "sphinx-rtd-theme" },
     { name = "sphinx-toolbox" },
+    { name = "sphinxcontrib-jsmath" },
+    { name = "sphinxemoji" },
     { name = "sphinxext-opengraph" },
     { name = "tomli" },
 ]
@@ -342,6 +345,7 @@ dev = [
     { name = "pytest-cov", specifier = ">=6.0.0" },
     { name = "pytest-docker", specifier = ">=3.1.1" },
     { name = "pytest-env", specifier = ">=1.1.5" },
+    { name = "pytest-regressions", specifier = ">=2.6.0" },
     { name = "pytest-xdist", extras = ["psutil"], specifier = ">=3.6.1" },
     { name = "ruff", specifier = ">=0.8.5" },
     { name = "sphinx", specifier = ">=8.1.3" },
@@ -353,6 +357,8 @@ dev = [
     { name = "sphinx-pydantic", specifier = ">=0.1.1" },
     { name = "sphinx-rtd-theme", specifier = ">=3.0.2" },
     { name = "sphinx-toolbox", specifier = ">=3.8.1" },
+    { name = "sphinxcontrib-jsmath", specifier = ">=1.0.1" },
+    { name = "sphinxemoji", specifier = ">=0.3.1" },
     { name = "sphinxext-opengraph", specifier = ">=0.9.1" },
     { name = "tomli", specifier = ">=2.1.0" },
 ]
@@ -2491,6 +2497,18 @@ wheels = [
 ]
 
 [[package]]
+name = "pytest-datadir"
+version = "1.5.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pytest" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/aa/97/a93900d82635aa3f419c3cd2059b4de7d7fe44e415eaf00c298854582dcc/pytest-datadir-1.5.0.tar.gz", hash = "sha256:1617ed92f9afda0c877e4eac91904b5f779d24ba8f5e438752e3ae39d8d2ee3f", size = 8821 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7c/90/96b9474cddda5ef9e10e6f1871c0fadfa153b605e0e749ba30437bfb62a0/pytest_datadir-1.5.0-py3-none-any.whl", hash = "sha256:34adf361bcc7b37961bbc1dfa8d25a4829e778bab461703c38a5c50ca9c36dc8", size = 5095 },
+]
+
+[[package]]
 name = "pytest-docker"
 version = "3.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -2513,6 +2531,20 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/1f/31/27f28431a16b83cab7a636dce59cf397517807d247caa38ee67d65e71ef8/pytest_env-1.1.5.tar.gz", hash = "sha256:91209840aa0e43385073ac464a554ad2947cc2fd663a9debf88d03b01e0cc1cf", size = 8911 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/de/b8/87cfb16045c9d4092cfcf526135d73b88101aac83bc1adcf82dfb5fd3833/pytest_env-1.1.5-py3-none-any.whl", hash = "sha256:ce90cf8772878515c24b31cd97c7fa1f4481cd68d588419fd45f10ecaee6bc30", size = 6141 },
+]
+
+[[package]]
+name = "pytest-regressions"
+version = "2.6.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pytest" },
+    { name = "pytest-datadir" },
+    { name = "pyyaml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ba/05/78acfdf571ce4000af9d735530094b7a3276652f9c98e93feecd186c1b80/pytest_regressions-2.6.0.tar.gz", hash = "sha256:e3dce521fac11199a2a91a1b8837974d708c7e8665b8c9668b3a721b556c8183", size = 116150 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/93/b4/48edc97a835f0f9c8de5db0e1a4bc7e1ce1bb9050e269924c28f10ff0280/pytest_regressions-2.6.0-py3-none-any.whl", hash = "sha256:5c4a4763415f765770449190097a99b3a8a6ebf20b24e6d90a32da6644e5d041", size = 24347 },
 ]
 
 [[package]]
@@ -3283,6 +3315,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/3b/44/6716b257b0aa6bfd51a1b31665d1c205fb12cb5ad56de752dfa15657de2f/sphinxcontrib_serializinghtml-2.0.0.tar.gz", hash = "sha256:e9d912827f872c029017a53f0ef2180b327c3f7fd23c87229f7a8e8b70031d4d", size = 16080 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/52/a7/d2782e4e3f77c8450f727ba74a8f12756d5ba823d81b941f1b04da9d033a/sphinxcontrib_serializinghtml-2.0.0-py3-none-any.whl", hash = "sha256:6e2cb0eef194e10c27ec0023bfeb25badbbb5868244cf5bc5bdc04e4464bf331", size = 92072 },
+]
+
+[[package]]
+name = "sphinxemoji"
+version = "0.3.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "sphinx" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/47/36/12a061ef2a2c2001c1b083d456db680f59074aef39f9cdd83a7937a4d626/sphinxemoji-0.3.1.tar.gz", hash = "sha256:23ecff1f1e765393e49083b45386b7da81ced97c9a18a1dfd191460a97da3b11", size = 46377 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/95/9f/c872bbf4a2588b700a972d48c6e39087e4d33b3e76c563b4902e5abfbf13/sphinxemoji-0.3.1-py3-none-any.whl", hash = "sha256:dae483695f8d1e90a28a6e9bbccc08d256202afcc1d0fbd33b51b3b4352d439e", size = 46074 },
 ]
 
 [[package]]

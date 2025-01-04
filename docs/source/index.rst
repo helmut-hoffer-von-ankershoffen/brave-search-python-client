@@ -6,6 +6,11 @@
 .. mdinclude:: ../../README.md
    
 .. toctree::
+	:hidden:
+
+	Home<self>
+
+.. toctree::
    :maxdepth: 2
 
    readme
@@ -14,9 +19,9 @@
    changelog
 
 .. sidebar-links::
-   :github:
-   :pypi:`brave-search-python-client`
    :caption: Links
+   :github:
+   :pypi: brave-search-python-client
 
 Indices and tables
 ==================
