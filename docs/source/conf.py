@@ -43,7 +43,7 @@ extensions = [
     "sphinx_mdinclude",
     "sphinx-pydantic",
     "sphinxcontrib.autodoc_pydantic",
-    "sphinx_toolbox",
+#    "sphinx_toolbox",
     "sphinxext.opengraph",
 ]
 
@@ -84,7 +84,7 @@ latex_engine = "lualatex"  # https://github.com/readthedocs/readthedocs.org/issu
 # See https://www.sphinx-doc.org/en/master/latex.html
 latex_elements = {
     "papersize": "a4paper",
-    "preamble": r"""
+    "preamble": r"""    # https://github.com/sphinx-doc/sphinx/issues/12332
 \directlua {
   luaotfload.add_fallback("emoji",
   {
