@@ -84,6 +84,19 @@ latex_engine = "lualatex"  # https://github.com/readthedocs/readthedocs.org/issu
 # See https://www.sphinx-doc.org/en/master/latex.html
 latex_elements = {
     "papersize": "a4paper",
+    "preamble": r"""
+\directlua {
+  luaotfload.add_fallback("emoji",
+  {
+     "[TwemojiMozilla.ttf]:mode=harf;",
+     "[DejaVuSans.ttf]:mode=harf;",
+  } 
+  )
+}
+\setmainfont{LatinModernRoman}[RawFeature={fallback=emoji},SmallCapsFont={* Caps}]
+\setsansfont{LatinModernSans}[RawFeature={fallback=emoji}]
+\setmonofont{DejaVuSansMono}[RawFeature={fallback=emoji},Scale=0.8]
+    """,
 }
 
 

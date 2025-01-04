@@ -13,6 +13,11 @@
    reference_index
    changelog
 
+.. sidebar-links::
+   :github:
+   :pypi:`brave-search-python-client`
+   :caption: Links
+
 Indices and tables
 ==================
 
