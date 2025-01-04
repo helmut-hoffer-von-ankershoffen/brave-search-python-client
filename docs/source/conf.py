@@ -1,5 +1,6 @@
 """Sphinx configuration."""  # noqa: INP001
 
+import re
 from datetime import UTC, datetime
 
 extensions = [
@@ -115,3 +116,11 @@ latex_elements = {
 \setmonofont{DejaVuSansMono}[RawFeature={fallback=emoji},Scale=0.8]
     """,
 }
+
+slug = re.sub(r"\W+", "-", project.lower())
+
+latex_documents = [
+    ("index", f"{slug}.tex", rf"{project} Documentation", author, "manual", True),
+]
+
+latex_logo = "../../brave.png"

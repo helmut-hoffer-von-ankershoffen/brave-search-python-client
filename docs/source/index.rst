@@ -1,21 +1,30 @@
-.. brave-search-python-client documentation master file, created by
-   sphinx-quickstart on Thu Jan  2 09:10:01 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. only:: html
 
-.. mdinclude:: ../../README.md
+   .. mdinclude:: ../../README.md
    
 .. toctree::
 	:hidden:
 
 	Home<self>
 
-.. toctree::
-   :maxdepth: 2
+.. only:: html
 
-   contributing
-   reference
-   release-notes
+   .. toctree::
+      :maxdepth: 2
+
+      reference
+      release-notes
+      contributing
+
+.. only:: pdf
+
+   .. toctree::
+      :maxdepth: 2
+
+      readme
+      reference
+      release-notes
+      contributing
 
 .. sidebar-links::
    :caption: Links
