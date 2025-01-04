@@ -25,3 +25,4 @@
 
 > [!TIP]
 > 📚 [Online documentation](https://brave-search-python-client.readthedocs.io/en/latest/) - 📖 [PDF Manual](https://brave-search-python-client.readthedocs.io/_/downloads/en/latest/pdf/)
+
