@@ -23,19 +23,6 @@ def _setup_venv(session: nox.Session, all_extras: bool = True) -> None:
     )
 
 
-@nox.session(python=["3.11", "3.12", "3.13"])
-def test(session: nox.Session) -> None:
-    """Run tests with pytest."""
-    _setup_venv(session)
-    session.run(
-        "pytest",
-        "--disable-warnings",
-        "--junitxml=junit.xml",
-        "-n",
-        "auto",
-    )
-
-
 @nox.session(python=["3.13"])
 def lint(session: nox.Session) -> None:
     """Run code linting and formatting checks."""
@@ -92,3 +79,16 @@ def docs(session: nox.Session) -> None:
     Path("README.md").write_text(readme_content, encoding="utf-8")
     # Build docs
     session.run("make", "-C", "docs", "html", external=True)
+
+
+@nox.session(python=["3.11", "3.12", "3.13"])
+def test(session: nox.Session) -> None:
+    """Run tests with pytest."""
+    _setup_venv(session)
+    session.run(
+        "pytest",
+        "--disable-warnings",
+        "--junitxml=junit.xml",
+        "-n",
+        "auto",
+    )
