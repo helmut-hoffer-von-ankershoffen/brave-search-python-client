@@ -34,7 +34,7 @@ ogp_description_length = 300
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    "sphinx_toolbox.collapse",  # https://sphinx-toolbox.readthedocs.io/
+    "sphinx_toolbox.collapse",      # https://sphinx-toolbox.readthedocs.io/
     "sphinx_toolbox.sidebar_links",
     # "sphinx_toolbox.more_autodoc",
     # "sphinx_toolbox.more_autosummary",
@@ -42,25 +42,20 @@ extensions = [
     "sphinx_toolbox.source",
     "sphinx.ext.autodoc",
     "sphinx_autodoc_typehints",
-    "enum_tools.autoenum",  # https://github.com/domdfcoding/enum_tools/tree/master
-    "sphinx.ext.napoleon",  # https://sphinxcontrib-napoleon.readthedocs.io/en/latest/
+    "enum_tools.autoenum",          # https://github.com/domdfcoding/enum_tools/tree/master
+    "sphinx.ext.napoleon",          # https://sphinxcontrib-napoleon.readthedocs.io/en/latest/
     "sphinx-pydantic",
     "sphinxcontrib.autodoc_pydantic",
     "sphinx.ext.coverage",
     "sphinx_copybutton",
-    "sphinx.ext.extlinks",  # https://www.sphinx-doc.org/en/master/usage/extensions/extlinks.html
+    "sphinx.ext.extlinks",          # https://www.sphinx-doc.org/en/master/usage/extensions/extlinks.html
     "sphinx.ext.imgconverter",
     "sphinx_inline_tabs",
     "sphinx_mdinclude",
-    "sphinxemoji.sphinxemoji",  # https://sphinxemojicodes.readthedocs.io/en/stable/
+    "sphinxemoji.sphinxemoji",      # https://sphinxemojicodes.readthedocs.io/en/stable/
     "sphinxext.opengraph",
 ]
 
-#   Docker <https://hub.docker.com/r/helmuthva/brave-search-python-client/tags>
-#   SonarQube <https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client>
-#   Codecov <https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client>
-#   ghcr.io <https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client>
-#   License <https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/LICENSE>
 
 
 templates_path = ["_templates"]
