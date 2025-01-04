@@ -1,30 +1,20 @@
 .. only:: html
 
    .. mdinclude:: ../../README.md
+      :start-line: 1
    
 .. toctree::
 	:hidden:
 
 	Home<self>
 
-.. only:: html
+.. toctree::
+   :maxdepth: 2
 
-   .. toctree::
-      :maxdepth: 2
-
-      reference
-      release-notes
-      contributing
-
-.. only:: pdf
-
-   .. toctree::
-      :maxdepth: 2
-
-      readme
-      reference
-      release-notes
-      contributing
+   readme
+   reference
+   release-notes
+   contributing
 
 .. sidebar-links::
    :caption: Links
