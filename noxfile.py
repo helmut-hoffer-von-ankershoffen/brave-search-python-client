@@ -1,3 +1,5 @@
+"""Nox configuration for test automation and development tasks."""
+
 import json
 from pathlib import Path
 
@@ -7,7 +9,7 @@ nox.options.reuse_existing_virtualenvs = True
 nox.options.default_venv_backend = "uv"
 
 
-def _setup_venv(session: nox.Session, all_extras=True) -> None:
+def _setup_venv(session: nox.Session, all_extras: bool = True) -> None:
     """Install dependencies for the given session using uv."""
     args = ["uv", "sync", "--frozen"]
     if all_extras:
@@ -22,7 +24,8 @@ def _setup_venv(session: nox.Session, all_extras=True) -> None:
 
 
 @nox.session(python=["3.11", "3.12", "3.13"])
-def test(session: nox.Session):
+def test(session: nox.Session) -> None:
+    """Run tests with pytest."""
     _setup_venv(session)
     session.run(
         "pytest",
@@ -34,7 +37,8 @@ def test(session: nox.Session):
 
 
 @nox.session(python=["3.13"])
-def lint(session: nox.Session):
+def lint(session: nox.Session) -> None:
+    """Run code linting and formatting checks."""
     _setup_venv(session)
     session.run("ruff", "check", ".")
     session.run(
@@ -46,7 +50,8 @@ def lint(session: nox.Session):
 
 
 @nox.session(python=["3.13"])
-def audit(session: nox.Session):
+def audit(session: nox.Session) -> None:
+    """Run security audit and license checks."""
     _setup_venv(session)
     session.run("pip-audit", "-f", "json", "-o", "vulnerabilities.json")
     session.run("jq", ".", "vulnerabilities.json", external=True)
@@ -67,7 +72,8 @@ def audit(session: nox.Session):
 
     # Write inverted data
     Path("licenses-inverted.json").write_text(
-        json.dumps(licenses_inverted, indent=2), encoding="utf-8"
+        json.dumps(licenses_inverted, indent=2),
+        encoding="utf-8",
     )
     session.run("jq", ".", "licenses-inverted.json", external=True)
     session.run("cyclonedx-py", "environment", "-o", "sbom.json")
@@ -75,6 +81,7 @@ def audit(session: nox.Session):
 
 
 @nox.session(python=["3.13"])
-def docs(session: nox.Session):
+def docs(session: nox.Session) -> None:
+    """Build documentation."""
     _setup_venv(session)
     session.run("make", "-C", "docs", "html", external=True)

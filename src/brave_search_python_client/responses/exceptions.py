@@ -1,3 +1,5 @@
+"""Custom exceptions for the Brave Search Python Client."""
+
 from __future__ import annotations
 
 

@@ -1,3 +1,5 @@
+"""Command line interface for the Brave Search Python Client."""
+
 import asyncio
 from typing import Annotated
 
@@ -30,28 +32,32 @@ cli = typer.Typer(name="Command Line Interface of Brave Search Python Client")
 
 
 @cli.command()
-def web(
+def web(  # noqa: PLR0913, PLR0917
     q: Annotated[str, typer.Argument(..., help="The search query to perform")],
     country: Annotated[
         CountryCode,
         typer.Option(
-            help='The country to search from (2-letter country code or "ALL" for all regions, see https://api.search.brave.com/app/documentation/image-search/codes)'
+            help=(
+                'The country to search from (2-letter country code or "ALL" for all regions, '
+                "see https://api.search.brave.com/app/documentation/image-search/codes)"
+            ),
         ),
     ] = CountryCode.ALL,
     search_lang: Annotated[
         LanguageCode,
         typer.Option(
-            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)."
+            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes).",
         ),
     ] = LanguageCode.EN,
     ui_lang: Annotated[
         MarketCode,
         typer.Option(
-            help="The language to display (see https://api.search.brave.com/app/documentation/image-search/codes)"
+            help="The language to display (see https://api.search.brave.com/app/documentation/image-search/codes)",
         ),
     ] = MarketCode.EN_US,
     count: Annotated[
-        int, typer.Option(help="The number of results to return (max 20)")
+        int,
+        typer.Option(help="The number of results to return (max 20)"),
     ] = 20,
     offset: Annotated[int, typer.Option(help="The offset to start from (max 9)")] = 0,
     safesearch: Annotated[
@@ -61,53 +67,83 @@ def web(
     freshness: Annotated[
         FreshnessType | None,
         typer.Option(
-            help="pd: Discovered within the last 24 hours. - pw: Discovered within the last 7 Days. - pm: Discovered within the last 31 Days. - py: Discovered within the last 365 Days… - YYYY-MM-DDtoYYYY-MM-DD: timeframe is also supported by specifying the date range e.g. 2022-04-01to2022-07-30",
+            help=(
+                "pd: Discovered within the last 24 hours. - pw: Discovered within the last 7 Days. "
+                "- pm: Discovered within the last 31 Days. - py: Discovered within the last 365 Days… "
+                "- YYYY-MM-DDtoYYYY-MM-DD: timeframe is also supported by specifying the date range "
+                "e.g. 2022-04-01to2022-07-30"
+            ),
         ),
     ] = None,
     text_decorations: Annotated[
         bool,
         typer.Option(
-            help="Whether display strings (e.g. result snippets) should include decoration markers (e.g. highlighting characters).",
+            help=(
+                "Whether display strings (e.g. result snippets) should include decoration markers "
+                "(e.g. highlighting characters)."
+            ),
         ),
     ] = True,
     spellcheck: Annotated[bool, typer.Option(help="Enable spellcheck")] = True,
     result_filter: Annotated[
         str | None,
         typer.Option(
-            help="Comma delimited string of result types to include in the search response. Not specifying this parameter will return back all result types in search response where data is available and a plan with the corresponding option is subscribed. The response always includes query and type to identify any query modifications and response type respectively. Available result filter values are: - discussions - faq - infobox - news - query - summarizer - videos - web - locations. Example result filter param result_filter=discussions, videos returns only discussions, and videos responses. Another example where only location results are required, set the result_filter param to result_filter=locations",
+            help=(
+                "Comma delimited string of result types to include in the search response. Not specifying "
+                "this parameter will return back all result types in search response where data is available "
+                "and a plan with the corresponding option is subscribed. The response always includes query "
+                "and type to identify any query modifications and response type respectively. Available result "
+                "filter values are: - discussions - faq - infobox - news - query - summarizer - videos - web - "
+                "locations. Example result filter param result_filter=discussions, videos returns only discussions, "
+                "and videos responses. Another example where only location results are required, set the result_filter "
+                "param to result_filter=locations"
+            ),
         ),
     ] = None,
     googles_id: Annotated[
         str | None,
         typer.Option(
-            help="Goggles act as a custom re-ranking on top of Brave’s search index. For more details, refer to the Goggles repository (https://github.com/brave/goggles-quickstart)",
+            help=(
+                "Goggles act as a custom re-ranking on top of Brave's search index. For more details, refer to the "
+                "Goggles repository (https://github.com/brave/goggles-quickstart)"
+            ),
         ),
     ] = None,
     units: Annotated[
         UnitsType | None,
         typer.Option(
-            help="The measurement units. If not provided, units are derived from search country. Possible values are: - metric: The standardized measurement system - imperial: The British Imperial system of units.",
+            help=(
+                "The measurement units. If not provided, units are derived from search country. Possible values are: "
+                "- metric: The standardized measurement system - imperial: The British Imperial system of units."
+            ),
         ),
     ] = None,
     extra_snippets: Annotated[
         bool,
         typer.Option(
-            help="A snippet is an excerpt from a page you get as a result of the query, and extra_snippets allow you to get up to 5 additional, alternative excerpts. Only available under Free AI, Base AI, Pro AI, Base Data, Pro Data and Custom plans",
+            help=(
+                "A snippet is an excerpt from a page you get as a result of the query, and extra_snippets allow you "
+                "to get up to 5 additional, alternative excerpts. Only available under Free AI, Base AI, Pro AI, "
+                "Base Data, Pro Data and Custom plans"
+            ),
         ),
     ] = False,
     summary: Annotated[
         bool,
         typer.Option(
-            help="This parameter enables summary key generation in web search results. This is required for summarizer to be enabled.",
+            help=(
+                "This parameter enables summary key generation in web search results. This is required for summarizer "
+                "to be enabled."
+            ),
         ),
     ] = False,
     dump_response: Annotated[
         bool,
         typer.Option(
-            help="Dump the raw response from the API into a file (response.json in current working directory)"
+            help=("Dump the raw response from the API into a file (response.json in current working directory)"),
         ),
     ] = False,
-):
+) -> None:
     """Search the web."""
     console.print_json(
         asyncio.run(
@@ -130,28 +166,32 @@ def web(
                     summary=summary,
                 ),
                 dump_response=dump_response,
-            )
-        ).model_dump_json()
+            ),
+        ).model_dump_json(),
     )
 
 
 @cli.command()
-def images(
+def images(  # noqa: PLR0913, PLR0917
     q: Annotated[str, typer.Argument(..., help="The search query to perform")],
     country: Annotated[
         CountryCode,
         typer.Option(
-            help='The country to search from (2-letter country code or "ALL" for all regions - see https://api.search.brave.com/app/documentation/image-search/codes)'
+            help=(
+                'The country to search from (2-letter country code or "ALL" for all regions - see '
+                "https://api.search.brave.com/app/documentation/image-search/codes)"
+            ),
         ),
     ] = CountryCode.ALL,
     search_lang: Annotated[
         LanguageCode,
         typer.Option(
-            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)"
+            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)",
         ),
     ] = LanguageCode.EN,
     count: Annotated[
-        int, typer.Option(help="The number of results to return (max 20)")
+        int,
+        typer.Option(help="The number of results to return (max 20)"),
     ] = 20,
     safesearch: Annotated[
         ImagesSafeSearchType,
@@ -161,10 +201,10 @@ def images(
     dump_response: Annotated[
         bool,
         typer.Option(
-            help="Dump the raw response from the API into a file (response.json in current working directory)"
+            help=("Dump the raw response from the API into a file (response.json in current working directory)"),
         ),
     ] = False,
-):
+) -> None:
     """Search images."""
     console.print_json(
         asyncio.run(
@@ -178,50 +218,59 @@ def images(
                     spellcheck=spellcheck,
                 ),
                 dump_response=dump_response,
-            )
-        ).model_dump_json()
+            ),
+        ).model_dump_json(),
     )
 
 
 @cli.command()
-def videos(
+def videos(  # noqa: PLR0913, PLR0917
     q: Annotated[str, typer.Argument(..., help="The search query to perform")],
     country: Annotated[
         CountryCode,
         typer.Option(
-            help='The country to search from (2-letter country code or "ALL" for all regions, see https://api.search.brave.com/app/documentation/image-search/codes)'
+            help=(
+                'The country to search from (2-letter country code or "ALL" for all regions, '
+                "see https://api.search.brave.com/app/documentation/image-search/codes)"
+            ),
         ),
     ] = CountryCode.ALL,
     search_lang: Annotated[
         LanguageCode,
         typer.Option(
-            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)"
+            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)",
         ),
     ] = LanguageCode.EN,
     ui_lang: Annotated[
         MarketCode,
         typer.Option(
-            help="The language to display (see https://api.search.brave.com/app/documentation/image-search/codes)."
+            help="The language to display (see https://api.search.brave.com/app/documentation/image-search/codes).",
         ),
     ] = MarketCode.EN_US,
     count: Annotated[
-        int, typer.Option(help="The number of results to return (max 20)")
+        int,
+        typer.Option(help="The number of results to return (max 20)"),
     ] = 20,
     offset: Annotated[int, typer.Option(help="The offset to start from (max 9)")] = 0,
     freshness: Annotated[
         FreshnessType | None,
         typer.Option(
-            help="pd: Discovered within the last 24 hours. - pw: Discovered within the last 7 Days. - pm: Discovered within the last 31 Days. - py: Discovered within the last 365 Days… - YYYY-MM-DDtoYYYY-MM-DD: timeframe is also supported by specifying the date range e.g. 2022-04-01to2022-07-30",
+            help=(
+                "pd: Discovered within the last 24 hours. - pw: Discovered within the last 7 Days. "
+                "- pm: Discovered within the last 31 Days. - py: Discovered within the last 365 Days… "
+                "- YYYY-MM-DDtoYYYY-MM-DD: timeframe is also supported by specifying the date range "
+                "e.g. 2022-04-01to2022-07-30"
+            ),
         ),
     ] = None,
     spellcheck: Annotated[bool, typer.Option(help="Enable spellcheck")] = True,
     dump_response: Annotated[
         bool,
         typer.Option(
-            help="Dump the raw response from the API into a file (response.json in current working directory)"
+            help=("Dump the raw response from the API into a file (response.json in current working directory)"),
         ),
     ] = False,
-):
+) -> None:
     """Search videos."""
     console.print_json(
         asyncio.run(
@@ -237,34 +286,38 @@ def videos(
                     spellcheck=spellcheck,
                 ),
                 dump_response=dump_response,
-            )
-        ).model_dump_json()
+            ),
+        ).model_dump_json(),
     )
 
 
 @cli.command()
-def news(
+def news(  # noqa: PLR0913, PLR0917
     q: Annotated[str, typer.Argument(..., help="The search query to perform")],
     country: Annotated[
         CountryCode,
         typer.Option(
-            help='The country to search from (2-letter country code or "ALL" for all regions, see https://api.search.brave.com/app/documentation/image-search/codes)'
+            help=(
+                'The country to search from (2-letter country code or "ALL" for all regions, '
+                "see https://api.search.brave.com/app/documentation/image-search/codes)"
+            ),
         ),
     ] = CountryCode.ALL,
     search_lang: Annotated[
         LanguageCode,
         typer.Option(
-            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)"
+            help="The language to search in (2 letter language code, see https://api.search.brave.com/app/documentation/image-search/codes)",
         ),
     ] = LanguageCode.EN,
     ui_lang: Annotated[
         MarketCode,
         typer.Option(
-            help="The language to display (see https://api.search.brave.com/app/documentation/image-search/codes)"
+            help="The language to display (see https://api.search.brave.com/app/documentation/image-search/codes)",
         ),
     ] = MarketCode.EN_US,
     count: Annotated[
-        int, typer.Option(help="The number of results to return (max 20)")
+        int,
+        typer.Option(help="The number of results to return (max 20)"),
     ] = 20,
     offset: Annotated[int, typer.Option(help="The offset to start from (max 9)")] = 0,
     safesearch: Annotated[
@@ -274,23 +327,32 @@ def news(
     freshness: Annotated[
         FreshnessType | None,
         typer.Option(
-            help="pd: Discovered within the last 24 hours. - pw: Discovered within the last 7 Days. - pm: Discovered within the last 31 Days. - py: Discovered within the last 365 Days… - YYYY-MM-DDtoYYYY-MM-DD: timeframe is also supported by specifying the date range e.g. 2022-04-01to2022-07-30",
+            help=(
+                "pd: Discovered within the last 24 hours. - pw: Discovered within the last 7 Days. "
+                "- pm: Discovered within the last 31 Days. - py: Discovered within the last 365 Days… "
+                "- YYYY-MM-DDtoYYYY-MM-DD: timeframe is also supported by specifying the date range "
+                "e.g. 2022-04-01to2022-07-30"
+            ),
         ),
     ] = None,
     spellcheck: Annotated[bool, typer.Option(help="Enable spellcheck")] = True,
     extra_snippets: Annotated[
         bool,
         typer.Option(
-            help="A snippet is an excerpt from a page you get as a result of the query, and extra_snippets allow you to get up to 5 additional, alternative excerpts. Only available under Free AI, Base AI, Pro AI, Base Data, Pro Data and Custom plans",
+            help=(
+                "A snippet is an excerpt from a page you get as a result of the query, and extra_snippets allow you "
+                "to get up to 5 additional, alternative excerpts. Only available under Free AI, Base AI, Pro AI, "
+                "Base Data, Pro Data and Custom plans"
+            ),
         ),
     ] = False,
     dump_response: Annotated[
         bool,
         typer.Option(
-            help="Dump the raw response from the API into a file (response.json in current working directory)"
+            help=("Dump the raw response from the API into a file (response.json in current working directory)"),
         ),
     ] = False,
-):
+) -> None:
     """Search news."""
     console.print_json(
         asyncio.run(
@@ -308,13 +370,13 @@ def news(
                     extra_snippets=extra_snippets,
                 ),
                 dump_response=dump_response,
-            )
-        ).model_dump_json()
+            ),
+        ).model_dump_json(),
     )
 
 
-def _apply_cli_settings(cli: typer.Typer, epilog: str):
-    """Add epilog to all typers in the tree"""
+def _apply_cli_settings(cli: typer.Typer, epilog: str) -> None:
+    """Add epilog to all typers in the tree and configure default behavior."""
     cli.info.epilog = epilog
     cli.info.no_args_is_help = True
     for command in cli.registered_commands:

@@ -48,5 +48,7 @@ sbom.json
 .env.backup
 .env.bak
 
+.fixme
+
 # Application specific
 /response.json

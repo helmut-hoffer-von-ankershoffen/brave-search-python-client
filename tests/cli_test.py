@@ -1,3 +1,5 @@
+"""Tests for the command line interface functionality."""
+
 import json
 from unittest.mock import patch
 
@@ -18,37 +20,38 @@ TEST_QUERY = "hello world"
 BUILT_WITH_LOVE = "built with love in Berlin"
 SEARCH_QUERY_HELP = "The search query to perform"
 
-with open("tests/mock_data/web.json") as f:
+with open("tests/mock_data/web.json", encoding="utf-8") as f:
     mock_web_search_response_data = json.load(f)
 mock_web_search_response = WebSearchApiResponse.model_validate(
-    mock_web_search_response_data
+    mock_web_search_response_data,
 )
 
-with open("tests/mock_data/images.json") as f:
+with open("tests/mock_data/images.json", encoding="utf-8") as f:
     mock_image_search_response_data = json.load(f)
 mock_image_search_response = ImageSearchApiResponse.model_validate(
-    mock_image_search_response_data
+    mock_image_search_response_data,
 )
 
-with open("tests/mock_data/videos.json") as f:
+with open("tests/mock_data/videos.json", encoding="utf-8") as f:
     mock_video_search_response_data = json.load(f)
 mock_video_search_response = VideoSearchApiResponse.model_validate(
-    mock_video_search_response_data
+    mock_video_search_response_data,
 )
 
-with open("tests/mock_data/news.json") as f:
+with open("tests/mock_data/news.json", encoding="utf-8") as f:
     mock_news_search_response_data = json.load(f)
 mock_news_search_response = NewsSearchApiResponse.model_validate(
-    mock_news_search_response_data
+    mock_news_search_response_data,
 )
 
 
 @pytest.fixture
-def runner():
+def runner() -> CliRunner:
+    """Provide a CLI test runner fixture."""
     return CliRunner()
 
 
-def test_cli_built_with_love(runner):
+def test_cli_built_with_love(runner) -> None:
     """Check epilog shown."""
     result = runner.invoke(cli, ["--help"])
     assert result.exit_code == 0
@@ -56,21 +59,18 @@ def test_cli_built_with_love(runner):
     assert __version__ in result.output
 
 
-def test_cli_commands(runner: CliRunner):
+def test_cli_commands(runner: CliRunner) -> None:
     """Check commands exist and show help and epilog."""
     for command in ["web", "images", "videos", "news"]:
         result = runner.invoke(cli, [command, "--help"])
         assert result.exit_code == 0
         assert SEARCH_QUERY_HELP in result.output
-        assert (
-            f"Search {command}" in result.output
-            or f"Search the {command}" in result.output
-        )
+        assert f"Search {command}" in result.output or f"Search the {command}" in result.output
         assert __version__ in result.output
 
 
-def test_cli_search(runner: CliRunner):
-    """Check search triggered"""
+def test_cli_search(runner: CliRunner) -> None:
+    """Check search triggered."""
     with patch.object(BraveSearch, "web", return_value=mock_web_search_response):
         result = runner.invoke(cli, ["web", TEST_QUERY])
         assert result.exit_code == 0

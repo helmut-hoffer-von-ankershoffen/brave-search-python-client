@@ -1,3 +1,5 @@
+"""Brave Search Python Client library for accessing the Brave Search API."""
+
 from .client import BraveSearch
 from .constants import (
     BASE_URL,
@@ -35,33 +37,33 @@ from .responses import (
 )
 
 __all__ = [
-    "__version__",
-    "__project_name__",
-    "__project_path__",
     "BASE_URL",
+    "DEFAULT_RETRY_WAIT_TIME",
     "MAX_QUERY_LENGTH",
     "MAX_QUERY_TERMS",
-    "DEFAULT_RETRY_WAIT_TIME",
     "MOCK_API_KEY",
     "BraveSearch",
-    "BraveSearchError",
-    "BraveSearchClientError",
     "BraveSearchAPIError",
-    "WebSearchApiResponse",
-    "ImageSearchApiResponse",
-    "NewsSearchApiResponse",
-    "VideoSearchApiResponse",
+    "BraveSearchClientError",
+    "BraveSearchError",
     "CountryCode",
     "FreshnessType",
+    "ImageSearchApiResponse",
     "ImagesSafeSearchType",
     "ImagesSearchRequest",
     "LanguageCode",
     "MarketCode",
     "NewsSafeSearchType",
+    "NewsSearchApiResponse",
     "NewsSearchRequest",
+    "SearchType",
     "UnitsType",
+    "VideoSearchApiResponse",
     "VideosSearchRequest",
     "WebSafeSearchType",
+    "WebSearchApiResponse",
     "WebSearchRequest",
-    "SearchType",
+    "__project_name__",
+    "__project_path__",
+    "__version__",
 ]

@@ -98,7 +98,6 @@ dev = [
     "ruff>=0.8.5",
     "sphinx>=8.1.3",
     "sphinx-autobuild>=2024.10.3",
-    "sphinx-autodoc-typehints>=3.0.0",
     "sphinx-copybutton>=0.5.2",
     "sphinx-inline-tabs>=2023.4.21",
     "sphinx-mdinclude>=0.6.2",
@@ -117,16 +116,53 @@ dev = [
 target-version = "py311"
 preview = true
 fix = true
+line-length = 120
+
 
 [tool.ruff.lint]
-ignore = ["B008", "E501"]
-select = [
-    "E",  # pycodestyle errors
-    "F",  # pyflakes
-    "I",  # isort
-    "UP", # pyupgrade
-    "B",  # flake8-bugbear
-    "C4", # flake8-comprehensions
+ignore = [
+    "ANN002", # Missing type annotation for `*args`
+    "ANN003", # Missing type annotation for `**kwargs``
+    #    "B008",
+    "CPY001", # missing copyright notice
+    "DOC502", # docstrings with exceptions not raised in the code of the function
+    "D203",   # incomptatible with D211
+    "D212",   # incompatible with #D213
+    #    "E501",   # line to long
+    "FBT001", # boolean positional arguments
+    "FBT002", # boolean defautl value positionl arguments
+    "PGH003", # Use specific rule codes when ignoring type issues
+    "TRY300", # else instead of return before except. Simply disagree this is more readable.
+    "COM812", # conflicts with ruff formatter
+    "ISC001", # conflicts with ruff formatter
+]
+select = ["ALL"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+    # at least this three should be fine in tests:
+    "S101",     # asserts allowed in tests...
+    "ARG",      # Unused function args -> fixtures nevertheless are functionally relevant...
+    "FBT",      # Don't care about booleans as positional arguments in tests, e.g. via @pytest.mark.parametrize()
+    "PLR2004",  # Magic value used in comparison, ...
+    "PT011",    # Exception to broad
+    "PLC2701",  # private import, but required for unit testing
+    "PLC0415",  # local import
+    "PT012",    # Exception to broad
+    "S311",     # Standard pseudo-random generators are not suitable for cryptographic purposes
+    "SLF001",   # Private member access required for unit testing
+    "ANN001",   # Missing type annotation for function argument
+    "ANN002",   # Missing type annotation
+    "ANN003",   # Missing type annotation
+    "ANN202",   # Missing return type annotation
+    "PTH123",   # Use of open to be replaced with Path.open
+    "DOC201",   # `return` is not documented in docstring
+    "ASYNC230", # Async functions should not open files with blocking methods like `open`
+]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"src/brave_search_python_client/responses/*.py" = [
+    "N815", # mixedCase required to match the API response]
 ]
 
 [tool.ruff.format]
@@ -212,11 +248,11 @@ header = """
 # https://keats.github.io/tera/docs/#introduction
 body = """
 {%- macro remote_url() -%}
-  https://github.com/{{ remote.github.owner }}/{{ remote.github.repo }}
+https://github.com/{{ remote.github.owner }}/{{ remote.github.repo }}
 {%- endmacro -%}
 
 {% macro print_commit(commit) -%}
-    - {% if commit.scope %}*({{ commit.scope }})* {% endif %}\
+- {% if commit.scope %}*({{ commit.scope }})* {% endif %}\
         {% if commit.breaking %}[**breaking**] {% endif %}\
         {{ commit.message | upper_first }} - \
         ([{{ commit.id | truncate(length=7, end="") }}]({{ self::remote_url() }}/commit/{{ commit.id }}))\
@@ -224,17 +260,24 @@ body = """
 
 {% if version %}\
     {% if previous.version %}\
-        ## [{{ version | trim_start_matches(pat="v") }}]\
+ignore = [
+    "B008",
+    "CPY001",
+    "DOC502",
+    "D203",
+    "D212",
+    "E501",
+    "FBT001",
+    "FBT002",
+]
           ({{ self::remote_url() }}/compare/{{ previous.version }}..{{ version }}) - {{ timestamp | date(format="%Y-%m-%d") }}
     {% else %}\
-        ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
     {% endif %}\
 {% else %}\
-    ## [unreleased]
+
 {% endif %}\
 
 {% for group, commits in commits | group_by(attribute="group") %}
-    ### {{ group | striptags | trim | upper_first }}
     {% for commit in commits
     | unique(attribute="message")
     | filter(attribute="scope")
@@ -250,12 +293,12 @@ body = """
 {% endfor -%}
 {%- if github -%}
 {% if github.contributors | filter(attribute="is_first_time", value=true) | length != 0 %}
-  ## New Contributors ❤️
+
 {% endif %}\
 {% for contributor in github.contributors | filter(attribute="is_first_time", value=true) %}
   * @{{ contributor.username }} made their first contribution
     {%- if contributor.pr_number %} in \
-      [#{{ contributor.pr_number }}]({{ self::remote_url() }}/pull/{{ contributor.pr_number }}) \
+[#{{ contributor.pr_number }}]({{ self::remote_url() }}/pull/{{ contributor.pr_number }}) \
     {%- endif %}
 {%- endfor -%}
 {%- endif %}
@@ -266,6 +309,11 @@ body = """
 footer = """
 <!-- built with love in Berlin by Helmut Hoffer von Ankershoffen -->
 """
+## [{{ version | trim_start_matches(pat="v") }}]\
+## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
+## [unreleased]
+### {{ group | striptags | trim | upper_first }}
+## New Contributors ❤️
 # remove the leading and trailing whitespace from the templates
 trim = true
 # postprocessors

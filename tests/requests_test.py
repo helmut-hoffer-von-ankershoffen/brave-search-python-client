@@ -1,3 +1,5 @@
+"""Tests for request validation in the Brave Search Python client."""
+
 import pytest
 from pydantic import ValidationError
 
@@ -39,7 +41,7 @@ DISCUSSIONS_FAW_INFOBOX_NO_SPACES = "discussions,faq,infobox"
 
 
 @pytest.mark.parametrize(
-    "request_class,params",
+    ("request_class", "params"),
     [
         (
             WebSearchRequest,
@@ -83,11 +85,12 @@ DISCUSSIONS_FAW_INFOBOX_NO_SPACES = "discussions,faq,infobox"
         ),
     ],
 )
-def test_requests_base_search_request_validation(request_class, params):
+def test_requests_base_search_request_validation(request_class, params) -> None:
     """Test base request validation for all request types."""
     # Test empty query
     with pytest.raises(
-        ValidationError, match="String should have at least 1 character"
+        ValidationError,
+        match="String should have at least 1 character",
     ):
         request_class(q="", **params)
 
@@ -100,19 +103,21 @@ def test_requests_base_search_request_validation(request_class, params):
 
     # Test too many terms
     with pytest.raises(
-        ValidationError, match=f"Query exceeding {MAX_QUERY_TERMS} terms"
+        ValidationError,
+        match=f"Query exceeding {MAX_QUERY_TERMS} terms",
     ):
         request_class(q="a " * (MAX_QUERY_TERMS + 1), **params)
 
     # Test invalid country code
     with pytest.raises(
-        ValidationError, match="Input should be 'ALL', 'AR', 'AU', 'AT', "
+        ValidationError,
+        match="Input should be 'ALL', 'AR', 'AU', 'AT', ",
     ):
         params["country"] = "USA"
         request_class(q=TEST_QUERY, **params)
 
 
-def test_requests_web_search_request_validation():
+def test_requests_web_search_request_validation() -> None:
     """Test specific WebSearchRequest validation."""
     base_params = {
         "q": TEST_QUERY,
@@ -141,7 +146,8 @@ def test_requests_web_search_request_validation():
 
     # Test safesearch validation
     with pytest.raises(
-        ValidationError, match="Input should be 'off', 'moderate' or 'strict'"
+        ValidationError,
+        match="Input should be 'off', 'moderate' or 'strict'",
     ):
         WebSearchRequest(**base_params, safesearch=INVALID_VALUE)  # type: ignore
 
@@ -167,7 +173,7 @@ def test_requests_web_search_request_validation():
         assert request.units == UnitsType(unit)
 
 
-def test_requests_image_search_request_validation():
+def test_requests_image_search_request_validation() -> None:
     """Test specific ImageSearchRequest validation."""
     base_params = {
         "q": TEST_QUERY,
@@ -188,7 +194,7 @@ def test_requests_image_search_request_validation():
         ImagesSearchRequest(**base_params, safesearch=INVALID_VALUE)  # type: ignore
 
 
-def test_requests_video_search_request_validation():
+def test_requests_video_search_request_validation() -> None:
     """Test specific VideoSearchRequest validation."""
     base_params = {
         "q": TEST_QUERY,
@@ -225,7 +231,7 @@ def test_requests_video_search_request_validation():
         assert request.freshness == FreshnessType(freshness)
 
 
-def test_requests_news_search_request_validation():
+def test_requests_news_search_request_validation() -> None:
     """Test specific NewsSearchRequest validation."""
     base_params = {
         "q": TEST_QUERY,
@@ -252,7 +258,8 @@ def test_requests_news_search_request_validation():
 
     # Test safesearch validation
     with pytest.raises(
-        ValidationError, match="Input should be 'off', 'moderate' or 'strict'"
+        ValidationError,
+        match="Input should be 'off', 'moderate' or 'strict'",
     ):
         NewsSearchRequest(**base_params, safesearch=INVALID_VALUE)  # type: ignore
 
@@ -269,7 +276,7 @@ def test_requests_news_search_request_validation():
         assert request.freshness == FreshnessType(freshness)
 
 
-def test_requests_search_request_success_cases():
+def test_requests_search_request_success_cases() -> None:
     """Test valid request cases."""
     # Web search
     web_request = WebSearchRequest(
@@ -342,7 +349,7 @@ def test_requests_search_request_success_cases():
     assert news_request.freshness == FreshnessType.pd
 
 
-def test_requests_validate_freshness():
+def test_requests_validate_freshness() -> None:
     """Test freshness validation including date ranges."""
     from brave_search_python_client.requests import _validate_freshness
 
@@ -374,7 +381,7 @@ def test_requests_validate_freshness():
         _validate_freshness(INVALID_VALUE)  # Invalid value
 
 
-def test_requests_validate_result_filter():
+def test_requests_validate_result_filter() -> None:
     """Test result filter validation."""
     from brave_search_python_client.requests import _validate_result_filter
 
@@ -385,13 +392,8 @@ def test_requests_validate_result_filter():
     assert _validate_result_filter("web") == "web"
 
     # Test multiple valid filters
-    assert (
-        _validate_result_filter(WEB_NEWS_VIDEOS_NO_SPACES) == WEB_NEWS_VIDEOS_NO_SPACES
-    )
-    assert (
-        _validate_result_filter(DISCUSSIONS_FAW_INFOBOX_NO_SPACES)
-        == DISCUSSIONS_FAW_INFOBOX_NO_SPACES
-    )
+    assert _validate_result_filter(WEB_NEWS_VIDEOS_NO_SPACES) == WEB_NEWS_VIDEOS_NO_SPACES
+    assert _validate_result_filter(DISCUSSIONS_FAW_INFOBOX_NO_SPACES) == DISCUSSIONS_FAW_INFOBOX_NO_SPACES
 
     # Test invalid filters
     with pytest.raises(ValueError):
@@ -410,7 +412,7 @@ def test_requests_validate_result_filter():
     assert _validate_result_filter(" web,news,videos ") == " web,news,videos "
 
 
-def test_requests_web_search_request_with_result_filter():
+def test_requests_web_search_request_with_result_filter() -> None:
     """Test WebSearchRequest with result filter."""
     base_params = {
         "q": TEST_QUERY,
@@ -424,7 +426,8 @@ def test_requests_web_search_request_with_result_filter():
     assert request.result_filter == WEB_NEWS_VIDEOS_NO_SPACES
 
     request = WebSearchRequest(
-        **base_params, result_filter=DISCUSSIONS_FAW_INFOBOX_NO_SPACES
+        **base_params,
+        result_filter=DISCUSSIONS_FAW_INFOBOX_NO_SPACES,
     )
     assert request.result_filter == DISCUSSIONS_FAW_INFOBOX_NO_SPACES
 

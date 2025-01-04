@@ -1,3 +1,4 @@
+"""Sphinx configuration."""  # noqa: INP001
 # Configuration file for the Sphinx documentation builder.
 #
 # For the full list of built-in configuration values, see the documentation:
@@ -5,9 +6,7 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-import sys
-import os
-import datetime
+from datetime import UTC, datetime
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -20,7 +19,6 @@ extensions = [
     "sphinx_toolbox.github",
     "sphinx_toolbox.source",
     "sphinx.ext.autodoc",
-    "sphinx_autodoc_typehints",
     "enum_tools.autoenum",  # https://github.com/domdfcoding/enum_tools/tree/master
     "sphinx.ext.napoleon",  # https://sphinxcontrib-napoleon.readthedocs.io/en/latest/
     "sphinx-pydantic",
@@ -37,7 +35,7 @@ extensions = [
 
 project = "brave-search-python-client"
 author = "Helmut Hoffer von Ankershoffen"
-copyright = " (c) 2025-{}, {}".format(datetime.datetime.now().year, author)
+copyright = f" (c) 2025-{datetime.now(UTC).year}, {author}"  # noqa: A001
 version = "0.2.15"
 release = version
 github_username = "helmut-hoffer-von-ankershoffen"
@@ -46,17 +44,15 @@ github_repository = "brave-search-python-client"
 language = "en"
 
 ogp_site_name = "Brave Search Python Client"
-ogp_use_first_image = True  # https://github.com/readthedocs/blog/pull/118
-# ogp_image = "https://docs.readthedocs.io/en/latest/_static/img/logo-opengraph.png"
-# Inspired by https://github.com/executablebooks/MyST-Parser/pull/404/
-# ogp_custom_meta_tags = [
-#    '<meta name="twitter:card" content="summary_large_image" />',
-# ]
+ogp_image = "https://brave-search-python-client.readthedocs.io/en/latest/_static/brave.png"
+ogp_custom_meta_tags = [
+    '<meta name="twitter:card" content="Brave Search Python Client" />',
+]
 ogp_enable_meta_description = True
 ogp_description_length = 300
 
 
-autodoc_pydantic_settings_show_json = False
+autodoc_pydantic_model_show_json = False
 
 napoleon_google_docstring = True
 napoleon_numpy_docstring = False
@@ -69,6 +65,9 @@ napoleon_use_admonition_for_references = True
 napoleon_use_ivar = False
 napoleon_use_param = True
 napoleon_use_rtype = True
+napoleon_preprocess_types = True
+napoleon_type_aliases = None
+napoleon_attr_annotations = True
 
 linkcheck_retries = 2
 linkcheck_timeout = 1
@@ -87,12 +86,12 @@ html_static_path = ["_static"]
 html_logo = "../../brave.png"
 html_theme_options = {
     "announcement": (
-        '<a target="_blank" href="https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client">GitHub</a> - '
+        '<a target="_blank" href="https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client">GitHub</a> - '  # noqa: E501
         '<a target="_blank" href="https://pypi.org/project/brave-search-python-client/">PyPI</a> - '
         '<a target="_blank" href="https://hub.docker.com/r/helmuthva/brave-search-python-client/tags">Docker</a> - '
-        '<a target="_blank" href="https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client">SonarQube</a> - '
+        '<a target="_blank" href="https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client">SonarQube</a> - '  # noqa: E501
         '<a target="_blank" href="https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client">Codecov</a>'
-    )
+    ),
 }
 
 latex_engine = "lualatex"  # https://github.com/readthedocs/readthedocs.org/issues/8382
@@ -119,7 +118,7 @@ latex_elements = {
   {
      "[TwemojiMozilla.ttf]:mode=harf;",
      "[DejaVuSans.ttf]:mode=harf;",
-  } 
+  }
   )
 }
 \setmainfont{LatinModernRoman}[RawFeature={fallback=emoji},SmallCapsFont={* Caps}]
@@ -131,8 +130,8 @@ latex_elements = {
 latex_documents = [
     (
         "index",
-        "{}.tex".format(project),
-        r"{} Documentation".format(project),
+        f"{project}.tex",
+        rf"{project} Documentation",
         author,
         "manual",
     ),
