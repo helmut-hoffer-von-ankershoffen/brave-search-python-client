@@ -13,6 +13,7 @@ version = "0.2.15"
 release = version
 github_username = "helmut-hoffer-von-ankershoffen"
 github_repository = "brave-search-python-client"
+
 language = "en"
 
 ogp_site_name = "Brave Search Python Client"
@@ -66,7 +67,7 @@ html_theme_options = {
     )
 }
 
-# latex_engine = "lualatex"  # https://github.com/readthedocs/readthedocs.org/issues/8382
+latex_engine = "lualatex"  # https://github.com/readthedocs/readthedocs.org/issues/8382
 
 # See https://egitlab.gfdl.noaa.gov/NOAA-GFDL/MDTF-diagnostics/-/blob/hotfix/doc/conf.py
 # latex_additional_files = ["latex/latexmkrc"]
