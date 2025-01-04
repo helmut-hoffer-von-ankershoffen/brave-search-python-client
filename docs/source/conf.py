@@ -17,11 +17,11 @@ language = "en"
 
 ogp_site_name = "Brave Search Python Client"
 ogp_use_first_image = True  # https://github.com/readthedocs/blog/pull/118
-#ogp_image = "https://docs.readthedocs.io/en/latest/_static/img/logo-opengraph.png"
+# ogp_image = "https://docs.readthedocs.io/en/latest/_static/img/logo-opengraph.png"
 # Inspired by https://github.com/executablebooks/MyST-Parser/pull/404/
-#ogp_custom_meta_tags = [
+# ogp_custom_meta_tags = [
 #    '<meta name="twitter:card" content="summary_large_image" />',
-#]
+# ]
 ogp_enable_meta_description = True
 ogp_description_length = 300
 
@@ -30,18 +30,19 @@ ogp_description_length = 300
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-#    "enum_tools.autoenum",
+    #    "enum_tools.autoenum", # https://github.com/domdfcoding/enum_tools/tree/master
     "sphinx.ext.autodoc",
     "sphinx.ext.coverage",
-    "sphinx.ext.napoleon",
+    "sphinx.ext.napoleon",  # https://sphinxcontrib-napoleon.readthedocs.io/en/latest/
     "sphinx_autodoc_typehints",
     "sphinx_copybutton",
-    "sphinx.ext.extlinks",
+    "sphinx.ext.extlinks",  # https://www.sphinx-doc.org/en/master/usage/extensions/extlinks.html
+    "sphinx.ext.imgconverter",
     "sphinx_inline_tabs",
     "sphinx_mdinclude",
     "sphinx-pydantic",
     "sphinxcontrib.autodoc_pydantic",
-#    "sphinx_toolbox",
+    #    "sphinx_toolbox",
     "sphinxext.opengraph",
 ]
 

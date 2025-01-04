@@ -108,6 +108,7 @@ dev = [
     "sphinx-toolbox>=3.8.1",
     "sphinxext-opengraph>=0.9.1",
     "tomli>=2.1.0",
+    "matplotlib>=3.10.0",
 ]
 
 [tool.ruff]
