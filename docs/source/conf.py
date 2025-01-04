@@ -9,25 +9,40 @@
 project = "brave-search-python-client"
 copyright = "2025, Helmut Hoffer von Ankershoffen"
 author = "Helmut Hoffer von Ankershoffen"
-release = "0.2.15"
+version = "0.2.15"
+release = version
 github_username = "helmut-hoffer-von-ankershoffen"
 github_repository = "brave-search-python-client"
+language = "en"
+
+ogp_site_name = "Brave Search Python Client"
+ogp_use_first_image = True  # https://github.com/readthedocs/blog/pull/118
+#ogp_image = "https://docs.readthedocs.io/en/latest/_static/img/logo-opengraph.png"
+# Inspired by https://github.com/executablebooks/MyST-Parser/pull/404/
+#ogp_custom_meta_tags = [
+#    '<meta name="twitter:card" content="summary_large_image" />',
+#]
+ogp_enable_meta_description = True
+ogp_description_length = 300
+
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
+#    "enum_tools.autoenum",
     "sphinx.ext.autodoc",
+    "sphinx.ext.coverage",
+    "sphinx.ext.napoleon",
     "sphinx_autodoc_typehints",
+    "sphinx_copybutton",
+    "sphinx.ext.extlinks",
+    "sphinx_inline_tabs",
+    "sphinx_mdinclude",
     "sphinx-pydantic",
     "sphinxcontrib.autodoc_pydantic",
-    "enum_tools.autoenum",
-    "sphinx_copybutton",
-    "sphinx.ext.coverage",
-    "sphinx_mdinclude",
+#    "sphinx_toolbox",
     "sphinxext.opengraph",
-    "sphinx_inline_tabs",
-    "sphinx_toolbox",
 ]
 
 templates_path = ["_templates"]
@@ -106,3 +121,12 @@ latex_elements = {
     """,
     "extraclassoptions": "openany",
 }
+
+
+linkcheck_retries = 2
+linkcheck_timeout = 1
+linkcheck_workers = 10
+linkcheck_ignore = [
+    r"http://127\.0\.0\.1",
+    r"http://localhost",
+]
