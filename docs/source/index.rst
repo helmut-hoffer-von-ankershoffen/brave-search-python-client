@@ -5,11 +5,11 @@
 	:hidden:
 
 	Home<self>
+   readme
 
 .. toctree::
    :maxdepth: 2
 
-   readme
    reference
    release-notes
    contributing
