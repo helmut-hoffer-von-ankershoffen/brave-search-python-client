@@ -1,21 +1,10 @@
 """Sphinx configuration."""  # noqa: INP001
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 from datetime import UTC, datetime
-
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
     "sphinx_toolbox.collapse",  # https://sphinx-toolbox.readthedocs.io/
     "sphinx_toolbox.sidebar_links",
-    # "sphinx_toolbox.more_autodoc",
-    # "sphinx_toolbox.more_autosummary",
     "sphinx_toolbox.github",
     "sphinx_toolbox.source",
     "sphinx.ext.autodoc",
@@ -50,7 +39,6 @@ ogp_custom_meta_tags = [
 ]
 ogp_enable_meta_description = True
 ogp_description_length = 300
-
 
 autodoc_pydantic_model_show_json = False
 
@@ -91,6 +79,7 @@ html_theme_options = {
         '<a target="_blank" href="https://hub.docker.com/r/helmuthva/brave-search-python-client/tags">Docker</a> - '
         '<a target="_blank" href="https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client">SonarQube</a> - '  # noqa: E501
         '<a target="_blank" href="https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client">Codecov</a>'
+        '<a target="_blank" href="https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/LICENSE">License</a>'
     ),
 }
 
