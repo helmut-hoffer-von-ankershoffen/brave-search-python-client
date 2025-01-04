@@ -1,6 +1,6 @@
 .. only:: html
    
-   .. include:: readme.rst
+   .. include:: main.rst
 
 .. toctree::
 	:hidden:
@@ -10,7 +10,7 @@
 .. toctree::
    :maxdepth: 2
 
-   readme
+   main
    reference
    release-notes
    contributing
