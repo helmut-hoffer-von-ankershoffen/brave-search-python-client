@@ -120,7 +120,7 @@ latex_elements = {
 slug = re.sub(r"\W+", "-", project.lower())
 
 latex_documents = [
-    ("index", f"{slug}.tex", rf"{project} Documentation", author, "manual", True),
+    ("index", f"{slug}.tex", rf"{project} Documentation", author, "manual", False),
 ]
 
 latex_logo = "../../brave.png"
