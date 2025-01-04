@@ -115,12 +115,3 @@ latex_elements = {
 \setmonofont{DejaVuSansMono}[RawFeature={fallback=emoji},Scale=0.8]
     """,
 }
-
-latex_documents = [
-    (
-        f"{project}.tex",
-        rf"{project} Documentation",
-        author,
-        "manual",
-    ),
-]
