@@ -37,6 +37,20 @@ def lint(session: nox.Session) -> None:
 
 
 @nox.session(python=["3.13"])
+def docs(session: nox.Session) -> None:
+    """Build documentation and concatenate README."""
+    _setup_venv(session)
+    # Concatenate README files
+    header = Path("_readme_header.md").read_text(encoding="utf-8")
+    main = Path("_readme_main.md").read_text(encoding="utf-8")
+    footer = Path("_readme_footer.md").read_text(encoding="utf-8")
+    readme_content = f"{header}\n\n{main}\n\n{footer}"
+    Path("README.md").write_text(readme_content, encoding="utf-8")
+    # Build docs
+    session.run("make", "-C", "docs", "html", external=True)
+
+
+@nox.session(python=["3.13"])
 def audit(session: nox.Session) -> None:
     """Run security audit and license checks."""
     _setup_venv(session)
@@ -65,20 +79,6 @@ def audit(session: nox.Session) -> None:
     session.run("jq", ".", "licenses-inverted.json", external=True)
     session.run("cyclonedx-py", "environment", "-o", "sbom.json")
     session.run("jq", ".", "sbom.json", external=True)
-
-
-@nox.session(python=["3.13"])
-def docs(session: nox.Session) -> None:
-    """Build documentation and concatenate README."""
-    _setup_venv(session)
-    # Concatenate README files
-    header = Path("_readme_header.md").read_text(encoding="utf-8")
-    main = Path("_readme_main.md").read_text(encoding="utf-8")
-    footer = Path("_readme_footer.md").read_text(encoding="utf-8")
-    readme_content = f"{header}\n\n{main}\n\n{footer}"
-    Path("README.md").write_text(readme_content, encoding="utf-8")
-    # Build docs
-    session.run("make", "-C", "docs", "html", external=True)
 
 
 @nox.session(python=["3.11", "3.12", "3.13"])
