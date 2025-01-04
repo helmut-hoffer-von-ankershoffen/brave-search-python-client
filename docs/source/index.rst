@@ -1,7 +1,5 @@
 .. only:: html
-
-   .. mdinclude:: ../../README.md
-      :start-line: 1
+   .. include:: readme
    
 .. toctree::
 	:hidden:
