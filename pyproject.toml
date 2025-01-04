@@ -109,7 +109,6 @@ dev = [
     "sphinxext-opengraph>=0.9.1",
     "tomli>=2.1.0",
     "matplotlib>=3.10.0",
-    "sphinxcontrib-jsmath>=1.0.1",
     "sphinxemoji>=0.3.1",
     "pytest-regressions>=2.6.0",
 ]
