@@ -14,8 +14,8 @@
    :maxdepth: 2
 
    contributing
-   reference_index
-   changelog
+   reference
+   release-notes
 
 .. sidebar-links::
    :caption: Links

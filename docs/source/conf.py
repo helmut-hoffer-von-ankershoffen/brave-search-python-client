@@ -118,7 +118,6 @@ latex_elements = {
 
 latex_documents = [
     (
-        "index",
         f"{project}.tex",
         rf"{project} Documentation",
         author,
