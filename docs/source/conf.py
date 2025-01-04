@@ -36,8 +36,8 @@ ogp_description_length = 300
 extensions = [
     "sphinx_toolbox.collapse",  # https://sphinx-toolbox.readthedocs.io/
     "sphinx_toolbox.sidebar_links",
-    #    "sphinx_toolbox.more_autodoc",
-    #    "sphinx_toolbox.more_autosummary",
+    "sphinx_toolbox.more_autodoc",
+    "sphinx_toolbox.more_autosummary",
     "sphinx_toolbox.github",
     #    "sphinx_toolbox.source",
     "sphinx.ext.autodoc",
