@@ -44,14 +44,14 @@ If you don't have uv installed follow [these instructions](https://docs.astral.s
 pip install brave-search-python-client          # add dependency to your project
 ```
 
-Obtain your Brave Search API key by [signing up here](https://brave.com/search/api/) - the free tier includes 2,000 requests per month. For guidance on how to integrate the Brave Search Python client into your code base check out the examples below and explore the [reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html). If you just want to try out the client without having to write code you can use the integrated CLI:
+Obtain your Brave Search API key by [signing up here](https://brave.com/search/api/) - the free tier includes 2,000 requests per month. For guidance on how to integrate the Brave Search Python client into your code base check out the examples below and explore the [reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html). If you just want to try out the client without having to write code you can use the integrated CLI:
 
 ```shell
 export BRAVE_SEARCH_API_KEY=YOUR_API_KEY         # replace YOUR_API_KEY
 uvx brave-search-python-client web "hello world" # search for hello world
 ```
 
-All advanced search options of Brave Search are supported [by the client](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html#brave_search_python_client.WebSearchRequest) and in the CLI:
+All advanced search options of Brave Search are supported [by the client](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchRequest) and in the CLI:
 
 ```shell
 # Find all German content about AI added in the last 24 hours
@@ -77,8 +77,8 @@ uvx brave-search-python-client news --help       # all options news search
   - [Streamlit web application](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
   - [Jupyter notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
   - [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
-* Thorough validation of both [requests](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html#brave_search_python_client.WebSearchRequest) and [responses](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html#brave_search_python_client.WebSearchApiResponse) (powered by Pydantic)
-* [Complete reference documenation](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html#brave_search_python_client.BraveSearch) on Read the Docs
+* Thorough validation of both [requests](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchRequest) and [responses](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchApiResponse) (powered by Pydantic)
+* [Complete reference documenation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.BraveSearch) on Read the Docs
 * [100% test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client) including unit and E2E tests (reported on Codecov)
 * Matrix tested with [Python 3.11, 3.12 and 3.13](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py) to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
 * 100% compliant with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
@@ -130,7 +130,7 @@ if not api_key:
 
 
 async def search() -> None:
-    """Run various searches using the Brave Search Python Client (see https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html)."""
+    """Run various searches using the Brave Search Python Client (see https://brave-search-python-client.readthedocs.io/en/latest/reference.html)."""
     # Initialize the Brave Search Python client, using the API key from the environment
     bs = BraveSearch()
 
@@ -175,7 +175,7 @@ async def search() -> None:
 asyncio.run(search())
 ```
 
-[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py) - [Read the reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference_index.html#brave_search_python_client.BraveSearch)
+[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py) - [Read the reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.BraveSearch)
 
 ## Jupyter Notebook
 
