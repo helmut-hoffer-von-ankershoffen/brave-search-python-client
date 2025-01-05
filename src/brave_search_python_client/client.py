@@ -146,43 +146,38 @@ class BraveSearch:
         """Dump API response to a file."""
         pathlib.Path("response.json").write_text(response.text, encoding="utf-8")
 
-    async def web(
+    async def _execute_search(  # noqa: PLR0913, PLR0917
         self,
-        request: WebSearchRequest,
+        search_type: SearchType,
+        request: (WebSearchRequest | ImagesSearchRequest | VideosSearchRequest | NewsSearchRequest),
+        response_model: type[Any],
         retries: int = 0,
         wait_time: int = DEFAULT_RETRY_WAIT_TIME,
         dump_response: bool = False,
-    ) -> WebSearchApiResponse:
-        """
-        Execute a web search query using the Brave Search API.
-
-        For details see: https://api.search.brave.com/app/documentation/web-search/query
+    ) -> WebSearchApiResponse | ImageSearchApiResponse | VideoSearchApiResponse | NewsSearchApiResponse:
+        """Execute a search query using the Brave Search API.
 
         Args:
-            request (WebSearchRequest): request object with query parameters.
-            retries (int): Number of retries to be attempted in case of failure.
-                Default is 0.
-            wait_time (int): Time to wait between retries. Default is 2 seconds.
-            dump_response (bool): Whether to dump the original response. If enabled
-                will be dumped into response.json in current working directory.
+            search_type (SearchType): Type of search (web, images, news or videos)
+            request (WebSearchRequest | ImagesSearchRequest | VideosSearchRequest | NewsSearchRequest):
+                Search request object with query parameters
+            response_model (type[Any]): Response model class to validate and return the response
+            retries (int): Number of retries to be attempted in case of failure
+            wait_time (int): Time to wait between retries
+            dump_response (bool): Whether to dump the original response
 
         Returns:
-            WebSearchApiResponse: Top level response model for successful Web Search
-                API requests. The response includes relevant keys based on plan,
-                query relevance and result_filter parameters.
+            WebSearchApiResponse | ImageSearchApiResponse | VideoSearchApiResponse | NewsSearchApiResponse:
+                Validated response model instance
 
         Raises:
-            BraveSearchAPIError: If API request fails or returns an error.
-
+            BraveSearchAPIError: If API request fails or returns an error
         """
-        # For integration testing purposes, if API key is MOCK, load from mock data
         if self._api_key == MOCK_API_KEY:
-            return WebSearchApiResponse.model_validate(
-                self._load_mock_data(SearchType.web),
-            )
+            return response_model.model_validate(self._load_mock_data(search_type))
 
         response = await self._get(
-            SearchType.web,
+            search_type,
             params=request.model_dump(exclude_none=True),
             retries=retries,
             wait_time=wait_time,
@@ -191,7 +186,41 @@ class BraveSearch:
         if dump_response:
             self._dump_response(response)
 
-        return WebSearchApiResponse.model_validate(response.json())
+        return response_model.model_validate(response.json())
+
+    async def web(
+        self,
+        request: WebSearchRequest,
+        retries: int = 0,
+        wait_time: int = DEFAULT_RETRY_WAIT_TIME,
+        dump_response: bool = False,
+    ) -> WebSearchApiResponse:
+        """Execute a web search query using the Brave Search API.
+
+        For details see: https://api.search.brave.com/app/documentation/web-search/query
+
+        Args:
+            request (WebSearchRequest): Search request object with query parameters
+            retries (int): Number of retries to be attempted in case of failure
+            wait_time (int): Time to wait between retries
+            dump_response (bool): Whether to dump the original response
+
+        Returns:
+            WebSearchApiResponse: Top level response model for successful Web Search API requests
+
+        Raises:
+            BraveSearchAPIError: If API request fails or returns an error
+        """
+        return WebSearchApiResponse.model_validate(
+            await self._execute_search(
+                SearchType.web,
+                request,
+                WebSearchApiResponse,
+                retries,
+                wait_time,
+                dump_response,
+            )
+        )
 
     async def images(
         self,
@@ -200,43 +229,30 @@ class BraveSearch:
         wait_time: int = DEFAULT_RETRY_WAIT_TIME,
         dump_response: bool = False,
     ) -> ImageSearchApiResponse:
-        """
-        Execute an image search query using the Brave Search API.
+        """Execute an image search query using the Brave Search API.
 
         Args:
-            request (ImagesSearchRequest): request object with query parameters.
-            retries (int): Number of retries to be attempted in case of failure. Default is 0.
-            wait_time (int): Time to wait between retries. Default is 2 seconds.
-            dump_response (bool): Whether to dump the original response. If enabled, it will be dumped
-                                 into response.json in current working directory.
+            request (ImagesSearchRequest): Search request object with query parameters
+            retries (int): Number of retries to be attempted in case of failure
+            wait_time (int): Time to wait between retries
+            dump_response (bool): Whether to dump the original response
 
         Returns:
-            ImageSearchApiResponse: Top-level response model for successful Image Search API requests.
-                The API can also respond back with an error response based on invalid subscription
-                keys and rate limit events
-                (https://api.search.brave.com/app/documentation/image-search/responses).
+            ImageSearchApiResponse: Top level response model for successful Image Search API requests
 
         Raises:
-            BraveSearchAPIError: If the API response fails after retries.
-
+            BraveSearchAPIError: If API request fails or returns an error
         """
-        # For integration testing purposes, if API key is MOCK, load from mock data
-        if self._api_key == MOCK_API_KEY:
-            return ImageSearchApiResponse.model_validate(
-                self._load_mock_data(SearchType.images),
+        return ImageSearchApiResponse.model_validate(
+            await self._execute_search(
+                SearchType.images,
+                request,
+                ImageSearchApiResponse,
+                retries,
+                wait_time,
+                dump_response,
             )
-
-        response = await self._get(
-            SearchType.images,
-            params=request.model_dump(exclude_none=True),
-            retries=retries,
-            wait_time=wait_time,
         )
-
-        if dump_response:
-            self._dump_response(response)
-
-        return ImageSearchApiResponse.model_validate(response.json())
 
     async def videos(
         self,
@@ -245,36 +261,30 @@ class BraveSearch:
         wait_time: int = DEFAULT_RETRY_WAIT_TIME,
         dump_response: bool = False,
     ) -> VideoSearchApiResponse:
-        """
-        Execute a video search query using the Brave Search API.
+        """Execute a video search query using the Brave Search API.
+
+        Args:
+            request (VideoSearchRequest): Search request object with query parameters
+            retries (int): Number of retries to be attempted in case of failure
+            wait_time (int): Time to wait between retries
+            dump_response (bool): Whether to dump the original response
 
         Returns:
-            VideoSearchApiResponse: Top level response model for successful Video Search API requests.
-            The API can also respond back with an error response based on invalid subscription keys
-            and rate limit events. See: https://api.search.brave.com/app/documentation/news-search/responses
+            VideoSearchApiResponse: Top level response model for successful Video Search API requests
 
         Raises:
-            ValueError: If query validation fails.
-            BraveSearchAPIError: If API request fails.
-
+            BraveSearchAPIError: If API request fails or returns an error
         """
-        # For integration testing purposes, if API key is MOCK, load from mock data
-        if self._api_key == MOCK_API_KEY:
-            return VideoSearchApiResponse.model_validate(
-                self._load_mock_data(SearchType.videos),
+        return VideoSearchApiResponse.model_validate(
+            await self._execute_search(
+                SearchType.videos,
+                request,
+                VideoSearchApiResponse,
+                retries,
+                wait_time,
+                dump_response,
             )
-
-        response = await self._get(
-            SearchType.videos,
-            params=request.model_dump(exclude_none=True),
-            retries=retries,
-            wait_time=wait_time,
         )
-
-        if dump_response:
-            self._dump_response(response)
-
-        return VideoSearchApiResponse.model_validate(response.json())
 
     async def news(
         self,
@@ -283,43 +293,30 @@ class BraveSearch:
         wait_time: int = DEFAULT_RETRY_WAIT_TIME,
         dump_response: bool = False,
     ) -> NewsSearchApiResponse:
-        """
-        Execute a news search query using the Brave Search API.
+        """Execute a news search query using the Brave Search API.
 
         Args:
-            request (NewsSearchRequest): request object with query parameters.
-            retries (int): Number of retries to be attempted in case of failure. Default is 0.
-            wait_time (int): Time to wait between retries. Default is 2 seconds.
-            dump_response (bool): Whether to dump the original response. If enabled will be dumped
-            into response.json in current working directory.
+            request (NewsSearchRequest): Search request object with query parameters
+            retries (int): Number of retries to be attempted in case of failure
+            wait_time (int): Time to wait between retries
+            dump_response (bool): Whether to dump the original response
 
         Returns:
-            NewsSearchApiResponse: Top level response model for successful News Search API requests.
-            The API can also respond back with an error response based on invalid subscription keys
-            and rate limit events. See: https://api.search.brave.com/app/documentation/news-search/responses
+            NewsSearchApiResponse: Top level response model for successful News Search API requests
 
         Raises:
-            ValueError: If query validation fails.
-            BraveSearchAPIError: If API request fails or returns an error.
-
+            BraveSearchAPIError: If API request fails or returns an error
         """
-        # For integration testing purposes, if API key is MOCK, load from mock data
-        if self._api_key == MOCK_API_KEY:
-            return NewsSearchApiResponse.model_validate(
-                self._load_mock_data(SearchType.news),
+        return NewsSearchApiResponse.model_validate(
+            await self._execute_search(
+                SearchType.news,
+                request,
+                NewsSearchApiResponse,
+                retries,
+                wait_time,
+                dump_response,
             )
-
-        response = await self._get(
-            SearchType.news,
-            params=request.model_dump(exclude_none=True),
-            retries=retries,
-            wait_time=wait_time,
         )
-
-        if dump_response:
-            self._dump_response(response)
-
-        return NewsSearchApiResponse.model_validate(response.json())
 
     @staticmethod
     async def is_connected() -> bool:
