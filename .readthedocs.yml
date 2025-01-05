@@ -10,7 +10,7 @@ version: 2
 sphinx:
   builder: html
   configuration: docs/source/conf.py
-  fail_on_warning: false
+  fail_on_warning: true
 
 # Formats of the documentation to be built
 formats:
@@ -26,7 +26,6 @@ build:
     - imagemagick
   jobs:
     install:
-      - cat latexmkrc
       - asdf plugin add uv
       - asdf install uv latest
       - asdf global uv latest
