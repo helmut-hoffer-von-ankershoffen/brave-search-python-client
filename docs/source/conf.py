@@ -19,7 +19,6 @@ extensions = [
     "sphinx.ext.imgconverter",
     "sphinx_inline_tabs",
     "sphinx_mdinclude",
-    "sphinxemoji.sphinxemoji",  # https://sphinxemojicodes.readthedocs.io/en/stable/
     "sphinxext.opengraph",
 ]
 

@@ -95,7 +95,7 @@ dev = [
     "pytest-docker>=3.1.1",
     "pytest-env>=1.1.5",
     "pytest-xdist[psutil]>=3.6.1",
-    "ruff>=0.8.5",
+    "ruff>=0.8.6",
     "sphinx>=8.1.3",
     "sphinx-autobuild>=2024.10.3",
     "sphinx-copybutton>=0.5.2",
@@ -108,7 +108,6 @@ dev = [
     "sphinxext-opengraph>=0.9.1",
     "tomli>=2.1.0",
     "matplotlib>=3.10.0",
-    "sphinxemoji>=0.3.1",
     "pytest-regressions>=2.6.0",
 ]
 
@@ -117,46 +116,55 @@ target-version = "py311"
 preview = true
 fix = true
 line-length = 120
+exclude = [".fixme"]
 
 
 [tool.ruff.lint]
 select = ["ALL"]
 
 ignore = [
-    "ANN002", # Missing type annotation for `*args`
-    "ANN003", # Missing type annotation for `**kwargs``
-    "CPY001", # missing copyright notice
-    "DOC502", # docstrings with exceptions not raised in the code of the function
-    "D203",   # incomptatible with D211
-    "D212",   # incompatible with #D213
-    "FBT001", # boolean positional arguments
-    "FBT002", # boolean defautl value positionl arguments
-    "PGH003", # Use specific rule codes when ignoring type issues
-    "TRY300", # else instead of return before except. Simply disagree this is more readable.
-    "COM812", # conflicts with ruff formatter
-    "ISC001", # conflicts with ruff formatter
+    "ANN002",   # missing type annotation for `*args` -> provides no value
+    "ANN003",   # missing type annotation for `**kwargs`` -> provides no value
+    "ASYNC109", # async function definition with a `timeout` parameter  -> as mentioned by ruff, "This rule is highly opinionated and may not be suitable for all use cases."
+    "CPY001",   # missing copyright notice -> not for OSS
+    "DOC502",   # docstrings with exceptions not raised in the code of the function -> not always necessary
+    "D203",     # incomptatible with D211 -> prefer D211
+    "D212",     # incompatible with D213 -> prefer D213
+    "FBT001",   # boolean positional arguments -> disagree
+    "FBT002",   # boolean defautl value positionl arguments -> disagree
+    "FBT003",   # boolean positional value in function call -> disagree
+    "PGH003",   # use specific rule codes when ignoring type issues -> quite a hassle, no value
+    "TRY300",   # else instead of return before except. -> strongly disagree, hinders readabilty.
+    "COM812",   # conflicts with ruff formatter -> not feasible nor recommended
+    "ISC001",   # conflicts with ruff formatter -> not feasible nor recommended
+    "S404",     # subprocess` module is possibly insecure -> as mentioned by ruff, unstable and preview
+    "FIX002",   # line contains todo -> yes, that's what todo's are for?!
+    "TD003",    # missing issue link for todo -> not in OSS
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**/*.py" = [
-    # at least this three should be fine in tests:
+    # we are more relaxed in tests, while sill applying hundreds of rules
     "S101",     # asserts allowed in tests...
-    "ARG",      # Unused function args -> fixtures nevertheless are functionally relevant...
-    "FBT",      # Don't care about booleans as positional arguments in tests, e.g. via @pytest.mark.parametrize()
-    "PLR2004",  # Magic value used in comparison, ...
-    "PT011",    # Exception to broad
+    "ARG",      # unused function args -> fixtures nevertheless are functionally relevant...
+    "FBT",      # don't care about booleans as positional arguments in tests, e.g. via @pytest.mark.parametrize()
+    "PLR2004",  # magic value used in comparison, ...
+    "PT011",    # exception to broad
     "PLC2701",  # private import, but required for unit testing
     "PLC0415",  # local import
-    "PT012",    # Exception to broad
-    "S311",     # Standard pseudo-random generators are not suitable for cryptographic purposes
-    "SLF001",   # Private member access required for unit testing
-    "ANN001",   # Missing type annotation for function argument
-    "ANN002",   # Missing type annotation
-    "ANN003",   # Missing type annotation
-    "ANN202",   # Missing return type annotation
-    "PTH123",   # Use of open to be replaced with Path.open
+    "PT012",    # exception to broad
+    "S311",     # standard pseudo-random generators are not suitable for cryptographic purposes
+    "SLF001",   # private member access required for unit testing
+    "S603",     # check for execution of untrusted input
+    "ANN001",   # missing type annotation for function argument
+    "ANN002",   # missing type annotation
+    "ANN003",   # missing type annotation
+    "ANN202",   # missing return type annotation
+    "PTH123",   # use of open to be replaced with Path.open
     "DOC201",   # `return` is not documented in docstring
-    "ASYNC230", # Async functions should not open files with blocking methods like `open`
+    "ASYNC230", # async functions should not open files with blocking methods like `open`
+    "S104",     # bind to all ports
+    "S607",     # subprocess with partial path
 ]
 
 [tool.ruff.lint.extend-per-file-ignores]
@@ -167,6 +175,8 @@ ignore = [
 [tool.ruff.format]
 docstring-code-format = true
 
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.pytest.ini_options]
 addopts = "-v --cov=brave_search_python_client --cov-report=term-missing --cov-report=xml:coverage.xml --cov-report=html:coverage_html"
