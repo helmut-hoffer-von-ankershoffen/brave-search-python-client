@@ -1,6 +1,6 @@
 [🦁 Brave Search Python Client](https://helmuthva.gitbook.io/brave-search-api-client)
 
-## [0.2.22](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.21..0.2.22) - 2025-01-05
+## [0.2.22](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.21..v0.2.22) - 2025-01-05
 
 ### 🚜 Refactor
 
@@ -273,4 +273,4 @@
 
 ## New Contributors ❤️
 
-* @helmut-hoffer-von-ankershoffen made their first contribution<!-- built with love in Berlin by Helmut Hoffer von Ankershoffen -->
+* @helmut-hoffer-von-ankershoffen made their first contribution
