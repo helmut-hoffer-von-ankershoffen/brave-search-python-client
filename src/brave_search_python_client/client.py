@@ -264,7 +264,7 @@ class BraveSearch:
         """Execute a video search query using the Brave Search API.
 
         Args:
-            request (VideoSearchRequest): Search request object with query parameters
+            request (VideosSearchRequest): Search request object with query parameters
             retries (int): Number of retries to be attempted in case of failure
             wait_time (int): Time to wait between retries
             dump_response (bool): Whether to dump the original response

@@ -9,7 +9,7 @@ extensions = [
     "sphinx_toolbox.github",
     "sphinx_toolbox.source",
     "sphinx.ext.autodoc",
-    "enum_tools.autoenum",  # https://github.com/domdfcoding/enum_tools/tree/master
+    #    "enum_tools.autoenum",  # https://github.com/domdfcoding/enum_tools/tree/master  # noqa: ERA001
     "sphinx.ext.napoleon",  # https://sphinxcontrib-napoleon.readthedocs.io/en/latest/
     "sphinx-pydantic",
     "sphinxcontrib.autodoc_pydantic",  # https://autodoc-pydantic.readthedocs.io/en/stable/users/examples.html
