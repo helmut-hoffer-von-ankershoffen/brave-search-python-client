@@ -1,5 +1,10 @@
 [🦁 Brave Search Python Client](https://helmuthva.gitbook.io/brave-search-api-client)
 
+## [unreleased]
+
+### 📚 Documentation
+
+- Nl - ([5ce6585](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/5ce65859da09af130089556f7dad48ff0d217f2b))
 ## [0.2.22](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.21..v0.2.22) - 2025-01-05
 
 ### 🚜 Refactor

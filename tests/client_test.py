@@ -259,7 +259,7 @@ async def test_client_is_connected_success(monkeypatch) -> None:
     """Test successful connection check."""
 
     def mock_head(*args, **kwargs):
-        mock_response = httpx.Response(200)
+        mock_response = httpx.Response(301)
         mock_response._request = httpx.Request("HEAD", args[0])
         return mock_response
 

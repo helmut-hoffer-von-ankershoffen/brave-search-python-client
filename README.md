@@ -314,6 +314,7 @@ docker run helmuthva/brave-search-python-client news --help
 
 TK (to come)
 
+
 ## Further Reading
 
 * Check out the [reference](https://brave-search-python-client.readthedocs.io/en/latest/reference.html) with detailed documentation of public classes and functions.

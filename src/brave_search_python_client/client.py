@@ -332,6 +332,6 @@ class BraveSearch:
         try:
             async with httpx.AsyncClient() as client:
                 response = await client.head(api_url, timeout=5)
-                return response.status_code in {200, 303}
+                return response.status_code in {200, 301, 303}
         except httpx.HTTPError:
             return False
