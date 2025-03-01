@@ -2,8 +2,15 @@
 .env
 .env.backup
 .env.bak
+ENV/
+env/
+.envrc
 
-# Python build artifacts
+# Python virtual environment
+venv/
+.venv/
+
+# Python temps
 *.py[cdo]
 __pycache__/
 *.so
@@ -14,31 +21,18 @@ dist/
 build/
 eggs/
 parts/
-var/
 sdist/
 develop-eggs/
 .installed.cfg
-lib/
-lib64/
 .Python
-
-# Virtual environment
-venv/
-.venv/
-ENV/
-
-# IDE
-.idea/
-*.swp
-*.swo
-
-# macOS
-.DS_Store
-
-# Build
 .pytest_cache/
 .ruff_cache/
 .nox
+.dmypy.json
+.mypy_cache/
+
+
+# Build Artefacts
 junit.xml
 .coverage*
 coverage.xml
@@ -48,14 +42,23 @@ licenses.json
 licenses-inverted.json
 sbom.json
 
-# mypy
-.dmypy.json
-.mypy_cache/
+# IDE
+.idea/
+*.swp
+*.swo
 
-# direnv
-.envrc
+# macOS
+.DS_Store
 
-# Node.js
+# Other OS
+lib/
+lib64/
+
+# Data
+var/
+tmp/
+
+# Node temps
 node_modules/
 
 # AI workflow
