@@ -4,9 +4,6 @@
     },
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "charliermarsh.ruff",
-    "ruff.lint.args": [
-        "--ignore=F401"
-    ],
     "terminal.integrated.scrollback": 100000,
     "[python]": {
         "editor.codeActionsOnSave": {
@@ -38,16 +35,12 @@
     "python.analysis.ignore": [
         "**/typing.py"
     ],
-    "sonarlint.connectedMode.project": {
-        "connectionId": "helmut-hoffer-von-ankershoffen",
-        "projectKey": "helmut-hoffer-von-ankershoffen_brave-search-python-client"
-    },
     "python.testing.autoTestDiscoverOnSaveEnabled": true,
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true,
     "python.testing.pytestArgs": [
         "-v",
-        "--cov=brave_search_python_client",
+        "--cov=brave_search_python_client"
     ],
     "github.copilot.selectedCompletionModel": "gpt-4o-copilot",
     "github.copilot.nextEditSuggestions.enabled": true,
@@ -65,4 +58,9 @@
     "github.copilot.chat.scopeSelection": true,
     "github.copilot.chat.completionContext.typescript.mode": "on",
     "github.copilot.chat.generateTests.codeLens": true,
-    "github.copilot.chat.search.semanticTextResults": true,}
+    "github.copilot.chat.search.semanticTextResults": true,
+    "sonarlint.connectedMode.project": {
+        "connectionId": "helmut-hoffer-von-ankershoffen",
+        "projectKey": "helmut-hoffer-von-ankershoffen_brave-search-python-client"
+    }
+}

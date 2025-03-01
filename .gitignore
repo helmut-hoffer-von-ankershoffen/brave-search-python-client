@@ -1,5 +1,10 @@
+# Env
+.env
+.env.backup
+.env.bak
+
 # Python build artifacts
-*.py[cod]
+*.py[cdo]
 __pycache__/
 *.so
 *.egg
@@ -27,12 +32,12 @@ ENV/
 *.swp
 *.swo
 
-# OS
+# macOS
 .DS_Store
 
 # Build
-.pytest_cache
-.ruff_cache
+.pytest_cache/
+.ruff_cache/
 .nox
 junit.xml
 .coverage*
@@ -43,12 +48,21 @@ licenses.json
 licenses-inverted.json
 sbom.json
 
-# Env
-.env
-.env.backup
-.env.bak
+# mypy
+.dmypy.json
+.mypy_cache/
 
+# direnv
+.envrc
+
+# Node.js
+node_modules/
+
+# AI workflow
 .fixme
 
+# Copier
+*.rej
+
 # Application specific
-/response.json
+response.json
