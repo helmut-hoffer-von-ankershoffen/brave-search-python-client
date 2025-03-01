@@ -17,6 +17,8 @@
         "sonarsource.sonarlint-vscode",
         "tamasfe.even-better-toml",
         "tomoki1207.pdf",
-        "wayou.vscode-todo-highlight"
+        "wayou.vscode-todo-highlight",
+        "github.copilot",
+        "github.copilot-chat"
     ]
 }
