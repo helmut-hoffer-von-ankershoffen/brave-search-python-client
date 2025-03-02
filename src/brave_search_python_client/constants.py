@@ -12,4 +12,4 @@ MAX_QUERY_LENGTH = 400
 MAX_QUERY_TERMS = 50
 DEFAULT_RETRY_WAIT_TIME = 2
 MOCK_API_KEY = "MOCK"
-MOCK_DATA_PATH = "src/brave_search_python_client/responses/mock_data/"
+MOCK_DATA_PATH = "src/brave_search_python_client/responses/fixtures/"

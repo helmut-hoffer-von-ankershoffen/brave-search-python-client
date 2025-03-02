@@ -5,7 +5,7 @@ FROM ghcr.io/astral-sh/uv:python3.13-bookworm-slim
 WORKDIR /app
 
 # Enable bytecode compilation
-ENV UV_COMPILE_BYTECODE=1 
+ENV UV_COMPILE_BYTECODE=1
 
 # Copy from the cache instead of linking since it's a mounted volume
 ENV UV_LINK_MODE=copy
@@ -35,6 +35,5 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 ENV BRAVE_SEARCH_PYTHON_CLIENT_RUNNING_IN_CONTAINER=1
 
-# When running the container, start the Starbridge MCP server
 # But feel free to add arguments and options as needed when doing a docker run
-ENTRYPOINT ["uv", "run", "--no-dev", "brave-search"]
+ENTRYPOINT ["uv", "run", "--no-dev", "brave_search_python_client"]

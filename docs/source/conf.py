@@ -33,7 +33,7 @@ github_repository = "brave-search-python-client"
 language = "en"
 
 ogp_site_name = "Brave Search Python Client"
-ogp_image = "https://brave-search-python-client.readthedocs.io/en/latest/_static/brave.png"
+ogp_image = "https://brave-search-python-client.readthedocs.io/en/latest/_static/logo.png"
 ogp_custom_meta_tags = [
     '<meta name="twitter:card" content="Brave Search Python Client" />',
 ]
@@ -71,7 +71,7 @@ exclude_patterns = []
 
 html_theme = "furo"
 html_static_path = ["_static"]
-html_logo = "../../brave.png"
+html_logo = "../../logo.png"
 html_theme_options = {
     "announcement": (
         '<a target="_blank" href="https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client">GitHub</a> - '  # noqa: E501
@@ -121,4 +121,4 @@ latex_documents = [
     ("index", f"{slug}.tex", rf"{project} Documentation", author, "manual", False),
 ]
 
-latex_logo = "../../brave.png"
+latex_logo = "../../logo.png"

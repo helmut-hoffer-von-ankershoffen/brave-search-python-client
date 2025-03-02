@@ -29,25 +29,25 @@ TEST_API_KEY = "TEST_API_KEY"
 RESPONSE_FILE = "response.json"
 RETRY_COUNT = 3
 
-with open("tests/mock_data/web.json", encoding="utf-8") as f:
+with open("tests/fixtures/web.json", encoding="utf-8") as f:
     mock_web_search_response_data = json.load(f)
 mock_web_search_response = WebSearchApiResponse.model_validate(
     mock_web_search_response_data,
 )
 
-with open("tests/mock_data/images.json", encoding="utf-8") as f:
+with open("tests/fixtures/images.json", encoding="utf-8") as f:
     mock_image_search_response_data = json.load(f)
 mock_image_search_response = ImageSearchApiResponse.model_validate(
     mock_image_search_response_data,
 )
 
-with open("tests/mock_data/videos.json", encoding="utf-8") as f:
+with open("tests/fixtures/videos.json", encoding="utf-8") as f:
     mock_video_search_response_data = json.load(f)
 mock_video_search_response = VideoSearchApiResponse.model_validate(
     mock_video_search_response_data,
 )
 
-with open("tests/mock_data/news.json", encoding="utf-8") as f:
+with open("tests/fixtures/news.json", encoding="utf-8") as f:
     mock_news_search_response_data = json.load(f)
 mock_news_search_response = NewsSearchApiResponse.model_validate(
     mock_news_search_response_data,
@@ -189,9 +189,9 @@ async def test_client_routing() -> None:
         ),
     ]
 
-    for search_method, mock_data, request_type, response_type in test_cases:
-        # Bind mock_data using default argument
-        def mock_get(*args, mock_response_data=mock_data, **kwargs):
+    for search_method, fixtures, request_type, response_type in test_cases:
+        # Bind fixtures using default argument
+        def mock_get(*args, mock_response_data=fixtures, **kwargs):
             mock_response = httpx.Response(200, json=mock_response_data)
             mock_response._request = httpx.Request(method="GET", url=args[0])
             return mock_response
@@ -213,9 +213,9 @@ async def test_client_dump_response() -> None:
         (client.news, NewsSearchRequest, mock_news_search_response_data),
     ]
 
-    for search_method, request_type, mock_data in test_cases:
-        # Bind mock_data using default argument
-        def mock_get(*args, mock_response_data=mock_data, **kwargs):
+    for search_method, request_type, fixtures in test_cases:
+        # Bind fixtures using default argument
+        def mock_get(*args, mock_response_data=fixtures, **kwargs):
             mock_response = httpx.Response(200, json=mock_response_data)
             mock_response._request = httpx.Request(method="GET", url=args[0])
             return mock_response
@@ -224,12 +224,12 @@ async def test_client_dump_response() -> None:
             _ = await search_method(request_type(q=TEST_QUERY), dump_response=True)
             assert Path(RESPONSE_FILE).exists()
             with open(RESPONSE_FILE, encoding="utf-8") as f:
-                assert json.load(f) == mock_data
+                assert json.load(f) == fixtures
             Path(RESPONSE_FILE).unlink()
 
 
 @pytest.mark.asyncio
-async def test_client_mock_data_handling() -> None:
+async def test_client_fixtures_handling() -> None:
     """Test that mock data is returned when MOCK_API_KEY is used."""
     client = BraveSearch(api_key=MOCK_API_KEY)
 

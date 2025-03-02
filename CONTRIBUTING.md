@@ -41,12 +41,12 @@ src/brave_search_python_client/
 ├── constants.py         # Constants
 ├── requests.py          # Pydantic models for requests
 └── responses/           # Pydantic models for responses
-    └── mock_data/       # Mock data for integration tests
+    └── fixtures/       # Mock data for integration tests
 tests/                   # Unit and E2E tests
 ├── client_test.py       # Client tests including response validation
 ├── requests_tests.py    # Tests for request validation
 ├── cli_test.py          # CLI tests
-└── mock_data/           # Mock data for unit testing
+└── fixtures/           # Mock data for unit testing
 examples/                # Example code demonstrating use of hte client
 ├── streamlit.py         # Streamlit App, deployed in Streamlit Community Cloud
 ├── jupyter.ipynb        # Jupyter notebook

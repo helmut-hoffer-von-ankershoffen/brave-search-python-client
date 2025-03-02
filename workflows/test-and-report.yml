@@ -61,25 +61,16 @@ jobs:
       - name: Create .env file
         uses: SpicyPizza/create-envfile@v2.0
         with:
-          envkey_STARBRIDGE_ATLASSIAN_URL: "https://your-domain.atlassian.net"
-          envkey_STARBRIDGE_ATLASSIAN_EMAIL_ADDRESS: "you@your-domain.com"
-          envkey_STARBRIDGE_ATLASSIAN_API_TOKEN: "YOUR_API_TOKEN"
-          envkey_STARBRIDGE_LOGFIRE_TOKEN: "${{ secrets.STARBRIDGE_LOGFIRE_TOKEN }}"
-          envkey_STARBRIDGE_LOGFIRE_INSTRUMENT_MCP_ENABLED: 1
-          envkey_STARBRIDGE_LOGFIRE_ENVIRONMENT: "github_action_test"
+          envkey_BRAVE_SEARCH_API_KEY: "YOUR_BRAVE_SEARCH_API_KEY"
           fail_on_empty: true
 
       - name: Validate installation
         run: |
-            OUTPUT=$(uv run starbridge --help)
+            OUTPUT=$(uv run brave-search-python-client --help)
             if [[ "$OUTPUT" != *"built with love in Berlin"* ]]; then
             echo "Output does not contain 'built with love in Berlin'"
             exit 1
             fi
-
-      - name: Info, tools and health
-        run: |
-          uv run starbridge info
 
       - name: Run unit tests, measure coverage, lint, and check vulnerabilities
         run: |
@@ -103,7 +94,7 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: helmut-hoffer-von-ankershoffen/starbridge
+          slug: helmut-hoffer-von-ankershoffen/brave-search-python-client
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}

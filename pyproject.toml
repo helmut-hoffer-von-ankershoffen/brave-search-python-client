@@ -251,7 +251,7 @@ output = "CHANGELOG.md"
 render = true
 # template for the changelog header
 header = """
-[🦁 Brave Search Python Client](https://helmuthva.gitbook.io/brave-search-api-client)\n
+[🦁 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/)\n
 """
 # template for the changelog body
 # https://keats.github.io/tera/docs/#introduction
