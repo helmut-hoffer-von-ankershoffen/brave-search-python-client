@@ -281,6 +281,15 @@ Show options for news search
 docker run helmuthva/brave-search-python-client news --help
 ```
 
+Or use docker compose
+
+File .env is passed through
+
+```bash
+docker compose up
+docker compose run brave-search-python-client --help
+```
+
 ## Extra: MCP Server
 
 TK (to come)
