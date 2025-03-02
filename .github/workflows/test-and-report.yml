@@ -100,7 +100,7 @@ jobs:
 
       - name: SonarQube Scan
         if: ${{ !cancelled() && (env.GITLAB_WORKFLOW_RUNTIME != 'ACT')}}
-        uses: SonarSource/sonarqube-scan-action@v4
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
