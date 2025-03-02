@@ -56,7 +56,7 @@ jobs:
       - name: Create .env file
         uses: SpicyPizza/create-envfile@v2.0
         with:
-          envkey_BRAVE_SEARCH_API_KEY: "${{ secrets.BRAVE_SEARCH_API_KEY }}"
+          envkey_BRAVE_SEARCH_API_KEY: "BRAVE_SEARCH_API_KEY"
           fail_on_empty: true
 
       - name: Validate installation
@@ -73,7 +73,7 @@ jobs:
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
-        if: always()
+        if: ${{ always() && (env.RUNTIME != 'ACT') }}
         with:
           name: test-results
           path: |
@@ -87,17 +87,19 @@ jobs:
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
+        if: ${{ !cancelled() && (env.RUNTIME != 'ACT') }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: helmut-hoffer-von-ankershoffen/brave-search-python-client
 
       - name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && (env.RUNTIME != 'ACT')}}
         uses: codecov/test-results-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: SonarQube Scan
+        if: ${{ !cancelled() && (env.RUNTIME != 'ACT')}}
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
