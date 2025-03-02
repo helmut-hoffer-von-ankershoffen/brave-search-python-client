@@ -36,4 +36,4 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 ENV BRAVE_SEARCH_PYTHON_CLIENT_RUNNING_IN_CONTAINER=1
 
 # But feel free to add arguments and options as needed when doing a docker run
-ENTRYPOINT ["uv", "run", "--no-dev", "brave_search_python_client"]
+ENTRYPOINT ["uv", "run", "--no-dev", "brave-search-python-client"]
