@@ -1,4 +1,4 @@
-"""Constants used throughout the Brave Search Python Client."""
+"""Constants used throughout Brave Search Python Client's codebase ."""
 
 import importlib.metadata
 import pathlib

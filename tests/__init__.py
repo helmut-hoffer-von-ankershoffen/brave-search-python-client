@@ -1,1 +1,1 @@
-"""Test suite for the Brave Search Python Client."""
+"""Test suite for Brave Search Python Client."""

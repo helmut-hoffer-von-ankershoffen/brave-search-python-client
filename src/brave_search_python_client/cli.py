@@ -1,4 +1,4 @@
-"""Command line interface for the Brave Search Python Client."""
+"""Command line interface of Brave Search Python Client."""
 
 import asyncio
 from typing import Annotated
@@ -388,3 +388,7 @@ _apply_cli_settings(
     cli,
     f"🦁 Brave Search Python Client v{__version__} - built with love in Berlin 🐻",
 )
+
+
+if __name__ == "__main__":
+    cli()

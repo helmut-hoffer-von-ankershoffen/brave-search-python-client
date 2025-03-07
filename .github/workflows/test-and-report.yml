@@ -1,4 +1,3 @@
-# .github/workflows/test.yml
 name: "CI"
 
 on:
@@ -32,6 +31,11 @@ jobs:
           enable-cache: true
           cache-dependency-glob: uv.lock
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm install @modelcontextprotocol/inspector@0.3.0
+
       - name: Install Python, venv and dependencies
         run: |
           uv sync --all-extras --frozen --link-mode=copy
@@ -61,11 +65,15 @@ jobs:
 
       - name: Validate installation
         run: |
-          OUTPUT=$(uv run brave-search-python-client --help)
-          if [[ "$OUTPUT" != *"built with love in Berlin"* ]]; then
-          echo "Output does not contain 'built with love in Berlin'"
-          exit 1
-          fi
+            OUTPUT=$(uv run brave-search-python-client --help)
+            if [[ "$OUTPUT" != *"built with love in Berlin"* ]]; then
+            echo "Output does not contain 'built with love in Berlin'"
+            exit 1
+            fi
+
+      - name: Smoke tests
+        run: |
+          uv run brave-search-python-client hello-world
 
       - name: Run unit tests, measure coverage, lint, and check vulnerabilities
         run: |
@@ -73,7 +81,7 @@ jobs:
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
-        if: ${{ always() && (env.GITLAB_WORKFLOW_RUNTIME != 'ACT') }}
+        if: ${{ always() && (env.GITHUB_WORKFLOW_RUNTIME != 'ACT') }}
         with:
           name: test-results
           path: |
@@ -87,19 +95,18 @@ jobs:
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
-        if: ${{ !cancelled() && (env.GITLAB_WORKFLOW_RUNTIME != 'ACT') }}
+        if: ${{ !cancelled() && (env.GITHUB_WORKFLOW_RUNTIME != 'ACT') }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: helmut-hoffer-von-ankershoffen/brave-search-python-client
 
       - name: Upload test results to Codecov
-        if: ${{ !cancelled() && (env.GITLAB_WORKFLOW_RUNTIME != 'ACT')}}
+        if: ${{ !cancelled() && (env.GITHUB_WORKFLOW_RUNTIME != 'ACT') }}
         uses: codecov/test-results-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
       - name: SonarQube Scan
-        if: ${{ !cancelled() && (env.GITLAB_WORKFLOW_RUNTIME != 'ACT')}}
+        if: ${{ !cancelled() && (env.GITHUB_WORKFLOW_RUNTIME != 'ACT') }}
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

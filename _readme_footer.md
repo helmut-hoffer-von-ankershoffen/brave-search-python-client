@@ -2,7 +2,7 @@
 
 * Check out the [reference](https://brave-search-python-client.readthedocs.io/en/latest/reference.html) with detailed documentation of public classes and functions.
 * Our [release notes](https://brave-search-python-client.readthedocs.io/en/latest/release-notes.html) provide a complete log of recent improvements and changes.
-* In case you want to help us improve the Brave Search Python Client: The [contribution guidelines](https://brave-search-python-client.readthedocs.io/en/latest/contributing.html) explain how to setup your development environment and create pull requests.
+* In case you want to help us improve 🦁 Brave Search Python Client: The [contribution guidelines](https://brave-search-python-client.readthedocs.io/en/latest/contributing.html) explain how to setup your development environment and create pull requests.
 
 ## Star History
 

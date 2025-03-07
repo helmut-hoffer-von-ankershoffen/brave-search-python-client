@@ -1,4 +1,4 @@
-"""Tests for the command line interface functionality."""
+"""Tests to verify the CLI functionality of Brave Search Python Client."""
 
 import json
 from unittest.mock import patch
@@ -63,10 +63,10 @@ def test_cli_commands(runner: CliRunner) -> None:
     """Check commands exist and show help and epilog."""
     for command in ["web", "images", "videos", "news"]:
         result = runner.invoke(cli, [command, "--help"])
-        assert result.exit_code == 0
-        assert SEARCH_QUERY_HELP in result.output
-        assert f"Search {command}" in result.output or f"Search the {command}" in result.output
-        assert __version__ in result.output
+    assert result.exit_code == 0
+    assert SEARCH_QUERY_HELP in result.output
+    assert f"Search {command}" in result.output or f"Search the {command}" in result.output
+    assert __version__ in result.output
 
 
 def test_cli_search(runner: CliRunner) -> None:

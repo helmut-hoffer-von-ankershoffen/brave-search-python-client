@@ -1,3 +1,5 @@
+# .gitignore of project Brave Search Python Client
+
 # Environment
 .env
 .env.backup
@@ -41,6 +43,7 @@ vulnerabilities.json
 licenses.json
 licenses-inverted.json
 sbom.json
+mypi_junit.xml
 
 # IDE
 .idea/

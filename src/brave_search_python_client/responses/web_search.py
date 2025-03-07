@@ -5,7 +5,7 @@ This module provides a complete type-safe interface for working with Brave Searc
 API responses.
 """
 
-from typing import Literal
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -1057,7 +1057,7 @@ class SearchResult(Result):
         default=None,
         description="Gathered information on a web search result",
     )
-    schemas: list[list] | None = Field(
+    schemas: list[list[Any]] | None = Field(
         default=None,
         description="A list of schemas (structured data) extracted from the page",
     )

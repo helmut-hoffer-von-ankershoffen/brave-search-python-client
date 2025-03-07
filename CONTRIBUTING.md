@@ -1,10 +1,10 @@
-# Contributing
+# Contributing to Brave Search Python Client
 
-Thank you for considering contributing to brave-search-python-client!
+Thank you for considering contributing to Brave Search Python Client!
 
 ## Setup
 
-Clone this GitHub repository via ```git clone git@github.com:helmut-hoffer-von-ankershoffen/brave-search-python-client.git``` and change into the directory of your local starbridge repository: ```cd brave-search-python-client```
+Clone this GitHub repository via ```git clone git@github.com:helmut-hoffer-von-ankershoffen/brave-search-python-client.git``` and change into the directory of your local Brave Search Python Client repository: ```cd brave-search-python-client```
 
 Install the dependencies:
 
@@ -49,7 +49,7 @@ tests/                   # Unit and E2E tests
 └── fixtures/           # Mock data for unit testing
 examples/                # Example code demonstrating use of hte client
 ├── streamlit.py         # Streamlit App, deployed in Streamlit Community Cloud
-├── jupyter.ipynb        # Jupyter notebook
+├── notebook.ipynb       # Jupyter notebook
 └── script.py            # Minimal script
 ```
 
@@ -57,14 +57,20 @@ examples/                # Example code demonstrating use of hte client
 
 ### .env file
 
-Don't forget to run
+Don't forget to configure your `.env` file with the required environment variables.
 
+Notes:
+* .env.example is provided as a template.
+* .env is excluded from version control, so feel free to add secret values.
 
-
-### CLI
+### update dependencies and create virtual environment
 
 ```shell
-uv run brave-search-python-client --help
+uv sync                      # install dependencies
+uv sync --all-extras         # install all extras, required for examples
+uv venv                      # create a virtual environment
+source .venv/bin/activate    # activate it
+uv run pre-commit install    # Install pre-commit hook etc.
 ```
 
 ### Example: Streamlit Example App
@@ -82,14 +88,14 @@ uv sync --all-extras # required streamlit dependency part of the examples extra,
 
 Install the [Jupyter extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 
-Click on `examples/jupyter.ipynb` in VSCode and run it
+Click on `examples/notebook.ipynb` in VSCode and run it
 
 ## Build
 
 All build steps are defined in `noxfile.py`.
 
 ```shell
-uv run nox
+uv run nox        # Runs all build steps except setup_dev
 ```
 
 You can run individual build steps - called sessions in nox as follows:

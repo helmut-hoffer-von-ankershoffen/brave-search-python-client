@@ -1,4 +1,4 @@
-name: Build and publish Docker image
+name: "Build and publish Docker image to docker.io and ghcr.io"
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
 env:
   REGISTRY: docker.io
   IMAGE_NAME: helmuthva/brave-search-python-client
+
 
 jobs:
   docker_image_build_publish:
@@ -39,7 +40,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5

@@ -53,17 +53,17 @@ dependencies = [
     "httpx >= 0.28.1",
     "pydantic >= 2.10.6",
     "python-dotenv>=1.0.1",
-    "streamlit>=1.42.2",
+    "streamlit>=1.43.0",
     "tenacity >= 9.0.0",
-    "typer>=0.15.1",
+    "typer>=0.15.2",
 ]
 
 [project.scripts]
 brave-search-python-client = "brave_search_python_client.cli:cli"
 
 [project.urls]
-Homepage = "https://brave-search-python-client.readthedocs.io/"
-Documentation = "https://brave-search-python-client.readthedocs.io/"
+Homepage = "https://brave-search-python-client.readthedocs.io/en/latest/"
+Documentation = "https://brave-search-python-client.readthedocs.io/en/latest/"
 Source = "https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client"
 Changelog = "https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/releases"
 Issues = "https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/issues"
@@ -73,30 +73,36 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project.optional-dependencies]
-examples = ["jupyter>=1.1.1"]
+examples = [
+    "streamlit>=1.42.2",
+    "marimo>=0.11.13",
+    "jupyter>=1.1.1",
+    "jinja2 >=3.1.6",
+]
 
 [dependency-groups]
 dev = [
     "autodoc-pydantic>=2.2.0",
-    "bump-my-version>=0.32.2",
+    "bump-my-version>=1.0.1",
     "cyclonedx-py>=1.0.1",
     "detect-secrets>=1.5.0",
     "enum-tools>=0.12.0",
     "furo>=2024.8.6",
     "git-cliff>=2.8.0",
+    "mypy>=1.5.0",
     "nox[uv]>=2025.2.9",
     "pip-audit>=2.8.0",
     "pip-licenses>=5.0.0",
     "pre-commit>=4.1.0",
-    "pyright>=1.1.394",
-    "pytest>=8.3.4",
+    "pyright>=1.1.396",
+    "pytest>=8.3.5",
     "pytest-asyncio>=0.25.3",
     "pytest-cov>=6.0.0",
     "pytest-docker>=3.2.0",
     "pytest-env>=1.1.5",
     "pytest-xdist[psutil]>=3.6.1",
-    "ruff>=0.9.7",
-    "sphinx>=8.2.1",
+    "ruff>=0.9.10",
+    "sphinx>=8.2.3",
     "sphinx-autobuild>=2024.10.3",
     "sphinx-copybutton>=0.5.2",
     "sphinx-inline-tabs>=2023.4.21",
@@ -104,10 +110,10 @@ dev = [
     "sphinxext.opengraph>=0.9.1",
     "sphinx-pydantic>=0.1.1",
     "sphinx-rtd-theme>=3.0.2",
-    "sphinx-toolbox>=3.8.3",
+    "sphinx-toolbox>=3.9.0",
     "sphinxext-opengraph>=0.9.1",
     "tomli>=2.1.0",
-    "matplotlib>=3.10.0",
+    "matplotlib>=3.10.1",
     "pytest-regressions>=2.7.0",
 ]
 
@@ -116,7 +122,7 @@ target-version = "py311"
 preview = true
 fix = true
 line-length = 120
-exclude = [".fixme"]
+exclude = [".fixme", "notebook.py"]
 
 
 [tool.ruff.lint]
@@ -168,6 +174,10 @@ ignore = [
 ]
 
 [tool.ruff.lint.extend-per-file-ignores]
+"examples/notebook.py" = [
+    # we are more relaxed in notebooks, while sill applying hundreds of rules
+    "B018", # notebooks surface variable without print
+]
 "src/brave_search_python_client/responses/*.py" = [
     "N815", # mixedCase required to match the API response model of Brave Search API
 ]
@@ -177,6 +187,25 @@ docstring-code-format = true
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.mypy] # https://mypy.readthedocs.io/en/latest/config_file.html
+junit_xml = "mypi_junit.xml"
+plugins = "pydantic.mypy"
+strict = true
+disallow_subclassing_any = false
+disallow_untyped_decorators = false
+ignore_missing_imports = true
+pretty = true
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
+warn_unreachable = true
+
+[tool.pydantic-mypy] # https://docs.pydantic.dev/latest/integrations/mypy/#configuring-the-plugin
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = true
 
 [tool.pytest.ini_options]
 addopts = "-v --cov=brave_search_python_client --cov-report=term-missing --cov-report=xml:coverage.xml --cov-report=html:coverage_html"
@@ -251,11 +280,12 @@ output = "CHANGELOG.md"
 render = true
 # template for the changelog header
 header = """
-[🦁 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/)\n
+[🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)\n
 """
 # template for the changelog body
 # https://keats.github.io/tera/docs/#introduction
 body = """
+
 {%- macro remote_url() -%}
   https://github.com/{{ remote.github.owner }}/{{ remote.github.repo }}
 {%- endmacro -%}
@@ -304,10 +334,13 @@ body = """
     {%- endif %}
 {%- endfor -%}
 {%- endif %}
+
+
 """
 # template for the changelog footer
 footer = """
 """
+
 ## [{{ version | trim_start_matches(pat="v") }}]\
 ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
 ## [unreleased]
@@ -319,6 +352,7 @@ trim = true
 postprocessors = [
     { pattern = '<REPO>', replace = "https://github.com/orhun/git-cliff" }, # replace repository URL
 ]
+
 
 [tool.git-cliff.git]
 # parse the commits based on https://www.conventionalcommits.org

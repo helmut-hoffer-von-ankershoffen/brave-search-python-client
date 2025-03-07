@@ -1,8 +1,8 @@
 """
-Streamlit web application that provides a simple interface for the Brave Search API.
+Streamlit web application that demonstrates a simple interface for Brave Search Python Client.
 
-This module creates a web interface using Streamlit to demonstrate the usage of
-the Brave Search Python Client for performing web searches.
+This module creates a web interface using Streamlit to demonstrate the usage of the service provided by
+Brave Search Python Client.
 """
 
 import asyncio

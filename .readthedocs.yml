@@ -1,5 +1,4 @@
-# .readthedocs.yml
-# Read the Docs configuration file
+# Read the Docs configuration file for Brave Search Python Client
 # See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
 
 # Required
@@ -17,7 +16,9 @@ formats:
   - htmlzip
   - pdf
 
-
+# Build configuration
+# We use Ubuntu 22.04 with Python 3.12 and set up uv as package manager
+# for faster and more reliable dependency installation
 build:
   os: ubuntu-22.04
   tools:

@@ -1,4 +1,4 @@
-"""Brave Search Python Client library for accessing the Brave Search API."""
+"""Brave Search Python Client supporting Web, Image, News and Video search."""
 
 from .client import BraveSearch
 from .constants import (

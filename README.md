@@ -4,7 +4,7 @@
 ](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/LICENSE)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/brave-search-python-client.svg?logo=python&color=204361&labelColor=1E2933)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py)
 [![CI](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/actions/workflows/test-and-report.yml)
-[![Read the Docs](https://img.shields.io/readthedocs/brave-search-python-client)](https://brave-search-python-client.readthedocs.io/)
+[![Read the Docs](https://img.shields.io/readthedocs/brave-search-python-client)](https://brave-search-python-client.readthedocs.io/en/latest/)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_brave-search-python-client&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client)
 [![Security](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_brave-search-python-client&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client)
 [![Maintainability](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_brave-search-python-client&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client)
@@ -12,13 +12,16 @@
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=helmut-hoffer-von-ankershoffen_brave-search-python-client&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client)
 [![Coverage](https://codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client/graph/badge.svg?token=SX34YRP30E)](https://codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client)
 [![Ruff](https://img.shields.io/badge/style-Ruff-blue?color=D6FF65)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py)
-[![GitHub - Version](https://img.shields.io/github/v/release/helmut-hoffer-von-ankershoffen/brave-search-python-client?label=GitHub&style=flat&labelColor=1C2C2E&color=blue&logo=GitHub&logoColor=white)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-clientidge/releases)
+[![GitHub - Version](https://img.shields.io/github/v/release/helmut-hoffer-von-ankershoffen/brave-search-python-client?label=GitHub&style=flat&labelColor=1C2C2E&color=blue&logo=GitHub&logoColor=white)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/releases)
 [![GitHub - Commits](https://img.shields.io/github/commit-activity/m/helmut-hoffer-von-ankershoffen/brave-search-python-client/main?label=commits&style=flat&labelColor=1C2C2E&color=blue&logo=GitHub&logoColor=white)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commits/main/)
 [![PyPI - Version](https://img.shields.io/pypi/v/brave-search-python-client.svg?label=PyPI&logo=pypi&logoColor=%23FFD243&labelColor=%230073B7&color=FDFDFD)](https://pypi.python.org/pypi/brave-search-python-client)
 [![PyPI - Status](https://img.shields.io/pypi/status/brave-search-python-client?logo=pypi&logoColor=%23FFD243&labelColor=%230073B7&color=FDFDFD)](https://pypi.python.org/pypi/brave-search-python-client)
 [![Docker - Version](https://img.shields.io/docker/v/helmuthva/brave-search-python-client?sort=semver&label=Docker&logo=docker&logoColor=white&labelColor=1354D4&color=10151B)](https://hub.docker.com/r/helmuthva/brave-search-python-client/tags)
-[![Docker - Size](https://img.shields.io/docker/image-size/helmuthva/brave-search-python-client?sort=semver&arch=arm64&label=image&logo=docker&logoColor=white&labelColor=1354D4&color=10151B)](https://hub.docker.com/r/helmuthva/brave-search-python-client/)
+[![Docker - Size](https://img.shields.io/docker/image-size/helmuthva/brave-search-python-clientsort=semver&arch=arm64&label=image&logo=docker&logoColor=white&labelColor=1354D4&color=10151B)](https://hub.docker.com/r/helmuthva/brave-search-python-client/)
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE3IDE2VjdsLTYgNU0yIDlWOGwxLTFoMWw0IDMgOC04aDFsNCAyIDEgMXYxNGwtMSAxLTQgMmgtMWwtOC04LTQgM0gzbC0xLTF2LTFsMy0zIi8+PC9zdmc+)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client)
+[![Open in GitHub Codespaces](https://img.shields.io/static/v1?label=GitHub%20Codespaces&message=Open&color=blue&logo=github)](https://github.com/codespaces/new/helmut-hoffer-von-ankershoffen/brave-search-python-client)
+
 <!---
 [![ghcr.io - Version](https://ghcr-badge.egpl.dev/helmut-hoffer-von-ankershoffen/brave-search-python-client/tags?color=%2344cc11&ignore=0.0%2C0%2Clatest&n=3&label=ghcr.io&trim=)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client)
 [![ghcr.io - Sze](https://ghcr-badge.egpl.dev/helmut-hoffer-von-ankershoffen/brave-search-python-client/size?color=%2344cc11&tag=latest&label=size&trim=)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client)
@@ -29,7 +32,7 @@
 ---
 
 
-The Brave Search Python Client provides Web, Image, News, and Video search capabilities.
+Brave Search Python Client supporting Web, Image, News and Video search.
 
 Use Cases:
 1) Integrate into your Python code to help users find what they're looking for.
@@ -38,16 +41,16 @@ Use Cases:
 
 ## Overview
 
-Installation is as simple as:
+Adding Brave Search Python Client to your project as a dependency is easy.
 
 ```shell
-uv add brave-search-python-client               # add dependency to your project
+uv add brave-search-python-client             # add dependency to your project
 ```
 
 If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/). If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install the library like this:
 
 ```shell
-pip install brave-search-python-client          # add dependency to your project
+pip install brave-search-python-client        # add dependency to your project
 ```
 
 Obtain your Brave Search API key by [signing up here](https://brave.com/search/api/) - the free tier includes 2,000 requests per month. For guidance on how to integrate the Brave Search Python client into your code base check out the examples below and explore the [reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html). If you just want to try out the client without having to write code you can use the integrated CLI:
@@ -81,7 +84,7 @@ uvx brave-search-python-client news --help       # all options news search
 * Modern async Python client for Web, Image, Video and News search powered by [Brave Search](https://brave.com/search/api/)
 * Various Examples:
   - [Streamlit web application](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
-  - [Jupyter notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
+  - [Jupyter notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb)
   - [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
 * Thorough validation of both [requests](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchRequest) and [responses](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchApiResponse) (powered by Pydantic)
 * [Complete reference documenation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.BraveSearch) on Read the Docs
@@ -116,6 +119,7 @@ import asyncio
 import os
 
 from dotenv import load_dotenv
+from rich.console import Console
 
 from brave_search_python_client import (
     BraveSearch,
@@ -185,9 +189,9 @@ asyncio.run(search())
 
 ## Jupyter Notebook
 
-![Jupyter Notebook](https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/jupyter.png)
+![Jupyter Notebook](https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/notebook.png)
 
-[Show notebook code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
+[Show notebook code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb)
 
 
 ## Command Line Interface (CLI)
@@ -260,37 +264,37 @@ Note: Replace YOUR_BRAVE_SEARCH_API_KEY with your API key in the following examp
 
 Show available commands:
 
-```bash
+```shell
 docker run helmuthva/brave-search-python-client --help
 ```
 
 Search the web:
 
-```bash
+```shell
 docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client web "hello world"
 ```
 
 Show options for web search
 
-```bash
+```shell
 docker run helmuthva/brave-search-python-client web --help
 ```
 
 Search images:
 
-```bash
+```shell
 docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client images "hello world"
 ```
 
 Show options for image search
 
-```bash
+```shell
 docker run helmuthva/brave-search-python-client images --help
 ```
 
 Search videos:
 
-```bash
+```shell
 docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client videos "hello world"
 ```
 
@@ -316,7 +320,7 @@ Or use docker compose
 
 File .env is passed through
 
-```bash
+```shell
 docker compose up
 docker compose run brave-search-python-client --help
 ```
@@ -330,7 +334,7 @@ TK (to come)
 
 * Check out the [reference](https://brave-search-python-client.readthedocs.io/en/latest/reference.html) with detailed documentation of public classes and functions.
 * Our [release notes](https://brave-search-python-client.readthedocs.io/en/latest/release-notes.html) provide a complete log of recent improvements and changes.
-* In case you want to help us improve the Brave Search Python Client: The [contribution guidelines](https://brave-search-python-client.readthedocs.io/en/latest/contributing.html) explain how to setup your development environment and create pull requests.
+* In case you want to help us improve 🦁 Brave Search Python Client: The [contribution guidelines](https://brave-search-python-client.readthedocs.io/en/latest/contributing.html) explain how to setup your development environment and create pull requests.
 
 ## Star History
 

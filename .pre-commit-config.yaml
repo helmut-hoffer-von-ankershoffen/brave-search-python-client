@@ -6,6 +6,22 @@ default_install_hook_types:
   - post-rewrite
 fail_fast: true
 repos:
+  - repo: meta
+    hooks:
+      - id: check-useless-excludes
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks:
+      - id: python-check-blanket-noqa
+      - id: python-check-blanket-type-ignore
+      - id: python-check-mock-methods
+      - id: python-no-eval
+      - id: python-no-log-warn
+      - id: python-use-type-annotations
+      - id: rst-backticks
+      - id: rst-directive-colons
+      - id: rst-inline-touching-normal
+      - id: text-unicode-replacement-char
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
@@ -40,10 +56,9 @@ repos:
   - repo: https://github.com/Yelp/detect-secrets
     rev: v1.5.0
     hooks:
-    -   id: detect-secrets
+      - id: detect-secrets
         args: ['--baseline', '.secrets.baseline']
         additional_dependencies: ["gibberish-detector"]
-        exclude: package.lock.json
   - repo: https://github.com/astral-sh/uv-pre-commit
     # uv version.
     rev: 0.5.8

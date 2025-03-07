@@ -1,3 +1,7 @@
 #!/bin/sh
 VERSION_PART=${1:-patch}
-bump-my-version bump "$VERSION_PART" && git push
+if echo "$VERSION_PART" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+    uv run bump-my-version bump --new-version "$VERSION_PART" && git push
+else
+    uv run bump-my-version bump "$VERSION_PART" && git push
+fi

@@ -75,7 +75,7 @@ html_logo = "../../logo.png"
 html_theme_options = {
     "announcement": (
         '<a target="_blank" href="https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client">GitHub</a> - '  # noqa: E501
-        '<a target="_blank" href="https://pypi.org/project/brave-search-python-client/">PyPI</a> - '
+        '<a target="_blank" href="https://pypi.org/project/brave-search-python-client">PyPI</a> - '
         '<a target="_blank" href="https://hub.docker.com/r/helmuthva/brave-search-python-client/tags">Docker</a> - '
         '<a target="_blank" href="https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client">SonarQube</a> - '  # noqa: E501
         '<a target="_blank" href="https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client">Codecov</a>'

@@ -385,7 +385,7 @@ class BaseSearchRequest(BaseModel):
         """
         return _validate_query(v)
 
-    def model_post_init(self, *_args, **_kwargs) -> None:
+    def model_post_init(self, *_args: object, **_kwargs: object) -> None:
         """Initialize default values for optional base search parameters."""
         if self.country is None:
             self.country = CountryCode.ALL
@@ -481,7 +481,7 @@ class WebSearchRequest(BaseSearchRequest):
         ),
     )
 
-    def model_post_init(self, *args, **kwargs) -> None:
+    def model_post_init(self, *args: object, **kwargs: object) -> None:
         """Initialize default values for optional web search parameters."""
         super().model_post_init(*args, **kwargs)
         if self.ui_lang is None:
@@ -551,7 +551,7 @@ class ImagesSearchRequest(BaseSearchRequest):
         ),
     )
 
-    def model_post_init(self, *args, **kwargs) -> None:
+    def model_post_init(self, *args: object, **kwargs: object) -> None:
         """Initialize default values for optional image search parameters."""
         super().model_post_init(*args, **kwargs)
         if self.count is None:
@@ -590,7 +590,7 @@ class VideosSearchRequest(BaseSearchRequest):
         description=FRESHNESS_DESCRIPTION,
     )
 
-    def model_post_init(self, *args, **kwargs) -> None:
+    def model_post_init(self, *args: object, **kwargs: object) -> None:
         """Initialize default values for optional video search parameters."""
         super().model_post_init(*args, **kwargs)
         if self.ui_lang is None:
@@ -663,7 +663,7 @@ class NewsSearchRequest(BaseSearchRequest):
         ),
     )
 
-    def model_post_init(self, *args, **kwargs) -> None:
+    def model_post_init(self, *args: object, **kwargs: object) -> None:
         """Initialize default values for optional news search parameters."""
         super().model_post_init(*args, **kwargs)
         if self.ui_lang is None:

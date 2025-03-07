@@ -1,4 +1,4 @@
-The Brave Search Python Client provides Web, Image, News, and Video search capabilities.
+Brave Search Python Client supporting Web, Image, News and Video search.
 
 Use Cases:
 1) Integrate into your Python code to help users find what they're looking for.
@@ -7,16 +7,16 @@ Use Cases:
 
 ## Overview
 
-Installation is as simple as:
+Adding Brave Search Python Client to your project as a dependency is easy.
 
 ```shell
-uv add brave-search-python-client               # add dependency to your project
+uv add brave-search-python-client             # add dependency to your project
 ```
 
 If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/). If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install the library like this:
 
 ```shell
-pip install brave-search-python-client          # add dependency to your project
+pip install brave-search-python-client        # add dependency to your project
 ```
 
 Obtain your Brave Search API key by [signing up here](https://brave.com/search/api/) - the free tier includes 2,000 requests per month. For guidance on how to integrate the Brave Search Python client into your code base check out the examples below and explore the [reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html). If you just want to try out the client without having to write code you can use the integrated CLI:
@@ -50,7 +50,7 @@ uvx brave-search-python-client news --help       # all options news search
 * Modern async Python client for Web, Image, Video and News search powered by [Brave Search](https://brave.com/search/api/)
 * Various Examples:
   - [Streamlit web application](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
-  - [Jupyter notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
+  - [Jupyter notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb)
   - [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
 * Thorough validation of both [requests](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchRequest) and [responses](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchApiResponse) (powered by Pydantic)
 * [Complete reference documenation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.BraveSearch) on Read the Docs
@@ -85,6 +85,7 @@ import asyncio
 import os
 
 from dotenv import load_dotenv
+from rich.console import Console
 
 from brave_search_python_client import (
     BraveSearch,
@@ -154,9 +155,9 @@ asyncio.run(search())
 
 ## Jupyter Notebook
 
-![Jupyter Notebook](https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/jupyter.png)
+![Jupyter Notebook](https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/notebook.png)
 
-[Show notebook code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/jupyter.ipynb)
+[Show notebook code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb)
 
 
 ## Command Line Interface (CLI)
@@ -229,37 +230,37 @@ Note: Replace YOUR_BRAVE_SEARCH_API_KEY with your API key in the following examp
 
 Show available commands:
 
-```bash
+```shell
 docker run helmuthva/brave-search-python-client --help
 ```
 
 Search the web:
 
-```bash
+```shell
 docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client web "hello world"
 ```
 
 Show options for web search
 
-```bash
+```shell
 docker run helmuthva/brave-search-python-client web --help
 ```
 
 Search images:
 
-```bash
+```shell
 docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client images "hello world"
 ```
 
 Show options for image search
 
-```bash
+```shell
 docker run helmuthva/brave-search-python-client images --help
 ```
 
 Search videos:
 
-```bash
+```shell
 docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client videos "hello world"
 ```
 
@@ -285,7 +286,7 @@ Or use docker compose
 
 File .env is passed through
 
-```bash
+```shell
 docker compose up
 docker compose run brave-search-python-client --help
 ```

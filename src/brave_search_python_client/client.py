@@ -3,7 +3,7 @@
 import json
 import os
 import pathlib
-from typing import Any
+from typing import Any, TypeVar, cast
 from urllib.parse import urljoin, urlparse
 
 import httpx
@@ -30,6 +30,10 @@ from .responses import (
     NewsSearchApiResponse,
     VideoSearchApiResponse,
     WebSearchApiResponse,
+)
+
+ResponseT = TypeVar(
+    "ResponseT", bound="WebSearchApiResponse | ImageSearchApiResponse | VideoSearchApiResponse | NewsSearchApiResponse"
 )
 
 
@@ -64,8 +68,8 @@ class BraveSearch:
 
         self._base_url = BASE_URL
 
-        self._headers = {
-            "X-Subscription-Token": self._api_key,
+        self._headers: dict[str, str] = {
+            "X-Subscription-Token": self._api_key or "NA",
             "Accept": "application/json",
             "Accept-Encoding": "gzip",
             "Cache-Control": "no-cache",
@@ -130,6 +134,9 @@ class BraveSearch:
         """
         Load mock data for testing purposes.
 
+        Args:
+            search_type: Type of search to load mock data for.
+
         Returns:
             dict[str, Any]: Mock data for the specified search type.
 
@@ -139,7 +146,7 @@ class BraveSearch:
         mock_path = package_root / f"responses/mock_data/{search_type}.json"
 
         with mock_path.open(encoding="utf-8") as f:
-            return json.load(f)
+            return cast("dict[str, Any]", json.load(f))
 
     @staticmethod
     def _dump_response(response: httpx.Response) -> None:
@@ -150,11 +157,11 @@ class BraveSearch:
         self,
         search_type: SearchType,
         request: (WebSearchRequest | ImagesSearchRequest | VideosSearchRequest | NewsSearchRequest),
-        response_model: type[Any],
+        response_model: type[ResponseT],
         retries: int = 0,
         wait_time: int = DEFAULT_RETRY_WAIT_TIME,
         dump_response: bool = False,
-    ) -> WebSearchApiResponse | ImageSearchApiResponse | VideoSearchApiResponse | NewsSearchApiResponse:
+    ) -> ResponseT:
         """Execute a search query using the Brave Search API.
 
         Args:
@@ -174,7 +181,7 @@ class BraveSearch:
             BraveSearchAPIError: If API request fails or returns an error
         """
         if self._api_key == MOCK_API_KEY:
-            return response_model.model_validate(self._load_mock_data(search_type))
+            return cast("ResponseT", response_model.model_validate(self._load_mock_data(search_type)))
 
         response = await self._get(
             search_type,
@@ -186,7 +193,7 @@ class BraveSearch:
         if dump_response:
             self._dump_response(response)
 
-        return response_model.model_validate(response.json())
+        return cast("ResponseT", response_model.model_validate(response.json()))
 
     async def web(
         self,
