@@ -1,6 +1,13 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
-## [0.3.0](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.25..0.3.0) - 2025-03-07
+## [0.3.1](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.3.0..0.3.1) - 2025-03-07
+
+### 🐛 Bug Fixes
+
+- *(tests)* Smoke test - ([a19f152](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/a19f152c7be4ce1ba04072d6771935df63f62ef8))
+
+
+## [0.3.0](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.25..v0.3.0) - 2025-03-07
 
 ### 🎨 Styling
 
@@ -12,9 +19,6 @@
 - *(template)* Test noop - ([63ab1e6](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/63ab1e61c759d15e0721ddd3621dea2d0f1d952d))
 - Secrets.baseline update - ([c3686a9](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/c3686a9ec416bfd5a2685978e741f2abf212254c))
 
-## New Contributors ❤️
-
-* @helmut-hoffer-von-ankershoffen made their first contribution
 
 ## [0.2.25](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.2.24..v0.2.25) - 2025-03-02
 
