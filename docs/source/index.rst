@@ -1,11 +1,11 @@
 .. only:: html
-   
+
    .. include:: main.rst
 
 .. toctree::
-	:hidden:
+   :hidden:
 
-	Home<self>
+   Home<self>
 
 .. toctree::
    :maxdepth: 2

@@ -9,26 +9,38 @@ authors = [
 license = { file = "LICENSE" }
 
 keywords = [
-    "api",
-    "async",
-    "brave",
-    "brave-api",
-    "bravesearch",
-    "brave-search",
-    "bravesearchapi",
+    "brave-search-python-client",
+    "act",
     "codecov",
+    "copier",
+    "cyclonedx",
+    "devcontainer",
+    "detect-secrets",
     "docker",
+    "git-cliff",
+    "jupyter",
+    "marimo",
+    "mypy",
+    "nox",
+    "pip-audit",
+    "pip-licenses",
+    "pre-commit",
     "pydantic",
+    "pytest",
     "python",
+    "pypi",
+    "readthedocs",
     "ruff",
-    "search",
     "sonarqube",
+    "sonarcloud",
+    "sphinx",
+    "streamlit",
     "typer",
     "uv",
 ]
 
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
     "Intended Audience :: End Users/Desktop",
     "Programming Language :: Python",
@@ -73,12 +85,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project.optional-dependencies]
-examples = [
-    "streamlit>=1.42.2",
-    "marimo>=0.11.13",
-    "jupyter>=1.1.1",
-    "jinja2 >=3.1.6",
-]
+examples = ["streamlit>=1.42.2", "marimo>=0.11.13","jupyter>=1.1.1", "jinja2 >=3.1.6"]
 
 [dependency-groups]
 dev = [

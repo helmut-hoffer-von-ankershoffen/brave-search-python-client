@@ -25,7 +25,7 @@ def _setup_venv(session: nox.Session, all_extras: bool = True) -> None:
 
 
 def _is_act_environment() -> bool:
-    """Check if running in Github ACT environment.
+    """Check if running in GitHub ACT environment.
 
     Returns:
         bool: True if running in ACT environment, False otherwise.

@@ -31,11 +31,6 @@ jobs:
           enable-cache: true
           cache-dependency-glob: uv.lock
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - run: npm install @modelcontextprotocol/inspector@0.3.0
-
       - name: Install Python, venv and dependencies
         run: |
           uv sync --all-extras --frozen --link-mode=copy
