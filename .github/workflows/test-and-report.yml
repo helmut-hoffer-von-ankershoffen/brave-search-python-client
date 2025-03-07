@@ -68,7 +68,7 @@ jobs:
 
       - name: Smoke tests
         run: |
-          uv run brave-search-python-client hello-world
+          uv run brave-search-python-client --help
 
       - name: Run unit tests, measure coverage, lint, and check vulnerabilities
         run: |
