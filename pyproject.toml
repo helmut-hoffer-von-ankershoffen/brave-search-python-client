@@ -10,7 +10,16 @@ license = { file = "LICENSE" }
 
 keywords = [
     "brave-search-python-client",
+    "api",
+    "brave",
+    "brave-api",
+    "bravesearch",
+    "bravesearchapi",
+    "brave-search",
+    "brave-search-api",
     "act",
+    "websearch",
+    "web-search",
     "codecov",
     "copier",
     "cyclonedx",
@@ -85,7 +94,12 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project.optional-dependencies]
-examples = ["streamlit>=1.42.2", "marimo>=0.11.13","jupyter>=1.1.1", "jinja2 >=3.1.6"]
+examples = [
+    "streamlit>=1.42.2",
+    "marimo>=0.11.13",
+    "jupyter>=1.1.1",
+    "jinja2 >=3.1.6",
+]
 
 [dependency-groups]
 dev = [
