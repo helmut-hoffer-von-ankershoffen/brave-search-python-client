@@ -1,5 +1,4 @@
 version = 1
-revision = 1
 requires-python = ">=3.11, <4.0"
 resolution-markers = [
     "python_full_version < '3.12'",
@@ -261,7 +260,7 @@ wheels = [
 
 [[package]]
 name = "brave-search-python-client"
-version = "0.3.3"
+version = "0.3.4"
 source = { editable = "." }
 dependencies = [
     { name = "pydantic" },
@@ -323,7 +322,6 @@ requires-dist = [
     { name = "streamlit", marker = "extra == 'examples'", specifier = ">=1.43.1" },
     { name = "typer", specifier = ">=0.15.1" },
 ]
-provides-extras = ["examples"]
 
 [package.metadata.requires-dev]
 dev = [
