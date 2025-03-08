@@ -106,11 +106,10 @@ def test(session: nox.Session) -> None:
 def setup_dev(session: nox.Session) -> None:
     """Setup dev environment post project creation."""
     _setup_venv(session)
-    session.run("ruff", "check", ".", external=True)
     session.run("ruff", "format", ".", external=True)
     git_dir = Path(".git")
     if git_dir.is_dir():
-        session.run("echo","found .git directory, running pre-commit install", external=True)
+        session.run("echo","found .git directory, running pre-commit install and hooks", external=True)
         session.run("pre-commit", "install", external=True)
         with Path(".secrets.baseline").open("w", encoding="utf-8") as out:
             session.run("detect-secrets", "scan", stdout=out, external=True)
