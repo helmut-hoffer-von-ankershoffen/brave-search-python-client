@@ -263,8 +263,11 @@ name = "brave-search-python-client"
 version = "0.3.6"
 source = { editable = "." }
 dependencies = [
+    { name = "httpx" },
     { name = "pydantic" },
     { name = "python-dotenv" },
+    { name = "streamlit" },
+    { name = "tenacity" },
     { name = "typer" },
 ]
 
@@ -314,12 +317,15 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "httpx", specifier = ">=0.28.1" },
     { name = "jinja2", marker = "extra == 'examples'", specifier = ">=3.1.6" },
     { name = "jupyter", marker = "extra == 'examples'", specifier = ">=1.1.1" },
     { name = "marimo", marker = "extra == 'examples'", specifier = ">=0.11.17" },
     { name = "pydantic", specifier = ">=2.10.6" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
+    { name = "streamlit", specifier = ">=1.41.1" },
     { name = "streamlit", marker = "extra == 'examples'", specifier = ">=1.43.1" },
+    { name = "tenacity", specifier = ">=9.0.0" },
     { name = "typer", specifier = ">=0.15.1" },
 ]
 
