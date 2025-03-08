@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.11, <4.0"
 resolution-markers = [
     "python_full_version < '3.12'",
@@ -263,11 +264,8 @@ name = "brave-search-python-client"
 version = "0.3.3"
 source = { editable = "." }
 dependencies = [
-    { name = "httpx" },
     { name = "pydantic" },
     { name = "python-dotenv" },
-    { name = "streamlit" },
-    { name = "tenacity" },
     { name = "typer" },
 ]
 
@@ -317,17 +315,15 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "httpx", specifier = ">=0.28.1" },
     { name = "jinja2", marker = "extra == 'examples'", specifier = ">=3.1.6" },
     { name = "jupyter", marker = "extra == 'examples'", specifier = ">=1.1.1" },
-    { name = "marimo", marker = "extra == 'examples'", specifier = ">=0.11.13" },
+    { name = "marimo", marker = "extra == 'examples'", specifier = ">=0.11.17" },
     { name = "pydantic", specifier = ">=2.10.6" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
-    { name = "streamlit", specifier = ">=1.43.0" },
-    { name = "streamlit", marker = "extra == 'examples'", specifier = ">=1.42.2" },
-    { name = "tenacity", specifier = ">=9.0.0" },
-    { name = "typer", specifier = ">=0.15.2" },
+    { name = "streamlit", marker = "extra == 'examples'", specifier = ">=1.43.1" },
+    { name = "typer", specifier = ">=0.15.1" },
 ]
+provides-extras = ["examples"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -3530,7 +3526,7 @@ wheels = [
 
 [[package]]
 name = "streamlit"
-version = "1.43.0"
+version = "1.43.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "altair" },
@@ -3552,9 +3548,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "watchdog", marker = "sys_platform != 'darwin'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/02/05/7b0a78beb4589fa056435fdf2243bc28ba3b320f4bc54b2cbf7680d7848b/streamlit-1.43.0.tar.gz", hash = "sha256:c10c09f9d1251fa7f975dd360572f03cabc82b174f080e323bf7e556103c22e0", size = 9344982 }
+sdist = { url = "https://files.pythonhosted.org/packages/48/a6/4806b73a5296961f7654a3426496bd463f2b92f6e1b75c359e29317e7a15/streamlit-1.43.1.tar.gz", hash = "sha256:4bb1e1235f6d84c279da567bf314f6e12310d53f1fb2350176ee462e189baebb", size = 9344698 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e9/37/6ae099cf3029990fb2b35420296e3066c649a9dc5c286fa74643b1d7074f/streamlit-1.43.0-py2.py3-none-any.whl", hash = "sha256:cf94b1e9f1de75e4e383df53745230feaac4ac7a7e1f14a3ea362df134db8510", size = 9734392 },
+    { url = "https://files.pythonhosted.org/packages/bf/14/a95ac354fe9ca59ee9d030dc738dac8ac04bd32f9d7c3f2c790eb6431ab1/streamlit-1.43.1-py2.py3-none-any.whl", hash = "sha256:ed8a6bd01e2b087e25b1b534835a341c2f71964822ac94b065c5496d2b5b49c2", size = 9734547 },
 ]
 
 [[package]]

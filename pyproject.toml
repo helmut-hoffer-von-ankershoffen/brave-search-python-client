@@ -68,15 +68,12 @@ classifiers = [
     "Natural Language :: English",
 ]
 
-requires-python = ">=3.11,<4.0"
+requires-python = ">= 3.11, < 4.0"
 
 dependencies = [
-    "httpx >= 0.28.1",
     "pydantic >= 2.10.6",
-    "python-dotenv>=1.0.1",
-    "streamlit>=1.43.0",
-    "tenacity >= 9.0.0",
-    "typer>=0.15.2",
+    "python-dotenv >= 1.0.1",
+    "typer >= 0.15.1",
 ]
 
 [project.scripts]
@@ -95,47 +92,47 @@ build-backend = "hatchling.build"
 
 [project.optional-dependencies]
 examples = [
-    "streamlit>=1.42.2",
-    "marimo>=0.11.13",
-    "jupyter>=1.1.1",
+    "streamlit >= 1.43.1",
+    "marimo >= 0.11.17",
+    "jupyter >= 1.1.1",
     "jinja2 >=3.1.6",
 ]
 
 [dependency-groups]
 dev = [
-    "autodoc-pydantic>=2.2.0",
-    "bump-my-version>=1.0.1",
-    "cyclonedx-py>=1.0.1",
-    "detect-secrets>=1.5.0",
-    "enum-tools>=0.12.0",
-    "furo>=2024.8.6",
-    "git-cliff>=2.8.0",
-    "mypy>=1.5.0",
-    "nox[uv]>=2025.2.9",
-    "pip-audit>=2.8.0",
-    "pip-licenses>=5.0.0",
-    "pre-commit>=4.1.0",
-    "pyright>=1.1.396",
-    "pytest>=8.3.5",
-    "pytest-asyncio>=0.25.3",
-    "pytest-cov>=6.0.0",
-    "pytest-docker>=3.2.0",
-    "pytest-env>=1.1.5",
-    "pytest-xdist[psutil]>=3.6.1",
-    "ruff>=0.9.10",
-    "sphinx>=8.2.3",
-    "sphinx-autobuild>=2024.10.3",
-    "sphinx-copybutton>=0.5.2",
-    "sphinx-inline-tabs>=2023.4.21",
-    "sphinx-mdinclude>=0.6.2",
-    "sphinxext.opengraph>=0.9.1",
-    "sphinx-pydantic>=0.1.1",
-    "sphinx-rtd-theme>=3.0.2",
-    "sphinx-toolbox>=3.9.0",
-    "sphinxext-opengraph>=0.9.1",
-    "tomli>=2.1.0",
-    "matplotlib>=3.10.1",
-    "pytest-regressions>=2.7.0",
+    "autodoc-pydantic >= 2.2.0",
+    "bump-my-version >= 1.0.1",
+    "cyclonedx-py >= 1.0.1",
+    "detect-secrets >= 1.5.0",
+    "enum-tools >= 0.12.0",
+    "furo >= 2024.8.6",
+    "git-cliff >= 2.8.0",
+    "mypy >= 1.5.0",
+    "nox[uv] >= 2025.2.9",
+    "pip-audit >= 2.8.0",
+    "pip-licenses >= 5.0.0",
+    "pre-commit >= 4.1.0",
+    "pyright >= 1.1.396",
+    "pytest >= 8.3.5",
+    "pytest-asyncio >= 0.25.3",
+    "pytest-cov >= 6.0.0",
+    "pytest-docker >= 3.2.0",
+    "pytest-env >= 1.1.5",
+    "pytest-xdist[psutil] >= 3.6.1",
+    "ruff >= 0.9.10",
+    "sphinx >= 8.2.3",
+    "sphinx-autobuild >= 2024.10.3",
+    "sphinx-copybutton >= 0.5.2",
+    "sphinx-inline-tabs >= 2023.4.21",
+    "sphinx-mdinclude >= 0.6.2",
+    "sphinxext.opengraph >= 0.9.1",
+    "sphinx-pydantic >= 0.1.1",
+    "sphinx-rtd-theme >= 3.0.2",
+    "sphinx-toolbox >= 3.9.0",
+    "sphinxext-opengraph >= 0.9.1",
+    "tomli >= 2.1.0",
+    "matplotlib >= 3.10.1",
+    "pytest-regressions >= 2.7.0",
 ]
 
 [tool.ruff]
