@@ -31,6 +31,7 @@ keywords = [
     "marimo",
     "mypy",
     "nox",
+    "oe-python-template",
     "pip-audit",
     "pip-licenses",
     "pre-commit",

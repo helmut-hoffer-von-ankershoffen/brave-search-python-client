@@ -3,7 +3,6 @@
         "charliermarsh.ruff",
         "codecov.codecov",
         "donjayamanne.python-environment-manager",
-        "elagil.pre-commit-helper",
         "fill-labs.dependi",
         "github.vscode-github-actions",
         "github.copilot",

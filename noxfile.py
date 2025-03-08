@@ -109,13 +109,13 @@ def setup_dev(session: nox.Session) -> None:
     session.run("ruff", "format", ".", external=True)
     git_dir = Path(".git")
     if git_dir.is_dir():
-        session.run("echo","found .git directory, running pre-commit install and hooks", external=True)
+        session.run("echo", "found .git directory, running pre-commit install and hooks", external=True)
         session.run("pre-commit", "install", external=True)
         with Path(".secrets.baseline").open("w", encoding="utf-8") as out:
             session.run("detect-secrets", "scan", stdout=out, external=True)
         session.run("git", "add", ".", external=True)
         try:
             session.run("pre-commit", external=True)
-        except Exception: # noqa: BLE001
+        except Exception:  # noqa: BLE001
             session.log("pre-commit run failed, continuing anyway")
         session.run("git", "add", ".", external=True)
