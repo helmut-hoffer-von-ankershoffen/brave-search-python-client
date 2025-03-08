@@ -260,7 +260,7 @@ wheels = [
 
 [[package]]
 name = "brave-search-python-client"
-version = "0.3.6"
+version = "0.3.7"
 source = { editable = "." }
 dependencies = [
     { name = "httpx" },

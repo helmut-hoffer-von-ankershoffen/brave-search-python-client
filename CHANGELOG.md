@@ -1,6 +1,13 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
-## [0.3.6](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.3.5..0.3.6) - 2025-03-08
+## [0.3.7](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.3.6..0.3.7) - 2025-03-08
+
+### 🐛 Bug Fixes
+
+- *(deps)* Missing dep - ([6492bef](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/6492befe0cd161121e858913944c270166f75d38))
+
+
+## [0.3.6](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.3.5..v0.3.6) - 2025-03-08
 
 ### 🐛 Bug Fixes
 
@@ -11,9 +18,6 @@
 - *(template)* Bump - ([cc6cb86](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/cc6cb866177907247a82ab3051595140454333b5))
 - *(template)* Update - ([624e442](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/624e44209127c4667503cdb287386bd2ce95c89a))
 
-## New Contributors ❤️
-
-* @helmut-hoffer-von-ankershoffen made their first contribution
 
 ## [0.3.5](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.3.4..v0.3.5) - 2025-03-08
 
