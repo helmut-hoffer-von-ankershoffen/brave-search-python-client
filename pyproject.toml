@@ -140,7 +140,7 @@ target-version = "py311"
 preview = true
 fix = true
 line-length = 120
-exclude = [".venv", ".fixme", "notebook.py"]
+extend-exclude = [".fixme", "notebook.py"]
 
 
 [tool.ruff.lint]

@@ -125,7 +125,21 @@ docker build -t brave-search-python-client .
 ```
 
 ```shell
-docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY brave-search-python-client --help
+docker run --env THE_VAR=THE_VALUE brave-search-python-client --help
+```
+
+### Copier
+
+Update scaffold from template
+
+```shell
+copier update --trust --skip-tasks --skip-answered
+```
+
+### Updating demo application contained within oe-python-template
+
+```shell
+copier copy -r HEAD . . --force --trust
 ```
 
 ## Pull Request Guidelines
