@@ -9,6 +9,8 @@ import nox
 nox.options.reuse_existing_virtualenvs = True
 nox.options.default_venv_backend = "uv"
 
+NOT_SKIP_WITH_ACT = "not skip_with_act"
+
 
 def _setup_venv(session: nox.Session, all_extras: bool = True) -> None:
     """Install dependencies for the given session using uv."""
@@ -98,7 +100,7 @@ def test(session: nox.Session) -> None:
     _setup_venv(session)
     pytest_args = ["pytest", "--disable-warnings", "--junitxml=junit.xml", "-n", "auto", "--dist", "loadgroup"]
     if _is_act_environment():
-        pytest_args.extend(["-k", "not skip_with_act"])
+        pytest_args.extend(["-k", NOT_SKIP_WITH_ACT])
     session.run(*pytest_args)
 
 
