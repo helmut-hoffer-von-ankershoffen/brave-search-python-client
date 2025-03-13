@@ -71,7 +71,12 @@ classifiers = [
 
 requires-python = ">=3.11, <4.0"
 
-dependencies = ["pydantic>=2.10.6", "python-dotenv>=1.0.1", "typer>=0.15.1"]
+dependencies = [
+    "pydantic>=2.10.6",
+    "python-dotenv>=1.0.1",
+    "tenacity>=9.0.0",
+    "typer>=0.15.1",
+]
 
 [project.scripts]
 brave-search-python-client = "brave_search_python_client.cli:cli"
@@ -89,8 +94,8 @@ build-backend = "hatchling.build"
 
 [project.optional-dependencies]
 examples = [
-    "streamlit>=1.43.1",
-    "marimo>=0.11.17",
+    "streamlit>=1.43.2",
+    "marimo>=0.11.19",
     "jupyter>=1.1.1",
     "jinja2>=3.1.6",
 ]
