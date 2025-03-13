@@ -1,5 +1,15 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
+## [0.3.9](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.3.8..0.3.9) - 2025-03-13
+
+### 🐛 Bug Fixes
+
+- *(deps)* Tenacity - ([2f37f0f](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/2f37f0fbd3ff17a7ab6364738b71d5fafd6acb24))
+
+## New Contributors ❤️
+
+* @helmut-hoffer-von-ankershoffen made their first contribution
+
 ## [0.3.12](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.3.11..v0.3.12) - 2025-03-08
 
 ### ⚙️ Miscellaneous Tasks
