@@ -1,9 +1,10 @@
 Brave Search Python Client supporting Web, Image, News and Video search.
 
 Use Cases:
-1) Integrate into your Python code to help users find what they're looking for.
-2) Add to your AI applications to give LLMs access to current web information.
-3) Use the built-in CLI in shell scripts to get search results in JSON format.
+
+1. Integrate into your Python code to help users find what they're looking for.
+2. Add to your AI applications to give LLMs access to current web information.
+3. Use the built-in CLI in shell scripts to get search results in JSON format.
 
 ## Overview
 
@@ -13,20 +14,31 @@ Adding Brave Search Python Client to your project as a dependency is easy.
 uv add brave-search-python-client             # add dependency to your project
 ```
 
-If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/). If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install the library like this:
+If you don't have uv installed follow
+[these instructions](https://docs.astral.sh/uv/getting-started/installation/).
+If you still prefer pip over the modern and fast package manager
+[uv](https://github.com/astral-sh/uv), you can install the library like this:
 
 ```shell
 pip install brave-search-python-client        # add dependency to your project
 ```
 
-Obtain your Brave Search API key by [signing up here](https://brave.com/search/api/) - the free tier includes 2,000 requests per month. For guidance on how to integrate the Brave Search Python client into your code base check out the examples below and explore the [reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html). If you just want to try out the client without having to write code you can use the integrated CLI:
+Obtain your Brave Search API key by
+[signing up here](https://brave.com/search/api/) - the free tier includes 2,000
+requests per month. For guidance on how to integrate the Brave Search Python
+client into your code base check out the examples below and explore the
+[reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html).
+If you just want to try out the client without having to write code you can use
+the integrated CLI:
 
 ```shell
 export BRAVE_SEARCH_API_KEY=YOUR_API_KEY         # replace YOUR_API_KEY
 uvx brave-search-python-client web "hello world" # search for hello world
 ```
 
-All advanced search options of Brave Search are supported [by the client](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchRequest) and in the CLI:
+All advanced search options of Brave Search are supported
+[by the client](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchRequest)
+and in the CLI:
 
 ```shell
 # Find all German content about AI added in the last 24 hours
@@ -47,21 +59,40 @@ uvx brave-search-python-client news --help       # all options news search
 
 ## Highlights
 
-* Modern async Python client for Web, Image, Video and News search powered by [Brave Search](https://brave.com/search/api/)
-* Various Examples:
-  - [Streamlit web application](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
+- Modern async Python client for Web, Image, Video and News search powered by
+  [Brave Search](https://brave.com/search/api/)
+- Various Examples:
+  - [Streamlit web application](https://brave-search-python-client.streamlit.app/)
+    deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
   - [Jupyter notebook](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb)
   - [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
-* Thorough validation of both [requests](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchRequest) and [responses](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchApiResponse) (powered by Pydantic)
-* [Complete reference documenation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.BraveSearch) on Read the Docs
-* [100% test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client) including unit and E2E tests (reported on Codecov)
-* Matrix tested with [Python 3.11, 3.12 and 3.13](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py) to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
-* 100% compliant with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
-* 100% up-to-date dependencies (monitored by [Renovate](https://github.com/renovatebot/renovate))
-* [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client) in security, maintainability, and reliability with 0 technical debt and 0 codesmell (verified by SonarQube)
-* 1-liner for installation and execution of command line interface (CLI) via [uv(x)](https://github.com/astral-sh/uv) or [Docker](https://hub.docker.com/r/helmuthva/brave-search-python-client/tags)
-* Setup for developing inside a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) included (supports VSCode and GitHub Codespaces)
-* Later: [MCP server](https://www.anthropic.com/news/model-context-protocol) to connect Brave Search with Claude Desktop and other MCP clients
+- Thorough validation of both
+  [requests](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchRequest)
+  and
+  [responses](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchApiResponse)
+  (powered by Pydantic)
+- [Complete reference documenation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.BraveSearch)
+  on Read the Docs
+- [100% test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client)
+  including unit and E2E tests (reported on Codecov)
+- Matrix tested with
+  [Python 3.11, 3.12 and 3.13](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py)
+  to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
+- 100% compliant with modern linting and formatting standards (powered by
+  [Ruff](https://github.com/astral-sh/ruff))
+- 100% up-to-date dependencies (monitored by
+  [Renovate](https://github.com/renovatebot/renovate))
+- [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client)
+  in security, maintainability, and reliability with 0 technical debt and 0
+  codesmell (verified by SonarQube)
+- 1-liner for installation and execution of command line interface (CLI) via
+  [uv(x)](https://github.com/astral-sh/uv) or
+  [Docker](https://hub.docker.com/r/helmuthva/brave-search-python-client/tags)
+- Setup for developing inside a
+  [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers)
+  included (supports VSCode and GitHub Codespaces)
+- Later: [MCP server](https://www.anthropic.com/news/model-context-protocol) to
+  connect Brave Search with Claude Desktop and other MCP clients
 
 ## Usage Examples
 
@@ -69,8 +100,8 @@ uvx brave-search-python-client news --help       # all options news search
 
 ![Watch it](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/raw/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/streamlit.gif)
 
-[Try it out!](https://brave-search-python-client.streamlit.app) - [Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/streamlit.py)
-
+[Try it out!](https://brave-search-python-client.streamlit.app) -
+[Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/streamlit.py)
 
 ### Minimal Python Script:
 
@@ -151,14 +182,14 @@ async def search() -> None:
 asyncio.run(search())
 ```
 
-[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py) - [Read the reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.BraveSearch)
+[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py) -
+[Read the reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.BraveSearch)
 
 ## Jupyter Notebook
 
 ![Jupyter Notebook](https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/notebook.png)
 
 [Show notebook code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb)
-
 
 ## Command Line Interface (CLI)
 
@@ -226,7 +257,8 @@ uvx brave-search-python-client news --help
 
 ### Run with Docker
 
-Note: Replace YOUR_BRAVE_SEARCH_API_KEY with your API key in the following examples.
+Note: Replace YOUR_BRAVE_SEARCH_API_KEY with your API key in the following
+examples.
 
 Show available commands:
 

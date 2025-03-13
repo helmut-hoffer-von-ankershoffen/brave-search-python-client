@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.11, <4.0"
 resolution-markers = [
     "python_full_version < '3.12'",
@@ -263,11 +264,8 @@ name = "brave-search-python-client"
 version = "0.3.12"
 source = { editable = "." }
 dependencies = [
-    { name = "httpx" },
     { name = "pydantic" },
     { name = "python-dotenv" },
-    { name = "streamlit" },
-    { name = "tenacity" },
     { name = "typer" },
 ]
 
@@ -312,27 +310,28 @@ dev = [
     { name = "sphinx-rtd-theme" },
     { name = "sphinx-toolbox" },
     { name = "sphinxext-opengraph" },
+    { name = "swagger-plugin-for-sphinx" },
     { name = "tomli" },
+    { name = "types-pyyaml" },
+    { name = "watchdog" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "httpx", specifier = ">=0.28.1" },
     { name = "jinja2", marker = "extra == 'examples'", specifier = ">=3.1.6" },
     { name = "jupyter", marker = "extra == 'examples'", specifier = ">=1.1.1" },
     { name = "marimo", marker = "extra == 'examples'", specifier = ">=0.11.17" },
     { name = "pydantic", specifier = ">=2.10.6" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
-    { name = "streamlit", specifier = ">=1.41.1" },
     { name = "streamlit", marker = "extra == 'examples'", specifier = ">=1.43.1" },
-    { name = "tenacity", specifier = ">=9.0.0" },
     { name = "typer", specifier = ">=0.15.1" },
 ]
+provides-extras = ["examples"]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "autodoc-pydantic", specifier = ">=2.2.0" },
-    { name = "bump-my-version", specifier = ">=1.0.1" },
+    { name = "bump-my-version", specifier = ">=1.0.2" },
     { name = "cyclonedx-py", specifier = ">=1.0.1" },
     { name = "detect-secrets", specifier = ">=1.5.0" },
     { name = "enum-tools", specifier = ">=0.12.0" },
@@ -362,12 +361,15 @@ dev = [
     { name = "sphinx-rtd-theme", specifier = ">=3.0.2" },
     { name = "sphinx-toolbox", specifier = ">=3.9.0" },
     { name = "sphinxext-opengraph", specifier = ">=0.9.1" },
+    { name = "swagger-plugin-for-sphinx", specifier = ">=5.1.0" },
     { name = "tomli", specifier = ">=2.1.0" },
+    { name = "types-pyyaml", specifier = ">=6.0.12.20241230" },
+    { name = "watchdog", specifier = ">=6.0.0" },
 ]
 
 [[package]]
 name = "bump-my-version"
-version = "1.0.1"
+version = "1.0.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "click" },
@@ -380,9 +382,9 @@ dependencies = [
     { name = "tomlkit" },
     { name = "wcmatch" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/5a/bb/b44a279103af555aad46a238dd39880bb6fda9684c27142c062e87112ebc/bump_my_version-1.0.1.tar.gz", hash = "sha256:2bc399b2133a1bd27e0d180cd6a445b42cae25c2dde6698ca8d9971eeb258eaf", size = 1101376 }
+sdist = { url = "https://files.pythonhosted.org/packages/61/c9/22f5e6de03ec21357fd37e61fad2970043c406a9af217a0bfc68747148d8/bump_my_version-1.0.2.tar.gz", hash = "sha256:2f156877d2cdcda69afcb257ae4564c26e70f2fd5e5b15f2c7f26ab9e91502da", size = 1102688 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/90/b3/6f3db4bb92bad5a83ed1af5d0c7f4140bb3ed69602c3089d2d2dd8eb4a5d/bump_my_version-1.0.1-py3-none-any.whl", hash = "sha256:6f52157f5e4966e7a94f4fa9ff56429f7292d6b5743c616558eec25f7c3270a1", size = 58561 },
+    { url = "https://files.pythonhosted.org/packages/bb/ce/dc13887c45dead36075a210487ff66304ef0dc3fbc997d2b12bcde2f0401/bump_my_version-1.0.2-py3-none-any.whl", hash = "sha256:61d350b8c71968dd4520fc6b9df8b982c7df254cd30858b8645eff0f4eaf380b", size = 58573 },
 ]
 
 [[package]]
@@ -3558,6 +3560,20 @@ wheels = [
 ]
 
 [[package]]
+name = "swagger-plugin-for-sphinx"
+version = "5.1.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "docutils" },
+    { name = "jinja2" },
+    { name = "sphinx" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b3/51/d9c1873397c37c717f415b77dfdc7956633d05307e02347a68676c46afd1/swagger_plugin_for_sphinx-5.1.0.tar.gz", hash = "sha256:81b1d3ba0f20c68bfacca9fa1fe3e6f606656e17319de119e6b6a05e630fab78", size = 15022 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/84/c7/eee3801990944602fbddb1362c5d190d2b4b9a65f440c9554315caa0acfb/swagger_plugin_for_sphinx-5.1.0-py3-none-any.whl", hash = "sha256:e62e94e1380989894b6c258dfb09c08076704e272182cfb44849bc3d95da84bb", size = 11150 },
+]
+
+[[package]]
 name = "tabulate"
 version = "0.9.0"
 source = { registry = "https://pypi.org/simple" }
@@ -3710,6 +3726,15 @@ wheels = [
 ]
 
 [[package]]
+name = "types-pyyaml"
+version = "6.0.12.20241230"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/9a/f9/4d566925bcf9396136c0a2e5dc7e230ff08d86fa011a69888dd184469d80/types_pyyaml-6.0.12.20241230.tar.gz", hash = "sha256:7f07622dbd34bb9c8b264fe860a17e0efcad00d50b5f27e93984909d9363498c", size = 17078 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e8/c1/48474fbead512b70ccdb4f81ba5eb4a58f69d100ba19f17c92c0c4f50ae6/types_PyYAML-6.0.12.20241230-py3-none-any.whl", hash = "sha256:fa4d32565219b68e6dee5f67534c722e53c00d1cfc09c435ef04d7353e1e96e6", size = 20029 },
+]
+
+[[package]]
 name = "typing-extensions"
 version = "4.12.2"
 source = { registry = "https://pypi.org/simple" }
@@ -3802,6 +3827,15 @@ version = "6.0.0"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/db/7d/7f3d619e951c88ed75c6037b246ddcf2d322812ee8ea189be89511721d54/watchdog-6.0.0.tar.gz", hash = "sha256:9ddf7c82fda3ae8e24decda1338ede66e1c99883db93711d8fb941eaa2d8c282", size = 131220 }
 wheels = [
+    { url = "https://files.pythonhosted.org/packages/e0/24/d9be5cd6642a6aa68352ded4b4b10fb0d7889cb7f45814fb92cecd35f101/watchdog-6.0.0-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:6eb11feb5a0d452ee41f824e271ca311a09e250441c262ca2fd7ebcf2461a06c", size = 96393 },
+    { url = "https://files.pythonhosted.org/packages/63/7a/6013b0d8dbc56adca7fdd4f0beed381c59f6752341b12fa0886fa7afc78b/watchdog-6.0.0-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:ef810fbf7b781a5a593894e4f439773830bdecb885e6880d957d5b9382a960d2", size = 88392 },
+    { url = "https://files.pythonhosted.org/packages/d1/40/b75381494851556de56281e053700e46bff5b37bf4c7267e858640af5a7f/watchdog-6.0.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:afd0fe1b2270917c5e23c2a65ce50c2a4abb63daafb0d419fde368e272a76b7c", size = 89019 },
+    { url = "https://files.pythonhosted.org/packages/39/ea/3930d07dafc9e286ed356a679aa02d777c06e9bfd1164fa7c19c288a5483/watchdog-6.0.0-cp312-cp312-macosx_10_13_universal2.whl", hash = "sha256:bdd4e6f14b8b18c334febb9c4425a878a2ac20efd1e0b231978e7b150f92a948", size = 96471 },
+    { url = "https://files.pythonhosted.org/packages/12/87/48361531f70b1f87928b045df868a9fd4e253d9ae087fa4cf3f7113be363/watchdog-6.0.0-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:c7c15dda13c4eb00d6fb6fc508b3c0ed88b9d5d374056b239c4ad1611125c860", size = 88449 },
+    { url = "https://files.pythonhosted.org/packages/5b/7e/8f322f5e600812e6f9a31b75d242631068ca8f4ef0582dd3ae6e72daecc8/watchdog-6.0.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:6f10cb2d5902447c7d0da897e2c6768bca89174d0c6e1e30abec5421af97a5b0", size = 89054 },
+    { url = "https://files.pythonhosted.org/packages/68/98/b0345cabdce2041a01293ba483333582891a3bd5769b08eceb0d406056ef/watchdog-6.0.0-cp313-cp313-macosx_10_13_universal2.whl", hash = "sha256:490ab2ef84f11129844c23fb14ecf30ef3d8a6abafd3754a6f75ca1e6654136c", size = 96480 },
+    { url = "https://files.pythonhosted.org/packages/85/83/cdf13902c626b28eedef7ec4f10745c52aad8a8fe7eb04ed7b1f111ca20e/watchdog-6.0.0-cp313-cp313-macosx_10_13_x86_64.whl", hash = "sha256:76aae96b00ae814b181bb25b1b98076d5fc84e8a53cd8885a318b42b6d3a5134", size = 88451 },
+    { url = "https://files.pythonhosted.org/packages/fe/c4/225c87bae08c8b9ec99030cd48ae9c4eca050a59bf5c2255853e18c87b50/watchdog-6.0.0-cp313-cp313-macosx_11_0_arm64.whl", hash = "sha256:a175f755fc2279e0b7312c0035d52e27211a5bc39719dd529625b1930917345b", size = 89057 },
     { url = "https://files.pythonhosted.org/packages/a9/c7/ca4bf3e518cb57a686b2feb4f55a1892fd9a3dd13f470fca14e00f80ea36/watchdog-6.0.0-py3-none-manylinux2014_aarch64.whl", hash = "sha256:7607498efa04a3542ae3e05e64da8202e58159aa1fa4acddf7678d34a35d4f13", size = 79079 },
     { url = "https://files.pythonhosted.org/packages/5c/51/d46dc9332f9a647593c947b4b88e2381c8dfc0942d15b8edc0310fa4abb1/watchdog-6.0.0-py3-none-manylinux2014_armv7l.whl", hash = "sha256:9041567ee8953024c83343288ccc458fd0a2d811d6a0fd68c4c22609e3490379", size = 79078 },
     { url = "https://files.pythonhosted.org/packages/d4/57/04edbf5e169cd318d5f07b4766fee38e825d64b6913ca157ca32d1a42267/watchdog-6.0.0-py3-none-manylinux2014_i686.whl", hash = "sha256:82dc3e3143c7e38ec49d61af98d6558288c415eac98486a5c581726e0737c00e", size = 79076 },

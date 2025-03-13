@@ -4,7 +4,10 @@ Thank you for considering contributing to Brave Search Python Client!
 
 ## Setup
 
-Clone this GitHub repository via ```git clone git@github.com:helmut-hoffer-von-ankershoffen/brave-search-python-client.git``` and change into the directory of your local Brave Search Python Client repository: ```cd brave-search-python-client```
+Clone this GitHub repository via
+`git clone git@github.com:helmut-hoffer-von-ankershoffen/brave-search-python-client.git`
+and change into the directory of your local Brave Search Python Client
+repository: `cd brave-search-python-client`
 
 Install the dependencies:
 
@@ -57,11 +60,13 @@ examples/                # Example code demonstrating use of hte client
 
 ### .env file
 
-Don't forget to configure your `.env` file with the required environment variables.
+Don't forget to configure your `.env` file with the required environment
+variables.
 
 Notes:
-* .env.example is provided as a template.
-* .env is excluded from version control, so feel free to add secret values.
+
+- .env.example is provided as a template.
+- .env is excluded from version control, so feel free to add secret values.
 
 ### update dependencies and create virtual environment
 
@@ -86,7 +91,8 @@ sreamlit run examples/streamlit.py
 uv sync --all-extras # required streamlit dependency part of the examples extra, see pyproject.toml
 ```
 
-Install the [Jupyter extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
+Install the
+[Jupyter extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 
 Click on `examples/notebook.ipynb` in VSCode and run it
 
@@ -134,13 +140,6 @@ Update scaffold from template
 
 ```shell
 copier update --trust --skip-tasks --skip-answered
-```
-
-### Updating demo application contained within oe-python-template
-
-```shell
-copier copy -r HEAD . . --force --trust
-```
 
 ## Pull Request Guidelines
 
@@ -149,3 +148,4 @@ copier copy -r HEAD . . --force --trust
 - **Branch Naming:** Use descriptive branch names like `feature/your-feature` or `fix/issue-number`.
 - **Testing:** Ensure new features have appropriate test coverage.
 - **Documentation:** Update documentation to reflect any changes or new features.
+```

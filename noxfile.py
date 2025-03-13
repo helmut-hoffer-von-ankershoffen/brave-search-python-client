@@ -60,6 +60,7 @@ def docs(session: nox.Session) -> None:
     readme_content = f"{header}\n\n{main}\n\n{footer}"
     Path("README.md").write_text(readme_content, encoding="utf-8")
     # Build docs
+    session.run("make", "-C", "docs", "clean", external=True)
     session.run("make", "-C", "docs", "html", external=True)
 
 
@@ -111,7 +112,8 @@ def setup_dev(session: nox.Session) -> None:
     session.run("ruff", "format", ".", external=True)
     git_dir = Path(".git")
     if git_dir.is_dir():
-        session.run("echo", "found .git directory, running pre-commit install and hooks", external=True)
+        session.run("echo", "found .git directory", external=True)
+        session.run("touch", ".act-env-secret", external=True)
         session.run("pre-commit", "install", external=True)
         with Path(".secrets.baseline").open("w", encoding="utf-8") as out:
             session.run("detect-secrets", "scan", stdout=out, external=True)

@@ -8,6 +8,15 @@ ENV/
 env/
 .envrc
 
+## secrets
+.secret
+.secrets
+.secrets.toml
+.secrets.yaml
+.secrets.yml
+.secrets.json
+.act-env-secret
+
 # Python virtual environment
 venv/
 .venv/

@@ -20,6 +20,7 @@ extensions = [
     "sphinx_inline_tabs",
     "sphinx_mdinclude",
     "sphinxext.opengraph",
+    "swagger_plugin_for_sphinx",  # https://github.com/SAP/swagger-plugin-for-sphinx?tab=readme-ov-file
 ]
 
 project = "brave-search-python-client"
