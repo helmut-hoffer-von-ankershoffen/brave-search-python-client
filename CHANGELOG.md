@@ -1,6 +1,6 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
-## [0.3.12](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.3.11..0.3.12) - 2025-03-08
+## [0.3.12](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.3.11..v0.3.12) - 2025-03-08
 
 ### ⚙️ Miscellaneous Tasks
 
