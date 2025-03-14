@@ -308,6 +308,7 @@ dev = [
     { name = "sphinx-mdinclude" },
     { name = "sphinx-pydantic" },
     { name = "sphinx-rtd-theme" },
+    { name = "sphinx-selective-exclude" },
     { name = "sphinx-toolbox" },
     { name = "sphinxext-opengraph" },
     { name = "swagger-plugin-for-sphinx" },
@@ -359,6 +360,7 @@ dev = [
     { name = "sphinx-mdinclude", specifier = ">=0.6.2" },
     { name = "sphinx-pydantic", specifier = ">=0.1.1" },
     { name = "sphinx-rtd-theme", specifier = ">=3.0.2" },
+    { name = "sphinx-selective-exclude", specifier = ">=1.0.3" },
     { name = "sphinx-toolbox", specifier = ">=3.9.0" },
     { name = "sphinxext-opengraph", specifier = ">=0.9.1" },
     { name = "swagger-plugin-for-sphinx", specifier = ">=5.1.0" },
@@ -3374,6 +3376,12 @@ sdist = { url = "https://files.pythonhosted.org/packages/91/44/c97faec644d29a5ce
 wheels = [
     { url = "https://files.pythonhosted.org/packages/85/77/46e3bac77b82b4df5bb5b61f2de98637724f246b4966cfc34bc5895d852a/sphinx_rtd_theme-3.0.2-py2.py3-none-any.whl", hash = "sha256:422ccc750c3a3a311de4ae327e82affdaf59eb695ba4936538552f3b00f4ee13", size = 7655561 },
 ]
+
+[[package]]
+name = "sphinx-selective-exclude"
+version = "1.0.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c2/07/4d6cb9dbe1b06be5caa21eed9813ac1e5ca5b29f3728be1d5e52f1cd7267/sphinx_selective_exclude-1.0.3.tar.gz", hash = "sha256:76fc8fd7c24311e0ca2199a9e4db2156585acd7652a5cead98b07ef4f70f9b78", size = 7227 }
 
 [[package]]
 name = "sphinx-tabs"

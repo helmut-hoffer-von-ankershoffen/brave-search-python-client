@@ -131,6 +131,7 @@ dev = [
     "sphinx-mdinclude>=0.6.2",
     "sphinx-pydantic>=0.1.1",
     "sphinx-rtd-theme>=3.0.2",
+    "sphinx_selective_exclude>=1.0.3",
     "sphinx-toolbox>=3.9.0",
     "sphinxext.opengraph>=0.9.1",
     "swagger-plugin-for-sphinx>=5.1.0",
@@ -145,7 +146,6 @@ preview = true
 fix = true
 line-length = 120
 extend-exclude = [".fixme", "notebook.py"]
-
 
 [tool.ruff.lint]
 select = ["ALL"]

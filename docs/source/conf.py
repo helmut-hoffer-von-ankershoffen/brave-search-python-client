@@ -21,6 +21,9 @@ extensions = [
     "sphinx_mdinclude",
     "sphinxext.opengraph",
     "swagger_plugin_for_sphinx",  # https://github.com/SAP/swagger-plugin-for-sphinx?tab=readme-ov-file
+    "sphinx_selective_exclude.eager_only",  # https://github.com/pfalcon/sphinx_selective_exclude?tab=readme-ov-file
+    "sphinx_selective_exclude.search_auto_exclude",
+    "sphinx_selective_exclude.modindex_exclude",
 ]
 
 project = "brave-search-python-client"
