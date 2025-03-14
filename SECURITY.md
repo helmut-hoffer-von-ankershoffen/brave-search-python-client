@@ -2,7 +2,7 @@
 
 ## Reporting Security Issues
 
-If you discover a security vulnerability in Brave Search Python Client, please report it by sending an email to helmuthva@googlemail.com.
+If you discover a security vulnerability in Brave Search Python Client, please [report it here](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/security/advisories/new).
 
 We take all security reports seriously. Upon receiving a security report, we will:
 1. Confirm receipt of the vulnerability report
