@@ -12,8 +12,9 @@
 
    main
    reference
-   release-notes
    contributing
+   security
+   release-notes
 
 .. sidebar-links::
    :caption: Links

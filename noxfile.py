@@ -2,9 +2,11 @@
 
 import json
 import os
+import re
 from pathlib import Path
 
 import nox
+import tomli
 
 nox.options.reuse_existing_virtualenvs = True
 nox.options.default_venv_backend = "uv"
@@ -67,39 +69,40 @@ def docs(session: nox.Session) -> None:
 @nox.session(python=["3.13"])
 def audit(session: nox.Session) -> None:
     """Run security audit and license checks."""
-    _setup_venv(session)
-    session.run("pip-audit", "-f", "json", "-o", "vulnerabilities.json")
-    session.run("jq", ".", "vulnerabilities.json", external=True)
-    session.run("pip-licenses", "--format=json", "--output-file=licenses.json")
-    session.run("jq", ".", "licenses.json", external=True)
+    _setup_venv(session, True)
+    session.run("pip-audit", "-f", "json", "-o", "reports/vulnerabilities.json")
+    session.run("jq", ".", "reports/vulnerabilities.json", external=True)
+    session.run("pip-licenses", "--format=csv", "--order=license", "--output-file=reports/licenses.csv")
+    session.run("pip-licenses", "--format=json", "--output-file=reports/licenses.json")
+    session.run("jq", ".", "reports/licenses.json", external=True)
     # Read and parse licenses.json
-    licenses_data = json.loads(Path("licenses.json").read_text(encoding="utf-8"))
+    licenses_data = json.loads(Path("reports/licenses.json").read_text(encoding="utf-8"))
 
-    licenses_inverted: dict[str, list[dict[str, str]]] = {}
-    licenses_inverted = {}
+    licenses_grouped: dict[str, list[dict[str, str]]] = {}
+    licenses_grouped = {}
     for pkg in licenses_data:
         license_name = pkg["License"]
         package_info = {"Name": pkg["Name"], "Version": pkg["Version"]}
 
-        if license_name not in licenses_inverted:
-            licenses_inverted[license_name] = []
-        licenses_inverted[license_name].append(package_info)
+        if license_name not in licenses_grouped:
+            licenses_grouped[license_name] = []
+        licenses_grouped[license_name].append(package_info)
 
-    # Write inverted data
-    Path("licenses-inverted.json").write_text(
-        json.dumps(licenses_inverted, indent=2),
+    # Write grouped data
+    Path("reports/licenses_grouped.json").write_text(
+        json.dumps(licenses_grouped, indent=2),
         encoding="utf-8",
     )
-    session.run("jq", ".", "licenses-inverted.json", external=True)
-    session.run("cyclonedx-py", "environment", "-o", "sbom.json")
-    session.run("jq", ".", "sbom.json", external=True)
+    session.run("jq", ".", "reports/licenses_grouped.json", external=True)
+    session.run("cyclonedx-py", "environment", "-o", "reports/sbom.json")
+    session.run("jq", ".", "reports/sbom.json", external=True)
 
 
 @nox.session(python=["3.11", "3.12", "3.13"])
 def test(session: nox.Session) -> None:
     """Run tests with pytest."""
     _setup_venv(session)
-    pytest_args = ["pytest", "--disable-warnings", "--junitxml=junit.xml", "-n", "auto", "--dist", "loadgroup"]
+    pytest_args = ["pytest", "--disable-warnings", "--junitxml=reports/junit.xml", "-n", "auto", "--dist", "loadgroup"]
     if _is_act_environment():
         pytest_args.extend(["-k", NOT_SKIP_WITH_ACT])
     session.run(*pytest_args)
@@ -123,3 +126,57 @@ def setup_dev(session: nox.Session) -> None:
         except Exception:  # noqa: BLE001
             session.log("pre-commit run failed, continuing anyway")
         session.run("git", "add", ".", external=True)
+
+
+@nox.session(default=False)
+def update_from_template(session: nox.Session) -> None:
+    """Update from copier template."""
+    if Path("copier.yaml").is_file() or Path("copier.yml").is_file():
+        # Read the current version from pyproject.toml
+        with Path("pyproject.toml").open("rb") as f:
+            pyproject = tomli.load(f)
+            current_version = pyproject["tool"]["bumpversion"]["current_version"]
+            # In this case the project itself is the template
+            session.run("copier", "copy", "-r", "HEAD", ".", ".", "--force", "--trust", "--skip-tasks", external=True)
+            # Bump the version using the current version from pyproject.toml
+            session.run("bump-my-version", "replace", "--new-version", current_version, "--allow-dirty", external=True)
+    else:
+        # In this case the template has been generated from a template
+        session.run("copier", "update", "--trust", "--skip-answered", "--skip-tasks", external=True)
+
+
+@nox.session(default=False)
+def act(session: nox.Session) -> None:
+    """Run GitHub Actions workflow locally with act."""
+    session.run(
+        "act",
+        "-j",
+        "test",
+        "--env-file",
+        ".act-env-public",
+        "--secret-file",
+        ".act-env-secret",
+        "--container-architecture",
+        "linux/amd64",
+        "-P",
+        "ubuntu-latest=catthehacker/ubuntu:act-latest",
+        "--action-offline-mode",
+        "--container-daemon-socket",
+        "-",
+        external=True,
+    )
+
+
+@nox.session(default=False)
+def bump(session: nox.Session) -> None:
+    """Bump version and push changes to git."""
+    version_part = session.posargs[0] if session.posargs else "patch"
+
+    # Check if the version_part is a specific version (e.g., 1.2.3)
+    if re.match(r"^[0-9]+\.[0-9]+\.[0-9]+$", version_part):
+        session.run("bump-my-version", "bump", "--new-version", version_part, external=True)
+    else:
+        session.run("bump-my-version", "bump", version_part, external=True)
+
+    # Push changes to git
+    session.run("git", "push", external=True)

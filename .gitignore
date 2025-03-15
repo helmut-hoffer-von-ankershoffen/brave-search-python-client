@@ -41,18 +41,13 @@ develop-eggs/
 .nox
 .dmypy.json
 .mypy_cache/
+.coverage
 
 
-# Build Artefacts
-junit.xml
-.coverage*
-coverage.xml
-coverage_html/
-vulnerabilities.json
-licenses.json
-licenses-inverted.json
-sbom.json
-mypi_junit.xml
+# Build Report
+reports/*
+!reports/.keep
+!reports/README.md
 
 # IDE
 .idea/

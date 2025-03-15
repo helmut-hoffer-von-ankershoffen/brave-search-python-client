@@ -53,7 +53,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create ${{ github.ref_name }} ./dist/* sbom.json licenses.json licenses-inverted.json vulnerabilities.json --notes-file ${{ steps.git-cliff.outputs.changelog }}
+          gh release create ${{ github.ref_name }} ./dist/* ./reports/* --notes-file ${{ steps.git-cliff.outputs.changelog }}
 
       - name: Allow other workflows to trigger on release
         env:

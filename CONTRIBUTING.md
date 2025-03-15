@@ -113,10 +113,28 @@ uv run nox -s audit     # run security and license audit, inc. sbom generation
 uv run nox -s docs      # build documentation, output in docs/build/html
 ```
 
+As a shortcut, you can run build steps using `./n`:
+
+```shell
+./n test
+./n lint
+# ...
+```
+
+Generate a wheel using uv
+```shell
+uv build
+```
+
+Notes:
+1. Reports dumped into ```reports/```
+3. Documentation dumped into ```docs/build/html/```
+2. Distribution dumped into ```dist/```
+
 ### Running GitHub CI workflow locally
 
 ```shell
-./github-action-run.sh
+uv run nox -s act
 ```
 
 Notes:
@@ -139,7 +157,8 @@ docker run --env THE_VAR=THE_VALUE brave-search-python-client --help
 Update scaffold from template
 
 ```shell
-copier update --trust --skip-tasks --skip-answered
+uv run nox -s update_from_template
+```
 
 ## Pull Request Guidelines
 
