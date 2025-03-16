@@ -25,7 +25,7 @@ We favor readability and maintainability over cleverness and brevity.
 - We always write code that is compatible with the Python version indicated in
   the .python-version file in the root of this repository.
 
-# Naming
+## Naming
 
 We believe that good names are essential for code readability and
 maintainability. A good name is one that is descriptive, unambiguous, and
