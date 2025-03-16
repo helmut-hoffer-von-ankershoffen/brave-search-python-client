@@ -57,7 +57,7 @@
     "github.copilot.chat.edits.temporalContext.enabled": true,
     "github.copilot.chat.codeGeneration.instructions": [
         {
-            "file": "CODE-STYLE.md"
+            "file": "CODE_STYLE.md"
         },
         {
             "file": "CONTRIBUTING.md"

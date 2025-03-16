@@ -162,7 +162,7 @@ uv run nox -s update_from_template
 
 ## Pull Request Guidelines
 
-- Before starting to write code read the [CODE-STYlE.md](CODE-STYLE.md) document for mandatory coding style
+- Before starting to write code read the [code style guide](CODE_STYLE.md) document for mandatory coding style
   guidelines.
 - **Pre-Commit Hooks:** We use pre-commit hooks to ensure code quality. Please install the pre-commit hooks by running `uv run pre-commit install`. This ensure all tests, linting etc. pass locally before you can commit.
 - **Squash Commits:** Before submitting a pull request, please squash your commits into a single commit.

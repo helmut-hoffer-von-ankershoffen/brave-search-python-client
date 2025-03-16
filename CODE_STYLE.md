@@ -1,18 +1,9 @@
----
-title: Code Style
-author: Helmut Hoffer von Ankershoffen (@helmut-hoffer-von-ankershoffen)
-audience: all
-status: draft
-created: 2025-03-16
-updated: 2025-03-16
-tags: [style, code, python, typescript]
-description: |
-  This document describes the code style used in [oe-python-template](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template) and derivatives. It defines
-  strict requirements to be followed by all contributors - humans and agents - to
-  ensure consistency and readability across the codebase.
----
-
 # Code Style
+
+Author: Helmut Hoffer von Ankershoffen (@helmut-hoffer-von-ankershoffen )
+Status: Draft
+Created: 2025-03-16
+Updated: 2025-03-16
 
 This document describes the code style used in
 [oe-python-templat](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template)
@@ -121,8 +112,6 @@ We generate the final documentation using Sphinx and publish it to readthedocs.
 We use [pytest](https://docs.pytest.org/en/stable/) for testing Python code.
 
 - Tests are defined in the `tests/` directory
-- Tests are named test__.py and classes are named Test_
-- Test functions are named test_*
 - We use pytest fixtures to set up test data and state
 - We leverage several pytest plugins:
   - `pytest-asyncio` for testing async code

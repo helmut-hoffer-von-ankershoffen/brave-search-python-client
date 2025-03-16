@@ -49,9 +49,9 @@ We follow these security best practices:
 
 We promote security awareness among contributors and users
 
-- We indicate security as a priority in our mandatory
-  [CODE-STYLE.md](CODE-STYLE.md) document, to be followed by human and agentic
-  contributors.
+- We indicate security as a priority in our
+  [code style guide](CODE_STYLE.md), to be followed by human and agentic
+  contributors as mandatory
 - We publish our security posture in SECURITY.md (this document), encouraring
   users to report vulnerabilities.
 
