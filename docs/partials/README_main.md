@@ -1,13 +1,17 @@
 Brave Search Python Client supporting Web, Image, News and Video search.
 
 Use Cases:
-1) Fast and easy to use project setup
-2) Consistent update of already scaffolded projects to benefit from new and improved features.
-3) Dummy CLI application and service demonstrating example usage of the generated directory structure and build pipeline
+
+1. Fast and easy to use project setup
+2. Consistent update of already scaffolded projects to benefit from new and
+   improved features.
+3. Dummy CLI application and service demonstrating example usage of the
+   generated directory structure and build pipeline
 
 ## Scaffolding
 
 **Step 1**: Install uv package manager and copier
+
 ```shell
 if [[ "$OSTYPE" == "darwin"* ]]; then                 # Install dependencies for macOS X
   if ! command -v brew &> /dev/null; then             ## Install Homebrew if not present
@@ -23,12 +27,15 @@ fi
 uv tool install copier                                # Install copier as global tool
 ```
 
-**Step 2**: Now create an empty repository on GitHubm, clone to your local machine, and change into it's directory.
+**Step 2**: Now create an empty repository on GitHubm, clone to your local
+machine, and change into it's directory.
 
 **Step 3**: Scaffold the project
+
 ```shell
 copier copy gh:helmut-hoffer-von-ankershoffen/oe-python-template .
 ```
+
 **Step 4**: Setup the local environment
 
 ```shell
@@ -36,26 +43,32 @@ uv run nox -s setup_dev
 ```
 
 **Step 5**: Perform initial commit and push
+
 ```shell
 git add .
 git commit -m "feat: Initial commit"
 git push
 ```
 
-Visit your GitHub repository and check the Actions tab. The CI workflow should fail at the SonarQube step,
-as this external service is not yet configured for our new repository.
+Visit your GitHub repository and check the Actions tab. The CI workflow should
+fail at the SonarQube step, as this external service is not yet configured for
+our new repository.
 
 **Step 6**: Follow the [instructions](SERVICE_CONNECTIONS.md) to wire up
-external services such as Cloudcov, SonarQube Cloud, Read The Docs, Docker.io, GHCR.io and Streamlit Community Cloud.
+external services such as Cloudcov, SonarQube Cloud, Read The Docs, Docker.io,
+GHCR.io and Streamlit Community Cloud.
 
 **Step 7**: Release the first versions
+
 ```shell
 ./bump
 ```
+
 Notes:
-* You can remove this section post having successfully scafolded your project.
-* The following sections refer to the dummy application and service provided by this template.
-  Use them as inspiration and adapt them to your own project.
+
+- You can remove this section post having successfully scafolded your project.
+- The following sections refer to the dummy application and service provided by
+  this template. Use them as inspiration and adapt them to your own project.
 
 ## Overview
 
@@ -65,13 +78,17 @@ Adding Brave Search Python Client to your project as a dependency is easy.
 uv add brave-search-python-client             # add dependency to your project
 ```
 
-If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/). If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install the library like this:
+If you don't have uv installed follow
+[these instructions](https://docs.astral.sh/uv/getting-started/installation/).
+If you still prefer pip over the modern and fast package manager
+[uv](https://github.com/astral-sh/uv), you can install the library like this:
 
 ```shell
 pip install brave-search-python-client        # add dependency to your project
 ```
 
-Executing the command line interface (CLI) in an isolated Python environment is just as easy:
+Executing the command line interface (CLI) in an isolated Python environment is
+just as easy:
 
 ```shell
 uvx brave-search-python-client hello-world     # prints "Hello, world! [..]"
@@ -80,10 +97,13 @@ uvx brave-search-python-client serve --port=4711 # serves webservice API on port
 ```
 
 Notes:
-* The API is versioned, mounted at `/api/v1` resp. `/api/v2`
-* While serving the webservice API go to [http://127.0.0.1:8000/api/v1/hello-world](http://127.0.0.1:8000/api/v1/hello-world) to see the respons of the `hello-world` operation.
-* Interactive documentation is provided at [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs)
 
+- The API is versioned, mounted at `/api/v1` resp. `/api/v2`
+- While serving the webservice API go to
+  [http://127.0.0.1:8000/api/v1/hello-world](http://127.0.0.1:8000/api/v1/hello-world)
+  to see the respons of the `hello-world` operation.
+- Interactive documentation is provided at
+  [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs)
 
 The CLI provides extensive help:
 
@@ -95,27 +115,44 @@ uvx brave-search-python-client openapi --help
 uvx brave-search-python-client serve --help
 ```
 
-
 ## Operational Excellence
 
-This project is designed with operational excellence in mind, using modern Python tooling and practices. It includes:
+This project is designed with operational excellence in mind, using modern
+Python tooling and practices. It includes:
 
-* Various examples demonstrating usage:
+- Various examples demonstrating usage:
   - [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
-  - [Streamlit web application](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
-  - [Jupyter](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb) and [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.py) notebook
-* [Complete reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html) on Read the Docs
-* [Transparent test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client) including unit and E2E tests (reported on Codecov)
-* Matrix tested with [multiple python versions](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py) to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
-* Compliant with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
-* Up-to-date dependencies (monitored by [Renovate](https://github.com/renovatebot/renovate) and [GitHub Dependabot](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/security/dependabot))
-* [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client) in security, maintainability, and reliability with low technical debt and codesmell (verified by SonarQube)
-* Additional code security checks using [GitHub CodeQL](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/security/code-scanning)
-* [Security Policy](SECURITY.md)
-* [License](LICENSE) compliant with the Open Source Initiative (OSI)
-* 1-liner for installation and execution of command line interface (CLI) via [uv(x)](https://github.com/astral-sh/uv) or [Docker](https://hub.docker.com/r/helmuthva/brave-search-python-client/tags)
-* Setup for developing inside a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) included (supports VSCode and GitHub Codespaces)
-
+  - [Streamlit web application](https://brave-search-python-client.streamlit.app/)
+    deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
+  - [Jupyter](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb)
+    and
+    [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.py)
+    notebook
+- [Complete reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html)
+  on Read the Docs
+- [Transparent test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client)
+  including unit and E2E tests (reported on Codecov)
+- Matrix tested with
+  [multiple python versions](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py)
+  to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
+- Compliant with modern linting and formatting standards (powered by
+  [Ruff](https://github.com/astral-sh/ruff))
+- Up-to-date dependencies (monitored by
+  [Renovate](https://github.com/renovatebot/renovate) and
+  [GitHub Dependabot](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/security/dependabot))
+- [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client)
+  in security, maintainability, and reliability with low technical debt and
+  codesmell (verified by SonarQube)
+- Additional code security checks using
+  [GitHub CodeQL](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/security/code-scanning)
+- [Security Policy](SECURITY.md)
+- [License](LICENSE) compliant with the Open Source Initiative (OSI)
+- 1-liner for installation and execution of command line interface (CLI) via
+  [uv(x)](https://github.com/astral-sh/uv) or
+  [Docker](https://hub.docker.com/r/helmuthva/brave-search-python-client/tags)
+- Setup for developing inside a
+  [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers)
+  included (supports VSCode and GitHub Codespaces)
 
 ## Usage Examples
 
@@ -140,15 +177,19 @@ message = Service.get_hello_world()
 console.print(f"[blue]{message}[/blue]")
 ```
 
-[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py) - [Read the reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html)
+[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py) -
+[Read the reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html)
 
 ### Streamlit App
 
-Serve the functionality provided by Brave Search Python Client in the web by easily integrating the service into a Streamlit application.
+Serve the functionality provided by Brave Search Python Client in the web by
+easily integrating the service into a Streamlit application.
 
-[Try it out!](https://brave-search-python-client.streamlit.app) - [Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/streamlit.py)
+[Try it out!](https://brave-search-python-client.streamlit.app) -
+[Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/streamlit.py)
 
 ... or serve the app locally
+
 ```shell
 uv sync --all-extras                                # Install streamlit dependency part of the examples extra, see pyproject.toml
 uv run streamlit run examples/streamlit.py          # Serve on localhost:8501, opens browser
@@ -165,7 +206,9 @@ uv run streamlit run examples/streamlit.py          # Serve on localhost:8501, o
 ```shell
 uv sync --all-extras                                # Install dependencies required for examples such as Juypyter kernel, see pyproject.toml
 ```
-Install the [Jupyter extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
+
+Install the
+[Jupyter extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
 
 Click on `examples/notebook.ipynb` in VSCode and run it.
 
@@ -189,9 +232,11 @@ uv run marimo edit examples/notebook.py --watch     # Edit on localhost:2718, op
 
 ... or edit interactively within VSCode
 
-Install the [Marimo extension for VSCode](https://marketplace.visualstudio.com/items?itemName=marimo-team.vscode-marimo)
+Install the
+[Marimo extension for VSCode](https://marketplace.visualstudio.com/items?itemName=marimo-team.vscode-marimo)
 
-Click on `examples/notebook.py` in VSCode and click on the caret next to the Run icon above the code (looks like a pencil) > "Start in marimo editor" (edit).
+Click on `examples/notebook.py` in VSCode and click on the caret next to the Run
+icon above the code (looks like a pencil) > "Start in marimo editor" (edit).
 
 ## Command Line Interface (CLI)
 
@@ -268,4 +313,5 @@ curl http://127.0.0.1:8000/api/v2/docs
 
 ## Extra: Lorem Ipsum
 
-Dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam.
+Dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet
+ipsum mauris. Maecenas congue ligula ac quam.

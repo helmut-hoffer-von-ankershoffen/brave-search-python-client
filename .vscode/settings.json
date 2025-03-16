@@ -1,4 +1,7 @@
 {
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
     "files.exclude": {
         "**/__pycache__ ": true
     },
@@ -48,20 +51,23 @@
         "markdown": true,
         "scminput": true
     },
-    "github.copilot.advanced": {
-
-    },
+    "github.copilot.advanced": {},
     "github.copilot.chat.editor.temporalContext.enabled": true,
     "github.copilot.chat.edits.codesearch.enabled": true,
     "github.copilot.chat.edits.temporalContext.enabled": true,
-    "github.copilot.chat.languageContext.typescript.enabled": true,
-    "github.copilot.chat.reviewSelection.instructions": [
-
-
+    "github.copilot.chat.codeGeneration.instructions": [
+        {
+            "file": "CODE-STYLE.md"
+        },
+        {
+            "file": "CONTRIBUTING.md"
+        }
     ],
-    "github.copilot.chat.scopeSelection": true,
     "github.copilot.chat.completionContext.typescript.mode": "on",
     "github.copilot.chat.generateTests.codeLens": true,
+    "github.copilot.chat.languageContext.typescript.enabled": true,
+    "github.copilot.chat.reviewSelection.instructions": [],
+    "github.copilot.chat.scopeSelection": true,
     "github.copilot.chat.search.semanticTextResults": true,
     "sonarlint.connectedMode.project": {
         "connectionId": "helmut-hoffer-von-ankershoffen",

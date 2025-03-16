@@ -1,2 +1,2 @@
-.. mdinclude:: ../../_readme_main.md
-    :start-line: 0
+.. mdinclude:: ../partials/README_main.md
+:start-line: 0

@@ -56,10 +56,11 @@ def docs(session: nox.Session) -> None:
     """Build documentation and concatenate README."""
     _setup_venv(session)
     # Concatenate README files
-    header = Path("_readme_header.md").read_text(encoding="utf-8")
-    main = Path("_readme_main.md").read_text(encoding="utf-8")
-    footer = Path("_readme_footer.md").read_text(encoding="utf-8")
-    readme_content = f"{header}\n\n{main}\n\n{footer}"
+    preamble = "\n[//]: # (README.md generated from docs/partials/README_*.md)\n\n"
+    header = Path("docs/partials/README_header.md").read_text(encoding="utf-8")
+    main = Path("docs/partials/README_main.md").read_text(encoding="utf-8")
+    footer = Path("docs/partials/README_footer.md").read_text(encoding="utf-8")
+    readme_content = f"{preamble}{header}\n\n{main}\n\n{footer}"
     Path("README.md").write_text(readme_content, encoding="utf-8")
     # Build docs
     session.run("make", "-C", "docs", "clean", external=True)

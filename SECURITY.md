@@ -47,6 +47,14 @@ We follow these security best practices:
 - Automated CI/CD pipelines including security checks
 - Adherence to Python security best practices
 
+We promote security awareness among contributors and users
+
+- We indicate security as a priority in our mandatory
+  [CODE-STYLE.md](CODE-STYLE.md) document, to be followed by human and agentic
+  contributors.
+- We publish our security posture in SECURITY.md (this document), encouraring
+  users to report vulnerabilities.
+
 ## Security Compliance
 
 For questions about security compliance or for more details about our security practices, please contact helmuthva@googlemail.com.
