@@ -1,12 +1,9 @@
 # Code Style
 
-Author: Helmut Hoffer von Ankershoffen (@helmut-hoffer-von-ankershoffen )
-Status: Draft
-Created: 2025-03-16
-Updated: 2025-03-16
+Author: Helmut Hoffer von Ankershoffen (@helmut-hoffer-von-ankershoffen ) - Status: Draft - Created: 2025-03-16 - Updated: 2025-03-16
 
 This document describes the code style used in
-[oe-python-templat](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template)
+[oe-python-template](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template)
 and derivatives. It defines strict requirements to be followed by all
 contributors - humans and agents - to ensure consistency and readability across
 the codebase.
