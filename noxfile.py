@@ -7,11 +7,13 @@ from pathlib import Path
 
 import nox
 import tomli
+from nox.command import CommandFailed
 
 nox.options.reuse_existing_virtualenvs = True
 nox.options.default_venv_backend = "uv"
 
 NOT_SKIP_WITH_ACT = "not skip_with_act"
+LATEXMK_VERSION_MIN = 4.86
 
 
 def _setup_venv(session: nox.Session, all_extras: bool = True) -> None:
@@ -65,6 +67,39 @@ def docs(session: nox.Session) -> None:
     # Build docs
     session.run("make", "-C", "docs", "clean", external=True)
     session.run("make", "-C", "docs", "html", external=True)
+    session.run("make", "-C", "docs", "singlehtml", external=True)
+    session.run("make", "-C", "docs", "latex", external=True)
+
+
+@nox.session(python=["3.13"], default=False)
+def docs_pdf(session: nox.Session) -> None:
+    """Setup dev environment post project creation."""  # noqa: DOC501
+    _setup_venv(session)
+    try:
+        out = session.run("latexmk", "--version", external=True, silent=True)
+
+        version_match = re.search(r"Version (\d+\.\d+\w*)", str(out))
+        if not version_match:
+            session.error("Could not determine latexmk version")
+
+        version_str = version_match.group(1)
+
+        # Parse version (handle cases like "4.86a")
+        match = re.match(r"(\d+\.\d+)", version_str)
+        if not match:
+            session.error(f"Could not parse version number from '{version_str}'")
+        base_version = match.group(1)
+
+        if float(base_version) < LATEXMK_VERSION_MIN:
+            message = f"latexmk version {version_str} is outdated. Please run 'brew upgrade mactex' to upgrade."
+            raise ValueError(message)  # noqa: TRY301
+        session.log(f"latexmk version {version_str} is sufficient")
+        session.run("make", "-C", "docs", "latexpdf", external=True)
+
+    except CommandFailed as e:
+        session.error(f"latexmk is not installed or not in PATH: {e}. Please run 'brew install mactex' to install")
+    except (ValueError, AttributeError) as e:
+        session.error(f"Failed to parse latexmk version information: {e}")
 
 
 @nox.session(python=["3.13"])

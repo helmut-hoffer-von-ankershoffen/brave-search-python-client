@@ -23,6 +23,7 @@ fi
 which jq &> /dev/null || brew install jq
 which xmllint &> /dev/null || brew install xmllint
 which act &> /dev/null || brew install act
+which pinact &> /dev/null || brew install pinact
 uv run pre-commit install             # install pre-commit hooks, see https://pre-commit.com/
 ```
 
@@ -111,9 +112,10 @@ uv run nox -s test      # run tests
 uv run nox -s lint      # run formatting and linting
 uv run nox -s audit     # run security and license audit, inc. sbom generation
 uv run nox -s docs      # build documentation, output in docs/build/html
+uv run nox -s docs_pdf  # locally build pdf manual to docs/build/latex/brave-search-python-client.pdf
 ```
 
-As a shortcut, you can run build steps using `./n`:
+As a shortcut, you can run build steps using `./n`, e.g.
 
 ```shell
 ./n test
@@ -152,9 +154,15 @@ docker build -t brave-search-python-client .
 docker run --env THE_VAR=THE_VALUE brave-search-python-client --help
 ```
 
+### Pinning github actions
+
+```shell
+pinact run  # See https://dev.to/suzukishunsuke/pin-github-actions-to-a-full-length-commit-sha-for-security-2n7p
+```
+
 ### Copier
 
-Update scaffold from template
+Update from template
 
 ```shell
 uv run nox -s update_from_template

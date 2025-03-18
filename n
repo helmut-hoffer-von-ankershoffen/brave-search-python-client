@@ -16,6 +16,7 @@ echo "Usage: ./n <session_name> [additional_args]"
     echo " ./n bump minor"
     echo " ./n bump major"
     echo " ./n bump x.y.z"
+    echo " ./n docs_pdf"
     exit 1
     fi
 

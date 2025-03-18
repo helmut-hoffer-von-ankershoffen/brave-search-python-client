@@ -21,7 +21,7 @@ Brave Search Python Client employs several automated tools to continuously monit
 ### 1. Dependency Vulnerability Scanning
 
 - **GitHub Dependabot**: Monitors dependencies for known vulnerabilities and automatically creates pull requests to update them when security issues are found. [Dependendabot alerts](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/security/dependabot) published.
-- **Renovate Bot**: Automatically creates pull requests to update dependencies when new versions are available, with a focus on security patches. [Dependency Dashboard](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/issues) published.
+- **Renovate Bot**: Automatically creates pull requests to update dependencies when new versions are available, with a focus on security patches. [Dependency Dashboard](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/issues?q=is%3Aissue%20state%3Aopen%20Dependency%20Dashboard) published.
 - **pip-audit**: Regularly scans Python dependencies for known vulnerabilities using data from the Python Advisory Database. `vulnerabilities.json` published [per release](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/releases).
 
 ### 2. Dependency Compliance
