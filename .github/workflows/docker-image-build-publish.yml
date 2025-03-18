@@ -5,6 +5,7 @@ on:
     tags:
       - "v*.*.*"
 
+
 env:
   REGISTRY: docker.io
   IMAGE_NAME: helmuthva/brave-search-python-client
@@ -28,25 +29,38 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
+
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+
 
       - name: Log in to GitHub container registry
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
+
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
         with:
+
+
           images: |
             ${{ env.IMAGE_NAME }}
             ghcr.io/${{ github.repository }}
+
+
+
           tags: |
             # set latest tag for releases
             type=raw,value=latest
@@ -54,6 +68,8 @@ jobs:
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
+
+
 
       - name: Build and push Docker image
         id: push
@@ -65,6 +81,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+
+
 
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2

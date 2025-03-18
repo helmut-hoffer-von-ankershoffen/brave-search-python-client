@@ -1,8 +1,9 @@
-_commit: v0.6.0
+_commit: v0.6.13
 _src_path: gh:helmut-hoffer-von-ankershoffen/oe-python-template
 author_email: helmuthva@googlemail.com
 author_github_username: helmut-hoffer-von-ankershoffen
 author_name: Helmut Hoffer von Ankershoffen
+docker_io_enabled: true
 docker_io_image_name: brave-search-python-client
 docker_io_owner: helmuthva
 github_repository_name: brave-search-python-client
@@ -16,6 +17,7 @@ project_description: Brave Search Python Client supporting Web, Image, News and 
 project_icon: 🦁
 project_name: Brave Search Python Client
 pypi_distribution_name: brave-search-python-client
+readthedocs_domain: readthedocs.org
 readthedocs_project_key: brave-search-python-client
 sonarqube_key: helmut-hoffer-von-ankershoffen_brave-search-python-client
 streamlit_project_key: brave-search-python-client

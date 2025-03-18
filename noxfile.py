@@ -178,7 +178,7 @@ def bump(session: nox.Session) -> None:
     version_part = session.posargs[0] if session.posargs else "patch"
 
     # Check if the version_part is a specific version (e.g., 1.2.3)
-    if re.match(r"^[0-9]+\.[0-9]+\.[0-9]+$", version_part):
+    if re.match(r"^\d+\.\d+\.\d+$", version_part):
         session.run("bump-my-version", "bump", "--new-version", version_part, external=True)
     else:
         session.run("bump-my-version", "bump", version_part, external=True)
