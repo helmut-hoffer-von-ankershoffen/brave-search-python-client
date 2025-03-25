@@ -1,5 +1,12 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
+## [0.4.5](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.4..0.4.5) - 2025-03-25
+
+### 🐛 Bug Fixes
+
+- *(web.video)* Typing of views - ([420f3bf](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/420f3bff6177b2f40715141b8355882866a2c49b))
+
+
 ## [0.4.0](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.3.24..v0.4.0) - 2025-03-16
 
 ### ⛰️  Features
