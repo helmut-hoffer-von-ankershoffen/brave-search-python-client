@@ -1,5 +1,4 @@
 version = 1
-revision = 1
 requires-python = ">=3.11, <4.0"
 resolution-markers = [
     "python_full_version < '3.12'",
@@ -264,7 +263,7 @@ wheels = [
 
 [[package]]
 name = "brave-search-python-client"
-version = "0.4.3"
+version = "0.4.4"
 source = { editable = "." }
 dependencies = [
     { name = "pydantic" },
@@ -331,7 +330,6 @@ requires-dist = [
     { name = "tenacity", specifier = ">=9.0.0" },
     { name = "typer", specifier = ">=0.15.1" },
 ]
-provides-extras = ["examples"]
 
 [package.metadata.requires-dev]
 dev = [
