@@ -75,6 +75,7 @@ dependencies = [
     "fastapi[standard,all]>=0.115.12",
     "pydantic>=2.10.6",
     "python-dotenv>=1.1.0",
+    "tenacity>=9.0.0",
     "typer>=0.15.1",
 ]
 
@@ -147,7 +148,7 @@ dev = [
 
 [tool.uv]
 override-dependencies = [ # https://github.com/astral-sh/uv/issues/4422
-    "rfc3987; sys_platform == 'never'",                 # GPLv3
+    "rfc3987; sys_platform == 'never'", # GPLv3
 ]
 
 
@@ -221,7 +222,7 @@ docstring-code-format = true
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
-[tool.mypy]  # https://mypy.readthedocs.io/en/latest/config_file.html
+[tool.mypy] # https://mypy.readthedocs.io/en/latest/config_file.html
 junit_xml = "reports/mypy_junit.xml"
 plugins = "pydantic.mypy"
 strict = true

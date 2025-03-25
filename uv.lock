@@ -269,6 +269,7 @@ dependencies = [
     { name = "fastapi", extra = ["all", "standard"] },
     { name = "pydantic" },
     { name = "python-dotenv" },
+    { name = "tenacity" },
     { name = "typer" },
 ]
 
@@ -328,6 +329,7 @@ requires-dist = [
     { name = "pydantic", specifier = ">=2.10.6" },
     { name = "python-dotenv", specifier = ">=1.1.0" },
     { name = "streamlit", marker = "extra == 'examples'", specifier = ">=1.43.2" },
+    { name = "tenacity", specifier = ">=9.0.0" },
     { name = "typer", specifier = ">=0.15.1" },
 ]
 
