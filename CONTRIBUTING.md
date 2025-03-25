@@ -4,41 +4,38 @@ Thank you for considering contributing to Brave Search Python Client!
 
 ## Setup
 
-Clone this GitHub repository via
+Install or update tools required for development:
+
+```shell
+# Install Homebrew, uv package manager, copier and further dev tools
+curl -LsSf https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/oe-python-template/HEAD/install.sh | sh
+```
+
+[Create a fork](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/fork)
+and clone your fork using `git clone URL_OF_YOUR_CLONE`. Then change into the
+directory of your local Brave Search Python Client repository with
+`cd brave-search-python-client`.
+
+If you are one of the committers of
+https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client you
+can directly clone via
 `git clone git@github.com:helmut-hoffer-von-ankershoffen/brave-search-python-client.git`
-and change into the directory of your local Brave Search Python Client
-repository: `cd brave-search-python-client`
+and `cd brave-search-python-client`.
 
-Install the dependencies:
-
-### macOS
-
-```shell
-if ! command -v brew &> /dev/null; then # if Homebrew package manager not present ...
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" # ... install it
-else
-  which brew # ... otherwise inform where brew command was found
-fi
-# Install required tools if not present
-which jq &> /dev/null || brew install jq
-which xmllint &> /dev/null || brew install xmllint
-which act &> /dev/null || brew install act
-which pinact &> /dev/null || brew install pinact
-uv run pre-commit install             # install pre-commit hooks, see https://pre-commit.com/
-```
-
-### Linux
-
-```shell
-sudo sudo apt install -y curl jq libxml2-utils gnupg2  # tooling
-curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash # act
-uv run pre-commit install # see https://pre-commit.com/
-```
-
-## Code
+## Directory Layout
 
 ```
-src/brave_search_python_client/
+├── Makefile               # Central entrypoint for build, test, release and deploy
+├── noxfile.py             # Noxfile for running tests in multiple python environments and other tasks
+├── .pre-commit-config.yaml # Definition of hooks run on commits
+├── .github/               # GitHub specific files
+│   ├── workflows/         # GitHub Actions workflows
+│   ├── prompts/           # Custom prompots for GitHub Copilot
+│   └── copilot-instructions.md # Insructions for GitHub Copilot
+├── .vscode/               # Recommended VSCode settings and extensions
+├── .env                   # Environment variables, on .gitignore
+├── .env.example           # Example environment variables
+src/brave_search_python_client/  # Source code
 ├── __init__.py          # Package initialization
 ├── client.py            # Main client implementation
 ├── cli.py               # Command Line Interface
@@ -53,11 +50,22 @@ tests/                   # Unit and E2E tests
 └── fixtures/           # Mock data for unit testing
 examples/                # Example code demonstrating use of hte client
 ├── streamlit.py         # Streamlit App, deployed in Streamlit Community Cloud
+├── notebook.py          # Marimo notebook
+├── notebook.ipynb       # Jupyter notebook
+└── script.py            # Minimal script
+reports/                 # Compliance reports for auditing
+├── junit.xml            # Report of executions
+├── mypy_junit.xml       # Report of executions
+├── coverage.xml         # Test coverage in XML format
+├── coverage_html        # Report of test coverage in HTML format
+├── licenses.csv         # List of dependencies and their license types
+├── licenses.json        # .json file with dependencies their license types
+├── licenses_grouped.json  # .json file with dependencies grouped by license type
 ├── notebook.ipynb       # Jupyter notebook
 └── script.py            # Minimal script
 ```
 
-## Run
+## Build, Run and Release
 
 ### .env file
 
@@ -72,18 +80,63 @@ Notes:
 ### update dependencies and create virtual environment
 
 ```shell
-uv sync                      # install dependencies
-uv sync --all-extras         # install all extras, required for examples
-uv venv                      # create a virtual environment
-source .venv/bin/activate    # activate it
-uv run pre-commit install    # Install pre-commit hook etc.
+make setup
 ```
+
+Don't forget to configure your `.env` file with the required environment
+variables.
+
+Notes:
+
+1. .env.example is provided as a template, use `cp .env.example .env` and edit
+   `.env` to create your environment.
+2. .env is excluded from version control, so feel free to add secret values.
+
+## Build
+
+All build steps are defined in `noxfile.py`.
+
+```shell
+make
+```
+
+### Commit and Push your changes
+
+```shell
+git add .
+git commit -m "feat(user): added new api endpoint to offboard user"
+git push
+```
+
+Notes:
+
+1. [pre-commit hooks](https://pre-commit.com/) will run automatically on commit
+   to ensure code quality.
+2. We use the conventional commits format - see the
+   [code style guide](CODE_STYLE.md) for the mandatory commit message format.
+
+### Publish Release
+
+```shell
+make bump   # Patch release
+make minor  # Patch release
+make major  # Patch release
+make x.y.z  # Targeted release
+```
+
+Notes:
+
+1. Changelog generated automatically
+2. Publishes to PyPi, Docker Registries, Read The Docs, Streamlit and Auditing
+   services
+
+## Advanced usage
 
 ### Example: Streamlit Example App
 
 ```shell
 uv sync --all-extras # required streamlit dependency part of the examples extra, see pyproject.toml
-sreamlit run examples/streamlit.py
+streamlit run examples/streamlit.py
 ```
 
 ### Example: Jupyter Notebook
@@ -97,84 +150,88 @@ Install the
 
 Click on `examples/notebook.ipynb` in VSCode and run it
 
-## Build
-
-All build steps are defined in `noxfile.py`.
+### Running GitHub CI Workflow locally
 
 ```shell
-uv run nox        # Runs all build steps except setup_dev
-```
-
-You can run individual build steps - called sessions in nox as follows:
-
-```shell
-uv run nox -s test      # run tests
-uv run nox -s lint      # run formatting and linting
-uv run nox -s audit     # run security and license audit, inc. sbom generation
-uv run nox -s docs      # build documentation, output in docs/build/html
-uv run nox -s docs_pdf  # locally build pdf manual to docs/build/latex/brave-search-python-client.pdf
-```
-
-As a shortcut, you can run build steps using `./n`, e.g.
-
-```shell
-./n test
-./n lint
-# ...
-```
-
-Generate a wheel using uv
-```shell
-uv build
-```
-
-Notes:
-1. Reports dumped into ```reports/```
-3. Documentation dumped into ```docs/build/html/```
-2. Distribution dumped into ```dist/```
-
-### Running GitHub CI workflow locally
-
-```shell
-uv run nox -s act
+make act
 ```
 
 Notes:
 
-- Workflow defined in `.github/workflows/*.yml`
-- test-and-report.yml calls all build steps defined in noxfile.py
+1. Workflow defined in `.github/workflows/*.yml`
+2. test-and-report.yml calls all build steps defined in noxfile.py
 
 ### Docker
 
-```shell
-docker build -t brave-search-python-client .
-```
+Build and run the Docker image with plain Docker
 
 ```shell
+# Build from Dockerimage
+make docker build
+# Run the CLI
 docker run --env THE_VAR=THE_VALUE brave-search-python-client --help
 ```
 
-### Pinning github actions
+Build and run the Docker image with docker compose:
+
+```shell
+echo "Building the Docker image with docker compose and running CLI..."
+docker compose run --build oe-python-template --help
+echo "Building the Docker image with docker compose and running API container as a daemon ..."
+docker compose up --build -d
+echo "Waiting for the API server to start..."
+sleep 5
+echo "Checking health of v1 API ..."
+curl http://127.0.0.1:8000/api/v1/healthz
+echo ""
+echo "Saying hello world with v1 API ..."
+curl http://127.0.0.1:8000/api/v1/hello-world
+echo ""
+echo "Swagger docs of v1 API ..."
+curl http://127.0.0.1:8000/api/v1/docs
+echo ""
+echo "Checking health of v2 API ..."
+curl http://127.0.0.1:8000/api/v2/healthz
+echo ""
+echo "Saying hello world with v1 API ..."
+curl http://127.0.0.1:8000/api/v2/hello-world
+echo ""
+echo "Swagger docs of v2 API ..."
+curl http://127.0.0.1:8000/api/v2/docs
+echo ""
+echo "Shutting down the API container ..."
+docker compose down
+```
+
+### Pinning GitHub Actions
 
 ```shell
 pinact run  # See https://dev.to/suzukishunsuke/pin-github-actions-to-a-full-length-commit-sha-for-security-2n7p
 ```
 
-### Copier
+## Update from Template
 
-Update from template
+Update project to latest version of
+[oe-python-template](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template)
+template.
 
 ```shell
-uv run nox -s update_from_template
+make update_from_template
 ```
 
 ## Pull Request Guidelines
 
-- Before starting to write code read the [code style guide](CODE_STYLE.md) document for mandatory coding style
-  guidelines.
-- **Pre-Commit Hooks:** We use pre-commit hooks to ensure code quality. Please install the pre-commit hooks by running `uv run pre-commit install`. This ensure all tests, linting etc. pass locally before you can commit.
-- **Squash Commits:** Before submitting a pull request, please squash your commits into a single commit.
-- **Branch Naming:** Use descriptive branch names like `feature/your-feature` or `fix/issue-number`.
-- **Testing:** Ensure new features have appropriate test coverage.
-- **Documentation:** Update documentation to reflect any changes or new features.
-```
+1. Before starting to write code read the [code style](CODE_STYLE.md) document
+   for mandatory coding style requirements.
+2. **Pre-Commit Hooks:** We use pre-commit hooks to ensure code quality. Please
+   install the pre-commit hooks by running `uv run pre-commit install`. This
+   ensure all tests, linting etc. pass locally before you can commit.
+3. **Squash Commits:** Before submitting a pull request, please squash your
+   commits into a single commit.
+4. **Signed Commits:** Use
+   [signed commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
+5. **Branch Naming:** Use descriptive branch names like `feature/your-feature`
+   or `fix/issue-number`.
+6. **Testing:** Ensure new features have appropriate test coverage.
+7. **Documentation:** Update documentation to reflect any changes or new
+   features.

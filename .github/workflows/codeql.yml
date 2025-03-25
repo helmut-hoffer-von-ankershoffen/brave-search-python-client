@@ -59,7 +59,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Add any setup steps before running the `github/codeql-action/init` action.
+        # Add any setup steps before running the `github/codeql-action/init` action.
       # This includes steps like installing compilers or runtimes (`actions/setup-node`
       # or others). This is typically only required for manual builds.
       # - name: Setup runtime (example)
