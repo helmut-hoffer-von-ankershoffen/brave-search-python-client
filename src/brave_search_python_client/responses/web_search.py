@@ -131,7 +131,7 @@ class VideoData(BaseModel):
         default=None,
         description="The duration of the video (HH:MM:SS or MM:SS)",
     )
-    views: str | None = Field(
+    views: int | None = Field(
         default=None,
         description="The number of views of the video",
     )
