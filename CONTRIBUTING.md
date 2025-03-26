@@ -37,18 +37,26 @@ and `cd brave-search-python-client`.
 ├── .env.example           # Example environment variables
 src/brave_search_python_client/  # Source code
 ├── __init__.py          # Package initialization
-├── client.py            # Main client implementation
-├── cli.py               # Command Line Interface
-├── constants.py         # Constants
-├── requests.py          # Pydantic models for requests
-└── responses/           # Pydantic models for responses
-    └── fixtures/       # Mock data for integration tests
+├── constants.py         # Constants used throughout the app
+├── settings.py          # Settings loaded from environment and .env
+├── models.py            # Models and data structures
+├── service.py           # Service exposed for use as shared library
+├── cli.py               # CLI enabling to interact with service from terminal
+└── api.py               # API exposing service as web service
 tests/                   # Unit and E2E tests
-├── client_test.py       # Client tests including response validation
-├── requests_tests.py    # Tests for request validation
-├── cli_test.py          # CLI tests
-└── fixtures/           # Mock data for unit testing
-examples/                # Example code demonstrating use of hte client
+├── cli_tests.py         # Verifies the CLI functionality
+├── api_tests.py         # Verifies the API functionality
+└── fixtures/            # Fixtures and mock data
+docs/                    # Documentation
+├── partials/*.md        # Partials to compile README.md,  _main partial included in HTML and PDF documentation
+├── ../README.md         # Compiled README.md shown on GitHub
+├── source/*.rst         # reStructuredText files used to generate HTML and PDF documentation
+├── ../*.md              # Markdown files shown on GitHub and imported by .rst files
+├── source/conf.py       # Sphinx configuration used to generate HTML and PDF documentation
+├── build/html/*         # Generated HTML documentation as multiple pages
+├── build/singlehtml/index.html # HTML documentation as a single page
+└── build/latex/brave-search-python-client.pdf # PDF manual - generate with make docs pdf
+examples/                # Example code demonstrating use of the project
 ├── streamlit.py         # Streamlit App, deployed in Streamlit Community Cloud
 ├── notebook.py          # Marimo notebook
 ├── notebook.ipynb       # Jupyter notebook
@@ -176,7 +184,7 @@ Build and run the Docker image with docker compose:
 
 ```shell
 echo "Building the Docker image with docker compose and running CLI..."
-docker compose run --build oe-python-template --help
+docker compose run --build brave-search-python-client --help
 echo "Building the Docker image with docker compose and running API container as a daemon ..."
 docker compose up --build -d
 echo "Waiting for the API server to start..."
