@@ -1,6 +1,13 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
-## [0.4.10](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.9..0.4.10) - 2025-04-04
+## [0.4.11](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.10..0.4.11) - 2025-04-04
+
+### 📚 Documentation
+
+- Restablish - ([6451d77](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/6451d77556fcdf60184b6a8bbc639e744774f2a6))
+
+
+## [0.4.10](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.9..v0.4.10) - 2025-04-04
 
 ### 📚 Documentation
 
@@ -11,9 +18,6 @@
 - Uv.lock - ([891ac05](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/891ac05fb497ab69461c477ae5b355a2aae99fdf))
 - Docs - ([0445a6c](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/0445a6c426e542c448026daeb36b65b7c5f7e31e))
 
-## New Contributors ❤️
-
-* @helmut-hoffer-von-ankershoffen made their first contribution
 
 ## [0.4.7](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.6..v0.4.7) - 2025-03-25
 
