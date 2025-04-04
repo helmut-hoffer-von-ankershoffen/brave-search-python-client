@@ -1,0 +1,38 @@
+name: "CI Scheduled"
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+
+jobs:
+  test-scheduled:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@f94ec6bedd8674c4426838e6b50417d36b6ab231 # v5.3.1
+        with:
+          version: "0.6.3"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install Python, venv and dependencies
+        run: |
+          uv sync --all-extras --frozen --link-mode=copy
+
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@ace6d4f5d7802b600276c23ca417e669f1a06f6f # v2.0.3
+        with:
+          envkey_ENV_KEY: "ENV_VALUE"
+          fail_on_empty: true
+
+      - name: Run tests marked as scheduled
+        run: |
+          uv run --all-extras nox -s test -p 3.11 -- -m scheduled

@@ -1,4 +1,4 @@
-_commit: v0.7.7
+_commit: v0.8.19
 _src_path: gh:helmut-hoffer-von-ankershoffen/oe-python-template
 attestations_enabled: true
 author_email: helmuthva@googlemail.com
@@ -25,3 +25,4 @@ readthedocs_domain: readthedocs.org
 readthedocs_project_key: brave-search-python-client
 sonarqube_key: helmut-hoffer-von-ankershoffen_brave-search-python-client
 streamlit_project_key: brave-search-python-client
+vercel_function_enabled: false

@@ -35,5 +35,8 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 ENV BRAVE_SEARCH_PYTHON_CLIENT_RUNNING_IN_CONTAINER=1
 
+# No healthcheck by default
+HEALTHCHECK NONE
+
 # But feel free to add arguments and options as needed when doing a docker run
 ENTRYPOINT ["uv", "run", "--no-dev", "brave-search-python-client"]

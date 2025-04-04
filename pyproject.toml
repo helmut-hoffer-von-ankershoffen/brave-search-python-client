@@ -72,11 +72,13 @@ classifiers = [
 requires-python = ">=3.11, <4.0"
 
 dependencies = [
+    # From Template
     "fastapi[standard,all]>=0.115.12",
-    "pydantic>=2.10.6",
+    "pydantic>=2.11.1",
     "pydantic-settings>=2.8.1",
-    "tenacity>=9.0.0",
     "typer>=0.15.1",
+    # Custom
+    # Nothing yet
 ]
 
 [project.scripts]
@@ -101,8 +103,8 @@ packages = ["src/brave_search_python_client"]
 
 [project.optional-dependencies]
 examples = [
-    "streamlit>=1.44.0",
-    "marimo>=0.11.28",
+    "streamlit>=1.44.1",
+    "marimo>=0.12.2",
     "jupyter>=1.1.1",
     "jinja2>=3.1.6",
 ]
@@ -120,16 +122,17 @@ dev = [
     "mypy>=1.5.0",
     "nox[uv]>=2025.2.9",
     "pip-audit>=2.8.0",
-    "pip-licenses>=5.0.0",
+    "pip-licenses @ git+https://github.com/neXenio/pip-licenses.git@master", # https://github.com/raimon49/pip-licenses/pull/224
     "pre-commit>=4.1.0",
     "pyright>=1.1.398",
     "pytest>=8.3.5",
     "pytest-asyncio>=0.26.0",
-    "pytest-cov>=6.0.0",
+    "pytest-cov>=6.1.0",
     "pytest-docker>=3.2.0",
     "pytest-env>=1.1.5",
     "pytest-regressions>=2.7.0",
     "pytest-subprocess>=1.5.3",
+    "pytest-timeout>=2.3.1",
     "pytest-xdist[psutil]>=3.6.1",
     "ruff>=0.11.2",
     "sphinx>=8.2.3",
@@ -143,7 +146,7 @@ dev = [
     "sphinxext.opengraph>=0.9.1",
     "swagger-plugin-for-sphinx>=5.1.0",
     "tomli>=2.1.0",
-    "types-pyyaml>=6.0.12.20250326",
+    "types-pyyaml>=6.0.12.20250402",
     "watchdog>=6.0.0",
 ]
 
@@ -243,22 +246,25 @@ warn_required_dynamic_aliases = true
 warn_untyped_fields = true
 
 [tool.pytest.ini_options]
-addopts = "-v --cov=brave_search_python_client --cov-report=term-missing --cov-report=xml:reports/coverage.xml --cov-report=html:reports/coverage_html"
+addopts = "-v --strict-markers --cov=brave_search_python_client --cov-report=term-missing --cov-report=xml:reports/coverage.xml --cov-report=html:reports/coverage_html"
 testpaths = ["tests"]
 python_files = ["*_test.py"]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
 env = ["COVERAGE_FILE=.coverage", "COVERAGE_PROCESS_START=pyproject.toml"]
 markers = [
-    "sequential: exclude from parallel test execution",
+    # From Template
     "no_extras: tests that do require no extras installed",
+    "sequential: exclude from parallel test execution",
+    # Custom
+    # Nothing yet
 ]
 
 [tool.coverage.run]
 sigterm = true
 relative_files = true
 source = ["src"]
-omit = ["src/starbridge/instrumentation/*"]
+omit = []
 branch = true
 parallel = true
 concurrency = ["thread", "multiprocessing"]

@@ -45,209 +45,243 @@
 
 Brave Search Python Client supporting Web, Image, News and Video search.
 
-Use Cases:
+### Scaffolding
 
-1. Integrate into your Python code to help users find what they're looking for.
-2. Add to your AI applications to give LLMs access to current web information.
-3. Use the built-in CLI in shell scripts to get search results in JSON format.
+This [Copier](https://copier.readthedocs.io/en/stable/) template enables you to quickly generate (scaffold) a Python package with fully functioning build and test automation:
+
+1. Projects generated from this template can be [easily updated](https://copier.readthedocs.io/en/stable/updating/) to benefit from improvements and new features of the template.
+2. During project generation, you can flexibly configure naming of the Python distribution, import package, main author, GitHub repository, organization, and many other aspects to match your specific requirements (see [copier.yml](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template/blob/main/copier.yml) for all available options).
+
+### Development Infrastructure
+
+Projects generated with this template come with a comprehensive development toolchain and quality assurance framework that supports the entire software development lifecycle - from coding and testing to documentation, release management, and compliance auditing. This infrastructure automates routine tasks, enforces code quality standards, and streamlines the path to production:
+
+1. Linting with [Ruff](https://github.com/astral-sh/ruff)
+2. Static type checking with [mypy](https://mypy.readthedocs.io/en/stable/)
+3. Complete set of [pre-commit](https://pre-commit.com/) hooks including [detect-secrets](https://github.com/Yelp/detect-secrets) and [pygrep](https://github.com/pre-commit/pygrep-hooks)
+4. Unit and E2E testing with [pytest](https://docs.pytest.org/en/stable/) including parallel test execution
+5. Matrix testing in multiple environments with [nox](https://nox.thea.codes/en/stable/)
+6. Test coverage reported with [Codecov](https://codecov.io/) and published as release artifact
+7. CI/CD pipeline automated with [GitHub Actions](https://github.com/features/actions)
+8. CI/CD pipeline can be run locally with [act](https://github.com/nektos/act)
+9. Code quality and security checks with [SonarQube](https://www.sonarsource.com/products/sonarcloud) and [GitHub CodeQL](https://codeql.github.com/)
+10. Dependency monitoring and vulnerability scanning with [pip-audit](https://pypi.org/project/pip-audit/), [trivy](https://trivy.dev/latest/), [Renovate](https://github.com/renovatebot/renovate), and [GitHub Dependabot](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide)
+11. Licenses of dependencies extracted with [pip-licenses](https://pypi.org/project/pip-licenses/), matched with allow list, and published as release artifacts in CSV and JSON format for further compliance checks
+12. Generation of attributions from extracted licenses
+13. Software Bill of Materials (SBOM) generated in [CycloneDX](https://cyclonedx.org/) and [SPDX](https://spdx.dev/) formats with [cyclonedx-python](https://github.com/CycloneDX/cyclonedx-python) resp. [trivy](https://trivy.dev/latest/), published as release artifacts
+14. Version and release management with [bump-my-version](https://callowayproject.github.io/bump-my-version/)
+15. Changelog and release notes generated with [git-cliff](https://git-cliff.org/)
+16. Documentation generated with [Sphinx](https://www.sphinx-doc.org/en/master/) including reference documentation and PDF export
+17. Documentation published to [Read The Docs](https://readthedocs.org/)
+18. Interactive OpenAPI specification with [Swagger](https://swagger.io/)
+19. Python package published to [PyPI](https://pypi.org/)
+20. Docker images published to [Docker.io](https://hub.docker.com/) and [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) with [artifact attestations](https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-to-establish-provenance-for-builds)
+21. One-click development environments with [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers) and [GitHub Codespaces](https://github.com/features/codespaces)
+22. Settings for use with [VSCode](https://code.visualstudio.com/)
+23. Settings and custom instructions for use with [GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+
+### Application Features
+
+Beyond development tooling, projects generated with this template include the code, documentation, and configuration of a fully functioning demo application and service. This reference implementation serves as a starting point for your own business logic with modern patterns and practices already in place:
+
+1. Service architecture suitable for use as shared library
+2. Validation with [pydantic](https://docs.pydantic.dev/)
+3. Command-line interface (CLI) with [Typer](https://typer.tiangolo.com/)
+4. Versioned Web API with [FastAPI](https://fastapi.tiangolo.com/)
+5. [Interactive Jupyter notebook](https://jupyter.org/) and [reactive Marimo notebook](https://marimo.io/)
+6. Simple Web UI with [Streamlit](https://streamlit.io/)
+7. Configuration to run the CLI and API in a Docker container including setup for [Docker Compose](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-docker-compose/)
+8. Documentation including badges, setup instructions, contribution guide and security policy
+9. Preparation to deploy API as serverless function to Vercel
+
+Explore [here](https://github.com/helmut-hoffer-von-ankershoffen/oe-python-template-example) for what's generated out of the box.
+
+## Generate a new project
+
+To generate, build and release a fully functioning project in a few minutes, follow these 5 steps:
+
+**Step 1**: Execute the following command to install or update tooling.
+```shell
+# Install Homebrew, uv package manager, copier and further dev tools
+curl -LsSf https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/oe-python-template/HEAD/install.sh | sh
+```
+
+**Step 2**: [Create a repository on GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository), clone to your local machine, and change into it's directory.
+
+**Step 3**: Execute the following command to generate a new project based on this template.
+```shell
+# Ensure to stand in your freshly created git repository before executing this command
+copier copy --trust gh:helmut-hoffer-von-ankershoffen/oe-python-template .
+```
+
+**Step 4**: Execute the following commands to push your initial commit to GitHub.
+```shell
+git add .
+git commit -m "chore: Initial commit"
+git push
+```
+
+Check the [Actions tab](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/actions) of your GitHub repository: The CI/CD workflow of your project is already running!
+
+The workflow will fail at the SonarQube step, as this external service is not yet configured for our new repository. We will configure SonarQube and other services in the next step!
+
+Notes:
+1. Check out [this manual](https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key) on how to set up signed commits
+
+**Step 5**: Follow the [instructions](SERVICE_CONNECTIONS.md) to wire up
+external services such as CloudCov, SonarQube Cloud, Read The Docs, Docker.io, and Streamlit Community Cloud.
+
+**Step 6**: Release the first version of your project
+```shell
+make bump
+```
+Notes:
+1. You can remove the above sections - from "Scaffolding" to this notes - post having successfully generated your project.
+2. The following sections refer to the dummy application and service generated into the `tests` and `src` folder by this template.
+   Use the documentation and code as inspiration, adapt to your business logic, or remove and start documenting and coding from scratch.
+
 
 ## Overview
 
-Adding Brave Search Python Client to your project as a dependency is easy.
+Adding Brave Search Python Client to your project as a dependency is easy. See below for usage examples.
 
 ```shell
 uv add brave-search-python-client             # add dependency to your project
 ```
 
-If you don't have uv installed follow
-[these instructions](https://docs.astral.sh/uv/getting-started/installation/).
-If you still prefer pip over the modern and fast package manager
-[uv](https://github.com/astral-sh/uv), you can install the library like this:
+If you don't have uv installed follow [these instructions](https://docs.astral.sh/uv/getting-started/installation/). If you still prefer pip over the modern and fast package manager [uv](https://github.com/astral-sh/uv), you can install the library like this:
+
 
 ```shell
 pip install brave-search-python-client        # add dependency to your project
 ```
 
-Obtain your Brave Search API key by
-[signing up here](https://brave.com/search/api/) - the free tier includes 2,000
-requests per month. For guidance on how to integrate the Brave Search Python
-client into your code base check out the examples below and explore the
-[reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html).
-If you just want to try out the client without having to write code you can use
-the integrated CLI:
+Executing the command line interface (CLI) in an isolated Python environment is just as easy:
 
 ```shell
-export BRAVE_SEARCH_API_KEY=YOUR_API_KEY         # replace YOUR_API_KEY
-uvx brave-search-python-client web "hello world" # search for hello world
+uvx brave-search-python-client hello-world       # prints "Hello, world! [..]"
+uvx brave-search-python-client serve             # serves web API
+uvx brave-search-python-client serve --port=4711 # serves web API on port 4711
 ```
 
-All advanced search options of Brave Search are supported
-[by the client](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchRequest)
-and in the CLI:
+Notes:
+1. The API is versioned, mounted at `/api/v1` resp. `/api/v2`
+2. While serving the web API go to [http://127.0.0.1:8000/api/v1/hello-world](http://127.0.0.1:8000/api/v1/hello-world) to see the respons of the `hello-world` operation.
+3. Interactive documentation is provided at [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs)
 
-```shell
-# Find all German content about AI added in the last 24 hours
-uvx brave-search-python-client web --country=DE --search-lang=de --units=metric --freshness=pd ai
-```
 
 The CLI provides extensive help:
 
 ```shell
-uvx brave-search-python-client --help            # all CLI commands
-uvx brave-search-python-client web --help        # all options for web search
-uvx brave-search-python-client images --help     # all options image search
-uvx brave-search-python-client videos --help     # all options video search
-uvx brave-search-python-client news --help       # all options news search
+uvx brave-search-python-client --help                # all CLI commands
+uvx brave-search-python-client hello-world --help    # help for specific command
+uvx brave-search-python-client echo --help
+uvx brave-search-python-client openapi --help
+uvx brave-search-python-client serve --help
 ```
 
-![CLI](https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/refs/heads/main/cli-german-ai.png)
 
 ## Operational Excellence
 
-This project is designed with operational excellence in mind, using modern
-Python tooling and practices. It includes:
+This project is designed with operational excellence in mind, using modern Python tooling and practices. It includes:
 
-1. Various examples demonstrating usage: a.
-   [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
-   b.
-   [Streamlit web application](https://brave-search-python-client.streamlit.app/)
-   deployed on [Streamlit Community Cloud](https://streamlit.io/cloud) c.
-   [Jupyter](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb)
-   and
-   [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.py)
-   notebook
-2. [Complete reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html)
-   on Read the Docs
-3. [Transparent test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client)
-   including unit and E2E tests (reported on Codecov)
-4. Matrix tested with
-   [multiple python versions](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py)
-   to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
-5. Compliant with modern linting and formatting standards (powered by
-   [Ruff](https://github.com/astral-sh/ruff))
-6. Up-to-date dependencies (monitored by
-   [Renovate](https://github.com/renovatebot/renovate) and
-   [Dependabot](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/security/dependabot))
-7. [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client)
-   in security, maintainability, and reliability with low technical debt and
-   codesmell (verified by SonarQube)
-8. Additional code security checks using
-   [CodeQL](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/security/code-scanning)
+1. Various examples demonstrating usage:
+  a. [Simple Python script](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py)
+  b. [Streamlit web application](https://brave-search-python-client.streamlit.app/) deployed on [Streamlit Community Cloud](https://streamlit.io/cloud)
+  c. [Jupyter](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb) and [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.py) notebook
+2. [Complete reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html) on Read the Docs
+3. [Transparent test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client) including unit and E2E tests (reported on Codecov)
+4. Matrix tested with [multiple python versions](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/noxfile.py) to ensure compatibility (powered by [Nox](https://nox.thea.codes/en/stable/))
+5. Compliant with modern linting and formatting standards (powered by [Ruff](https://github.com/astral-sh/ruff))
+6. Up-to-date dependencies (monitored by [Renovate](https://github.com/renovatebot/renovate) and [Dependabot](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/security/dependabot))
+7. [A-grade code quality](https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client) in security, maintainability, and reliability with low technical debt and codesmell (verified by SonarQube)
+8. Additional code security checks using [CodeQL](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/security/code-scanning)
 9. [Security Policy](SECURITY.md)
 10. [License](LICENSE) compliant with the Open Source Initiative (OSI)
-11. 1-liner for installation and execution of command line interface (CLI) via
-    [uv(x)](https://github.com/astral-sh/uv) or
-    [Docker](https://hub.docker.com/r/helmuthva/brave-search-python-client/tags)
-12. Setup for developing inside a
-    [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers)
-    included (supports VSCode and GitHub Codespaces)
+11. 1-liner for installation and execution of command line interface (CLI) via [uv(x)](https://github.com/astral-sh/uv) or [Docker](https://hub.docker.com/r/helmuthva/brave-search-python-client/tags)
+12. Setup for developing inside a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) included (supports VSCode and GitHub Codespaces)
+
 
 ## Usage Examples
 
-### Streamlit App
-
-![Watch it](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/raw/7f2a3a2e306c81c3487c0b0eda067f0440ec3f36/examples/streamlit.gif)
-
-[Try it out!](https://brave-search-python-client.streamlit.app) -
-[Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/streamlit.py)
+The following examples run from source - clone this repository using
+`git clone git@github.com:helmut-hoffer-von-ankershoffen/brave-search-python-client.git`.
 
 ### Minimal Python Script:
 
 ```python
-"""
-Example script demonstrating the usage of the Brave Search Python Client.
-
-For web, image, video and news search.
-"""
-
-import asyncio
-import os
+"""Example script demonstrating the usage of the service provided by Brave Search Python Client."""
 
 from dotenv import load_dotenv
 from rich.console import Console
 
-from brave_search_python_client import (
-    BraveSearch,
-    CountryCode,
-    ImagesSearchRequest,
-    LanguageCode,
-    NewsSearchRequest,
-    VideosSearchRequest,
-    WebSearchRequest,
-)
+from brave_search_python_client import Service
 
-# Load .env file and get Brave Search API key from environment
+console = Console()
+
 load_dotenv()
-api_key = os.getenv("BRAVE_SEARCH_API_KEY")
-if not api_key:
-    msg = "BRAVE_SEARCH_API_KEY not found in environment"
-    raise ValueError(msg)
 
-
-async def search() -> None:
-    """Run various searches using the Brave Search Python Client (see https://brave-search-python-client.readthedocs.io/en/latest/reference.html)."""
-    # Initialize the Brave Search Python client, using the API key from the environment
-    bs = BraveSearch()
-
-    # Perform a web search
-    response = await bs.web(WebSearchRequest(q="jupyter"))
-
-    # Print results as JSON
-
-    # Iterate over web hits and render links in markdown
-    for _result in response.web.results if response.web else []:
-        pass
-
-    # Advanced search with parameters
-    response = await bs.web(
-        WebSearchRequest(
-            q="python programming",
-            country=CountryCode.DE,
-            search_lang=LanguageCode.DE,
-        ),
-    )
-    for _result in response.web.results if response.web else []:
-        pass
-
-    # Search and render images
-    response = await bs.images(ImagesSearchRequest(q="cute cats"))
-    for _image in response.results or []:
-        pass
-
-    # Search and render videos
-    response = await bs.videos(VideosSearchRequest(q="singularity is close"))
-    for _video in response.results or []:
-        pass
-
-    # Search and render news
-    response = await bs.news(NewsSearchRequest(q="AI"))
-    for _item in response.results or []:
-        pass
-
-
-# Run the async search function
-# Alternatively use await search() from an async function
-asyncio.run(search())
+message = Service.get_hello_world()
+console.print(f"[blue]{message}[/blue]")
 ```
 
-[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py) -
-[Read the reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.BraveSearch)
+[Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py) - [Read the reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html)
 
-## Jupyter Notebook
+### Streamlit App
 
-![Jupyter Notebook](https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/main/examples/notebook.png)
+Serve the functionality provided by Brave Search Python Client in the web by easily integrating the service into a Streamlit application.
 
-[Show notebook code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb)
+[Try it out!](https://brave-search-python-client.streamlit.app) - [Show the code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/streamlit.py)
+
+... or serve the app locally
+```shell
+uv sync --all-extras                                # Install streamlit dependency part of the examples extra, see pyproject.toml
+uv run streamlit run examples/streamlit.py          # Serve on localhost:8501, opens browser
+```
+
+
+## Notebooks
+
+### Jupyter
+
+[Show the Jupyter code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.ipynb)
+
+... or run within VSCode
+
+```shell
+uv sync --all-extras                                # Install dependencies required for examples such as Juypyter kernel, see pyproject.toml
+```
+Install the [Jupyter extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
+
+Click on `examples/notebook.ipynb` in VSCode and run it.
+
+### Marimo
+
+[Show the marimo code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.py)
+
+Execute the notebook as a WASM based web app
+
+```shell
+uv sync --all-extras                                # Install ipykernel dependency part of the examples extra, see pyproject.toml
+uv run marimo run examples/notebook.py --watch      # Serve on localhost:2718, opens browser
+```
+
+or edit interactively in your browser
+
+```shell
+uv sync --all-extras                                # Install ipykernel dependency part of the examples extra, see pyproject.toml
+uv run marimo edit examples/notebook.py --watch     # Edit on localhost:2718, opens browser
+```
+
+... or edit interactively within VSCode
+
+Install the [Marimo extension for VSCode](https://marketplace.visualstudio.com/items?itemName=marimo-team.vscode-marimo)
+
+Click on `examples/notebook.py` in VSCode and click on the caret next to the Run icon above the code (looks like a pencil) > "Start in marimo editor" (edit).
 
 ## Command Line Interface (CLI)
 
 ### Run with [uvx](https://docs.astral.sh/uv/guides/tools/)
-
-Add Brave Search API key to the environment
-
-```shell
-export BRAVE_SEARCH_API_KEY=YOUR_API_KEY
-```
 
 Show available commands:
 
@@ -255,128 +289,100 @@ Show available commands:
 uvx brave-search-python-client --help
 ```
 
-Search the web for "hello world":
+Execute commands:
 
 ```shell
-uvx brave-search-python-client web "hello world"
+uvx brave-search-python-client hello-world
+uvx brave-search-python-client echo --help
+uvx brave-search-python-client echo "Lorem"
+uvx brave-search-python-client echo "Lorem" --json
+uvx brave-search-python-client openapi
+uvx brave-search-python-client openapi --output-format=json
+uvx brave-search-python-client serve
 ```
 
-Show options for web search
+### Environment
+
+The service loads environment variables including support for .env files.
 
 ```shell
-uvx brave-search-python-client web --help
+cp .env.example .env              # copy example file
+echo "THE_VAR=MY_VALUE" > .env    # overwrite with your values
 ```
 
-Search images:
-
-```shell
-uvx brave-search-python-client images "hello world"
-```
-
-Show options for image search
-
-```shell
-uvx brave-search-python-client images --help
-```
-
-Search videos:
-
-```shell
-uvx brave-search-python-client videos "hello world"
-```
-
-Show options for videos search
-
-```shell
-uvx brave-search-python-client videos --help
-```
-
-Search news:
-
-```shell
-uvx brave-search-python-client news "hello world"
-```
-
-Show options for news search
-
-```shell
-uvx brave-search-python-client news --help
-```
+Now run the usage examples again.
 
 ### Run with Docker
 
-Note: Replace YOUR_BRAVE_SEARCH_API_KEY with your API key in the following
-examples.
-
-Show available commands:
+You can as well run the CLI within Docker.
 
 ```shell
 docker run helmuthva/brave-search-python-client --help
+docker run helmuthva/brave-search-python-client hello-world
+docker run helmuthva/brave-search-python-client echo --help
+docker run helmuthva/brave-search-python-client echo "Lorem"
+docker run helmuthva/brave-search-python-client echo "Lorem" --json
+docker run helmuthva/brave-search-python-client openapi
+docker run helmuthva/brave-search-python-client openapi --output-format=json
+docker run helmuthva/brave-search-python-client serve
 ```
 
-Search the web:
+Execute command:
 
 ```shell
-docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client web "hello world"
-```
-
-Show options for web search
-
-```shell
-docker run helmuthva/brave-search-python-client web --help
-```
-
-Search images:
-
-```shell
-docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client images "hello world"
-```
-
-Show options for image search
-
-```shell
-docker run helmuthva/brave-search-python-client images --help
-```
-
-Search videos:
-
-```shell
-docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client videos "hello world"
-```
-
-Show options for video search
-
-```bash
-docker run helmuthva/brave-search-python-client videos --help
-```
-
-Search news:
-
-```bash
-docker run --env BRAVE_SEARCH_API_KEY=YOUR_BRAVE_SEARCH_API_KEY helmuthva/brave-search-python-client news "hello world"
-```
-
-Show options for news search
-
-```bash
-docker run helmuthva/brave-search-python-client news --help
+docker run --env THE_VAR=MY_VALUE helmuthva/brave-search-python-client echo "Lorem Ipsum"
 ```
 
 Or use docker compose
 
-File .env is passed through
+The .env is passed through from the host to the Docker container.
 
 ```shell
-docker compose up
 docker compose run brave-search-python-client --help
+docker compose run brave-search-python-client hello-world
+docker compose run brave-search-python-client echo --help
+docker compose run brave-search-python-client echo "Lorem"
+docker compose run brave-search-python-client echo "Lorem" --json
+docker compose run brave-search-python-client openapi
+docker compose run brave-search-python-client openapi --output-format=json
+echo "Running Brave Search Python Client's API container as a daemon ..."
+docker compose up -d
+echo "Waiting for the API server to start ..."
+sleep 5
+echo "Checking health of v1 API ..."
+curl http://127.0.0.1:8000/api/v1/healthz
+echo ""
+echo "Saying hello world with v1 API ..."
+curl http://127.0.0.1:8000/api/v1/hello-world
+echo ""
+echo "Swagger docs of v1 API ..."
+curl http://127.0.0.1:8000/api/v1/docs
+echo ""
+echo "Checking health of v2 API ..."
+curl http://127.0.0.1:8000/api/v2/healthz
+echo ""
+echo "Saying hello world with v1 API ..."
+curl http://127.0.0.1:8000/api/v2/hello-world
+echo ""
+echo "Swagger docs of v2 API ..."
+curl http://127.0.0.1:8000/api/v2/docs
+echo ""
+echo "Shutting down the API container ..."
+docker compose down
 ```
+
+## Extra: Lorem Ipsum
+
+Dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam.
 
 
 ## Further Reading
 
-* Check out the [reference](https://brave-search-python-client.readthedocs.io/en/latest/reference.html) with detailed documentation of public classes and functions.
+* Inspect our [security policy](https://brave-search-python-client.readthedocs.io/en/latest/security.html) with detailed documentation of checks, tools and principles.
 * Our [release notes](https://brave-search-python-client.readthedocs.io/en/latest/release-notes.html) provide a complete log of recent improvements and changes.
+* Check out the [reference](https://brave-search-python-client.readthedocs.io/en/latest/reference.html) with detailed documentation of public classes and functions.
 * In case you want to help us improve 🦁 Brave Search Python Client: The [contribution guidelines](https://brave-search-python-client.readthedocs.io/en/latest/contributing.html) explain how to setup your development environment and create pull requests.
+* We gratefully acknowledge the [open source projects](ATTRIBUTIONS.md) that this project builds upon. Thank you to all these wonderful contributors!
 
 ## Star History
 

@@ -1,8 +1,10 @@
 ## Further Reading
 
-* Check out the [reference](https://brave-search-python-client.readthedocs.io/en/latest/reference.html) with detailed documentation of public classes and functions.
+* Inspect our [security policy](https://brave-search-python-client.readthedocs.io/en/latest/security.html) with detailed documentation of checks, tools and principles.
 * Our [release notes](https://brave-search-python-client.readthedocs.io/en/latest/release-notes.html) provide a complete log of recent improvements and changes.
+* Check out the [reference](https://brave-search-python-client.readthedocs.io/en/latest/reference.html) with detailed documentation of public classes and functions.
 * In case you want to help us improve 🦁 Brave Search Python Client: The [contribution guidelines](https://brave-search-python-client.readthedocs.io/en/latest/contributing.html) explain how to setup your development environment and create pull requests.
+* We gratefully acknowledge the [open source projects](ATTRIBUTIONS.md) that this project builds upon. Thank you to all these wonderful contributors!
 
 ## Star History
 
