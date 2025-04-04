@@ -45,8 +45,6 @@
 
 Brave Search Python Client supporting Web, Image, News and Video search.
 
-#Brave Search Python Client supporting Web, Image, News and Video search.
-
 Use Cases:
 
 1. Integrate into your Python code to help users find what they're looking for.
@@ -372,11 +370,6 @@ File .env is passed through
 docker compose up
 docker compose run brave-search-python-client --help
 ```
-
-## Extra: Lorem Ipsum
-
-Dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet
-ipsum mauris. Maecenas congue ligula ac quam.
 
 
 ## Further Reading
