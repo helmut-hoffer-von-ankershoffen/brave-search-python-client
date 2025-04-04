@@ -332,7 +332,7 @@ def docs(session: nox.Session) -> None:
 
     _generate_attributions(session, Path(LICENSES_JSON_PATH))
     _compile_readme(session)
-    # _dump_openapi_schemas(session)
+    # _dump_openapi_schemas(session)  # noqa: ERA001
 
     # Build docs
     session.run("make", "-C", "docs", "clean", external=True)

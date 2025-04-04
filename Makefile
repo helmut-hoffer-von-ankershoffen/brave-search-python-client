@@ -48,7 +48,7 @@ clean:
 
 ## Build Docker image
 docker_build:
-	docker build -t {{ pypi_distribution_name }} .
+	docker build -t brave-search-python-client .
 
 # Special rule to catch any arguments (like patch, minor, major, pdf, Python versions, or x.y.z)
 # This prevents "No rule to make target" errors when passing arguments to make commands
@@ -58,6 +58,7 @@ docker_build:
 
 # Help
 help:
+	@echo "🦁 Available targets for Brave Search Python Client (v$(shell test -f VERSION && cat VERSION || echo 'unknown version'))"
 	@echo ""
 	@echo "  act                 - Run GitHub actions locally via act"
 	@echo "  all                 - Run all default nox sessions, i.e. lint, test, docs, audit"
@@ -65,8 +66,9 @@ help:
 	@echo "  bump patch|minor|major|x.y.z - Bump version"
 	@echo "  clean               - Clean build artifacts and caches"
 	@echo "  dist                - Build wheel and sdist into dist/"
+
 	@echo "  docs [pdf]          - Build documentation (add pdf for PDF format)"
-	@echo "  docker_build        - Build Docker image {{ pypi_distribution_name }}"
+	@echo "  docker_build        - Build Docker image brave-search-python-client"
 	@echo "  lint                - Run linting and formatting checks"
 	@echo "  setup               - Setup development environment"
 	@echo "  test [3.11|3.12|3.13] - Run tests (for specific Python version)"

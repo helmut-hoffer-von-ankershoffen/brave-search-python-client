@@ -21314,7 +21314,7 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ```
 
-## tenacity (9.0.0) - Apache Software License
+## tenacity (9.1.2) - Apache Software License
 
 Retry code until it succeeds
 
