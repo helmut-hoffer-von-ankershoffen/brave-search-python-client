@@ -54,8 +54,6 @@ $ brave-search-python-client web [OPTIONS] Q
 * `--dump-response / --no-dump-response`: Dump the raw response from the API into a file (response.json in current working directory)  [default: no-dump-response]
 * `--help`: Show this message and exit.
 
-🦁 Brave Search Python Client v0.4.11 - built with love in Berlin 🐻
-
 ## `brave-search-python-client images`
 
 Search images.
@@ -79,8 +77,6 @@ $ brave-search-python-client images [OPTIONS] Q
 * `--spellcheck / --no-spellcheck`: Enable spellcheck  [default: spellcheck]
 * `--dump-response / --no-dump-response`: Dump the raw response from the API into a file (response.json in current working directory)  [default: no-dump-response]
 * `--help`: Show this message and exit.
-
-🦁 Brave Search Python Client v0.4.11 - built with love in Berlin 🐻
 
 ## `brave-search-python-client videos`
 
@@ -107,8 +103,6 @@ $ brave-search-python-client videos [OPTIONS] Q
 * `--spellcheck / --no-spellcheck`: Enable spellcheck  [default: spellcheck]
 * `--dump-response / --no-dump-response`: Dump the raw response from the API into a file (response.json in current working directory)  [default: no-dump-response]
 * `--help`: Show this message and exit.
-
-🦁 Brave Search Python Client v0.4.11 - built with love in Berlin 🐻
 
 ## `brave-search-python-client news`
 
@@ -137,5 +131,3 @@ $ brave-search-python-client news [OPTIONS] Q
 * `--extra-snippets / --no-extra-snippets`: A snippet is an excerpt from a page you get as a result of the query, and extra_snippets allow you to get up to 5 additional, alternative excerpts. Only available under Free AI, Base AI, Pro AI, Base Data, Pro Data and Custom plans  [default: no-extra-snippets]
 * `--dump-response / --no-dump-response`: Dump the raw response from the API into a file (response.json in current working directory)  [default: no-dump-response]
 * `--help`: Show this message and exit.
-
-🦁 Brave Search Python Client v0.4.11 - built with love in Berlin 🐻
