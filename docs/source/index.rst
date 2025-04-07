@@ -24,6 +24,7 @@
    :caption: Links
    :github:
    :pypi: brave-search-python-client
+
    Docker <https://hub.docker.com/r/helmuthva/brave-search-python-client/tags>
    ghcr.io <https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client>
    SonarQube <https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client>

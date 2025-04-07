@@ -17,9 +17,9 @@ LATEXMK_VERSION_MIN = 4.86
 LICENSES_JSON_PATH = "reports/licenses.json"
 SBOM_CYCLONEDX_PATH = "reports/sbom.json"
 SBOM_SPDX_PATH = "reports/sbom.spdx"
-
+JUNIT_XML = "--junitxml=reports/junit.xml"
 CLI_MODULE = "cli"
-API_VERSIONS = []
+API_VERSIONS = ["v1", "v2"]
 
 
 def _setup_venv(session: nox.Session, all_extras: bool = True) -> None:
@@ -464,7 +464,7 @@ def docs_pdf(session: nox.Session) -> None:
 def test(session: nox.Session) -> None:
     """Run tests with pytest."""
     _setup_venv(session, True)
-    pytest_args = ["pytest", "--disable-warnings", "--junitxml=reports/junit.xml", "-n", "auto", "--dist", "loadgroup"]
+    pytest_args = ["pytest", "--disable-warnings", JUNIT_XML, "-n", "auto", "--dist", "loadgroup"]
     if _is_act_environment():
         pytest_args.extend(["-k", NOT_SKIP_WITH_ACT])
     session.run(*pytest_args)
