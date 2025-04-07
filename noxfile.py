@@ -19,7 +19,7 @@ SBOM_CYCLONEDX_PATH = "reports/sbom.json"
 SBOM_SPDX_PATH = "reports/sbom.spdx"
 JUNIT_XML = "--junitxml=reports/junit.xml"
 CLI_MODULE = "cli"
-API_VERSIONS = ["v1", "v2"]
+API_VERSIONS = []
 
 
 def _setup_venv(session: nox.Session, all_extras: bool = True) -> None:
