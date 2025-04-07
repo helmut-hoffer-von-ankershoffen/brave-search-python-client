@@ -1,5 +1,12 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
+## [0.4.13](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.12..0.4.13) - 2025-04-07
+
+### 📚 Documentation
+
+- Polish - ([8876132](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/8876132261c47d69b233f4a28062e3e0b0a1aa9e))
+
+
 ## [0.4.11](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.10..v0.4.11) - 2025-04-04
 
 ### 📚 Documentation
