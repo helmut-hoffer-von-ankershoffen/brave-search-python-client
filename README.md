@@ -72,7 +72,7 @@ Obtain your Brave Search API key by
 [signing up here](https://brave.com/search/api/) - the free tier includes 2,000
 requests per month. For guidance on how to integrate the Brave Search Python
 client into your code base check out the examples below and explore the
-[reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html).
+[reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/lib_reference.html).
 If you just want to try out the client without having to write code you can use
 the integrated CLI:
 
@@ -82,7 +82,7 @@ uvx brave-search-python-client web "hello world" # search for hello world
 ```
 
 All advanced search options of Brave Search are supported
-[by the client](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.WebSearchRequest)
+[by the client](https://brave-search-python-client.readthedocs.io/en/latest/lib_reference.html#brave_search_python_client.WebSearchRequest)
 and in the CLI:
 
 ```shell
@@ -116,7 +116,7 @@ Python tooling and practices. It includes:
    and
    [Marimo](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/notebook.py)
    notebook
-2. [Complete reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html)
+2. [Complete reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/lib_reference.html)
    on Read the Docs
 3. [Transparent test coverage](https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client)
    including unit and E2E tests (reported on Codecov)
@@ -185,7 +185,7 @@ if not api_key:
 
 
 async def search() -> None:
-    """Run various searches using the Brave Search Python Client (see https://brave-search-python-client.readthedocs.io/en/latest/reference.html)."""
+    """Run various searches using the Brave Search Python Client (see https://brave-search-python-client.readthedocs.io/en/latest/lib_reference.html)."""
     # Initialize the Brave Search Python client, using the API key from the environment
     bs = BraveSearch()
 
@@ -231,7 +231,9 @@ asyncio.run(search())
 ```
 
 [Show script code](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/examples/script.py) -
-[Read the reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/reference.html#brave_search_python_client.BraveSearch)
+
+[Read the library reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/lib_reference.html#brave_search_python_client.BraveSearch)
+for an explanation of available classes and methods.
 
 ## Jupyter Notebook
 
@@ -302,6 +304,9 @@ Show options for news search
 ```shell
 uvx brave-search-python-client news --help
 ```
+
+[Read the CLI reference documentation](https://brave-search-python-client.readthedocs.io/en/latest/cli_reference.html)
+for an explanation of all commands and options.
 
 ### Run with Docker
 
