@@ -72,7 +72,7 @@ help:
 	@echo "  lint                  - Run linting and formatting checks"
 	@echo "  setup                 - Setup development environment"
 	@echo "  test [3.11|3.12|3.13] - Run tests (for specific Python version)"
-	@echo "  test_scheduled.       - Run tests marked as scheduled with Python 3.11"
+	@echo "  test_scheduled        - Run tests marked as scheduled with Python 3.11"
 	@echo "  update_from_template  - Update from template using copier"
 	@echo ""
 	@echo "Built with love in Berlin 🐻"
