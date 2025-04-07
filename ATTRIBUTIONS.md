@@ -1963,7 +1963,7 @@ SOFTWARE.
 
 ```
 
-## brave-search-python-client (0.4.10) - MIT License
+## brave-search-python-client (0.4.11) - MIT License
 
 🦁 Brave Search Python Client supporting Web, Image, News and Video search.
 

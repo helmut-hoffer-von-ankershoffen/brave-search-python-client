@@ -11,24 +11,23 @@
    :maxdepth: 2
 
    main
-   reference
-   security
-   release-notes
+   cli_reference
+   lib_reference
    contributing
    code-style
+   release-notes
+   security
    license
    attributions
 
 .. sidebar-links::
    :caption: Links
    :github:
-   :pypi: brave-search-python-client
-
-   Docker <https://hub.docker.com/r/helmuthva/brave-search-python-client/tags>
-   SonarQube <https://sonarcloud.io/summary/new_code?id=helmut-hoffer-von-ankershoffen_brave-search-python-client>
-   Codecov <https://app.codecov.io/gh/helmut-hoffer-von-ankershoffen/brave-search-python-client>
-   ghcr.io <https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client>
-   License <https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/blob/main/LICENSE>
+   :pypi: {{ pypi_distribution_name }}
+   Docker <https://hub.docker.com/r/{{ docker_io_owner }}/{{ docker_io_image_name }}/tags>
+   ghcr.io <{{ github_repository_url_https }}/pkgs/container/{{ github_repository_name }}>
+   SonarQube <https://sonarcloud.io/summary/new_code?id={{ sonarqube_key }}>
+   Codecov <https://app.codecov.io/gh/{{ github_repository_owner }}/{{ github_repository_name }}>
 
 .. only:: html
 

@@ -1,6 +1,8 @@
 """Command line interface of Brave Search Python Client."""
 
 import asyncio
+import sys
+from pathlib import Path
 from typing import Annotated
 
 import typer
@@ -380,7 +382,8 @@ def _apply_cli_settings(cli: typer.Typer, epilog: str) -> None:
     cli.info.epilog = epilog
     cli.info.no_args_is_help = True
     for command in cli.registered_commands:
-        command.epilog = cli.info.epilog
+        if not any(arg.endswith("typer") for arg in Path(sys.argv[0]).parts):
+            command.epilog = cli.info.epilog
         command.no_args_is_help = True
 
 

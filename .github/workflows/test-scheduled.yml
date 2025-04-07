@@ -2,7 +2,7 @@ name: "CI Scheduled"
 
 on:
   schedule:
-    - cron: '0 7 * * *'
+    - cron: '0 6 * * *'
 
 jobs:
   test-scheduled:
@@ -24,8 +24,7 @@ jobs:
           cache-dependency-glob: uv.lock
 
       - name: Install Python, venv and dependencies
-        run: |
-          uv sync --all-extras --frozen --link-mode=copy
+        run: uv sync --all-extras --frozen --link-mode=copy
 
       - name: Create .env file
         uses: SpicyPizza/create-envfile@ace6d4f5d7802b600276c23ca417e669f1a06f6f # v2.0.3
@@ -33,6 +32,5 @@ jobs:
           envkey_ENV_KEY: "ENV_VALUE"
           fail_on_empty: true
 
-      - name: Run tests marked as scheduled
-        run: |
-          uv run --all-extras nox -s test -p 3.11 -- -m scheduled
+      - name: Run scheduled tests
+        run: make test_scheduled

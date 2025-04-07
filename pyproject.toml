@@ -147,6 +147,7 @@ dev = [
     "swagger-plugin-for-sphinx>=5.1.0",
     "tomli>=2.1.0",
     "types-pyyaml>=6.0.12.20250402",
+    "types-requests>=2.32.0.20250328",
     "watchdog>=6.0.0",
 ]
 
@@ -257,6 +258,7 @@ markers = [
     "no_extras: tests that do require no extras installed",
     "scheduled: tests to run on a schedule",
     "sequential: exclude from parallel test execution",
+    "skip_with_act: don't run with act",
     # Custom
     # Nothing yet
 ]
