@@ -1,5 +1,12 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
+## [0.4.15](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.14..0.4.15) - 2025-04-07
+
+### ⚙️ Miscellaneous Tasks
+
+- *(smoke)* Revert - ([d0aa3cc](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/d0aa3ccd1110eb09730960a5db7e3036675d0d6a))
+
+
 ## [0.4.13](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.12..v0.4.13) - 2025-04-07
 
 ### 📚 Documentation
