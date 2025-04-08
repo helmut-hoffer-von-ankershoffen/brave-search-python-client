@@ -1,6 +1,13 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
-## [0.4.20](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.19..0.4.20) - 2025-04-08
+## [0.4.21](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.20..0.4.21) - 2025-04-08
+
+### ⚙️ Miscellaneous Tasks
+
+- *(test-scheduled)* Env - ([14324d8](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/14324d8b1571418baf69b294466e33b96c2cd036))
+
+
+## [0.4.20](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.19..v0.4.20) - 2025-04-08
 
 ### ⚙️ Miscellaneous Tasks
 
