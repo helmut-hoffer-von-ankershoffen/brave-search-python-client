@@ -43,7 +43,7 @@ src/brave_search_python_client/  # Source code
 ├── service.py           # Service exposed for use as shared library
 ├── cli.py               # CLI enabling to interact with service from terminal
 └── api.py               # API exposing service as web service
-tests/                   # Unit and E2E tests
+tests/brave_search_python_client/ # Tests
 ├── cli_tests.py         # Verifies the CLI functionality
 ├── api_tests.py         # Verifies the API functionality
 └── fixtures/            # Fixtures and mock data
