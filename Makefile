@@ -1,7 +1,7 @@
 # Makefile for running common development tasks
 
 # Define all PHONY targets
-.PHONY: all act audit bump clean dist docs docker_build lint setup setup test test_scheduled update_from_template
+.PHONY: all act audit bump clean dist docs docker_build lint setup setup test test_scheduled test_long_running update_from_template
 
 # Main target i.e. default sessions defined in noxfile.py
 all:
@@ -33,6 +33,10 @@ act audit bump dist docs lint setup test update_from_template:
 ## Run tests marked as scheduled
 test_scheduled:
 	uv run --all-extras nox -s test -p 3.11 -- -m scheduled
+
+## Run tests marked as long_running
+test_long_running:
+	uv run --all-extras nox -s test -p 3.11 -- -m long_running
 
 ## Clean build artifacts and caches
 clean:
@@ -73,6 +77,7 @@ help:
 	@echo "  setup                 - Setup development environment"
 	@echo "  test [3.11|3.12|3.13] - Run tests (for specific Python version)"
 	@echo "  test_scheduled        - Run tests marked as scheduled with Python 3.11"
+	@echo "  test_long_running     - Run tests marked as long running with Python 3.11"
 	@echo "  update_from_template  - Update from template using copier"
 	@echo ""
 	@echo "Built with love in Berlin 🐻"

@@ -255,10 +255,12 @@ asyncio_default_fixture_loop_scope = "function"
 env = ["COVERAGE_FILE=.coverage", "COVERAGE_PROCESS_START=pyproject.toml"]
 markers = [
     # From Template
-    "no_extras: tests that do require no extras installed",
-    "scheduled: tests to run on a schedule",
-    "sequential: exclude from parallel test execution",
-    "skip_with_act: don't run with act",
+    "no_extras: Tests that do require no extras installed.",
+    "scheduled: Tests to run on a schedule. They will still be part on non-scheduled test executions.",
+    "sequential: Exclude from parallel test execution.",
+    "skip_with_act: Don't run with act.",
+    "docker: tests That require Docker.",
+    "long_running: Tests that take a long time to run. Tests marked as long runing excluded from execution by default. Enable by passing any -m your_marker that matches a marker of the test.",
     # Custom
     # Nothing yet
 ]

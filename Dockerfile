@@ -17,21 +17,25 @@ ENV PATH="/app/.venv/bin:$PATH"
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync --frozen --no-install-project --no-dev --no-editable
+    uv sync --frozen --no-install-project --all-extras --no-dev --no-editable
 
 # Then, add the rest of the project source code and install it
 # Installing separately from its dependencies allows optimal layer caching
 COPY pyproject.toml /app
+COPY .python-version /app
 COPY uv.lock /app
 COPY src /app/src
-COPY .env.example /app/.env.example
-COPY tests /app/tests
 COPY LICENSE /app
 COPY *.md /app
-COPY .python-version /app
+
+COPY .env.example /app/.env.example
+COPY tests /app/tests
+
+# Install project specifics
+# Nothing yet
 
 RUN --mount=type=cache,target=/root/.cache/uv \
-    uv sync --frozen --no-dev --no-editable
+    uv sync --frozen --all-extras --no-dev --no-editable
 
 ENV BRAVE_SEARCH_PYTHON_CLIENT_RUNNING_IN_CONTAINER=1
 
@@ -39,4 +43,4 @@ ENV BRAVE_SEARCH_PYTHON_CLIENT_RUNNING_IN_CONTAINER=1
 HEALTHCHECK NONE
 
 # But feel free to add arguments and options as needed when doing a docker run
-ENTRYPOINT ["uv", "run", "--no-dev", "brave-search-python-client"]
+ENTRYPOINT ["uv", "run", "--all-extras", "--no-dev", "brave-search-python-client"]

@@ -467,6 +467,8 @@ def test(session: nox.Session) -> None:
     pytest_args = ["pytest", "--disable-warnings", JUNIT_XML, "-n", "auto", "--dist", "loadgroup"]
     if _is_act_environment():
         pytest_args.extend(["-k", NOT_SKIP_WITH_ACT])
+    if session.posargs:
+        pytest_args.extend(session.posargs)
     session.run(*pytest_args)
 
 
