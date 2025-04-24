@@ -1,7 +1,16 @@
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#     "marimo",
+#     "brave-search-python-client==0.4.21",
+#     "python-dotenv==1.1.0",
+# ]
+# ///
+
 import marimo
 
-__generated_with = "0.11.17"
-app = marimo.App(width="medium")
+__generated_with = "0.13.2"
+app = marimo.App(width="full")
 
 
 @app.cell
@@ -21,7 +30,7 @@ def _():
     if not api_key:
         msg = "BRAVE_SEARCH_PYTHON_CLIENT_API_KEY is not set in .env file"
         raise ValueError(msg)
-    return api_key, load_dotenv, msg, os
+    return
 
 
 @app.cell
@@ -30,7 +39,7 @@ async def _(BraveSearch, WebSearchRequest):
     response = await bs.web(WebSearchRequest(q="jupyter"))
 
     response.model_dump()
-    return bs, response
+    return
 
 
 if __name__ == "__main__":
