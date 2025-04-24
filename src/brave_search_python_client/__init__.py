@@ -35,6 +35,7 @@ from .responses import (
     VideoSearchApiResponse,
     WebSearchApiResponse,
 )
+from .utils.boot import boot
 
 __all__ = [
     "BASE_URL",
@@ -66,4 +67,7 @@ __all__ = [
     "__project_name__",
     "__project_path__",
     "__version__",
+    "boot",
 ]
+
+boot()

@@ -1,7 +1,12 @@
-"""Constants used throughout Brave Search Python Client's codebase ."""
+"""Constants for the Brave Search Python Client's codebase ."""
 
 import importlib.metadata
 import pathlib
+from pathlib import Path
+
+NOTEBOOK_FOLDER = Path(__file__).parent.parent.parent / "examples"
+NOTEBOOK_APP = Path(__file__).parent.parent.parent / "examples" / "notebook.py"
+
 
 __project_name__ = __name__.split(".")[0]
 __project_path__ = str(pathlib.Path(__file__).parent.parent.parent)

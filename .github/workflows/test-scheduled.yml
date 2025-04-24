@@ -29,8 +29,23 @@ jobs:
       - name: Create .env file
         uses: SpicyPizza/create-envfile@ace6d4f5d7802b600276c23ca417e669f1a06f6f # v2.0.3
         with:
-          envkey_BRAVE_SEARCH_API_KEY: "BRAVE_SEARCH_API_KEY"
-          fail_on_empty: true
+          envkey_BRAVE_SEARCH_PYTHON_CLIENT_API_KEY: "BRAVE_SEARCH_API_KEY"
+          envkey_BRAVE_SEARCH_PYTHON_CLIENT_LOGFIRE_TOKEN: "${{ secrets.BRAVE_SEARCH_PYTHON_CLIENT_LOGFIRE_TOKEN }}"
+          envkey_BRAVE_SEARCH_PYTHON_CLIENT_SENTRY_DSN: "${{ secrets.BRAVE_SEARCH_PYTHON_CLIENT_SENTRY_DSN }}"
+          fail_on_empty: false
 
       - name: Run scheduled tests
-        run: make test_scheduled
+        env:
+          BETTERSTACK_HEARTBEAT_TEST_SCHEDULED_URL: "${{ secrets.BETTERSTACK_HEARTBEAT_TEST_SCHEDULED_URL }}"
+        run: |
+          make test_scheduled
+          EXIT_CODE=$?
+          # Provide heartbeat to betterstack for monitoring/alerting if heartbeat url is configured as secret
+          if [ -n "$BETTERSTACK_HEARTBEAT_TEST_SCHEDULED_URL" ]; then
+            if [ $EXIT_CODE -eq 0 ]; then
+              curl -s $BETTERSTACK_HEARTBEAT_TEST_SCHEDULED_URL
+            else
+              curl -s $BETTERSTACK_HEARTBEAT_TEST_SCHEDULED_URL/$EXIT_CODE
+            fi
+          fi
+          exit $EXIT_CODE

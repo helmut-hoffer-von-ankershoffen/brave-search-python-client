@@ -73,12 +73,65 @@ requires-python = ">=3.11, <4.0"
 
 dependencies = [
     # From Template
-    "fastapi[standard,all]>=0.115.12",
-    "pydantic>=2.11.1",
-    "pydantic-settings>=2.8.1",
+    "pydantic-settings>=2.9.1",
     "typer>=0.15.1",
     # Custom
     "tenacity>=9.1.2",
+    # Nothing yet
+]
+
+[project.optional-dependencies]
+examples = [
+    "marimo>=0.13.1",
+    "matplotlib>=3.10.1",
+    "jinja2>=3.1.6",
+    "jupyter>=1.1.1",
+    "streamlit>=1.44.1",
+]
+
+[dependency-groups]
+dev = [
+    "autodoc-pydantic>=2.2.0",
+    "bump-my-version>=1.1.2",
+    "cyclonedx-py>=1.0.1",
+    "detect-secrets>=1.5.0",
+    "enum-tools>=0.13.0",
+    "furo>=2024.8.6",
+    "git-cliff>=2.8.0",
+    "matplotlib>=3.10.1",
+    "mypy>=1.5.0",
+    "nox[uv]>=2025.2.9",
+    "pip-audit>=2.9.0",
+    "pip-licenses @ git+https://github.com/neXenio/pip-licenses.git@master", # https://github.com/raimon49/pip-licenses/pull/224
+    "pre-commit>=4.1.0",
+    "pyright>=1.1.399",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
+    "pytest-cov>=6.1.1",
+    "pytest-docker>=3.2.1",
+    "pytest-env>=1.1.5",
+    "pytest-regressions>=2.7.0",
+    "pytest-selenium>=4.1.0",
+    "pytest-subprocess>=1.5.3",
+    "pytest-timeout>=2.3.1",
+    "pytest-watcher>=0.4.3",
+    "pytest-xdist[psutil]>=3.6.1",
+    "ruff>=0.11.6",
+    "scalene>=1.5.51",
+    "sphinx>=8.2.3",
+    "sphinx-autobuild>=2024.10.3",
+    "sphinx-copybutton>=0.5.2",
+    "sphinx-inline-tabs>=2023.4.21",
+    "sphinx-mdinclude>=0.6.2",
+    "sphinx-rtd-theme>=3.0.2",
+    "sphinx_selective_exclude>=1.0.3",
+    "sphinx-toolbox>=3.9.0",
+    "sphinxext.opengraph>=0.9.1",
+    "swagger-plugin-for-sphinx>=5.1.0",
+    "tomli>=2.1.0",
+    "types-pyyaml>=6.0.12.20250402",
+    "types-requests>=2.32.0.20250328",
+    "watchdog>=6.0.0",
 ]
 
 [project.scripts]
@@ -101,68 +154,17 @@ include = ["src/*"]
 [tool.hatch.build.targets.wheel]
 packages = ["src/brave_search_python_client"]
 
-[project.optional-dependencies]
-examples = [
-    "streamlit>=1.44.1",
-    "marimo>=0.12.2",
-    "jupyter>=1.1.1",
-    "jinja2>=3.1.6",
-]
-
-[dependency-groups]
-dev = [
-    "autodoc-pydantic>=2.2.0",
-    "bump-my-version>=1.1.1",
-    "cyclonedx-py>=1.0.1",
-    "detect-secrets>=1.5.0",
-    "enum-tools>=0.12.0",
-    "furo>=2024.8.6",
-    "git-cliff>=2.8.0",
-    "matplotlib>=3.10.1",
-    "mypy>=1.5.0",
-    "nox[uv]>=2025.2.9",
-    "pip-audit>=2.8.0",
-    "pip-licenses @ git+https://github.com/neXenio/pip-licenses.git@master", # https://github.com/raimon49/pip-licenses/pull/224
-    "pre-commit>=4.1.0",
-    "pyright>=1.1.398",
-    "pytest>=8.3.5",
-    "pytest-asyncio>=0.26.0",
-    "pytest-cov>=6.1.0",
-    "pytest-docker>=3.2.0",
-    "pytest-env>=1.1.5",
-    "pytest-regressions>=2.7.0",
-    "pytest-subprocess>=1.5.3",
-    "pytest-timeout>=2.3.1",
-    "pytest-xdist[psutil]>=3.6.1",
-    "ruff>=0.11.2",
-    "sphinx>=8.2.3",
-    "sphinx-autobuild>=2024.10.3",
-    "sphinx-copybutton>=0.5.2",
-    "sphinx-inline-tabs>=2023.4.21",
-    "sphinx-mdinclude>=0.6.2",
-    "sphinx-rtd-theme>=3.0.2",
-    "sphinx_selective_exclude>=1.0.3",
-    "sphinx-toolbox>=3.9.0",
-    "sphinxext.opengraph>=0.9.1",
-    "swagger-plugin-for-sphinx>=5.1.0",
-    "tomli>=2.1.0",
-    "types-pyyaml>=6.0.12.20250402",
-    "types-requests>=2.32.0.20250328",
-    "watchdog>=6.0.0",
-]
-
 [tool.uv]
 override-dependencies = [ # https://github.com/astral-sh/uv/issues/4422
     "rfc3987; sys_platform == 'never'", # GPLv3
 ]
-
 
 [tool.ruff]
 target-version = "py311"
 preview = true
 fix = true
 line-length = 120
-extend-exclude = [".fixme", "notebook.py"]
+extend-exclude = [".fixme", "notebook.py", "template/*.py", "bottle.py"]
 
 [tool.ruff.lint]
 select = ["ALL"]
@@ -188,7 +190,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = [
+"**/tests/**/*.py" = [
     # we are more relaxed in tests, while sill applying hundreds of rules
     "S101",     # asserts allowed in tests...
     "ARG",      # unused function args -> fixtures nevertheless are functionally relevant...
@@ -228,6 +230,7 @@ docstring-code-format = true
 convention = "google"
 
 [tool.mypy] # https://mypy.readthedocs.io/en/latest/config_file.html
+exclude = ["bottle.py"]
 junit_xml = "reports/mypy_junit.xml"
 plugins = "pydantic.mypy"
 strict = true
@@ -316,6 +319,9 @@ filename = "sonar-project.properties"
 
 [[tool.bumpversion.files]]
 filename = "docs/source/conf.py"
+
+[[tool.bumpversion.files]]
+filename = "examples/notebook.py"
 
 [tool.git-cliff.remote.github]
 owner = "helmut-hoffer-von-ankershoffen"

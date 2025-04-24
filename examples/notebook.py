@@ -17,9 +17,9 @@ def _():
     from dotenv import load_dotenv
 
     load_dotenv()
-    api_key = os.getenv("BRAVE_SEARCH_API_KEY")
+    api_key = os.getenv("BRAVE_SEARCH_PYTHON_CLIENT_API_KEY")
     if not api_key:
-        msg = "BRAVE_SEARCH_API_KEY is not set in .env file"
+        msg = "BRAVE_SEARCH_PYTHON_CLIENT_API_KEY is not set in .env file"
         raise ValueError(msg)
     return api_key, load_dotenv, msg, os
 

@@ -4,13 +4,6 @@ Thank you for considering contributing to Brave Search Python Client!
 
 ## Setup
 
-Install or update tools required for development:
-
-```shell
-# Install Homebrew, uv package manager, copier and further dev tools
-curl -LsSf https://raw.githubusercontent.com/helmut-hoffer-von-ankershoffen/oe-python-template/HEAD/install.sh | sh
-```
-
 [Create a fork](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/fork)
 and clone your fork using `git clone URL_OF_YOUR_CLONE`. Then change into the
 directory of your local Brave Search Python Client repository with
@@ -21,6 +14,12 @@ https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client you
 can directly clone via
 `git clone git@github.com:helmut-hoffer-von-ankershoffen/brave-search-python-client.git`
 and `cd brave-search-python-client`.
+
+Install or update development dependencies using
+
+```shell
+make install
+```
 
 ## Directory Layout
 
@@ -41,11 +40,9 @@ src/brave_search_python_client/  # Source code
 ├── settings.py          # Settings loaded from environment and .env
 ├── models.py            # Models and data structures
 ├── service.py           # Service exposed for use as shared library
-├── cli.py               # CLI enabling to interact with service from terminal
-└── api.py               # API exposing service as web service
+└── cli.py               # CLI enabling to interact with service from terminal
 tests/brave_search_python_client/ # Tests
-├── cli_tests.py         # Verifies the CLI functionality
-├── api_tests.py         # Verifies the API functionality
+├── **/cli_tests.py      # Verifies the core and module specific CLI commands
 └── fixtures/            # Fixtures and mock data
 docs/                    # Documentation
 ├── partials/*.md        # Partials to compile README.md,  _main partial included in HTML and PDF documentation
@@ -73,7 +70,6 @@ reports/                 # Compliance reports for auditing
 └── sbom.json            # Software Bill of Materials in OWASP CycloneDX format
 ```
 
-
 ## Build, Run and Release
 
 ### Setup project specific development environment
@@ -82,10 +78,13 @@ reports/                 # Compliance reports for auditing
 make setup
 ```
 
-Don't forget to configure your `.env` file with the required environment variables.
+Don't forget to configure your `.env` file with the required environment
+variables.
 
 Notes:
-1. .env.example is provided as a template, use ```cp .env.example .env``` and edit ```.env``` to create your environment.
+
+1. .env.example is provided as a template, use `cp .env.example .env` and edit
+   `.env` to create your environment.
 2. .env is excluded from version control, so feel free to add secret values.
 
 ### Build
@@ -96,10 +95,11 @@ make help   # Shows help with additional build targets, e.g. to build PDF docume
 ```
 
 Notes:
+
 1. Primary build steps defined in `noxfile.py`.
-2. Distribution dumped into ```dist/```
-3. Documentation dumped into ```docs/build/html/``` and ```docs/build/latex/```
-4. Audit reports dumped into ```reports/```
+2. Distribution dumped into `dist/`
+3. Documentation dumped into `docs/build/html/` and `docs/build/latex/`
+4. Audit reports dumped into `reports/`
 
 ### Run the CLI
 
@@ -174,9 +174,11 @@ Build and run the Docker image with plain Docker
 
 ```shell
 # Build from Dockerimage
-make docker build
+make docker_build # builds targets all and slim
+
 # Run the CLI
-docker run --env THE_VAR=THE_VALUE brave-search-python-client --help
+docker run --env THE_VAR=THE_VALUE -t brave-search-python-client --target all --help    # target with all extras
+docker run --env THE_VAR=THE_VALUE -t brave-search-python-client --target slim --help   # slim flavor, no extras
 ```
 
 Build and run the Docker image with docker compose:
@@ -186,27 +188,8 @@ echo "Building the Docker image with docker compose and running CLI..."
 docker compose run --build brave-search-python-client --help
 echo "Building the Docker image with docker compose and running API container as a daemon ..."
 docker compose up --build -d
-echo "Waiting for the API server to start..."
-sleep 5
-echo "Checking health of v1 API ..."
-curl http://127.0.0.1:8000/api/v1/healthz
-echo ""
-echo "Saying hello world with v1 API ..."
-curl http://127.0.0.1:8000/api/v1/hello-world
-echo ""
-echo "Swagger docs of v1 API ..."
-curl http://127.0.0.1:8000/api/v1/docs
-echo ""
-echo "Checking health of v2 API ..."
-curl http://127.0.0.1:8000/api/v2/healthz
-echo ""
-echo "Saying hello world with v1 API ..."
-curl http://127.0.0.1:8000/api/v2/hello-world
-echo ""
-echo "Swagger docs of v2 API ..."
-curl http://127.0.0.1:8000/api/v2/docs
-echo ""
-echo "Shutting down the API container ..."
+echo "Waiting for the notebook server to start..."
+echo "Shutting down the notebook container ..."
 docker compose down
 ```
 

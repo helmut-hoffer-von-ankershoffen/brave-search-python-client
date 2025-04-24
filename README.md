@@ -29,6 +29,8 @@
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE3IDE2VjdsLTYgNU0yIDlWOGwxLTFoMWw0IDMgOC04aDFsNCAyIDEgMXYxNGwtMSAxLTQgMmgtMWwtOC04LTQgM0gzbC0xLTF2LTFsMy0zIi8+PC9zdmc+)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client)
 [![Open in GitHub Codespaces](https://img.shields.io/static/v1?label=GitHub%20Codespaces&message=Open&color=blue&logo=github)](https://github.com/codespaces/new/helmut-hoffer-von-ankershoffen/brave-search-python-client)
 
+
+
 <!---
 [![ghcr.io - Version](https://ghcr-badge.egpl.dev/helmut-hoffer-von-ankershoffen/brave-search-python-client/tags?color=%2344cc11&ignore=0.0%2C0%2Clatest&n=3&label=ghcr.io&trim=)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client)
 [![ghcr.io - Sze](https://ghcr-badge.egpl.dev/helmut-hoffer-von-ankershoffen/brave-search-python-client/size?color=%2344cc11&tag=latest&label=size&trim=)](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/pkgs/container/brave-search-python-client)
@@ -380,9 +382,9 @@ docker compose run brave-search-python-client --help
 ## Further Reading
 
 * Inspect our [security policy](https://brave-search-python-client.readthedocs.io/en/latest/security.html) with detailed documentation of checks, tools and principles.
-* Check out the [CLI Reference](https://brave-search-python-client.readthedocs.io/en/latest/cli_reference.html) with detailed documentation of all CLI commands and options.
-* Check out the [Library Reference](https://brave-search-python-client.readthedocs.io/en/latest/lib_reference.html) with detailed documentation of public classes and functions.
-* Check out the [API Reference](https://brave-search-python-client.readthedocs.io/en/latest/api_reference_v1.html) with detailed documentation of all API operations and parameters.
+* Check out the [CLI reference](https://brave-search-python-client.readthedocs.io/en/latest/cli_reference.html) with detailed documentation of all CLI commands and options.
+* Check out the [library reference](https://brave-search-python-client.readthedocs.io/en/latest/lib_reference.html) with detailed documentation of public classes and functions.
+* Check out the [API reference](https://brave-search-python-client.readthedocs.io/en/latest/api_reference_v1.html) with detailed documentation of all API operations and parameters.
 * Our [release notes](https://brave-search-python-client.readthedocs.io/en/latest/release-notes.html) provide a complete log of recent improvements and changes.
 * In case you want to help us improve 🦁 Brave Search Python Client: The [contribution guidelines](https://brave-search-python-client.readthedocs.io/en/latest/contributing.html) explain how to setup your development environment and create pull requests.
 * We gratefully acknowledge the [open source projects](https://brave-search-python-client.readthedocs.io/en/latest/attributions.html) that this project builds upon. Thank you to all these wonderful contributors!

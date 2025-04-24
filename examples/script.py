@@ -21,9 +21,9 @@ from brave_search_python_client import (
 
 # Load .env file and get Brave Search API key from environment
 load_dotenv()
-api_key = os.getenv("BRAVE_SEARCH_API_KEY")
+api_key = os.getenv("BRAVE_SEARCH_PYTHON_CLIENT_API_KEY")
 if not api_key:
-    msg = "BRAVE_SEARCH_API_KEY not found in environment"
+    msg = "BRAVE_SEARCH_PYTHON_CLIENT_API_KEY not found in environment"
     raise ValueError(msg)
 
 

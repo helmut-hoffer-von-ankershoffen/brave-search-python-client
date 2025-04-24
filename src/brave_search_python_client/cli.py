@@ -1,13 +1,10 @@
 """Command line interface of Brave Search Python Client."""
 
 import asyncio
-import sys
-from pathlib import Path
 from typing import Annotated
 
 import typer
 from dotenv import load_dotenv
-from rich.console import Console
 
 from brave_search_python_client import BraveSearch, __version__
 
@@ -25,10 +22,10 @@ from .requests import (
     WebSafeSearchType,
     WebSearchRequest,
 )
+from .utils import console, prepare_cli
 
 load_dotenv()
 
-console = Console()
 
 cli = typer.Typer(name="Command Line Interface of Brave Search Python Client")
 
@@ -377,20 +374,7 @@ def news(  # noqa: PLR0913, PLR0917
     )
 
 
-def _apply_cli_settings(cli: typer.Typer, epilog: str) -> None:
-    """Add epilog to all typers in the tree and configure default behavior."""
-    cli.info.epilog = epilog
-    cli.info.no_args_is_help = True
-    for command in cli.registered_commands:
-        if not any(arg.endswith("typer") for arg in Path(sys.argv[0]).parts):
-            command.epilog = cli.info.epilog
-        command.no_args_is_help = True
-
-
-_apply_cli_settings(
-    cli,
-    f"🦁 Brave Search Python Client v{__version__} - built with love in Berlin 🐻",
-)
+prepare_cli(cli, f"🦁 Brave Search Python Client v{__version__} - built with love in Berlin 🐻")
 
 
 if __name__ == "__main__":

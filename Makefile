@@ -1,7 +1,7 @@
 # Makefile for running common development tasks
 
 # Define all PHONY targets
-.PHONY: all act audit bump clean dist docs docker_build lint setup setup test test_scheduled test_long_running update_from_template
+.PHONY: all act audit bump clean dist docs docker_build install lint pre_commit_run_all profile setup setup test test_scheduled test_long_running update_from_template
 
 # Main target i.e. default sessions defined in noxfile.py
 all:
@@ -30,6 +30,11 @@ act audit bump dist docs lint setup test update_from_template:
 
 # Standalone targets
 
+## Install development dependencies and pre-commit hooks
+install:
+	sh install.sh
+	uv run pre-commit install
+
 ## Run tests marked as scheduled
 test_scheduled:
 	uv run --all-extras nox -s test -p 3.11 -- -m scheduled
@@ -52,7 +57,14 @@ clean:
 
 ## Build Docker image
 docker_build:
-	docker build -t brave-search-python-client .
+	docker build -t brave-search-python-client --target all .
+	docker build -t brave-search-python-client --target slim .
+
+pre_commit_run_all:
+	uv run pre-commit run --all-files
+
+profile:
+	uv run --all-extras python -m scalene runner/scalene.py
 
 # Special rule to catch any arguments (like patch, minor, major, pdf, Python versions, or x.y.z)
 # This prevents "No rule to make target" errors when passing arguments to make commands
@@ -73,7 +85,10 @@ help:
 
 	@echo "  docs [pdf]            - Build documentation (add pdf for PDF format)"
 	@echo "  docker_build          - Build Docker image brave-search-python-client"
+	@echo "  install               - Install or update development dependencies inc. pre-commit hooks"
 	@echo "  lint                  - Run linting and formatting checks"
+	@echo "  pre_commit_run_all    - Run pre-commit hooks on all files"
+	@echo "  profile               - Profile with Scalene"
 	@echo "  setup                 - Setup development environment"
 	@echo "  test [3.11|3.12|3.13] - Run tests (for specific Python version)"
 	@echo "  test_scheduled        - Run tests marked as scheduled with Python 3.11"

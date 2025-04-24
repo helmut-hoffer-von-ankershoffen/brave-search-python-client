@@ -50,7 +50,8 @@ class BraveSearch:
 
         Args:
             api_key: API key for authentication with API (https://brave.com/search/api/).
-                If not given as argument looks for BRAVE_SEARCH_API_KEY in environment.
+                If not given as argument looks for
+                    BRAVE_SEARCH_API_KEYBRAVE_SEARCH_PYTHON_CLIENT_API_KEY in environment.
                 If the key is set to brave_search_python_client.MOCK_API_KEY,
                 the client will return mock data for integration testing purposes.
 
@@ -58,11 +59,11 @@ class BraveSearch:
             BraveSearchClientError: Raised if no API key given or found in environment.
 
         """
-        self._api_key = api_key or os.environ.get("BRAVE_SEARCH_API_KEY", "NA")
+        self._api_key = api_key or os.environ.get("BRAVE_SEARCH_PYTHON_CLIENT_API_KEY", "NA")
         if self._api_key == "NA":
             msg = (
                 "API key must be given as argument when constructing BraveSearch "
-                "python client or as variable BRAVE_SEARCH_API_KEY in environment."
+                "python client or as variable BRAVE_SEARCH_PYTHON_CLIENT_API_KEY in environment."
             )
             raise BraveSearchClientError(msg)
 

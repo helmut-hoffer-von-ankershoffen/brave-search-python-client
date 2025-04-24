@@ -19,6 +19,7 @@ BREW_TOOLS=(
     "trivy;trivy;https://trivy.dev/latest/"
     "pnpm;pnpm;https://pnpm.io/"
     "magick;imagemagick;https://imagemagick.org/"
+    "nixpacks;nixpacks;https://nixpacks.com/"
 )
 
 MAC_BREW_TOOLS=(

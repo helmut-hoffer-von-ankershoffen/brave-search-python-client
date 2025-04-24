@@ -57,21 +57,21 @@ mock_news_search_response = NewsSearchApiResponse.model_validate(
 def test_client_init_with_explicit_api_key(monkeypatch) -> None:
     """Test client initialization with explicitly provided API key."""
     arg_api_key = "ARG_API_KEY"
-    monkeypatch.setenv("BRAVE_SEARCH_API_KEY", "ENV_API_KEY")
+    monkeypatch.setenv("BRAVE_SEARCH_PYTHON_CLIENT_API_KEY", "ENV_API_KEY")
     client = BraveSearch(api_key=arg_api_key)
     assert client._api_key == arg_api_key
 
 
 def test_client_init_with_env_var_api_key(monkeypatch) -> None:
     """Test client initialization using API key from environment variable."""
-    monkeypatch.setenv("BRAVE_SEARCH_API_KEY", "ENV_API_KEY")
+    monkeypatch.setenv("BRAVE_SEARCH_PYTHON_CLIENT_API_KEY", "ENV_API_KEY")
     client = BraveSearch()
     assert client._api_key == "ENV_API_KEY"
 
 
 def test_client_init_error_without_api_key(monkeypatch) -> None:
     """Test client initialization fails when no API key is provided."""
-    monkeypatch.delenv("BRAVE_SEARCH_API_KEY", raising=False)
+    monkeypatch.delenv("BRAVE_SEARCH_PYTHON_CLIENT_API_KEY", raising=False)
     with pytest.raises(BraveSearchClientError):
         BraveSearch()
 
