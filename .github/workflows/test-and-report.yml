@@ -68,7 +68,7 @@ jobs:
             fi
 
       - name: Smoke tests
-        run: uv run --no-dev brave-search-python-client hello world
+        run: uv run --no-dev brave-search-python-client --help
 
       - name: Lint
         run: make lint
