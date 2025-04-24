@@ -8,6 +8,10 @@ from typer.models import CommandInfo, TyperInfo
 
 from brave_search_python_client.utils._cli import prepare_cli
 
+# Constants to avoid duplication
+LOCATE_IMPLEMENTATIONS_PATH = "brave_search_python_client.utils._cli.locate_implementations"
+TEST_EPILOG = "Test Epilog"
+
 
 class MockTyper:
     """Mock Typer class for stattesting."""
@@ -62,7 +66,7 @@ def mock_group(mock_typer: MockTyper) -> MockGroup:
 
 def test_prepare_cli_adds_typers(mock_typer: MockTyper) -> None:
     """Test that prepare_cli correctly adds discovered typers."""
-    with patch("brave_search_python_client.utils._cli.locate_implementations") as mock_locate:
+    with patch(LOCATE_IMPLEMENTATIONS_PATH) as mock_locate:
         # Create a different typer instance to be discovered
         other_typer = MockTyper()
         mock_locate.return_value = [other_typer]
@@ -70,7 +74,7 @@ def test_prepare_cli_adds_typers(mock_typer: MockTyper) -> None:
         # Mock the add_typer method
         mock_typer.add_typer = MagicMock()
 
-        prepare_cli(mock_typer, "Test Epilog")
+        prepare_cli(mock_typer, TEST_EPILOG)
 
         # Verify add_typer was called with the discovered typer
         mock_typer.add_typer.assert_called_once_with(other_typer)
@@ -78,15 +82,15 @@ def test_prepare_cli_adds_typers(mock_typer: MockTyper) -> None:
 
 def test_prepare_cli_sets_epilog(mock_typer: MockTyper) -> None:
     """Test that prepare_cli correctly sets the epilog."""
-    with patch("brave_search_python_client.utils._cli.locate_implementations", return_value=[]):
-        prepare_cli(mock_typer, "Test Epilog")
-        assert mock_typer.info.epilog == "Test Epilog"
+    with patch(LOCATE_IMPLEMENTATIONS_PATH, return_value=[]):
+        prepare_cli(mock_typer, TEST_EPILOG)
+        assert mock_typer.info.epilog == TEST_EPILOG
 
 
 def test_prepare_cli_sets_no_args_is_help(mock_typer: MockTyper) -> None:
     """Test that prepare_cli correctly sets no_args_is_help."""
-    with patch("brave_search_python_client.utils._cli.locate_implementations", return_value=[]):
-        prepare_cli(mock_typer, "Test Epilog")
+    with patch(LOCATE_IMPLEMENTATIONS_PATH, return_value=[]):
+        prepare_cli(mock_typer, TEST_EPILOG)
         assert mock_typer.info.no_args_is_help is True
 
 
@@ -104,12 +108,12 @@ def test_prepare_cli_conditional_epilog_recursion(
 ) -> None:
     """Test that prepare_cli conditionally calls _add_epilog_recursively based on sys.argv."""
     with (
-        patch("brave_search_python_client.utils._cli.locate_implementations", return_value=[]),
+        patch(LOCATE_IMPLEMENTATIONS_PATH, return_value=[]),
         patch("brave_search_python_client.utils._cli.Path") as mock_path,
         patch("brave_search_python_client.utils._cli._add_epilog_recursively") as mock_add_epilog,
     ):
         mock_path.return_value.parts = argv_parts
-        prepare_cli(mock_typer, "Test Epilog")
+        prepare_cli(mock_typer, TEST_EPILOG)
         assert mock_add_epilog.call_count == expected_calls
 
 

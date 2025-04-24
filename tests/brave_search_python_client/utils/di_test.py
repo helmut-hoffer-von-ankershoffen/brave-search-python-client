@@ -11,6 +11,10 @@ from brave_search_python_client.utils._cli import (
     prepare_cli,
 )
 
+# Constants to avoid duplication
+TEST_EPILOG = "Test epilog"
+SCRIPT_FILENAME = "script.py"
+
 
 @patch("brave_search_python_client.utils._cli.locate_implementations")
 def test_prepare_cli_registers_subcommands(mock_locate_implementations: Mock) -> None:
@@ -19,10 +23,9 @@ def test_prepare_cli_registers_subcommands(mock_locate_implementations: Mock) ->
     cli = typer.Typer()
     mock_subcli = typer.Typer()
     mock_locate_implementations.return_value = [cli, mock_subcli]
-    epilog = "Test epilog"
 
     # Execute
-    prepare_cli(cli, epilog)
+    prepare_cli(cli, TEST_EPILOG)
 
     # Verify
     mock_locate_implementations.assert_called_once_with(typer.Typer)
@@ -35,13 +38,12 @@ def test_prepare_cli_sets_epilog_and_no_args_help(mock_locate_implementations: M
     # Setup
     cli = typer.Typer()
     mock_locate_implementations.return_value = [cli]
-    epilog = "Test epilog"
 
     # Execute
-    prepare_cli(cli, epilog)
+    prepare_cli(cli, TEST_EPILOG)
 
     # Verify
-    assert cli.info.epilog == epilog
+    assert cli.info.epilog == TEST_EPILOG
     assert cli.info.no_args_is_help is True
 
 
@@ -56,15 +58,14 @@ def test_prepare_cli_adds_epilog_to_commands_when_not_running_from_typer(
     mock_command = MagicMock()
     cli.registered_commands = [mock_command]
     mock_locate_implementations.return_value = [cli]
-    mock_path.return_value.parts = ["python", "script.py"]
-    epilog = "Test epilog"
+    mock_path.return_value.parts = ["python", SCRIPT_FILENAME]
 
     # Execute
-    with patch.object(sys, "argv", ["script.py"]):
-        prepare_cli(cli, epilog)
+    with patch.object(sys, "argv", [SCRIPT_FILENAME]):
+        prepare_cli(cli, TEST_EPILOG)
 
     # Verify
-    assert mock_command.epilog == epilog
+    assert mock_command.epilog == TEST_EPILOG
 
 
 @patch("brave_search_python_client.utils._cli._add_epilog_recursively")
@@ -77,15 +78,14 @@ def test_prepare_cli_calls_add_epilog_recursively_when_not_running_from_typer(
     # Setup
     cli = typer.Typer()
     mock_locate_implementations.return_value = [cli]
-    mock_path.return_value.parts = ["python", "script.py"]
-    epilog = "Test epilog"
+    mock_path.return_value.parts = ["python", SCRIPT_FILENAME]
 
     # Execute
-    with patch.object(sys, "argv", ["script.py"]):
-        prepare_cli(cli, epilog)
+    with patch.object(sys, "argv", [SCRIPT_FILENAME]):
+        prepare_cli(cli, TEST_EPILOG)
 
     # Verify
-    mock_add_epilog_recursively.assert_called_once_with(cli, epilog)
+    mock_add_epilog_recursively.assert_called_once_with(cli, TEST_EPILOG)
 
 
 @patch("brave_search_python_client.utils._cli._no_args_is_help_recursively")
@@ -97,10 +97,9 @@ def test_prepare_cli_calls_no_args_is_help_recursively(
     # Setup
     cli = typer.Typer()
     mock_locate_implementations.return_value = [cli]
-    epilog = "Test epilog"
 
     # Execute
-    prepare_cli(cli, epilog)
+    prepare_cli(cli, TEST_EPILOG)
 
     # Verify
     mock_no_args_is_help_recursively.assert_called_once_with(cli)
@@ -110,13 +109,12 @@ def test_add_epilog_recursively_sets_epilog_on_cli() -> None:
     """Test that _add_epilog_recursively sets epilog on the cli instance."""
     # Setup
     cli = typer.Typer()
-    epilog = "Test epilog"
 
     # Execute
-    _add_epilog_recursively(cli, epilog)
+    _add_epilog_recursively(cli, TEST_EPILOG)
 
     # Verify
-    assert cli.info.epilog == epilog
+    assert cli.info.epilog == TEST_EPILOG
 
 
 def test_add_epilog_recursively_sets_epilog_on_nested_typers() -> None:
@@ -125,13 +123,12 @@ def test_add_epilog_recursively_sets_epilog_on_nested_typers() -> None:
     cli = typer.Typer()
     subcli = typer.Typer()
     cli.add_typer(subcli)
-    epilog = "Test epilog"
 
     # Execute
-    _add_epilog_recursively(cli, epilog)
+    _add_epilog_recursively(cli, TEST_EPILOG)
 
     # Verify
-    assert subcli.info.epilog == epilog
+    assert subcli.info.epilog == TEST_EPILOG
 
 
 def test_no_args_is_help_recursively_sets_no_args_is_help_on_groups() -> None:
