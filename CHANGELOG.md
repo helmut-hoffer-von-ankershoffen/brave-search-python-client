@@ -1,6 +1,13 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
-## [0.4.22](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.21..0.4.22) - 2025-04-24
+## [0.4.23](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.22..0.4.23) - 2025-04-24
+
+### Security
+
+- *(deps)* Update from template - ([36af767](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/36af76762d55b59f5362588f68ef0935f23070ae))
+
+
+## [0.4.22](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.21..v0.4.22) - 2025-04-24
 
 ### 🚜 Refactor
 
