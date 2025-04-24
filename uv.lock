@@ -263,7 +263,7 @@ wheels = [
 
 [[package]]
 name = "brave-search-python-client"
-version = "0.4.21"
+version = "0.4.22"
 source = { editable = "." }
 dependencies = [
     { name = "pydantic-settings" },

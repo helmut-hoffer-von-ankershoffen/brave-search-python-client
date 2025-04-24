@@ -1,6 +1,28 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
-## [0.4.21](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.20..0.4.21) - 2025-04-08
+## [0.4.22](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.21..0.4.22) - 2025-04-24
+
+### 🚜 Refactor
+
+- *(utils)* Don't need notebook - ([8a063bb](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/8a063bbbea2d7cb6d32645f976f51663129a29c8))
+
+### 🎨 Styling
+
+- Examples - ([288f39f](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/288f39fab325585d84bf31c6257549ea5270bd2a))
+
+### 🧪 Testing
+
+- Adapt - ([740dada](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/740dada26b295f39ff1c3c41d7a97de8db0a0e57))
+
+### ⚙️ Miscellaneous Tasks
+
+- Env adapt - ([c92e067](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/c92e067606028896ad532d366a21a325020bbf31))
+
+## New Contributors ❤️
+
+* @helmut-hoffer-von-ankershoffen made their first contribution
+
+## [0.4.21](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.20..v0.4.21) - 2025-04-08
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -568,3 +590,5 @@
 ## New Contributors ❤️
 
 * @helmut-hoffer-von-ankershoffen made their first contribution
+
+
