@@ -1,4 +1,4 @@
-_commit: v0.15.4
+_commit: v0.15.7
 _src_path: gh:helmut-hoffer-von-ankershoffen/oe-python-template
 attestations_enabled: true
 author_email: helmuthva@googlemail.com
@@ -28,4 +28,3 @@ streamlit_project_key: brave-search-python-client
 uptime_badge_snippet: ''
 vercel_badge_snippet: ''
 vercel_function_enabled: false
-
