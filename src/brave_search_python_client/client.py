@@ -13,7 +13,6 @@ from brave_search_python_client.constants import (
     BASE_URL,
     DEFAULT_RETRY_WAIT_TIME,
     MOCK_API_KEY,
-    __version__,
 )
 
 from .requests import (
@@ -31,6 +30,7 @@ from .responses import (
     VideoSearchApiResponse,
     WebSearchApiResponse,
 )
+from .utils import __version__
 
 ResponseT = TypeVar(
     "ResponseT", bound="WebSearchApiResponse | ImageSearchApiResponse | VideoSearchApiResponse | NewsSearchApiResponse"

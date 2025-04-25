@@ -2,15 +2,16 @@
 # requires-python = ">=3.13"
 # dependencies = [
 #     "marimo",
-#     "brave-search-python-client==0.4.23",
+#     "brave-search-python-client",
 #     "python-dotenv==1.1.0",
 # ]
 # ///
 
+from brave_search_python_client.utils import __version__
 import marimo
 
 __generated_with = "0.13.2"
-app = marimo.App(width="full")
+app = marimo.App(app_title=f"🦁 Brave Search Python Client v{__version__}", width="full")
 
 
 @app.cell

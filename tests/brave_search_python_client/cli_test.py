@@ -12,9 +12,9 @@ from brave_search_python_client import (
     NewsSearchApiResponse,
     VideoSearchApiResponse,
     WebSearchApiResponse,
-    __version__,
 )
 from brave_search_python_client.cli import cli
+from brave_search_python_client.utils import __version__
 
 TEST_QUERY = "hello world"
 BUILT_WITH_LOVE = "built with love in Berlin"

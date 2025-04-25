@@ -7,9 +7,6 @@ from .constants import (
     MAX_QUERY_LENGTH,
     MAX_QUERY_TERMS,
     MOCK_API_KEY,
-    __project_name__,
-    __project_path__,
-    __version__,
 )
 from .requests import (
     CountryCode,
@@ -64,10 +61,6 @@ __all__ = [
     "WebSafeSearchType",
     "WebSearchApiResponse",
     "WebSearchRequest",
-    "__project_name__",
-    "__project_path__",
-    "__version__",
-    "boot",
 ]
 
 boot()

@@ -13,8 +13,8 @@ from brave_search_python_client import (
     BraveSearch,
     WebSearchApiResponse,
     WebSearchRequest,
-    __version__,
 )
+from brave_search_python_client.utils import __version__
 
 sidebar = st.sidebar
 api_key = sidebar.text_input(

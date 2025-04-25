@@ -1,12 +1,13 @@
 """Command line interface of Brave Search Python Client."""
 
 import asyncio
+import sys
 from typing import Annotated
 
 import typer
 from dotenv import load_dotenv
 
-from brave_search_python_client import BraveSearch, __version__
+from brave_search_python_client import BraveSearch
 
 from .requests import (
     CountryCode,
@@ -22,12 +23,14 @@ from .requests import (
     WebSafeSearchType,
     WebSearchRequest,
 )
-from .utils import console, prepare_cli
+from .utils import __version__, boot, console, get_logger, prepare_cli
 
-load_dotenv()
-
+boot()
+logger = get_logger(__name__)
 
 cli = typer.Typer(name="Command Line Interface of Brave Search Python Client")
+
+load_dotenv()
 
 
 @cli.command()
@@ -376,6 +379,10 @@ def news(  # noqa: PLR0913, PLR0917
 
 prepare_cli(cli, f"🦁 Brave Search Python Client v{__version__} - built with love in Berlin 🐻")
 
-
-if __name__ == "__main__":
-    cli()
+if __name__ == "__main__":  # pragma: no cover
+    try:
+        cli()
+    except Exception as e:  # noqa: BLE001
+        logger.critical("Fatal error occurred: %s", e)
+        console.print(f"Fatal error occurred: {e}", style="error")
+        sys.exit(1)
