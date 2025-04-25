@@ -1,4 +1,4 @@
-"""Constants used throughout."""
+"""Constants generated from the environment at runtime used throughout the project."""
 
 import os
 import sys

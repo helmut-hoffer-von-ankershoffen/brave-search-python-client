@@ -1998,7 +1998,7 @@ SOFTWARE.
 
 ```
 
-## brave-search-python-client (0.4.21) - MIT License
+## brave-search-python-client (0.4.23) - MIT License
 
 🦁 Brave Search Python Client supporting Web, Image, News and Video search.
 
@@ -5569,7 +5569,7 @@ in the distribution package.
 
 ```
 
-## h11 (0.14.0) - MIT License
+## h11 (0.16.0) - MIT License
 
 A pure-Python, bring-your-own-I/O implementation of HTTP/1.1
 

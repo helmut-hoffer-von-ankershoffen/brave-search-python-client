@@ -1,1 +1,1 @@
-"""Example scripts demonstrating the usage of the Brave Search Python Client."""
+"""Example scripts demonstrating the usage of Brave Search Python Client."""
