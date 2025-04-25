@@ -1,6 +1,17 @@
 [🧠 Brave Search Python Client](https://brave-search-python-client.readthedocs.io/en/latest/)
 
-## [0.4.23](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.22..0.4.23) - 2025-04-24
+## [0.4.24](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.23..0.4.24) - 2025-04-25
+
+### 🚜 Refactor
+
+- Polish - ([a7f8b6e](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/a7f8b6e2d3ccf161ee21ec369f89073236da62f4))
+
+### ⚙️ Miscellaneous Tasks
+
+- Set notebook dep - ([9c8e536](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/9c8e536f0cd3ce78b78cd62f8852997945d77692))
+
+
+## [0.4.23](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.22..v0.4.23) - 2025-04-24
 
 ### Security
 
@@ -25,9 +36,6 @@
 
 - Env adapt - ([c92e067](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/commit/c92e067606028896ad532d366a21a325020bbf31))
 
-## New Contributors ❤️
-
-* @helmut-hoffer-von-ankershoffen made their first contribution
 
 ## [0.4.21](https://github.com/helmut-hoffer-von-ankershoffen/brave-search-python-client/compare/v0.4.20..v0.4.21) - 2025-04-08
 
