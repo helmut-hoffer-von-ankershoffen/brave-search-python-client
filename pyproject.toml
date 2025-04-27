@@ -110,6 +110,7 @@ dev = [
     "pytest-cov>=6.1.1",
     "pytest-docker>=3.2.1",
     "pytest-env>=1.1.5",
+    "pytest-md-report>=0.6.3",
     "pytest-regressions>=2.7.0",
     "pytest-selenium>=4.1.0",
     "pytest-subprocess>=1.5.3",
@@ -156,8 +157,8 @@ packages = ["src/brave_search_python_client"]
 
 [tool.uv]
 override-dependencies = [ # https://github.com/astral-sh/uv/issues/4422
+    "h11>=0.16.0",                      # vulnerability
     "rfc3987; sys_platform == 'never'", # GPLv3
-    "h11>=0.16.0", # vulnerability
 ]
 
 [tool.ruff]
@@ -268,6 +269,12 @@ markers = [
     # Custom
     # Nothing yet
 ]
+md_report = true
+md_report_output = "reports/pytest.md"
+md_report_verbose = 1
+md_report_flavor = "github"
+md_report_color = "never"
+md_report_exclude_outcomes = ["passed", "skipped"]
 
 [tool.coverage.run]
 sigterm = true

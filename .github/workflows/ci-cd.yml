@@ -1,0 +1,56 @@
+name: "CI/CD"
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "v*.*.*"
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+  release:
+    types: [created]
+
+jobs:
+
+  lint:
+    if: (!contains(github.event.head_commit.message, '[skip ci]'))
+    uses: ./.github/workflows/_lint.yml
+    permissions:
+      contents: read
+      id-token: write
+      packages: read
+    secrets: inherit
+
+  audit:
+    if: (!contains(github.event.head_commit.message, '[skip ci]'))
+    uses: ./.github/workflows/_audit.yml
+    permissions:
+      contents: read
+      id-token: write
+      packages: read
+    secrets: inherit
+    
+  test:
+    if: (!contains(github.event.head_commit.message, '[skip ci]'))
+    uses: ./.github/workflows/_test.yml
+    permissions:
+      attestations: write
+      contents: read
+      id-token: write
+      packages: write
+    secrets: inherit
+
+
+  codeql:
+    if: (!contains(github.event.head_commit.message, '[skip ci]'))
+    uses: ./.github/workflows/_codeql.yml
+    permissions:
+      actions: read
+      contents: read
+      packages: read
+      security-events: write
+    secrets: inherit
+
+

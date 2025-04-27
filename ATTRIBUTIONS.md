@@ -1998,7 +1998,7 @@ SOFTWARE.
 
 ```
 
-## brave-search-python-client (0.4.23) - MIT License
+## brave-search-python-client (0.4.24) - MIT License
 
 🦁 Brave Search Python Client supporting Web, Image, News and Video search.
 

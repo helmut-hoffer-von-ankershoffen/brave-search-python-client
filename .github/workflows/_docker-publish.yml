@@ -1,32 +1,30 @@
-name: "Build and publish Docker image to docker.io and ghcr.io"
+name: "Publish Docker Image"
 
 on:
-  push:
-    tags:
-      - "v*.*.*"
-
-
-env:
-  DOCKER_IO_REGISTRY: docker.io
-  DOCKER_IO_IMAGE_NAME_ALL: helmuthva/brave-search-python-client
-  DOCKER_IO_IMAGE_NAME_SLIM: helmuthva/brave-search-python-client-slim
-
+  workflow_call:
+    # No inputs needed at this time
 
 jobs:
-  docker_image_build_publish:
+  docker_publish:
     runs-on: ubuntu-latest
     permissions:
-      packages: write
-      contents: read
       attestations: write
+      contents: read
       id-token: write
+      packages: write
+
+    env:
+      DOCKER_IO_REGISTRY: docker.io
+      DOCKER_IO_IMAGE_NAME_ALL: helmuthva/brave-search-python-client
+      DOCKER_IO_IMAGE_NAME_SLIM: helmuthva/brave-search-python-client-slim
+
     steps:
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Install dev tools
         shell: bash
-        run: .github/workflows/install_dev_tools.bash
+        run: .github/workflows/_install_dev_tools.bash
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3.6.0
@@ -34,12 +32,15 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3.10.0
 
+
       - name: Log in to Docker Hub
         uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
         with:
 
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+
 
       - name: Log in to GitHub container registry
         uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3.4.0
