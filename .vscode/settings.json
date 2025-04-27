@@ -36,7 +36,13 @@
         "**/dist_vercel/.vercel/**",
     ],
     "python.analysis.ignore": [
-        "**/typing.py"
+        "dist/**",
+        "dist_vercel/**",
+        "template/**",
+        "**/typing.py",
+        "**/bottle.py",
+        "**/bottle.py",
+        "tests/**",
     ],
     "python.testing.autoTestDiscoverOnSaveEnabled": true,
     "python.testing.unittestEnabled": false,
@@ -54,8 +60,8 @@
     },
     "github.copilot.advanced": {},
     "github.copilot.chat.editor.temporalContext.enabled": true,
-    "github.copilot.chat.edits.codesearch.enabled": true,
     "github.copilot.chat.edits.temporalContext.enabled": true,
+    "github.copilot.chat.codesearch.enabled": true,
     "github.copilot.chat.codeGeneration.instructions": [
         {
             "file": "CODE_STYLE.md"
@@ -73,5 +79,6 @@
     "sonarlint.connectedMode.project": {
         "connectionId": "helmut-hoffer-von-ankershoffen",
         "projectKey": "helmut-hoffer-von-ankershoffen_brave-search-python-client"
-    }
+    },
+    "makefile.configureOnOpen": false
 }
