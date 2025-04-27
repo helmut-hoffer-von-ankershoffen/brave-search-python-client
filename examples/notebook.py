@@ -2,7 +2,7 @@
 # requires-python = ">=3.13"
 # dependencies = [
 #     "marimo",
-#     "brave-search-python-client==0.4.26",
+#     "brave-search-python-client==0.4.27",
 #     "python-dotenv==1.1.0",
 # ]
 # ///
