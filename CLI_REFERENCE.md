@@ -12,7 +12,7 @@ $ brave-search-python-client [OPTIONS] COMMAND [ARGS]...
 * `--show-completion`: Show completion for the current shell, to copy it or customize the installation.
 * `--help`: Show this message and exit.
 
-🦁 Brave Search Python Client v0.4.24 - built with love in Berlin 🐻
+🦁 Brave Search Python Client v0.4.25 - built with love in Berlin 🐻
 
 **Commands**:
 
@@ -145,7 +145,7 @@ $ brave-search-python-client Command Line Interface of Brave Search Python Clien
 
 * `--help`: Show this message and exit.
 
-🦁 Brave Search Python Client v0.4.24 - built with love in Berlin 🐻
+🦁 Brave Search Python Client v0.4.25 - built with love in Berlin 🐻
 
 **Commands**:
 
