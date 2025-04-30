@@ -125,7 +125,7 @@ jobs:
 
 
       - name: "(all target): Generate artifact attestation"
-        uses: actions/attest-build-provenance@c074443f1aee8d4aeeae555aebba3282517141b2 # v2.2.3
+        uses: actions/attest-build-provenance@db473fddc028af60658334401dc6fa3ffd8669fd # v2.3.0
         with:
           subject-name: ${{ env.DOCKER_IO_REGISTRY }}/${{ env.DOCKER_IO_IMAGE_NAME_ALL }}
           subject-digest: ${{ steps.build-and-push-all.outputs.digest }}
@@ -135,7 +135,7 @@ jobs:
 
 
       - name: "(slim target): Generate artifact attestation"
-        uses: actions/attest-build-provenance@c074443f1aee8d4aeeae555aebba3282517141b2 # v2.2.3
+        uses: actions/attest-build-provenance@db473fddc028af60658334401dc6fa3ffd8669fd # v2.3.0
         with:
           subject-name: ${{ env.DOCKER_IO_REGISTRY }}/${{ env.DOCKER_IO_IMAGE_NAME_SLIM }}
           subject-digest: ${{ steps.build-and-push-slim.outputs.digest }}
